@@ -1,0 +1,14 @@
+services:
+  arinc429-generator:
+    build: .
+    container_name: arinc429-generator
+    ports:
+      - "5001:5000"
+    volumes:
+      # 将输出目录映射到本地，方便获取生成的文件
+      - ./output:/app/output
+      # 将数据目录映射到本地，保存用户配置（持久化）
+      - ./data:/app/data
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production

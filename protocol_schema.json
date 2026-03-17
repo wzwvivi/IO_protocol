@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ARINC429 Protocol Configuration",
+  "description": "协议配置文件格式定义，用于生成ARINC429解析代码",
+  "type": "object",
+  "required": ["protocol_meta", "labels"],
+  "properties": {
+    "protocol_meta": {
+      "type": "object",
+      "description": "协议元信息",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "协议名称",
+          "example": "CE-25A 前轮转弯系统通信协议"
+        },
+        "version": {
+          "type": "string",
+          "description": "协议版本",
+          "example": "V5.0"
+        },
+        "description": {
+          "type": "string",
+          "description": "协议描述"
+        },
+        "author": {
+          "type": "string",
+          "description": "创建者"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        }
+      }
+    },
+    "labels": {
+      "type": "array",
+      "description": "Label定义列表",
+      "items": {
+        "$ref": "#/definitions/label_definition"
+      }
+    }
+  },
+  "definitions": {
+    "label_definition": {
+      "type": "object",
+      "required": ["label_oct", "name", "direction", "data_type"],
+      "properties": {
+        "label_oct": {
+          "type": "string",
+          "pattern": "^[0-7]{1,3}$",
+          "description": "Label八进制值 (如 '115', '374')"
+        },
+        "name": {
+          "type": "string",
+          "description": "信号名称"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["RDIU -> SCU", "SCU -> RDIU", "双向"],
+          "description": "数据传输方向"
+        },
+        "sources": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "数据来源列表 (如 ['FCM 1', 'FCM 2'])"
+        },
+        "data_type": {
+          "type": "string",
+          "enum": ["BNR_SIGNED", "BNR_UNSIGNED", "DISCRETE"],
+          "description": "数据类型"
+        },
+        "unit": {
+          "type": "string",
+          "description": "物理量单位 (如 '°', 'Knot')"
+        },
+        "range": {
+          "type": "string",
+          "description": "量程范围 (如 '±60°', '0-270 Knot')"
+        },
+        "resolution": {
+          "type": ["number", "null"],
+          "description": "分辨率 (BNR类型必填)"
+        },
+        "data_bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "数据位范围 [起始位, 结束位] (如 [17, 28])"
+        },
+        "sign_bit": {
+          "type": ["integer", "null"],
+          "description": "符号位位号 (BNR_SIGNED类型必填, 通常为29)"
+        },
+        "reserved_bits": {
+          "type": "string",
+          "description": "预留位范围描述 (如 '9-16')"
+        },
+        "discrete_bits": {
+          "type": "object",
+          "description": "离散位定义 (DISCRETE类型使用)",
+          "additionalProperties": {
+            "type": "string",
+            "description": "位描述 (如 '调零指令: 0=调零, 1=无效')"
+          }
+        },
+        "special_fields": {
+          "type": "array",
+          "description": "特殊多位字段定义",
+          "items": {
+            "$ref": "#/definitions/special_field"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "备注信息"
+        }
+      }
+    },
+    "special_field": {
+      "type": "object",
+      "required": ["name", "bits"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "字段名称"
+        },
+        "bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "位范围 [起始位, 结束位]"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["enum", "uint"],
+          "description": "字段类型: enum=枚举值, uint=无符号整数"
+        },
+        "values": {
+          "type": "object",
+          "description": "枚举值映射 (type=enum时使用)",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

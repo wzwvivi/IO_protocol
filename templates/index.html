@@ -1,0 +1,3328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARINC429 协议代码生成平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-orange: #d29922;
+            --accent-red: #f85149;
+            --accent-purple: #a371f7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 0;
+            margin-bottom: 24px;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        header h1::before {
+            content: '⚡';
+            font-size: 1.5rem;
+        }
+        
+        header p {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .main-layout {
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+        
+        /* 侧边栏容器（包含按钮） */
+        .sidebar-wrapper {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        /* 可折叠侧边栏 */
+        .sidebar {
+            width: 180px;
+            min-width: 180px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-right: 8px;
+        }
+        
+        .sidebar.collapsed {
+            width: 0;
+            min-width: 0;
+            border: none;
+            margin-right: 0;
+        }
+        
+        .sidebar.collapsed .sidebar-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .sidebar-content {
+            width: 180px;
+            transition: opacity 0.2s;
+        }
+        
+        /* 切换按钮 - 放在侧边栏外面 */
+        .sidebar-toggle {
+            flex-shrink: 0;
+            width: 24px;
+            height: 64px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-right: 16px;
+            margin-top: 100px;
+        }
+        
+        .sidebar-toggle:hover {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+        
+        .sidebar-toggle .arrow {
+            transition: transform 0.3s;
+        }
+        
+        .sidebar-wrapper.collapsed .sidebar-toggle .arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        @media (max-width: 1400px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            background: var(--bg-tertiary);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-header h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .panel-body {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .form-group label .required {
+            color: var(--accent-red);
+            margin-left: 4px;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--accent-blue);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            background: #4c9aed;
+        }
+        
+        .btn-success {
+            background: var(--accent-green);
+            color: #fff;
+        }
+        
+        .btn-success:hover {
+            background: #2ea043;
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+        
+        .btn-danger {
+            background: var(--accent-red);
+            color: #fff;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        /* Label 列表 */
+        .label-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .label-item {
+            display: flex;
+            align-items: center;
+            padding: 6px 8px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.8rem;
+        }
+        
+        .label-item:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .label-item.active {
+            background: rgba(88, 166, 255, 0.1);
+            border-left: 3px solid var(--accent-blue);
+        }
+        
+        .label-item .label-checkbox {
+            margin-right: 6px;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+        
+        .label-item .label-oct {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--accent-orange);
+            min-width: 32px;
+            font-size: 0.75rem;
+        }
+        
+        .label-item .label-name {
+            flex: 1;
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .label-item .label-type {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+        
+        .label-item .label-type.bnr-signed {
+            background: rgba(163, 113, 247, 0.2);
+            color: var(--accent-purple);
+        }
+        
+        .label-item .label-type.bnr-unsigned {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+        
+        .label-item .label-type.discrete {
+            background: rgba(210, 153, 34, 0.2);
+            color: var(--accent-orange);
+        }
+        
+        .select-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .select-actions button {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+        }
+        
+        .selected-count {
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            margin-left: auto;
+        }
+        
+        /* 不完整的 Label 警告 */
+        .label-item.incomplete {
+            border-left: 3px solid var(--accent-orange);
+        }
+        
+        .warning-icon {
+            color: var(--accent-orange);
+            margin-left: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .defined-badge {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+            font-size: 0.65rem;
+            padding: 1px 4px;
+            border-radius: 8px;
+            margin-left: auto;
+        }
+        
+        /* Label 编辑器 */
+        .label-editor {
+            display: none;
+        }
+        
+        .label-editor.active {
+            display: block;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        /* 位图表格 - 可视化编辑器 */
+        .bit-map-container {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+        }
+        
+        /* 位定义表不需要滚动 */
+        .bit-map-container:first-of-type {
+            max-height: none;
+            overflow-y: visible;
+        }
+        
+        /* 位图容器 - 双列布局 */
+        .bit-map-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .bit-map-column {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            overflow: hidden;
+        }
+        
+        .bit-map-column-header {
+            background: var(--bg-tertiary);
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        /* 竖向位图表格 */
+        .bit-map-vertical {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.8rem;
+        }
+        
+        .bit-map-vertical thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .bit-map-vertical thead th {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 6px 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.75rem;
+        }
+        
+        .bit-map-vertical tbody tr {
+            transition: background 0.15s;
+        }
+        
+        .bit-map-vertical tbody td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 6px 8px;
+        }
+        
+        .bit-map-vertical tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .bit-map-vertical .bit-num-col {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            text-align: center;
+            width: 50px;
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+        }
+        
+        .bit-map-vertical .bit-type-col {
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 500;
+            width: 50px;
+        }
+        
+        .bit-map-vertical .bit-desc-col {
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            white-space: normal;
+            word-break: break-word;
+            line-height: 1.3;
+        }
+        
+        /* 行类型样式 */
+        .bit-row-fixed {
+            background: rgba(139, 148, 158, 0.05);
+        }
+        
+        .bit-row-fixed .bit-num-col {
+            color: var(--text-secondary);
+        }
+        
+        .bit-row-data {
+            background: rgba(63, 185, 80, 0.05);
+        }
+        
+        .bit-row-editable {
+            cursor: pointer;
+        }
+        
+        .bit-row-editable:hover {
+            background: rgba(88, 166, 255, 0.1);
+        }
+        
+        .bit-row-defined {
+            background: rgba(63, 185, 80, 0.08);
+        }
+        
+        .bit-row-defined:hover {
+            background: rgba(63, 185, 80, 0.15);
+        }
+        
+        .bit-row-multi {
+            background: rgba(163, 113, 247, 0.08);
+        }
+        
+        .bit-row-multi:hover {
+            background: rgba(163, 113, 247, 0.15);
+        }
+        
+        .bit-row-reserved {
+            background: var(--bg-secondary);
+            opacity: 0.7;
+        }
+        
+        .bit-row-reserved:hover {
+            opacity: 1;
+        }
+        
+        /* 类型标签样式 */
+        .type-label { color: var(--accent-blue); }
+        .type-sdi { color: var(--text-secondary); }
+        .type-data { color: var(--accent-green); }
+        .type-sign { color: var(--accent-purple); }
+        .type-ssm { color: var(--accent-orange); }
+        .type-parity { color: var(--accent-red); }
+        .type-single { color: var(--accent-green); }
+        .type-multi { color: var(--accent-purple); }
+        .type-bnr { color: var(--accent-blue); }
+        .type-reserved { color: var(--text-secondary); }
+        
+        /* BNR 数值字段行 */
+        .bit-row-bnr {
+            background: rgba(88, 166, 255, 0.08);
+        }
+        
+        .bit-row-bnr:hover {
+            background: rgba(88, 166, 255, 0.15);
+        }
+        
+        .bit-row-sign {
+            background: rgba(163, 113, 247, 0.08);
+        }
+        
+        .bit-row-sign:hover {
+            background: rgba(163, 113, 247, 0.15);
+        }
+        
+        /* 协议固定字段提示 */
+        .protocol-hint {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.08) 0%, rgba(163, 113, 247, 0.08) 100%);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .protocol-hint .hint-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+        
+        .protocol-hint .hint-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .protocol-hint .hint-item {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .protocol-hint .hint-bits {
+            background: var(--bg-tertiary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-orange);
+            white-space: nowrap;
+        }
+        
+        
+        /* 编辑卡片 */
+        .edit-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .edit-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .edit-card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .edit-card-count {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+        
+        .edit-card-hint {
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(88, 166, 255, 0.03);
+        }
+        
+        .edit-card .bit-desc-table {
+            margin: 0;
+            font-size: 0.75rem;
+        }
+        
+        .edit-card .bit-desc-table th,
+        .edit-card .bit-desc-table td {
+            padding: 6px 8px;
+            border-left: none;
+            border-right: none;
+        }
+        
+        .edit-card .bit-desc-table th {
+            font-size: 0.7rem;
+        }
+        
+        .edit-card .bit-desc-table input,
+        .edit-card .bit-desc-table select {
+            font-size: 0.75rem;
+            padding: 3px 6px;
+        }
+        
+        .edit-card .bit-desc-table tr:first-child th {
+            border-top: none;
+        }
+        
+        .bit-num-cell {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: var(--accent-green);
+            text-align: center;
+        }
+        
+        .bit-range-cell {
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+        
+        .add-row {
+            background: rgba(88, 166, 255, 0.05);
+        }
+        
+        .add-row td {
+            border-bottom: none !important;
+        }
+        
+        /* 图标按钮 */
+        .btn-icon {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .btn-delete {
+            background: rgba(248, 81, 73, 0.1);
+            color: var(--accent-red);
+        }
+        
+        .btn-delete:hover {
+            background: rgba(248, 81, 73, 0.25);
+        }
+        
+        .btn-add {
+            background: rgba(63, 185, 80, 0.15);
+            color: var(--accent-green);
+        }
+        
+        .btn-add:hover {
+            background: rgba(63, 185, 80, 0.3);
+        }
+        
+        .bit-map-table input[type="text"] {
+            width: 100%;
+            padding: 4px;
+            font-size: 0.8rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+        }
+        
+        .bit-map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            padding: 8px 0;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+        }
+        
+        .legend-dot {
+            font-size: 0.9rem;
+        }
+        
+        .bit-desc-table {
+            width: 100%;
+            margin-top: 16px;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        
+        .bit-desc-table th,
+        .bit-desc-table td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+        
+        .bit-desc-table th {
+            background: var(--bg-tertiary);
+            font-weight: 500;
+            width: 100px;
+            font-size: 0.75rem;
+        }
+        
+        .bit-desc-table input,
+        .bit-desc-table select {
+            padding: 4px 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+        }
+        
+        .bit-desc-table input[type="text"] {
+            width: 100%;
+        }
+        
+        .bit-desc-table input[type="number"] {
+            width: 45px;
+            text-align: center;
+            padding: 4px 2px;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        
+        .bit-desc-table input[type="number"]::-webkit-outer-spin-button,
+        .bit-desc-table input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .bit-desc-table .resolution-input {
+            width: 70px !important;
+            text-align: right;
+        }
+        
+        .bit-desc-table .unit-input {
+            width: 45px !important;
+            text-align: center;
+        }
+        
+        /* 离散位编辑器 */
+        .discrete-bits-editor {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        
+        .discrete-bit-row {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .discrete-bit-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* 代码预览 */
+        .code-preview {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .code-preview pre {
+            padding: 16px;
+            margin: 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        /* 消息提示 */
+        .message {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        
+        .message.success {
+            background: rgba(63, 185, 80, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            display: block;
+        }
+        
+        .message.error {
+            background: rgba(248, 81, 73, 0.15);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            display: block;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .tab:hover {
+            color: var(--text-primary);
+        }
+        
+        .tab.active {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 特殊字段编辑器 */
+        .special-field-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .special-field-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .enum-values {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .enum-value-row {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+        
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        /* 加载状态 */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        /* 小提示 */
+        .hint {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        /* 位编辑模态框 */
+        .bit-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+        
+        .bit-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .bit-modal {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            transform: scale(0.9);
+            transition: transform 0.2s;
+        }
+        
+        .bit-modal-overlay.active .bit-modal {
+            transform: scale(1);
+        }
+        
+        .bit-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .bit-modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .bit-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .bit-modal-close:hover {
+            color: var(--accent-red);
+        }
+        
+        .bit-modal-body {
+            padding: 20px;
+        }
+        
+        .bit-modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* 类型选择器 */
+        .type-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .type-option {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .type-option:hover {
+            border-color: var(--accent-blue);
+            background: var(--bg-tertiary);
+        }
+        
+        .type-option.selected {
+            border-color: var(--accent-blue);
+            background: rgba(88, 166, 255, 0.1);
+        }
+        
+        .type-option-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .type-option-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        
+        /* 动态表单区域 */
+        .bit-form-section {
+            display: none;
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .bit-form-section.active {
+            display: block;
+        }
+        
+        .bit-form-section .form-group {
+            margin-bottom: 12px;
+        }
+        
+        .bit-form-section .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bit-form-section input,
+        .bit-form-section select {
+            padding: 8px 12px;
+        }
+        
+        .bit-range-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .bit-range-display .bit-num {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        
+        /* 可点击的表格行 */
+        .bit-row-clickable {
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .bit-row-clickable:hover {
+            background: var(--bg-tertiary) !important;
+        }
+        
+        /* 类型徽章 */
+        .type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .type-badge.type-single {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+        
+        .type-badge.type-multi {
+            background: rgba(163, 113, 247, 0.2);
+            color: var(--accent-purple);
+        }
+        
+        .type-badge.type-bnr {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
+        }
+        
+        /* 摘要表格可点击行 */
+        .clickable-row {
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .clickable-row:hover {
+            background: var(--bg-tertiary);
+        }
+    </style>
+</head>
+<body>
+    <!-- 位编辑模态框 -->
+    <div id="bitEditModal" class="bit-modal-overlay" onclick="if(event.target===this)closeBitModal()">
+        <div class="bit-modal">
+            <div class="bit-modal-header">
+                <span class="bit-modal-title" id="bitModalTitle">编辑 Bit 11</span>
+                <button class="bit-modal-close" onclick="closeBitModal()">&times;</button>
+            </div>
+            <div class="bit-modal-body">
+                <!-- 当前位范围显示 -->
+                <div class="bit-range-display">
+                    <span>编辑范围:</span>
+                    <span class="bit-num" id="modalBitRange">Bit 11</span>
+                    <span style="margin-left: auto; color: var(--text-secondary);" id="modalCurrentStatus">当前: 预留</span>
+                </div>
+                
+                <!-- 类型选择 -->
+                <div class="type-selector">
+                    <div class="type-option" data-type="reserved" onclick="selectBitType('reserved')">
+                        <div class="type-option-name">预留</div>
+                        <div class="type-option-desc">未使用</div>
+                    </div>
+                    <div class="type-option" data-type="single" onclick="selectBitType('single')">
+                        <div class="type-option-name">单bit</div>
+                        <div class="type-option-desc">0/1状态</div>
+                    </div>
+                    <div class="type-option" data-type="multi" onclick="selectBitType('multi')">
+                        <div class="type-option-name">多bit枚举</div>
+                        <div class="type-option-desc">多值选择</div>
+                    </div>
+                    <div class="type-option" data-type="bnr" onclick="selectBitType('bnr')">
+                        <div class="type-option-name">数值(BNR)</div>
+                        <div class="type-option-desc">带分辨率</div>
+                    </div>
+                </div>
+                
+                <!-- 单bit表单 -->
+                <div id="singleBitForm" class="bit-form-section">
+                    <div class="form-group">
+                        <label>字段名称 <span class="required">*</span></label>
+                        <input type="text" id="modalSingleName" placeholder="如: 脚蹬状态">
+                    </div>
+                    <div class="form-group">
+                        <label>含义说明</label>
+                        <input type="text" id="modalSingleDesc" placeholder="如: 1=解除, 0=正常">
+                    </div>
+                </div>
+                
+                <!-- 多bit枚举表单 -->
+                <div id="multiBitForm" class="bit-form-section">
+                    <div class="form-group">
+                        <label>字段名称 <span class="required">*</span></label>
+                        <input type="text" id="modalMultiName" placeholder="如: 牵引状态">
+                    </div>
+                    <div class="form-group">
+                        <label>位范围</label>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span>Bit</span>
+                            <input type="number" id="modalMultiBitStart" style="width: 60px;" min="9" max="29">
+                            <span>-</span>
+                            <input type="number" id="modalMultiBitEnd" style="width: 60px;" min="9" max="29">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>枚举值定义 <span style="font-weight:normal; color:var(--text-secondary);">(二进制=含义, 逗号分隔)</span></label>
+                        <input type="text" id="modalMultiValues" placeholder="00=无效, 01=有效, 10=故障, 11=正常">
+                    </div>
+                </div>
+                
+                <!-- BNR数值表单 -->
+                <div id="bnrBitForm" class="bit-form-section">
+                    <div class="form-group">
+                        <label>字段名称 <span class="required">*</span></label>
+                        <input type="text" id="modalBnrName" placeholder="如: 转弯角度">
+                    </div>
+                    <div class="form-group">
+                        <label>数据位范围</label>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span>Bit</span>
+                            <input type="number" id="modalBnrBitStart" style="width: 60px;" min="9" max="29">
+                            <span>-</span>
+                            <input type="number" id="modalBnrBitEnd" style="width: 60px;" min="9" max="29">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>符号位 <span style="font-weight:normal; color:var(--text-secondary);">(可选, 有符号数填写)</span></label>
+                        <input type="number" id="modalBnrSignBit" min="9" max="29" placeholder="如: 29">
+                    </div>
+                    <div class="form-group">
+                        <label>分辨率 <span class="required">*</span></label>
+                        <input type="number" id="modalBnrResolution" step="any" placeholder="如: 0.014653">
+                    </div>
+                    <div class="form-group">
+                        <label>单位</label>
+                        <input type="text" id="modalBnrUnit" placeholder="如: °">
+                    </div>
+                </div>
+            </div>
+            <div class="bit-modal-footer">
+                <button class="btn btn-secondary" onclick="closeBitModal()">取消</button>
+                <button class="btn btn-danger" id="modalDeleteBtn" onclick="deleteCurrentBitField()" style="display: none;">删除</button>
+                <button class="btn btn-primary" onclick="saveBitModal()">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>ARINC429 协议代码生成平台</h1>
+            <p>填写协议变量部分，自动生成 Python 解析脚本，支持导出 Excel</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div id="message" class="message"></div>
+        
+        <div class="main-layout">
+            <!-- 可折叠侧边栏：Label 列表 -->
+            <div class="sidebar-wrapper" id="sidebarWrapper">
+                <div class="sidebar" id="labelSidebar">
+                    <div class="sidebar-content">
+                        <div class="panel-header" style="border-radius: 8px 8px 0 0; padding: 8px 10px;">
+                            <h2 style="font-size: 0.85rem;">Labels (<span id="labelCount">0</span>)</h2>
+                            <button class="btn btn-primary" style="padding: 4px 8px; font-size: 0.75rem;" onclick="addLabel()">+</button>
+                        </div>
+                        <div style="padding: 4px; border-bottom: 1px solid var(--border-color);">
+                            <div class="select-actions" style="padding: 0; gap: 4px; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" style="padding: 2px 6px; font-size: 0.7rem;" onclick="selectAll()">全选</button>
+                                <button class="btn btn-secondary" style="padding: 2px 6px; font-size: 0.7rem;" onclick="selectNone()">取消</button>
+                                <button class="btn btn-secondary" style="padding: 2px 6px; font-size: 0.7rem;" onclick="loadExample()">示例</button>
+                                <span class="selected-count" style="font-size: 0.7rem;"><span id="selectedCount">0</span>选</span>
+                            </div>
+                        </div>
+                        <div id="labelList" class="label-list" style="max-height: calc(100vh - 280px); overflow-y: auto;">
+                            <div class="empty-state" style="padding: 30px 20px;">
+                                <h3>暂无 Label</h3>
+                                <p>点击"+ 添加"或"示例"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-toggle" onclick="toggleSidebar()" title="展开/收起 Label 列表">
+                    <span class="arrow">◀</span>
+                </div>
+            </div>
+            
+            <!-- 主内容区 -->
+            <div class="main-content">
+                <!-- 协议基本信息 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>协议基本信息</h2>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-secondary" onclick="saveConfig()" title="保存配置到服务器">💾 保存</button>
+                            <span id="autoSaveStatus" style="font-size: 0.8rem; color: var(--text-secondary); line-height: 32px;"></span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label>协议名称 <span class="required">*</span></label>
+                                <input type="text" id="protocolName" placeholder="如: CE-25A 前轮转弯系统通信协议" onchange="triggerAutoSave()">
+                            </div>
+                            <div class="form-group">
+                                <label>版本号 <span class="required">*</span></label>
+                                <input type="text" id="protocolVersion" placeholder="如: V5.0" onchange="triggerAutoSave()">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>协议描述</label>
+                            <textarea id="protocolDescription" rows="2" placeholder="可选：协议的详细描述" onchange="triggerAutoSave()"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-grid">
+                <!-- Label 编辑器 -->
+                <div>
+                <div class="panel" style="margin-bottom: 24px;">
+                    <div class="panel-header">
+                        <h2>Label 编辑器</h2>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-secondary" id="copyLabelBtn" onclick="copyCurrentLabel()" style="display: none;" title="复制当前 Label">复制</button>
+                            <button class="btn btn-danger" id="deleteLabelBtn" onclick="deleteCurrentLabel()" style="display: none;">删除</button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="noLabelSelected" class="empty-state">
+                            <h3>请选择一个 Label</h3>
+                            <p>从左侧列表选择或添加新的 Label</p>
+                        </div>
+                        
+                        <div id="labelEditor" class="label-editor">
+                            <!-- 基本信息 -->
+                            <table class="bit-desc-table" style="margin-bottom: 20px;">
+                                <tr>
+                                    <th>Label (八进制) <span class="required">*</span></th>
+                                    <td><input type="text" id="labelOct" placeholder="000-377" style="width: 100px;"></td>
+                                    <th>信号名称 <span class="required">*</span></th>
+                                    <td><input type="text" id="labelName" placeholder="如: 脚蹬转弯指令"></td>
+                                </tr>
+                                <tr>
+                                    <th>方向</th>
+                                    <td colspan="3">
+                                        <select id="labelDirection">
+                                            <option value="RDIU -> SCU">RDIU -> SCU</option>
+                                            <option value="SCU -> RDIU">SCU -> RDIU</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- 隐藏的数据类型字段，统一设为 DISCRETE -->
+                            <input type="hidden" id="labelDataType" value="DISCRETE">
+                            
+                            <!-- 协议固定字段提示 -->
+                            <div class="protocol-hint">
+                                <div class="hint-title">ARINC429 32位字结构</div>
+                                <div class="hint-grid">
+                                    <div class="hint-item"><span class="hint-bits">Bit 1-8</span> Label 标识符（由八进制值自动确定）</div>
+                                    <div class="hint-item"><span class="hint-bits">Bit 9-10</span> 可定义为 SDI 或预留</div>
+                                    <div class="hint-item"><span class="hint-bits">Bit 11-29</span> 数据位（可自由定义）</div>
+                                    <div class="hint-item"><span class="hint-bits">Bit 30-31</span> SSM 状态位（固定）</div>
+                                    <div class="hint-item"><span class="hint-bits">Bit 32</span> 奇校验位（自动计算）</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 32位结构可视化 -->
+                            <div class="form-group">
+                                <label>位定义表 <span style="font-size: 0.8rem; color: var(--text-secondary);">(点击位号可编辑)</span></label>
+                                <div class="bit-map-container">
+                                    <div id="bitMapView"></div>
+                                    <div class="bit-map-legend" id="bitMapLegend"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- 位定义编辑区 -->
+                            <div id="discreteBitTable" class="bit-map-container"></div>
+                            
+                            <!-- 隐藏字段 -->
+                            <input type="hidden" id="labelSources" value="">
+                            <input type="hidden" id="reservedBits" value="">
+                            <input type="hidden" id="range" value="">
+                            <input type="hidden" id="notes" value="">
+                            
+                            <div style="margin-top: 20px;">
+                                <button class="btn btn-primary" onclick="saveCurrentLabel()">保存 Label</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 操作按钮和预览 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>生成代码</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="btn-group" style="margin-bottom: 20px;">
+                            <button class="btn btn-primary" onclick="previewPythonCode()">预览 Python</button>
+                            <button class="btn btn-primary" onclick="previewCCode()" style="background: var(--accent-purple);">预览 C</button>
+                            <button class="btn btn-success" onclick="downloadPython()">下载 Python 完整包</button>
+                            <button class="btn btn-success" onclick="downloadC()" style="background: var(--accent-purple);">下载 C 代码</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>代码预览 <span id="previewLang" style="color: var(--accent-blue); font-weight: normal;"></span></label>
+                            <div class="code-preview">
+                                <pre id="codePreview">// 点击"预览 Python"或"预览 C"查看生成的代码</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 全局状态
+        let labels = [];
+        let currentLabelIndex = -1;
+        let generatedFilename = null;
+        let configFilename = null;
+        let selectedLabels = new Set(); // 存储选中的 label 索引
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 恢复侧边栏状态
+            const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+            if (sidebarCollapsed) {
+                document.getElementById('sidebarWrapper').classList.add('collapsed');
+                document.getElementById('labelSidebar').classList.add('collapsed');
+            }
+            
+            // 尝试加载上次保存的配置
+            try {
+                const response = await fetch('/api/load_config');
+                const data = await response.json();
+                if (data.success && data.config) {
+                    loadConfigData(data.config);
+                    showMessage('已自动加载上次保存的配置', 'success');
+                } else {
+                    updateLabelList();
+                }
+            } catch (e) {
+                updateLabelList();
+            }
+        });
+        
+        // 加载配置数据到页面
+        function loadConfigData(config) {
+            // 填充协议基本信息
+            document.getElementById('protocolName').value = config.protocol_meta?.name || '';
+            document.getElementById('protocolVersion').value = config.protocol_meta?.version || '';
+            document.getElementById('protocolDescription').value = config.protocol_meta?.description || '';
+            
+            // 加载 Labels
+            labels = config.labels || [];
+            currentLabelIndex = -1;
+            selectedLabels = new Set();
+            updateLabelList();
+            hideEditor();
+        }
+        
+        // 保存当前配置到服务器
+        async function saveConfig() {
+            const config = buildFullConfig();
+            
+            try {
+                const response = await fetch('/api/save_config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    showMessage(`配置已保存 (${result.saved_at})`, 'success');
+                } else {
+                    showMessage('保存失败: ' + result.error, 'error');
+                }
+            } catch (e) {
+                showMessage('保存失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 构建完整配置（包含所有Label，不只是选中的）
+        function buildFullConfig() {
+            return {
+                protocol_meta: {
+                    name: document.getElementById('protocolName').value.trim(),
+                    version: document.getElementById('protocolVersion').value.trim(),
+                    description: document.getElementById('protocolDescription').value.trim()
+                },
+                labels: labels
+            };
+        }
+        
+        // 自动保存（每次修改后调用）
+        let autoSaveTimer = null;
+        function triggerAutoSave() {
+            const statusEl = document.getElementById('autoSaveStatus');
+            if (statusEl) statusEl.textContent = '正在保存...';
+            
+            if (autoSaveTimer) {
+                clearTimeout(autoSaveTimer);
+            }
+            autoSaveTimer = setTimeout(async () => {
+                await saveConfig();
+                if (statusEl) {
+                    const now = new Date();
+                    statusEl.textContent = `已保存 ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+                }
+            }, 2000); // 2秒后自动保存
+        }
+        
+        // 切换侧边栏
+        function toggleSidebar() {
+            const wrapper = document.getElementById('sidebarWrapper');
+            const sidebar = document.getElementById('labelSidebar');
+            wrapper.classList.toggle('collapsed');
+            sidebar.classList.toggle('collapsed');
+            // 保存状态
+            localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+        }
+        
+        // 显示消息
+        function showMessage(text, type) {
+            const msg = document.getElementById('message');
+            msg.textContent = text;
+            msg.className = 'message ' + type;
+            setTimeout(() => { msg.className = 'message'; }, 5000);
+        }
+        
+        // 加载示例配置
+        async function loadExample() {
+            try {
+                const response = await fetch('/api/load_example');
+                const config = await response.json();
+                
+                if (config.error) {
+                    showMessage(config.error, 'error');
+                    return;
+                }
+                
+                // 填充协议基本信息
+                document.getElementById('protocolName').value = config.protocol_meta.name || '';
+                document.getElementById('protocolVersion').value = config.protocol_meta.version || '';
+                document.getElementById('protocolDescription').value = config.protocol_meta.description || '';
+                
+                // 加载 Labels
+                labels = config.labels || [];
+                currentLabelIndex = -1;
+                selectedLabels = new Set(); // 清空选择
+                updateLabelList();
+                hideEditor();
+                
+                showMessage('示例配置加载成功！共 ' + labels.length + ' 个 Label，请勾选要生成的 Label', 'success');
+                
+                // 保存到服务器
+                triggerAutoSave();
+            } catch (e) {
+                showMessage('加载示例失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 更新 Label 列表
+        function updateLabelList() {
+            const container = document.getElementById('labelList');
+            document.getElementById('labelCount').textContent = labels.length;
+            document.getElementById('selectedCount').textContent = selectedLabels.size;
+            
+            if (labels.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>暂无 Label</h3>
+                        <p>点击上方按钮添加第一个 Label，或加载示例配置</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = labels.map((label, index) => {
+                const isChecked = selectedLabels.has(index) ? 'checked' : '';
+                const isIncomplete = !label.label_oct || !label.name;
+                const incompleteClass = isIncomplete ? 'incomplete' : '';
+                const warningIcon = isIncomplete ? '<span class="warning-icon" title="Label 信息不完整">⚠</span>' : '';
+                
+                // 统计已定义的字段数
+                const singleCount = Object.keys(label.discrete_bits || {}).length;
+                const enumCount = (label.special_fields || []).length;
+                const bnrCount = (label.bnr_fields || []).length;
+                const totalCount = singleCount + enumCount + bnrCount;
+                const definedBadge = totalCount > 0 ? `<span class="defined-badge">${totalCount}字段</span>` : '';
+                
+                return `
+                    <div class="label-item ${index === currentLabelIndex ? 'active' : ''} ${incompleteClass}">
+                        <input type="checkbox" class="label-checkbox" ${isChecked} onclick="toggleLabelSelection(${index}, event)">
+                        <span class="label-oct" onclick="selectLabel(${index})">${label.label_oct || '???'}</span>
+                        <span class="label-name" onclick="selectLabel(${index})">${label.name || '未命名'}${warningIcon}</span>
+                        ${definedBadge}
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // 切换单个 Label 的选中状态
+        function toggleLabelSelection(index, event) {
+            event.stopPropagation();
+            if (selectedLabels.has(index)) {
+                selectedLabels.delete(index);
+            } else {
+                selectedLabels.add(index);
+            }
+            document.getElementById('selectedCount').textContent = selectedLabels.size;
+        }
+        
+        // 全选
+        function selectAll() {
+            selectedLabels = new Set(labels.map((_, i) => i));
+            updateLabelList();
+        }
+        
+        // 取消全选
+        function selectNone() {
+            selectedLabels = new Set();
+            updateLabelList();
+        }
+        
+        // 添加新 Label
+        function addLabel() {
+            const newLabel = {
+                label_oct: '',
+                name: '',
+                direction: 'RDIU -> SCU',
+                sources: [],
+                data_type: 'DISCRETE',
+                reserved_bits: '',
+                discrete_bits: {},      // 单bit枚举
+                special_fields: [],     // 多bit枚举
+                bnr_fields: [],         // 数值字段
+                notes: ''
+            };
+            
+            labels.push(newLabel);
+            currentLabelIndex = labels.length - 1;
+            
+            // 自动勾选新添加的 Label
+            selectedLabels.add(currentLabelIndex);
+            
+            updateLabelList();
+            showEditor();
+            loadLabelToEditor(newLabel);
+            
+            // 聚焦到 Label 八进制输入框
+            setTimeout(() => {
+                const labelOctInput = document.getElementById('labelOct');
+                if (labelOctInput) {
+                    labelOctInput.focus();
+                    labelOctInput.select();
+                }
+            }, 100);
+            
+            showMessage('已添加新 Label，请填写八进制值和名称', 'info');
+        }
+        
+        // 选择 Label
+        function selectLabel(index) {
+            currentLabelIndex = index;
+            updateLabelList();
+            showEditor();
+            loadLabelToEditor(labels[index]);
+        }
+        
+        // 显示编辑器
+        function showEditor() {
+            document.getElementById('noLabelSelected').style.display = 'none';
+            document.getElementById('labelEditor').classList.add('active');
+            document.getElementById('deleteLabelBtn').style.display = 'inline-flex';
+            document.getElementById('copyLabelBtn').style.display = 'inline-flex';
+            renderBitMap();
+        }
+        
+        // 复制当前 Label
+        function copyCurrentLabel() {
+            if (currentLabelIndex < 0) return;
+            
+            const sourceLabel = labels[currentLabelIndex];
+            const newLabel = JSON.parse(JSON.stringify(sourceLabel)); // 深拷贝
+            
+            // 修改 Label 值，避免重复
+            newLabel.label_oct = '';
+            newLabel.name = sourceLabel.name + ' (副本)';
+            
+            labels.push(newLabel);
+            const newIndex = labels.length - 1;
+            currentLabelIndex = newIndex;
+            
+            // 自动勾选新复制的 Label
+            selectedLabels.add(newIndex);
+            
+            updateLabelList();
+            showEditor();
+            loadLabelToEditor(newLabel);
+            
+            // 聚焦到 Label 八进制输入框
+            setTimeout(() => {
+                const labelOctInput = document.getElementById('labelOct');
+                if (labelOctInput) {
+                    labelOctInput.focus();
+                    labelOctInput.select();
+                }
+            }, 100);
+            
+            showMessage('已复制 Label，请修改八进制值', 'info');
+        }
+        
+        // 渲染32位结构图（竖向表格，类似 Word 文档）
+        function renderBitMap() {
+            const container = document.getElementById('bitMapView');
+            const bitModel = buildBitModel();
+            
+            // 获取 Label 八进制值
+            const labelOct = document.getElementById('labelOct').value.trim();
+            
+            // 双列布局：左边 1-16，右边 17-32
+            let html = '<div class="bit-map-wrapper">';
+            
+            // 左列：Bit 1-16
+            html += '<div class="bit-map-column">';
+            html += '<div class="bit-map-column-header">Bit 1 - 16</div>';
+            html += '<table class="bit-map-vertical">';
+            html += '<thead><tr><th>位</th><th>类型</th><th>说明</th></tr></thead>';
+            html += '<tbody>';
+            for (let i = 1; i <= 16; i++) {
+                const rowInfo = getBitRowInfo(i, bitModel, labelOct);
+                html += `<tr class="${rowInfo.rowClass}" ${rowInfo.onclick ? `onclick="${rowInfo.onclick}"` : ''} title="${rowInfo.tooltip}">
+                    <td class="bit-num-col">${i}</td>
+                    <td class="bit-type-col ${rowInfo.typeClass}">${rowInfo.typeName}</td>
+                    <td class="bit-desc-col">${rowInfo.description}</td>
+                </tr>`;
+            }
+            html += '</tbody></table></div>';
+            
+            // 右列：Bit 17-32
+            html += '<div class="bit-map-column">';
+            html += '<div class="bit-map-column-header">Bit 17 - 32</div>';
+            html += '<table class="bit-map-vertical">';
+            html += '<thead><tr><th>位</th><th>类型</th><th>说明</th></tr></thead>';
+            html += '<tbody>';
+            for (let i = 17; i <= 32; i++) {
+                const rowInfo = getBitRowInfo(i, bitModel, labelOct);
+                html += `<tr class="${rowInfo.rowClass}" ${rowInfo.onclick ? `onclick="${rowInfo.onclick}"` : ''} title="${rowInfo.tooltip}">
+                    <td class="bit-num-col">${i}</td>
+                    <td class="bit-type-col ${rowInfo.typeClass}">${rowInfo.typeName}</td>
+                    <td class="bit-desc-col">${rowInfo.description}</td>
+                </tr>`;
+            }
+            html += '</tbody></table></div>';
+            
+            html += '</div>';
+            container.innerHTML = html;
+            
+            // 更新图例
+            updateBitMapLegend();
+            
+            // 渲染位编辑表
+            renderDiscreteBitTable();
+        }
+        
+        // 获取每一行的信息
+        function getBitRowInfo(bitNum, bitModel, labelOct) {
+            let info = {
+                rowClass: 'bit-row-normal',
+                typeClass: '',
+                typeName: '',
+                description: '',
+                tooltip: '',
+                onclick: ''
+            };
+            
+            // 固定字段
+            if (bitNum === 32) {
+                info.typeName = '校验位';
+                info.typeClass = 'type-parity';
+                info.description = 'P - 奇校验位（自动计算）';
+                info.rowClass = 'bit-row-fixed';
+                info.tooltip = '奇校验位，由系统自动计算';
+            } else if (bitNum >= 30) {
+                info.typeName = 'SSM';
+                info.typeClass = 'type-ssm';
+                info.description = '状态矩阵位（协议定义）';
+                info.rowClass = 'bit-row-fixed';
+                info.tooltip = 'SSM 状态位：00=故障, 01=无数据, 10=测试, 11=正常';
+            } else if (bitNum <= 8) {
+                // Label 位：显示具体的二进制值
+                info.typeName = 'Label';
+                info.typeClass = 'type-label';
+                
+                if (labelOct) {
+                    try {
+                        const labelDec = parseInt(labelOct, 8);
+                        if (!isNaN(labelDec) && labelDec >= 0 && labelDec <= 255) {
+                            const labelBin = labelDec.toString(2).padStart(8, '0');
+                            const bitIndex = 8 - bitNum;
+                            const bitValue = labelBin[bitIndex] || '0';
+                            info.description = `值 = ${bitValue}`;
+                            info.tooltip = `Label 位 ${bitNum}，值为 ${bitValue}（Label=${labelOct}₈ = ${labelDec}₁₀ = ${labelBin}₂）`;
+                        } else {
+                            info.description = `值 = ?`;
+                            info.tooltip = 'Label 值超出范围（有效范围：000-377 八进制）';
+                        }
+                    } catch (e) {
+                        info.description = `值 = ?`;
+                        info.tooltip = 'Label 值解析错误';
+                    }
+                } else {
+                    info.description = `值 = ?`;
+                    info.tooltip = '请输入 Label 八进制值';
+                }
+                
+                info.rowClass = 'bit-row-fixed';
+            } else {
+                // 可编辑区域 (bit 9-29) - 所有行都可点击
+                const bitInfo = bitModel[bitNum];
+                info.onclick = `editDiscreteBit(${bitNum})`;
+                info.rowClass = 'bit-row-editable bit-row-clickable';
+                
+                if (bitInfo && bitInfo.type === 'single') {
+                    info.typeName = '单bit';
+                    info.typeClass = 'type-single';
+                    info.description = bitInfo.fullName || bitInfo.name;
+                    info.rowClass += ' bit-row-defined';
+                    info.tooltip = `点击编辑: ${bitInfo.fullName}`;
+                } else if (bitInfo && bitInfo.type === 'multi') {
+                    info.typeName = '枚举';
+                    info.typeClass = 'type-multi';
+                    // 显示枚举值定义，格式类似单bit: "字段名: 00=值1, 01=值2"
+                    if (bitInfo.values) {
+                        info.description = `${bitInfo.fullName}: ${bitInfo.values}`;
+                    } else {
+                        info.description = `${bitInfo.fullName} (Bit ${bitInfo.range})`;
+                    }
+                    info.rowClass += ' bit-row-multi';
+                    info.tooltip = `点击编辑枚举: ${bitInfo.fullName}`;
+                } else if (bitInfo && bitInfo.type === 'bnr') {
+                    info.typeName = '数值';
+                    info.typeClass = 'type-bnr';
+                    // 如果有 values 字符串（来自 uint 类型的 special_fields），显示它
+                    if (bitInfo.values) {
+                        info.description = `${bitInfo.fullName} ${bitInfo.values}`;
+                    } else {
+                        info.description = `${bitInfo.fullName} (Bit ${bitInfo.range}, 分辨率: ${bitInfo.resolution}${bitInfo.unit || ''})`;
+                    }
+                    info.rowClass += ' bit-row-bnr';
+                    info.tooltip = `点击编辑数值字段: ${bitInfo.fullName}`;
+                } else if (bitInfo && bitInfo.type === 'sign') {
+                    info.typeName = '符号位';
+                    info.typeClass = 'type-sign';
+                    info.description = bitInfo.fullName;
+                    info.rowClass += ' bit-row-sign';
+                    info.tooltip = `点击编辑符号位: ${bitInfo.fullName}`;
+                } else {
+                    info.typeName = '预留';
+                    info.typeClass = 'type-reserved';
+                    info.description = '点击添加定义';
+                    info.rowClass += ' bit-row-reserved';
+                    info.tooltip = '点击添加字段定义';
+                }
+            }
+            
+            return info;
+        }
+        
+        // 更新位图图例
+        function updateBitMapLegend() {
+            const legend = document.getElementById('bitMapLegend');
+            if (!legend) return;
+            
+            legend.innerHTML = `
+                <div class="legend-item"><span class="legend-dot" style="color: var(--accent-green);">●</span> 单bit</div>
+                <div class="legend-item"><span class="legend-dot" style="color: var(--accent-purple);">●</span> 枚举</div>
+                <div class="legend-item"><span class="legend-dot" style="color: var(--accent-blue);">●</span> 数值</div>
+                <div class="legend-item"><span class="legend-dot" style="color: var(--text-secondary);">●</span> 预留/固定</div>
+            `;
+        }
+        
+        // 构建位图数据模型
+        function buildBitModel() {
+            const label = currentLabelIndex >= 0 ? labels[currentLabelIndex] : null;
+            const model = {};
+            
+            // 初始化所有可编辑位为"预留"（Bit 9-29）
+            for (let i = 9; i <= 29; i++) {
+                model[i] = { type: 'undefined', name: '预留', class: 'bit-undefined' };
+            }
+            
+            if (!label) return model;
+            
+            // 填充单bit离散位
+            const discreteBits = label.discrete_bits || {};
+            for (const [bit, desc] of Object.entries(discreteBits)) {
+                const bitNum = parseInt(bit);
+                if (bitNum >= 9 && bitNum <= 29) {
+                    const fieldName = desc.split(':')[0].trim() || `B${bitNum}`;
+                    model[bitNum] = { 
+                        type: 'single', 
+                        name: fieldName.length > 4 ? fieldName.substring(0, 3) + '..' : fieldName,
+                        fullName: fieldName,
+                        class: 'bit-single-defined'
+                    };
+                }
+            }
+            
+            // 填充多bit枚举字段
+            const specialFields = label.special_fields || [];
+            for (const sf of specialFields) {
+                if (sf.bits && sf.bits.length === 2) {
+                    const [start, end] = sf.bits;
+                    const numBits = end - start + 1;
+                    
+                    // 格式化枚举值为二进制格式
+                    let valuesStr = '';
+                    if (sf.values && Object.keys(sf.values).length > 0) {
+                        valuesStr = Object.entries(sf.values).map(([k, v]) => {
+                            const numK = parseInt(k);
+                            if (!isNaN(numK)) {
+                                return `${numK.toString(2).padStart(numBits, '0')}=${v}`;
+                            }
+                            return `${k}=${v}`;
+                        }).join(', ');
+                    } else if (sf.type === 'uint') {
+                        // 无符号整数类型，显示位范围
+                        valuesStr = `(Bit ${start}-${end}, 分辨率: 1)`;
+                    }
+                    
+                    for (let i = start; i <= end; i++) {
+                        if (i >= 9 && i <= 29) {
+                            const shortName = sf.name ? (sf.name.length > 3 ? sf.name.substring(0, 2) + '..' : sf.name) : '枚举';
+                            model[i] = { 
+                                type: sf.type === 'uint' ? 'bnr' : 'multi', 
+                                name: shortName,
+                                fullName: sf.name || '枚举字段',
+                                range: `${start}-${end}`,
+                                values: valuesStr,
+                                resolution: sf.type === 'uint' ? 1 : null,
+                                class: sf.type === 'uint' ? 'bit-bnr-defined' : 'bit-multi-defined'
+                            };
+                        }
+                    }
+                }
+            }
+            
+            // 填充 BNR 数值字段
+            const bnrFields = label.bnr_fields || [];
+            for (const bf of bnrFields) {
+                if (bf.data_bits && bf.data_bits.length === 2) {
+                    const [start, end] = bf.data_bits;
+                    for (let i = start; i <= end; i++) {
+                        if (i >= 9 && i <= 29) {
+                            const shortName = bf.name ? (bf.name.length > 3 ? bf.name.substring(0, 2) + '..' : bf.name) : '数值';
+                            model[i] = { 
+                                type: 'bnr', 
+                                name: shortName,
+                                fullName: bf.name || '数值字段',
+                                range: `${start}-${end}`,
+                                resolution: bf.resolution,
+                                unit: bf.unit,
+                                class: 'bit-bnr-defined'
+                            };
+                        }
+                    }
+                    // 符号位
+                    if (bf.sign_bit && bf.sign_bit >= 9 && bf.sign_bit <= 29) {
+                        model[bf.sign_bit] = {
+                            type: 'sign',
+                            name: '±',
+                            fullName: `${bf.name || '数值'} 符号位`,
+                            class: 'bit-sign-defined'
+                        };
+                    }
+                }
+            }
+            
+            return model;
+        }
+        
+        
+        // 渲染字段摘要表格
+        function renderDiscreteBitTable() {
+            const container = document.getElementById('discreteBitTable');
+            if (!container) return;
+            
+            const label = currentLabelIndex >= 0 ? labels[currentLabelIndex] : null;
+            const discreteBits = label?.discrete_bits || {};
+            const specialFields = label?.special_fields || [];
+            const bnrFields = label?.bnr_fields || [];
+            
+            // 计算统计
+            const definedBits = Object.keys(discreteBits).map(k => parseInt(k)).sort((a, b) => a - b);
+            const singleCount = definedBits.length;
+            const multiCount = specialFields.length;
+            const bnrCount = bnrFields.length;
+            const totalCount = singleCount + multiCount + bnrCount;
+            
+            let html = '';
+            
+            // 提示信息
+            html += `<div class="edit-card">
+                <div class="edit-card-header">
+                    <div class="edit-card-title">
+                        <span class="card-icon" style="background: rgba(88, 166, 255, 0.2); color: var(--accent-blue);">✎</span>
+                        字段定义
+                    </div>
+                    <div class="edit-card-count">${totalCount} 个字段</div>
+                </div>
+                <div class="edit-card-hint" style="margin-bottom: 12px;">
+                    <strong>操作方式：</strong>点击上方位图表格中的 Bit 9-29 任意一行，即可添加或编辑字段定义。
+                </div>`;
+            
+            if (totalCount === 0) {
+                html += `<div style="text-align: center; padding: 20px; color: var(--text-secondary);">
+                    暂无字段定义，请点击上方位图中的预留位添加
+                </div>`;
+            } else {
+                // 已定义字段列表
+                html += `<table class="bit-desc-table">
+                    <tr>
+                        <th style="width:80px;">位号</th>
+                        <th style="width:80px;">类型</th>
+                        <th>名称</th>
+                        <th style="width:50px;"></th>
+                    </tr>`;
+                
+                // 单bit信号
+                for (const bitNum of definedBits) {
+                    const desc = discreteBits[bitNum];
+                    const name = desc.split(':')[0].trim() || '单bit';
+                    html += `<tr class="bit-row clickable-row" onclick="editDiscreteBit(${bitNum})">
+                        <td>Bit ${bitNum}</td>
+                        <td><span class="type-badge type-single">单bit</span></td>
+                        <td>${escapeHtml(name)}</td>
+                        <td><button class="btn-icon btn-delete" onclick="event.stopPropagation(); removeDiscreteBitDirect(${bitNum}); renderBitMap();" title="删除">×</button></td>
+                    </tr>`;
+                }
+                
+                // 多bit枚举
+                for (let i = 0; i < specialFields.length; i++) {
+                    const sf = specialFields[i];
+                    const firstBit = sf.bits?.[0] || 9;
+                    html += `<tr class="sf-row clickable-row" onclick="editDiscreteBit(${firstBit})">
+                        <td>Bit ${sf.bits?.[0]}-${sf.bits?.[1]}</td>
+                        <td><span class="type-badge type-multi">枚举</span></td>
+                        <td>${escapeHtml(sf.name || '未命名')}</td>
+                        <td><button class="btn-icon btn-delete" onclick="event.stopPropagation(); removeSpecialFieldDirect(${i}); renderBitMap();" title="删除">×</button></td>
+                    </tr>`;
+                }
+                
+                // BNR数值
+                for (let i = 0; i < bnrFields.length; i++) {
+                    const bf = bnrFields[i];
+                    const firstBit = bf.data_bits?.[0] || 9;
+                    html += `<tr class="bnr-row clickable-row" onclick="editDiscreteBit(${firstBit})">
+                        <td>Bit ${bf.data_bits?.[0]}-${bf.data_bits?.[1]}</td>
+                        <td><span class="type-badge type-bnr">数值</span></td>
+                        <td>${escapeHtml(bf.name || '未命名')} (${bf.resolution}${bf.unit || ''})</td>
+                        <td><button class="btn-icon btn-delete" onclick="event.stopPropagation(); removeBnrFieldDirect(${i}); renderBitMap();" title="删除">×</button></td>
+                    </tr>`;
+                }
+                
+                html += `</table>`;
+            }
+            
+            html += `</div>`;
+            
+            container.innerHTML = html;
+        }
+        
+        // 获取可用的位号（排除已被占用的）
+        function getAvailableBits(discreteBits, specialFields, bnrFields) {
+            const used = new Set(Object.keys(discreteBits).map(k => parseInt(k)));
+            
+            // 多位枚举字段占用的位
+            for (const sf of specialFields) {
+                if (sf.bits && sf.bits.length === 2) {
+                    for (let i = sf.bits[0]; i <= sf.bits[1]; i++) {
+                        used.add(i);
+                    }
+                }
+            }
+            
+            // BNR 数值字段占用的位
+            for (const bf of (bnrFields || [])) {
+                if (bf.data_bits && bf.data_bits.length === 2) {
+                    for (let i = bf.data_bits[0]; i <= bf.data_bits[1]; i++) {
+                        used.add(i);
+                    }
+                }
+                if (bf.sign_bit && bf.sign_bit >= 9 && bf.sign_bit <= 29) {
+                    used.add(bf.sign_bit);
+                }
+            }
+            
+            const available = [];
+            for (let i = 9; i <= 29; i++) {
+                if (!used.has(i)) {
+                    available.push(i);
+                }
+            }
+            return available;
+        }
+        
+        // HTML 转义
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+        
+        // 直接更新特殊字段
+        function updateSpecialFieldDirect(index, field, value) {
+            if (currentLabelIndex < 0) return;
+            const label = labels[currentLabelIndex];
+            if (!label.special_fields || index >= label.special_fields.length) return;
+            
+            if (field === 'name') {
+                label.special_fields[index].name = value;
+            } else if (field === 'bit0') {
+                if (!label.special_fields[index].bits) label.special_fields[index].bits = [9, 9];
+                label.special_fields[index].bits[0] = parseInt(value) || 9;
+            } else if (field === 'bit1') {
+                if (!label.special_fields[index].bits) label.special_fields[index].bits = [9, 9];
+                label.special_fields[index].bits[1] = parseInt(value) || 9;
+            }
+        }
+        
+        // 更新特殊字段枚举值
+        function updateSpecialFieldValues(index, valuesStr) {
+            if (currentLabelIndex < 0) return;
+            const label = labels[currentLabelIndex];
+            if (!label.special_fields || index >= label.special_fields.length) return;
+            
+            const values = {};
+            valuesStr.split(',').forEach(pair => {
+                const parts = pair.split('=').map(s => s.trim());
+                if (parts.length === 2 && parts[0] !== '' && parts[1] !== '') {
+                    const key = parts[0];
+                    // 支持二进制格式 (如 010, 0001) 和十进制格式
+                    if (/^[0-9]+$/.test(key) && !key.startsWith('0')) {
+                        // 纯数字且不以0开头，解析为十进制
+                        values[parseInt(key)] = parts[1];
+                    } else if (/^[01]+$/.test(key)) {
+                        // 以0开头的纯0/1字符串，解析为二进制
+                        values[parseInt(key, 2)] = parts[1];
+                    } else {
+                        // 其他情况尝试解析为数字
+                        const numVal = parseInt(key);
+                        if (!isNaN(numVal)) {
+                            values[numVal] = parts[1];
+                        } else {
+                            values[key] = parts[1];
+                        }
+                    }
+                }
+            });
+            label.special_fields[index].values = values;
+        }
+        
+        // 删除特殊字段
+        function removeSpecialFieldDirect(index) {
+            if (currentLabelIndex < 0) return;
+            const label = labels[currentLabelIndex];
+            if (!label.special_fields || index >= label.special_fields.length) return;
+            
+            label.special_fields.splice(index, 1);
+            renderDiscreteBitTable();
+        }
+        
+        // 添加特殊字段
+        function addSpecialFieldDirect() {
+            if (currentLabelIndex < 0) return;
+            const name = document.getElementById('newSfName').value.trim();
+            const bit0 = parseInt(document.getElementById('newSfBit0').value);
+            const bit1 = parseInt(document.getElementById('newSfBit1').value);
+            const valuesStr = document.getElementById('newSfValues').value;
+            
+            if (!name) {
+                showMessage('请输入字段名', 'error');
+                return;
+            }
+            
+            if (!bit0 || !bit1 || bit0 < 9 || bit1 > 29 || bit0 > bit1) {
+                showMessage('位范围无效，必须在 9-29 之间且起始 ≤ 结束', 'error');
+                return;
+            }
+            
+            // 检查位冲突
+            const label = labels[currentLabelIndex];
+            const conflict = checkBitConflict(label, bit0, bit1, -1);
+            if (conflict) {
+                showMessage(conflict, 'error');
+                return;
+            }
+            
+            const values = {};
+            if (valuesStr) {
+                valuesStr.split(',').forEach(pair => {
+                    const parts = pair.split('=').map(s => s.trim());
+                    if (parts.length === 2 && parts[0] !== '' && parts[1] !== '') {
+                        // 支持二进制格式 (如 010, 0001) 和十进制格式
+                        // 如果是纯数字且不以0开头，解析为十进制；否则保留原始字符串
+                        const key = parts[0];
+                        if (/^[0-9]+$/.test(key) && !key.startsWith('0')) {
+                            values[parseInt(key)] = parts[1];
+                        } else {
+                            // 二进制格式，转换为对应的十进制数值
+                            const numVal = parseInt(key, 2);
+                            if (!isNaN(numVal)) {
+                                values[numVal] = parts[1];
+                            } else {
+                                values[key] = parts[1];
+                            }
+                        }
+                    }
+                });
+            }
+            
+            if (!label.special_fields) label.special_fields = [];
+            
+            label.special_fields.push({
+                name: name,
+                bits: [bit0, bit1],
+                type: 'enum',
+                values: values
+            });
+            
+            // 清空输入
+            document.getElementById('newSfName').value = '';
+            document.getElementById('newSfBit0').value = '';
+            document.getElementById('newSfBit1').value = '';
+            document.getElementById('newSfValues').value = '';
+            
+            renderBitMap();
+            showMessage(`已添加多位字段「${name}」(Bit ${bit0}-${bit1})`, 'success');
+        }
+        
+        // 更新 BNR 数值字段
+        function updateBnrFieldDirect(index, field, value) {
+            if (currentLabelIndex < 0) return;
+            const label = labels[currentLabelIndex];
+            if (!label.bnr_fields || index >= label.bnr_fields.length) return;
+            
+            if (field === 'name') {
+                label.bnr_fields[index].name = value;
+            } else if (field === 'bit0') {
+                if (!label.bnr_fields[index].data_bits) label.bnr_fields[index].data_bits = [9, 29];
+                label.bnr_fields[index].data_bits[0] = parseInt(value) || 9;
+            } else if (field === 'bit1') {
+                if (!label.bnr_fields[index].data_bits) label.bnr_fields[index].data_bits = [9, 29];
+                label.bnr_fields[index].data_bits[1] = parseInt(value) || 29;
+            } else if (field === 'sign_bit') {
+                label.bnr_fields[index].sign_bit = value ? parseInt(value) : null;
+            } else if (field === 'resolution') {
+                label.bnr_fields[index].resolution = value ? parseFloat(value) : null;
+            } else if (field === 'unit') {
+                label.bnr_fields[index].unit = value;
+            }
+        }
+        
+        // 删除 BNR 数值字段
+        function removeBnrFieldDirect(index) {
+            if (currentLabelIndex < 0) return;
+            const label = labels[currentLabelIndex];
+            if (!label.bnr_fields || index >= label.bnr_fields.length) return;
+            
+            label.bnr_fields.splice(index, 1);
+            renderBitMap();
+        }
+        
+        // 添加 BNR 数值字段
+        function addBnrFieldDirect() {
+            if (currentLabelIndex < 0) return;
+            const name = document.getElementById('newBnrName').value.trim();
+            const bit0 = parseInt(document.getElementById('newBnrBit0').value);
+            const bit1 = parseInt(document.getElementById('newBnrBit1').value);
+            const signBit = document.getElementById('newBnrSignBit').value ? parseInt(document.getElementById('newBnrSignBit').value) : null;
+            const resolution = parseFloat(document.getElementById('newBnrResolution').value);
+            const unit = document.getElementById('newBnrUnit').value.trim();
+            
+            if (!name) {
+                showMessage('请输入字段名', 'error');
+                return;
+            }
+            
+            if (!bit0 || !bit1 || bit0 < 9 || bit1 > 29 || bit0 > bit1) {
+                showMessage('数据位范围无效，必须在 9-29 之间且起始 ≤ 结束', 'error');
+                return;
+            }
+            
+            if (!resolution || resolution <= 0) {
+                showMessage('请输入有效的分辨率（必须 > 0）', 'error');
+                return;
+            }
+            
+            // 检查位冲突
+            const label = labels[currentLabelIndex];
+            const conflict = checkBitConflictForBnr(label, bit0, bit1, signBit, -1);
+            if (conflict) {
+                showMessage(conflict, 'error');
+                return;
+            }
+            
+            if (!label.bnr_fields) label.bnr_fields = [];
+            
+            label.bnr_fields.push({
+                name: name,
+                data_bits: [bit0, bit1],
+                sign_bit: signBit,
+                resolution: resolution,
+                unit: unit || ''
+            });
+            
+            // 清空输入
+            document.getElementById('newBnrName').value = '';
+            document.getElementById('newBnrBit0').value = '';
+            document.getElementById('newBnrBit1').value = '';
+            document.getElementById('newBnrSignBit').value = '';
+            document.getElementById('newBnrResolution').value = '';
+            document.getElementById('newBnrUnit').value = '';
+            
+            renderBitMap();
+            showMessage(`已添加数值字段「${name}」(Bit ${bit0}-${bit1})`, 'success');
+        }
+        
+        // 检查 BNR 字段的位冲突
+        function checkBitConflictForBnr(label, startBit, endBit, signBit, excludeIndex) {
+            const allBits = [];
+            for (let i = startBit; i <= endBit; i++) {
+                allBits.push(i);
+            }
+            if (signBit && signBit >= 9 && signBit <= 29) {
+                allBits.push(signBit);
+            }
+            
+            // 检查与单bit的冲突
+            const discreteBits = label.discrete_bits || {};
+            for (const bit of allBits) {
+                if (discreteBits[bit]) {
+                    return `Bit ${bit} 已被单bit信号占用`;
+                }
+            }
+            
+            // 检查与多位枚举字段的冲突
+            const specialFields = label.special_fields || [];
+            for (const sf of specialFields) {
+                if (sf.bits && sf.bits.length === 2) {
+                    for (const bit of allBits) {
+                        if (bit >= sf.bits[0] && bit <= sf.bits[1]) {
+                            return `Bit ${bit} 已被枚举字段「${sf.name}」占用`;
+                        }
+                    }
+                }
+            }
+            
+            // 检查与其他 BNR 字段的冲突
+            const bnrFields = label.bnr_fields || [];
+            for (let i = 0; i < bnrFields.length; i++) {
+                if (i === excludeIndex) continue;
+                const bf = bnrFields[i];
+                if (bf.data_bits && bf.data_bits.length === 2) {
+                    for (const bit of allBits) {
+                        if (bit >= bf.data_bits[0] && bit <= bf.data_bits[1]) {
+                            return `Bit ${bit} 已被数值字段「${bf.name}」占用`;
+                        }
+                        if (bf.sign_bit && bit === bf.sign_bit) {
+                            return `Bit ${bit} 已被数值字段「${bf.name}」的符号位占用`;
+                        }
+                    }
+                }
+            }
+            
+            return null;
+        }
+        
+        // 检查位冲突
+        function checkBitConflict(label, startBit, endBit, excludeSfIndex) {
+            // 检查与单bit的冲突
+            const discreteBits = label.discrete_bits || {};
+            for (let bit = startBit; bit <= endBit; bit++) {
+                if (discreteBits[bit]) {
+                    return `Bit ${bit} 已被单bit信号占用`;
+                }
+            }
+            
+            // 检查与其他多位枚举字段的冲突
+            const specialFields = label.special_fields || [];
+            for (let i = 0; i < specialFields.length; i++) {
+                if (i === excludeSfIndex) continue;
+                const sf = specialFields[i];
+                if (sf.bits && sf.bits.length === 2) {
+                    const [sfStart, sfEnd] = sf.bits;
+                    if (!(endBit < sfStart || startBit > sfEnd)) {
+                        return `与枚举字段「${sf.name}」(Bit ${sfStart}-${sfEnd}) 位范围冲突`;
+                    }
+                }
+            }
+            
+            // 检查与 BNR 数值字段的冲突
+            const bnrFields = label.bnr_fields || [];
+            for (const bf of bnrFields) {
+                if (bf.data_bits && bf.data_bits.length === 2) {
+                    const [bfStart, bfEnd] = bf.data_bits;
+                    if (!(endBit < bfStart || startBit > bfEnd)) {
+                        return `与数值字段「${bf.name}」(Bit ${bfStart}-${bfEnd}) 位范围冲突`;
+                    }
+                    if (bf.sign_bit && bf.sign_bit >= startBit && bf.sign_bit <= endBit) {
+                        return `与数值字段「${bf.name}」的符号位 (Bit ${bf.sign_bit}) 冲突`;
+                    }
+                }
+            }
+            
+            return null;
+        }
+        
+        // 直接更新离散位描述
+        function updateDiscreteBitDesc(bitNum, desc) {
+            if (currentLabelIndex < 0) return;
+            if (!labels[currentLabelIndex].discrete_bits) {
+                labels[currentLabelIndex].discrete_bits = {};
+            }
+            labels[currentLabelIndex].discrete_bits[bitNum] = desc;
+        }
+        
+        // 直接删除离散位
+        function removeDiscreteBitDirect(bitNum) {
+            if (currentLabelIndex < 0) return;
+            if (labels[currentLabelIndex].discrete_bits) {
+                delete labels[currentLabelIndex].discrete_bits[bitNum];
+            }
+            renderDiscreteBitTable();
+            renderBitMap();
+        }
+        
+        // 直接添加离散位
+        function addDiscreteBitDirect() {
+            if (currentLabelIndex < 0) return;
+            const bitNum = parseInt(document.getElementById('newDiscreteBitNum').value);
+            const desc = document.getElementById('newDiscreteBitDesc').value.trim();
+            
+            if (!bitNum || bitNum < 9 || bitNum > 29) {
+                showMessage('请选择有效的位号 (9-29)', 'error');
+                return;
+            }
+            
+            if (!desc) {
+                showMessage('请输入位说明', 'error');
+                return;
+            }
+            
+            const label = labels[currentLabelIndex];
+            
+            // 检查是否已被单bit占用
+            if (label.discrete_bits && label.discrete_bits[bitNum]) {
+                showMessage(`Bit ${bitNum} 已定义，请先删除后重新添加`, 'error');
+                return;
+            }
+            
+            // 检查是否被多位枚举字段占用
+            const specialFields = label.special_fields || [];
+            for (const sf of specialFields) {
+                if (sf.bits && bitNum >= sf.bits[0] && bitNum <= sf.bits[1]) {
+                    showMessage(`Bit ${bitNum} 已被枚举字段「${sf.name}」占用`, 'error');
+                    return;
+                }
+            }
+            
+            // 检查是否被 BNR 数值字段占用
+            const bnrFields = label.bnr_fields || [];
+            for (const bf of bnrFields) {
+                if (bf.data_bits && bitNum >= bf.data_bits[0] && bitNum <= bf.data_bits[1]) {
+                    showMessage(`Bit ${bitNum} 已被数值字段「${bf.name}」占用`, 'error');
+                    return;
+                }
+                if (bf.sign_bit && bitNum === bf.sign_bit) {
+                    showMessage(`Bit ${bitNum} 已被数值字段「${bf.name}」的符号位占用`, 'error');
+                    return;
+                }
+            }
+            
+            if (!label.discrete_bits) {
+                label.discrete_bits = {};
+            }
+            label.discrete_bits[bitNum] = desc;
+            
+            document.getElementById('newDiscreteBitNum').value = '';
+            document.getElementById('newDiscreteBitDesc').value = '';
+            
+            renderBitMap();
+            showMessage(`已添加 Bit ${bitNum}`, 'success');
+        }
+        
+        // ============================================================
+        // 位编辑模态框功能
+        // ============================================================
+        
+        let currentEditBitNum = null;
+        let currentEditType = 'reserved';
+        let currentEditFieldIndex = -1;  // 编辑现有字段时的索引
+        
+        // 点击位图打开模态框
+        function editDiscreteBit(bitNum) {
+            if (bitNum < 9 || bitNum > 29) {
+                showMessage('只能编辑 Bit 9-29', 'error');
+                return;
+            }
+            
+            const label = currentLabelIndex >= 0 ? labels[currentLabelIndex] : null;
+            if (!label) return;
+            
+            currentEditBitNum = bitNum;
+            currentEditFieldIndex = -1;
+            
+            // 检查当前位的状态
+            const discreteBits = label.discrete_bits || {};
+            const specialFields = label.special_fields || [];
+            const bnrFields = label.bnr_fields || [];
+            
+            let currentStatus = '预留';
+            let initialType = 'reserved';
+            
+            // 检查是否是单bit
+            if (discreteBits[bitNum]) {
+                currentStatus = '单bit: ' + (discreteBits[bitNum].split(':')[0] || '已定义');
+                initialType = 'single';
+            }
+            
+            // 检查是否属于多bit枚举字段
+            for (let i = 0; i < specialFields.length; i++) {
+                const sf = specialFields[i];
+                if (sf.bits && bitNum >= sf.bits[0] && bitNum <= sf.bits[1]) {
+                    currentStatus = `枚举: ${sf.name} (Bit ${sf.bits[0]}-${sf.bits[1]})`;
+                    initialType = 'multi';
+                    currentEditFieldIndex = i;
+                    break;
+                }
+            }
+            
+            // 检查是否属于BNR字段
+            for (let i = 0; i < bnrFields.length; i++) {
+                const bf = bnrFields[i];
+                if (bf.data_bits && bitNum >= bf.data_bits[0] && bitNum <= bf.data_bits[1]) {
+                    currentStatus = `数值: ${bf.name} (Bit ${bf.data_bits[0]}-${bf.data_bits[1]})`;
+                    initialType = 'bnr';
+                    currentEditFieldIndex = i;
+                    break;
+                }
+                if (bf.sign_bit === bitNum) {
+                    currentStatus = `符号位: ${bf.name}`;
+                    initialType = 'bnr';
+                    currentEditFieldIndex = i;
+                    break;
+                }
+            }
+            
+            // 更新模态框标题和状态
+            document.getElementById('bitModalTitle').textContent = `编辑 Bit ${bitNum}`;
+            document.getElementById('modalBitRange').textContent = `Bit ${bitNum}`;
+            document.getElementById('modalCurrentStatus').textContent = `当前: ${currentStatus}`;
+            
+            // 选择初始类型并填充数据
+            selectBitType(initialType);
+            fillModalWithCurrentData(bitNum, initialType, label);
+            
+            // 显示/隐藏删除按钮
+            document.getElementById('modalDeleteBtn').style.display = 
+                (initialType !== 'reserved') ? 'inline-flex' : 'none';
+            
+            // 显示模态框
+            document.getElementById('bitEditModal').classList.add('active');
+        }
+        
+        // 选择类型
+        function selectBitType(type) {
+            currentEditType = type;
+            
+            // 更新类型选择器样式
+            document.querySelectorAll('.type-option').forEach(opt => {
+                opt.classList.toggle('selected', opt.dataset.type === type);
+            });
+            
+            // 显示对应表单
+            document.getElementById('singleBitForm').classList.toggle('active', type === 'single');
+            document.getElementById('multiBitForm').classList.toggle('active', type === 'multi');
+            document.getElementById('bnrBitForm').classList.toggle('active', type === 'bnr');
+        }
+        
+        // 填充模态框数据
+        function fillModalWithCurrentData(bitNum, type, label) {
+            // 清空所有表单
+            document.getElementById('modalSingleName').value = '';
+            document.getElementById('modalSingleDesc').value = '';
+            document.getElementById('modalMultiName').value = '';
+            document.getElementById('modalMultiBitStart').value = bitNum;
+            document.getElementById('modalMultiBitEnd').value = bitNum;
+            document.getElementById('modalMultiValues').value = '';
+            document.getElementById('modalBnrName').value = '';
+            document.getElementById('modalBnrBitStart').value = bitNum;
+            document.getElementById('modalBnrBitEnd').value = bitNum;
+            document.getElementById('modalBnrSignBit').value = '';
+            document.getElementById('modalBnrResolution').value = '';
+            document.getElementById('modalBnrUnit').value = '';
+            
+            if (type === 'single') {
+                const desc = label.discrete_bits?.[bitNum] || '';
+                const parts = desc.split(':');
+                document.getElementById('modalSingleName').value = parts[0]?.trim() || '';
+                document.getElementById('modalSingleDesc').value = parts[1]?.trim() || '';
+            } else if (type === 'multi' && currentEditFieldIndex >= 0) {
+                const sf = label.special_fields[currentEditFieldIndex];
+                document.getElementById('modalMultiName').value = sf.name || '';
+                document.getElementById('modalMultiBitStart').value = sf.bits?.[0] || bitNum;
+                document.getElementById('modalMultiBitEnd').value = sf.bits?.[1] || bitNum;
+                // 格式化枚举值为二进制格式
+                const numBits = (sf.bits?.[1] || bitNum) - (sf.bits?.[0] || bitNum) + 1;
+                const valuesStr = Object.entries(sf.values || {}).map(([k, v]) => {
+                    const numK = parseInt(k);
+                    if (!isNaN(numK)) {
+                        return `${numK.toString(2).padStart(numBits, '0')}=${v}`;
+                    }
+                    return `${k}=${v}`;
+                }).join(', ');
+                document.getElementById('modalMultiValues').value = valuesStr;
+            } else if (type === 'bnr' && currentEditFieldIndex >= 0) {
+                const bf = label.bnr_fields[currentEditFieldIndex];
+                document.getElementById('modalBnrName').value = bf.name || '';
+                document.getElementById('modalBnrBitStart').value = bf.data_bits?.[0] || bitNum;
+                document.getElementById('modalBnrBitEnd').value = bf.data_bits?.[1] || bitNum;
+                document.getElementById('modalBnrSignBit').value = bf.sign_bit || '';
+                document.getElementById('modalBnrResolution').value = bf.resolution || '';
+                document.getElementById('modalBnrUnit').value = bf.unit || '';
+            }
+        }
+        
+        // 关闭模态框
+        function closeBitModal() {
+            document.getElementById('bitEditModal').classList.remove('active');
+            currentEditBitNum = null;
+            currentEditFieldIndex = -1;
+        }
+        
+        // 保存模态框
+        function saveBitModal() {
+            const label = currentLabelIndex >= 0 ? labels[currentLabelIndex] : null;
+            if (!label || currentEditBitNum === null) return;
+            
+            const bitNum = currentEditBitNum;
+            
+            // 先删除旧的定义
+            deleteFieldAtBit(label, bitNum, false);
+            
+            if (currentEditType === 'reserved') {
+                // 预留，不需要添加任何定义
+                showMessage(`Bit ${bitNum} 已设为预留`, 'success');
+            } else if (currentEditType === 'single') {
+                const name = document.getElementById('modalSingleName').value.trim();
+                const desc = document.getElementById('modalSingleDesc').value.trim();
+                
+                if (!name) {
+                    showMessage('请输入字段名称', 'error');
+                    return;
+                }
+                
+                if (!label.discrete_bits) label.discrete_bits = {};
+                label.discrete_bits[bitNum] = desc ? `${name}: ${desc}` : name;
+                showMessage(`Bit ${bitNum} 已定义为单bit「${name}」`, 'success');
+                
+            } else if (currentEditType === 'multi') {
+                const name = document.getElementById('modalMultiName').value.trim();
+                const bitStart = parseInt(document.getElementById('modalMultiBitStart').value);
+                const bitEnd = parseInt(document.getElementById('modalMultiBitEnd').value);
+                const valuesStr = document.getElementById('modalMultiValues').value.trim();
+                
+                if (!name) {
+                    showMessage('请输入字段名称', 'error');
+                    return;
+                }
+                
+                if (!bitStart || !bitEnd || bitStart < 9 || bitEnd > 29 || bitStart > bitEnd) {
+                    showMessage('位范围无效', 'error');
+                    return;
+                }
+                
+                // 检查位冲突
+                const conflict = checkBitConflict(label, bitStart, bitEnd, -1);
+                if (conflict) {
+                    showMessage(conflict, 'error');
+                    return;
+                }
+                
+                // 解析枚举值
+                const values = {};
+                if (valuesStr) {
+                    valuesStr.split(',').forEach(pair => {
+                        const parts = pair.split('=').map(s => s.trim());
+                        if (parts.length === 2 && parts[0] !== '' && parts[1] !== '') {
+                            const key = parts[0];
+                            if (/^[01]+$/.test(key)) {
+                                values[parseInt(key, 2)] = parts[1];
+                            } else {
+                                const numVal = parseInt(key);
+                                if (!isNaN(numVal)) {
+                                    values[numVal] = parts[1];
+                                }
+                            }
+                        }
+                    });
+                }
+                
+                if (!label.special_fields) label.special_fields = [];
+                label.special_fields.push({
+                    name: name,
+                    bits: [bitStart, bitEnd],
+                    type: 'enum',
+                    values: values
+                });
+                showMessage(`已添加枚举字段「${name}」(Bit ${bitStart}-${bitEnd})`, 'success');
+                
+            } else if (currentEditType === 'bnr') {
+                const name = document.getElementById('modalBnrName').value.trim();
+                const bitStart = parseInt(document.getElementById('modalBnrBitStart').value);
+                const bitEnd = parseInt(document.getElementById('modalBnrBitEnd').value);
+                const signBit = document.getElementById('modalBnrSignBit').value.trim();
+                const resolution = parseFloat(document.getElementById('modalBnrResolution').value);
+                const unit = document.getElementById('modalBnrUnit').value.trim();
+                
+                if (!name) {
+                    showMessage('请输入字段名称', 'error');
+                    return;
+                }
+                
+                if (!bitStart || !bitEnd || bitStart < 9 || bitEnd > 29 || bitStart > bitEnd) {
+                    showMessage('数据位范围无效', 'error');
+                    return;
+                }
+                
+                if (isNaN(resolution) || resolution <= 0) {
+                    showMessage('请输入有效的分辨率', 'error');
+                    return;
+                }
+                
+                // 检查位冲突
+                const conflict = checkBitConflict(label, bitStart, bitEnd, -1);
+                if (conflict) {
+                    showMessage(conflict, 'error');
+                    return;
+                }
+                
+                if (!label.bnr_fields) label.bnr_fields = [];
+                label.bnr_fields.push({
+                    name: name,
+                    data_bits: [bitStart, bitEnd],
+                    sign_bit: signBit ? parseInt(signBit) : null,
+                    resolution: resolution,
+                    unit: unit
+                });
+                showMessage(`已添加数值字段「${name}」(Bit ${bitStart}-${bitEnd})`, 'success');
+            }
+            
+            closeBitModal();
+            renderBitMap();
+            triggerAutoSave();
+        }
+        
+        // 删除当前位的字段定义
+        function deleteCurrentBitField() {
+            const label = currentLabelIndex >= 0 ? labels[currentLabelIndex] : null;
+            if (!label || currentEditBitNum === null) return;
+            
+            if (!confirm('确定要删除此字段定义吗？')) return;
+            
+            deleteFieldAtBit(label, currentEditBitNum, true);
+            closeBitModal();
+            renderBitMap();
+            triggerAutoSave();
+        }
+        
+        // 删除指定位的字段
+        function deleteFieldAtBit(label, bitNum, showMsg) {
+            // 删除单bit定义
+            if (label.discrete_bits && label.discrete_bits[bitNum]) {
+                delete label.discrete_bits[bitNum];
+                if (showMsg) showMessage(`已删除 Bit ${bitNum} 的定义`, 'success');
+                return;
+            }
+            
+            // 删除包含此位的多bit枚举字段
+            if (label.special_fields) {
+                for (let i = label.special_fields.length - 1; i >= 0; i--) {
+                    const sf = label.special_fields[i];
+                    if (sf.bits && bitNum >= sf.bits[0] && bitNum <= sf.bits[1]) {
+                        const name = sf.name;
+                        label.special_fields.splice(i, 1);
+                        if (showMsg) showMessage(`已删除枚举字段「${name}」`, 'success');
+                        return;
+                    }
+                }
+            }
+            
+            // 删除包含此位的BNR字段
+            if (label.bnr_fields) {
+                for (let i = label.bnr_fields.length - 1; i >= 0; i--) {
+                    const bf = label.bnr_fields[i];
+                    if ((bf.data_bits && bitNum >= bf.data_bits[0] && bitNum <= bf.data_bits[1]) ||
+                        bf.sign_bit === bitNum) {
+                        const name = bf.name;
+                        label.bnr_fields.splice(i, 1);
+                        if (showMsg) showMessage(`已删除数值字段「${name}」`, 'success');
+                        return;
+                    }
+                }
+            }
+        }
+        
+        // 高亮单bit行
+        function highlightBitRow(bitNum) {
+            const container = document.getElementById('discreteBitTable');
+            if (!container) return;
+            
+            const rows = container.querySelectorAll('tr');
+            rows.forEach(row => {
+                row.style.transition = 'background 0.3s';
+                if (row.textContent.includes(`Bit ${bitNum}`)) {
+                    row.style.background = 'rgba(63, 185, 80, 0.3)';
+                    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => { row.style.background = ''; }, 1500);
+                }
+            });
+        }
+        
+        // 高亮多位字段
+        function highlightSpecialField(index) {
+            const container = document.getElementById('discreteBitTable');
+            if (!container) return;
+            
+            const tables = container.querySelectorAll('table');
+            if (tables.length >= 2) {
+                const sfTable = tables[1];
+                const rows = sfTable.querySelectorAll('tr');
+                if (rows[index + 1]) { // +1 跳过表头
+                    const row = rows[index + 1];
+                    row.style.transition = 'background 0.3s';
+                    row.style.background = 'rgba(163, 113, 247, 0.3)';
+                    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => { row.style.background = ''; }, 1500);
+                }
+            }
+        }
+        
+        // 显示消息
+        function showMessage(msg, type) {
+            // 如果已有消息框则移除
+            const existing = document.querySelector('.toast-message');
+            if (existing) existing.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                border-radius: 6px;
+                color: white;
+                font-size: 0.9rem;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                background: ${type === 'error' ? 'var(--accent-red)' : type === 'success' ? 'var(--accent-green)' : 'var(--accent-blue)'};
+            `;
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+        
+        // 隐藏编辑器
+        function hideEditor() {
+            document.getElementById('noLabelSelected').style.display = 'block';
+            document.getElementById('labelEditor').classList.remove('active');
+            document.getElementById('deleteLabelBtn').style.display = 'none';
+            document.getElementById('copyLabelBtn').style.display = 'none';
+        }
+        
+        // 加载 Label 到编辑器
+        function loadLabelToEditor(label) {
+            document.getElementById('labelOct').value = label.label_oct || '';
+            document.getElementById('labelName').value = label.name || '';
+            document.getElementById('labelDirection').value = label.direction || 'RDIU -> SCU';
+            document.getElementById('labelDataType').value = 'DISCRETE';  // 统一为 DISCRETE
+            document.getElementById('labelSources').value = (label.sources || []).join(', ');
+            
+            document.getElementById('reservedBits').value = label.reserved_bits || '';
+            document.getElementById('notes').value = label.notes || '';
+            
+            renderBitMap();
+        }
+        
+        
+        // 保存当前 Label
+        function saveCurrentLabel() {
+            if (currentLabelIndex < 0) return;
+            
+            const label = labels[currentLabelIndex];
+            
+            const labelOct = document.getElementById('labelOct').value.trim();
+            const labelName = document.getElementById('labelName').value.trim();
+            
+            // 验证 Label 八进制值
+            if (!labelOct) {
+                showMessage('请输入 Label 八进制值', 'error');
+                return;
+            }
+            
+            // 验证八进制格式和范围 (000-377)
+            if (!/^[0-7]{1,3}$/.test(labelOct)) {
+                showMessage('Label 必须是八进制数 (只能包含 0-7)', 'error');
+                return;
+            }
+            
+            const labelDec = parseInt(labelOct, 8);
+            if (labelDec > 255) {
+                showMessage('Label 超出范围，最大值为 377 (八进制)', 'error');
+                return;
+            }
+            
+            // 检查是否有重复的 Label
+            const duplicateIndex = labels.findIndex((l, i) => 
+                i !== currentLabelIndex && l.label_oct === labelOct
+            );
+            if (duplicateIndex >= 0) {
+                showMessage(`Label ${labelOct} 已存在（${labels[duplicateIndex].name || '未命名'}），请使用不同的值`, 'error');
+                return;
+            }
+            
+            // 验证名称
+            if (!labelName) {
+                showMessage('请输入信号名称', 'error');
+                return;
+            }
+            
+            label.label_oct = labelOct;
+            label.name = labelName;
+            label.direction = document.getElementById('labelDirection').value;
+            label.data_type = 'DISCRETE';  // 统一为 DISCRETE
+            
+            const sourcesStr = document.getElementById('labelSources').value.trim();
+            label.sources = sourcesStr ? sourcesStr.split(',').map(s => s.trim()).filter(s => s) : [];
+            
+            label.reserved_bits = document.getElementById('reservedBits').value.trim();
+            label.notes = document.getElementById('notes').value.trim();
+            
+            updateLabelList();
+            showMessage('Label 已保存', 'success');
+            
+            // 触发自动保存到服务器
+            triggerAutoSave();
+        }
+        
+        // 删除当前 Label
+        function deleteCurrentLabel() {
+            if (currentLabelIndex < 0) return;
+            
+            const labelName = labels[currentLabelIndex].name || labels[currentLabelIndex].label_oct || '未命名';
+            if (!confirm(`确定要删除 Label「${labelName}」吗？`)) return;
+            
+            const deletedIndex = currentLabelIndex;
+            labels.splice(deletedIndex, 1);
+            
+            // 修复 selectedLabels 索引：删除被删除的索引，并将大于它的索引减1
+            const newSelectedLabels = new Set();
+            selectedLabels.forEach(idx => {
+                if (idx < deletedIndex) {
+                    newSelectedLabels.add(idx);
+                } else if (idx > deletedIndex) {
+                    newSelectedLabels.add(idx - 1);
+                }
+                // idx === deletedIndex 的情况不添加（已删除）
+            });
+            selectedLabels = newSelectedLabels;
+            
+            currentLabelIndex = -1;
+            updateLabelList();
+            hideEditor();
+            showMessage('Label 已删除', 'success');
+            
+            // 触发自动保存到服务器
+            triggerAutoSave();
+        }
+        
+        // 构建配置对象 (只包含选中的 Labels)
+        function buildConfig() {
+            // 只选取勾选的 labels
+            const selectedLabelsList = Array.from(selectedLabels)
+                .sort((a, b) => a - b)
+                .map(i => labels[i])
+                .filter(l => l); // 过滤掉可能的 undefined
+            
+            return {
+                protocol_meta: {
+                    name: document.getElementById('protocolName').value.trim(),
+                    version: document.getElementById('protocolVersion').value.trim(),
+                    description: document.getElementById('protocolDescription').value.trim()
+                },
+                labels: selectedLabelsList
+            };
+        }
+        
+        // 预览 Python 代码
+        async function previewPythonCode() {
+            await previewCode('python');
+            document.getElementById('previewLang').textContent = '(Python)';
+        }
+        
+        // 预览 C 代码
+        async function previewCCode() {
+            await previewCode('c');
+            document.getElementById('previewLang').textContent = '(C)';
+        }
+        
+        // 预览代码
+        async function previewCode(lang = 'python') {
+            if (selectedLabels.size === 0) {
+                document.getElementById('codePreview').textContent = '// 请先勾选要生成的 Label';
+                showMessage('请先勾选要生成的 Label', 'error');
+                return;
+            }
+            
+            const config = buildConfig();
+            
+            try {
+                document.getElementById('codePreview').textContent = '// 正在生成代码...';
+                
+                const response = await fetch('/api/preview_code?lang=' + lang, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('codePreview').textContent = result.code;
+                    showMessage(`${lang.toUpperCase()} 代码预览成功`, 'success');
+                } else {
+                    document.getElementById('codePreview').textContent = '// 错误: ' + result.error;
+                    showMessage('预览失败: ' + result.error, 'error');
+                }
+            } catch (e) {
+                document.getElementById('codePreview').textContent = '// 预览失败: ' + e.message;
+                showMessage('预览失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 生成 C 代码
+        async function generateCCode() {
+            if (selectedLabels.size === 0) {
+                showMessage('请先勾选要生成的 Label', 'error');
+                return;
+            }
+            
+            const config = buildConfig();
+            
+            try {
+                const response = await fetch('/api/generate_c', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('codePreview').textContent = result.code_preview;
+                    showMessage(`C代码生成成功！包含 ${selectedLabels.size} 个 Label，文件: ${result.filename}`, 'success');
+                } else {
+                    const errors = result.errors || ['未知错误'];
+                    showMessage('生成失败: ' + errors.join('; '), 'error');
+                }
+            } catch (e) {
+                showMessage('生成失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 生成代码
+        async function generateCode() {
+            if (selectedLabels.size === 0) {
+                showMessage('请先勾选要生成的 Label', 'error');
+                return;
+            }
+            
+            const config = buildConfig();
+            
+            try {
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    generatedFilename = result.filename;
+                    configFilename = result.config_filename;
+                    document.getElementById('codePreview').textContent = result.code_preview;
+                    showMessage(`代码生成成功！包含 ${selectedLabels.size} 个 Label，文件: ${result.filename}`, 'success');
+                } else {
+                    const errors = result.errors || ['未知错误'];
+                    showMessage('生成失败: ' + errors.join('; '), 'error');
+                }
+            } catch (e) {
+                showMessage('生成失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 下载 Python 完整包
+        async function downloadPython() {
+            if (selectedLabels.size === 0) {
+                showMessage('请先勾选要生成的 Label', 'error');
+                return;
+            }
+            
+            // 先生成代码
+            const config = buildConfig();
+            
+            try {
+                // 生成 Python 代码
+                const genResponse = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                const genResult = await genResponse.json();
+                
+                if (!genResult.success) {
+                    showMessage('生成失败: ' + (genResult.errors || []).join('; '), 'error');
+                    return;
+                }
+                
+                // 下载 ZIP 包
+                const response = await fetch('/api/download_zip', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        filenames: [genResult.filename, genResult.config_filename].filter(f => f)
+                    })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'arinc429_python_package.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                    showMessage('Python 完整包下载成功！', 'success');
+                } else {
+                    showMessage('下载失败', 'error');
+                }
+            } catch (e) {
+                showMessage('下载失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 下载 C 代码
+        async function downloadC() {
+            if (selectedLabels.size === 0) {
+                showMessage('请先勾选要生成的 Label', 'error');
+                return;
+            }
+            
+            const config = buildConfig();
+            
+            try {
+                // 生成 C 代码
+                const genResponse = await fetch('/api/generate_c', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(config)
+                });
+                const genResult = await genResponse.json();
+                
+                if (!genResult.success) {
+                    showMessage('生成失败: ' + (genResult.errors || []).join('; '), 'error');
+                    return;
+                }
+                
+                // 直接下载 C 文件
+                const response = await fetch('/api/download/' + genResult.filename);
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = genResult.filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                    showMessage('C 代码下载成功！', 'success');
+                } else {
+                    showMessage('下载失败', 'error');
+                }
+            } catch (e) {
+                showMessage('下载失败: ' + e.message, 'error');
+            }
+        }
+        
+        // 页面加载完成后绑定事件
+        document.addEventListener('DOMContentLoaded', function() {
+            // Label 八进制值变化时刷新位图
+            const labelOctEl = document.getElementById('labelOct');
+            if (labelOctEl) {
+                labelOctEl.addEventListener('input', renderBitMap);
+                labelOctEl.addEventListener('change', renderBitMap);
+            }
+        });
+    </script>
+</body>
+</html>

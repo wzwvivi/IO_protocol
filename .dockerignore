@@ -1,0 +1,17 @@
+# 忽略不需要复制到 Docker 镜像的文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.git
+.gitignore
+.vscode
+.idea
+*.md
+*.bat
+output/
+test_*.py
+quick_test.py
+*.txt
+!requirements.txt
