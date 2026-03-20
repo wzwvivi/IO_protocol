@@ -1,0 +1,6 @@
+# 接口代码生成平台依赖
+flask>=2.0.0
+jinja2>=3.0.0
+openpyxl>=3.0.0
+
+# 数据库: 使用 Python 内置的 SQLite，无需额外依赖

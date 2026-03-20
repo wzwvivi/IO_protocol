@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  arinc429-generator:
+    build: .
+    container_name: arinc429-generator
+    ports:
+      - "5001:5000"
+    volumes:
+      # 将输出目录映射到本地，方便获取生成的文件
+      - ./output:/app/output
+      # 将数据目录映射到本地，持久化用户修改
+      - ./data:/app/data
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

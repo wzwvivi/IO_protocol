@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理 - 接口代码生成平台</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border-color: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-orange: #d29922;
+            --accent-red: #f85149;
+            --accent-purple: #a371f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-left a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .header-left a:hover {
+            color: var(--accent-blue);
+        }
+
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header h1 .badge {
+            background: var(--accent-purple);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .toolbar-left {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .user-count {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4cc764;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+        }
+
+        .btn-danger:hover {
+            background: rgba(248, 81, 73, 0.1);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        .table-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(88, 166, 255, 0.03);
+        }
+
+        .user-name {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .user-name .username {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .user-name .display-name {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .role-badge.admin {
+            background: rgba(163, 113, 247, 0.2);
+            color: var(--accent-purple);
+        }
+
+        .role-badge.user {
+            background: rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.active {
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--accent-green);
+        }
+
+        .status-badge.inactive {
+            background: rgba(248, 81, 73, 0.2);
+            color: var(--accent-red);
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .time {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            width: 100%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+
+        .form-group .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .alert.success {
+            background: rgba(63, 185, 80, 0.1);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            color: var(--accent-green);
+        }
+
+        .alert.error {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+            color: var(--accent-red);
+        }
+
+        #alertBox {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="{{ url_for('index') }}">← 返回主页</a>
+            <h1>
+                用户管理
+                <span class="badge">管理员</span>
+            </h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="alertBox" class="alert"></div>
+
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <span class="user-count">共 {{ users|length }} 个用户</span>
+            </div>
+            <button class="btn btn-primary" onclick="showCreateModal()">
+                ➕ 添加用户
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>用户</th>
+                        <th>邮箱</th>
+                        <th>角色</th>
+                        <th>状态</th>
+                        <th>注册时间</th>
+                        <th>最后登录</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    {% for user in users %}
+                    <tr id="user-row-{{ user.username }}">
+                        <td>
+                            <div class="user-name">
+                                <span class="username">{{ user.username }}</span>
+                                {% if user.display_name and user.display_name != user.username %}
+                                <span class="display-name">{{ user.display_name }}</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>{{ user.email or '-' }}</td>
+                        <td>
+                            <span class="role-badge {{ user.role }}">
+                                {% if user.role == 'admin' %}管理员{% else %}用户{% endif %}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="status-badge {{ 'active' if user.is_active else 'inactive' }}">
+                                {{ '正常' if user.is_active else '禁用' }}
+                            </span>
+                        </td>
+                        <td class="time">{{ user.created_at[:10] if user.created_at else '-' }}</td>
+                        <td class="time">{{ user.last_login[:16] if user.last_login else '从未' }}</td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" 
+                                        onclick="showEditModal('{{ user.username }}', '{{ user.display_name }}', '{{ user.email or '' }}', '{{ user.role }}', {{ 'true' if user.is_active else 'false' }})">
+                                    编辑
+                                </button>
+                                <button class="btn btn-secondary btn-sm"
+                                        onclick="showResetPasswordModal('{{ user.username }}')">
+                                    重置密码
+                                </button>
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="deleteUser('{{ user.username }}')">
+                                    删除
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 创建用户 Modal -->
+    <div class="modal-overlay" id="createModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>➕ 添加新用户</h2>
+                <button class="modal-close" onclick="closeModal('createModal')">&times;</button>
+            </div>
+            <form id="createForm" onsubmit="createUser(event)">
+                <div class="form-group">
+                    <label for="create_username">用户名 *</label>
+                    <input type="text" id="create_username" name="username" required 
+                           placeholder="3-20个字符">
+                </div>
+                <div class="form-group">
+                    <label for="create_password">密码 *</label>
+                    <input type="password" id="create_password" name="password" required
+                           placeholder="至少6位">
+                </div>
+                <div class="form-group">
+                    <label for="create_display_name">显示名称</label>
+                    <input type="text" id="create_display_name" name="display_name">
+                </div>
+                <div class="form-group">
+                    <label for="create_email">邮箱</label>
+                    <input type="email" id="create_email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="create_role">角色</label>
+                    <select id="create_role" name="role">
+                        <option value="user">普通用户</option>
+                        <option value="admin">管理员</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createModal')">取消</button>
+                    <button type="submit" class="btn btn-primary">创建</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 编辑用户 Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>✏️ 编辑用户</h2>
+                <button class="modal-close" onclick="closeModal('editModal')">&times;</button>
+            </div>
+            <form id="editForm" onsubmit="updateUser(event)">
+                <input type="hidden" id="edit_username" name="username">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" id="edit_username_display" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="edit_display_name">显示名称</label>
+                    <input type="text" id="edit_display_name" name="display_name">
+                </div>
+                <div class="form-group">
+                    <label for="edit_email">邮箱</label>
+                    <input type="email" id="edit_email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="edit_role">角色</label>
+                    <select id="edit_role" name="role">
+                        <option value="user">普通用户</option>
+                        <option value="admin">管理员</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="edit_is_active" name="is_active">
+                        账户启用
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editModal')">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 重置密码 Modal -->
+    <div class="modal-overlay" id="resetPasswordModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🔐 重置密码</h2>
+                <button class="modal-close" onclick="closeModal('resetPasswordModal')">&times;</button>
+            </div>
+            <form id="resetPasswordForm" onsubmit="resetPassword(event)">
+                <input type="hidden" id="reset_username" name="username">
+                <p style="color: var(--text-secondary); margin-bottom: 16px;">
+                    为用户 <strong id="reset_username_display"></strong> 设置新密码
+                </p>
+                <div class="form-group">
+                    <label for="reset_new_password">新密码 *</label>
+                    <input type="password" id="reset_new_password" name="new_password" required
+                           placeholder="至少6位">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('resetPasswordModal')">取消</button>
+                    <button type="submit" class="btn btn-primary">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showAlert(message, type) {
+            const alertBox = document.getElementById('alertBox');
+            alertBox.textContent = message;
+            alertBox.className = 'alert ' + type;
+            alertBox.style.display = 'block';
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+
+        function showCreateModal() {
+            document.getElementById('createForm').reset();
+            document.getElementById('createModal').classList.add('active');
+        }
+
+        function showEditModal(username, displayName, email, role, isActive) {
+            document.getElementById('edit_username').value = username;
+            document.getElementById('edit_username_display').value = username;
+            document.getElementById('edit_display_name').value = displayName;
+            document.getElementById('edit_email').value = email;
+            document.getElementById('edit_role').value = role;
+            document.getElementById('edit_is_active').checked = isActive;
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function showResetPasswordModal(username) {
+            document.getElementById('reset_username').value = username;
+            document.getElementById('reset_username_display').textContent = username;
+            document.getElementById('reset_new_password').value = '';
+            document.getElementById('resetPasswordModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        async function createUser(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = {
+                username: form.username.value,
+                password: form.password.value,
+                display_name: form.display_name.value,
+                email: form.email.value,
+                role: form.role.value
+            };
+
+            try {
+                const response = await fetch('/api/admin/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('用户创建成功', 'success');
+                    closeModal('createModal');
+                    location.reload();
+                } else {
+                    showAlert(result.error || '创建失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        async function updateUser(event) {
+            event.preventDefault();
+            const form = event.target;
+            const username = form.username.value;
+            const data = {
+                display_name: form.display_name.value,
+                email: form.email.value,
+                role: form.role.value,
+                is_active: form.is_active.checked
+            };
+
+            try {
+                const response = await fetch('/api/admin/users/' + username, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('用户信息已更新', 'success');
+                    closeModal('editModal');
+                    location.reload();
+                } else {
+                    showAlert(result.error || '更新失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        async function resetPassword(event) {
+            event.preventDefault();
+            const form = event.target;
+            const username = form.username.value;
+            const data = {
+                new_password: form.new_password.value
+            };
+
+            try {
+                const response = await fetch('/api/admin/users/' + username + '/reset_password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('密码已重置', 'success');
+                    closeModal('resetPasswordModal');
+                } else {
+                    showAlert(result.error || '重置失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        async function deleteUser(username) {
+            if (!confirm('确定要删除用户 "' + username + '" 吗？此操作不可恢复。')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/admin/users/' + username, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('用户已删除', 'success');
+                    document.getElementById('user-row-' + username).remove();
+                } else {
+                    showAlert(result.error || '删除失败', 'error');
+                }
+            } catch (error) {
+                showAlert('请求失败: ' + error.message, 'error');
+            }
+        }
+
+        // 点击 modal 外部关闭
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+
+        // ESC 关闭 modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

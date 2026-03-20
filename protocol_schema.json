@@ -1,0 +1,291 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ARINC429 Protocol Configuration",
+  "description": "协议配置文件格式定义，支持设备树和版本管理",
+  "type": "object",
+  "required": ["protocol_meta"],
+  "properties": {
+    "protocol_meta": {
+      "type": "object",
+      "description": "协议元信息",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "协议名称",
+          "example": "CE-25A 前轮转弯系统通信协议"
+        },
+        "version": {
+          "type": "string",
+          "description": "协议版本",
+          "example": "V5.0"
+        },
+        "description": {
+          "type": "string",
+          "description": "协议描述"
+        },
+        "author": {
+          "type": "string",
+          "description": "创建者"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "创建时间"
+        }
+      }
+    },
+    "labels": {
+      "type": "array",
+      "description": "Label定义列表 (旧格式，兼容用)",
+      "items": {
+        "$ref": "#/definitions/label_definition"
+      }
+    },
+    "device_tree": {
+      "type": "array",
+      "description": "设备树结构 (新格式)",
+      "items": {
+        "$ref": "#/definitions/device_node"
+      }
+    }
+  },
+  "definitions": {
+    "device_node": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "设备节点唯一标识 (如 'ata32_32_3_scu')"
+        },
+        "name": {
+          "type": "string",
+          "description": "设备节点显示名称 (如 '32-3-转弯控制单元')"
+        },
+        "is_device": {
+          "type": "boolean",
+          "description": "是否为最小设备节点 (叶子节点)",
+          "default": false
+        },
+        "device_version": {
+          "type": "string",
+          "description": "设备当前版本号 (如 'V5.0.1')"
+        },
+        "version_history": {
+          "type": "array",
+          "description": "版本历史记录",
+          "items": {
+            "$ref": "#/definitions/version_record"
+          }
+        },
+        "labels": {
+          "type": "array",
+          "description": "该设备下的 Label 定义列表",
+          "items": {
+            "$ref": "#/definitions/label_definition"
+          }
+        },
+        "children": {
+          "type": "array",
+          "description": "子节点列表",
+          "items": {
+            "$ref": "#/definitions/device_node"
+          }
+        }
+      }
+    },
+    "version_record": {
+      "type": "object",
+      "required": ["version", "updated_at"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本号"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "更新时间"
+        },
+        "updated_by": {
+          "type": "string",
+          "description": "更新者用户名"
+        },
+        "change_summary": {
+          "type": "string",
+          "description": "变更说明"
+        },
+        "diff_summary": {
+          "type": "object",
+          "description": "差异摘要",
+          "properties": {
+            "added": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "新增的 label_oct 列表"
+            },
+            "removed": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "删除的 label_oct 列表"
+            },
+            "modified": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "修改的 label_oct 列表"
+            }
+          }
+        },
+        "label_snapshot": {
+          "type": "array",
+          "description": "该版本的 labels 快照",
+          "items": {
+            "$ref": "#/definitions/label_definition"
+          }
+        }
+      }
+    },
+    "label_definition": {
+      "type": "object",
+      "required": ["label_oct", "name"],
+      "properties": {
+        "label_oct": {
+          "type": "string",
+          "pattern": "^[0-7]{1,3}$",
+          "description": "Label八进制值 (如 '115', '374')"
+        },
+        "name": {
+          "type": "string",
+          "description": "信号名称"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["RDIU -> SCU", "SCU -> RDIU", "双向"],
+          "description": "数据传输方向"
+        },
+        "sources": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "数据来源列表 (如 ['FCM 1', 'FCM 2'])"
+        },
+        "data_type": {
+          "type": "string",
+          "enum": ["BNR_SIGNED", "BNR_UNSIGNED", "DISCRETE"],
+          "description": "数据类型"
+        },
+        "unit": {
+          "type": "string",
+          "description": "物理量单位 (如 '°', 'Knot')"
+        },
+        "range": {
+          "type": "string",
+          "description": "量程范围 (如 '±60°', '0-270 Knot')"
+        },
+        "resolution": {
+          "type": ["number", "null"],
+          "description": "分辨率 (BNR类型必填)"
+        },
+        "data_bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "数据位范围 [起始位, 结束位] (如 [17, 28])"
+        },
+        "sign_bit": {
+          "type": ["integer", "null"],
+          "description": "符号位位号 (BNR_SIGNED类型必填, 通常为29)"
+        },
+        "reserved_bits": {
+          "type": "string",
+          "description": "预留位范围描述 (如 '9-16')"
+        },
+        "discrete_bits": {
+          "type": "object",
+          "description": "离散位定义 (DISCRETE类型使用)",
+          "additionalProperties": {
+            "type": "string",
+            "description": "位描述 (如 '调零指令: 0=调零, 1=无效')"
+          }
+        },
+        "special_fields": {
+          "type": "array",
+          "description": "特殊多位字段定义",
+          "items": {
+            "$ref": "#/definitions/special_field"
+          }
+        },
+        "bnr_fields": {
+          "type": "array",
+          "description": "BNR数值字段定义",
+          "items": {
+            "$ref": "#/definitions/bnr_field"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "备注信息"
+        }
+      }
+    },
+    "special_field": {
+      "type": "object",
+      "required": ["name", "bits"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "字段名称"
+        },
+        "bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "位范围 [起始位, 结束位]"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["enum", "uint"],
+          "description": "字段类型: enum=枚举值, uint=无符号整数"
+        },
+        "values": {
+          "type": "object",
+          "description": "枚举值映射 (type=enum时使用)",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bnr_field": {
+      "type": "object",
+      "required": ["name", "data_bits", "resolution"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "字段名称"
+        },
+        "data_bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "数据位范围 [起始位, 结束位]"
+        },
+        "sign_bit": {
+          "type": ["integer", "null"],
+          "description": "符号位位号 (有符号时必填)"
+        },
+        "resolution": {
+          "type": "number",
+          "description": "分辨率"
+        },
+        "unit": {
+          "type": "string",
+          "description": "单位"
+        }
+      }
+    }
+  }
+}
