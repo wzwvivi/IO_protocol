@@ -1,0 +1,37 @@
+{
+  "label_oct": "151",
+  "name": "LG Position Indication Status for CAS",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "LG position and failure data; Transmitted by LGCU Control Channel",
+  "discrete_bits": {
+    "11": "LG System non Dispatchable Fault: 0=no fault, 1=fault",
+    "12": "LGCU Internal Fault: 0=no fault, 1=fault",
+    "13": "LG System Degraded: 0=not degraded, 1=degraded",
+    "14": "WOW System Fault: 0=no fault, 1=fault",
+    "15": "WOW System Degraded: 0=not degraded, 1=degraded",
+    "16": "Alternate Extension LG down: 0=not down, 1=down",
+    "17": "Alternate Extension LG fault: 0=no fault, 1=fault",
+    "18": "NG Disagree (NLG): 0=not disagree, 1=disagree",
+    "19": "LG Disagree (MLG LH): 0=not disagree, 1=disagree",
+    "20": "RG Disagree (MLG RH): 0=not disagree, 1=disagree",
+    "21": "NG Uplocked (NLG): 0=not uplocked, 1=uplocked",
+    "22": "LG Uplocked (MLG LH): 0=not uplocked, 1=uplocked",
+    "23": "RG Uplocked (MLG RH): 0=not uplocked, 1=uplocked",
+    "24": "NG In Transit (NLG): 0=not In Transit, 1=In Transit",
+    "25": "LG In Transit (MLG LH): 0=not In Transit, 1=In Transit",
+    "26": "RG In Transit (MLG RH): 0=not In Transit, 1=In Transit",
+    "27": "NG downlocked (NLG): 0=not downlocked, 1=downlocked",
+    "28": "LG downlocked (MLG LH): 0=not downlocked, 1=downlocked",
+    "29": "RG downlocked (MLG RH): 0=not downlocked, 1=downlocked"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

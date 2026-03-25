@@ -1,0 +1,28 @@
+{
+  "label_oct": "326",
+  "name": "Body Pitch Rate",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -128 到 127.985; bits 11-15 Pad; bit 29: 0=Positive(Nose Up), 1=Negative(Nose Down); 更新速率20ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        16,
+        28
+      ],
+      "name": "Body Pitch Rate",
+      "resolution": 0.015,
+      "sign_bit": 29,
+      "unit": "Degrees/Second"
+    }
+  ]
+}

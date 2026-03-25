@@ -1,0 +1,28 @@
+{
+  "label_oct": "327",
+  "name": "Body Roll Rate",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -128 到 127.985; bits 11-15 Pad; bit 29: 0=Positive(Right Wing Down), 1=Negative(Left Wing Down); 更新速率20ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        16,
+        28
+      ],
+      "name": "Body Roll Rate",
+      "resolution": 0.015,
+      "sign_bit": 29,
+      "unit": "Degrees/Second"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "label_oct": "110",
+  "name": "GPS Latitude",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -180 到 179.999828; bit 29: 0=Positive(North), 1=Negative(South); 与Label 120组合表示单个32位two's complement纬度值; 更新速率1200ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        28
+      ],
+      "name": "GPS Latitude",
+      "resolution": 0.000172,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

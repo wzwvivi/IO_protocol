@@ -1,0 +1,19 @@
+{
+  "label_oct": "270",
+  "name": "驾驶舱信号（驾驶舱转弯断开开关）",
+  "direction": "RDIU -> SCU",
+  "sources": [
+    "驾驶舱"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "数据字5, 来自驾驶舱",
+  "discrete_bits": {
+    "15": "转弯断开开关: 1=转弯断开, 0=无效 (驾驶舱显控开关)"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

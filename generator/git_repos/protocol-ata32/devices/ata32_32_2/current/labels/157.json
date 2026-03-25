@@ -1,0 +1,35 @@
+{
+  "label_oct": "157",
+  "name": "LGCU 1/2 Maintenance Word 9 (Electrical Fault of LG Prox)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "LG sensor fault information; Transmitted by LGCU CC",
+  "discrete_bits": {
+    "11": "MLG LH WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+    "12": "MLG RH WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+    "13": "NLG WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+    "14": "MLG LH downlock Proxi Fault: 0=no Fault, 1=Fault",
+    "15": "MLG RH dowlock Proxi Fault: 0=no Fault, 1=Fault",
+    "16": "NLG downlock Proxi Fault: 0=no Fault, 1=Fault",
+    "17": "NLG uplock Proxi Fault: 0=no Fault, 1=Fault",
+    "18": "MLG RH uplock Proxi Fault: 0=no Fault, 1=Fault",
+    "19": "MLG LH uplock Proxi Fault: 0=no Fault, 1=Fault",
+    "21": "DO CONS MLG WOW Fault: 0=no Fault, 1=Fault",
+    "22": "DO MLG LH WOW Fault: 0=no Fault, 1=Fault",
+    "23": "DO MLG RH WOW Fault: 0=no Fault, 1=Fault",
+    "24": "DO CONS MLG UPLK Fault: 0=no Fault, 1=Fault",
+    "25": "DO CONS MLG NOT DNLK Fault: 0=no Fault, 1=Fault",
+    "26": "DC BUS Power Supply Low: 0=not low, 1=low",
+    "28": "AE Valve mechanical Fault: 0=no Fault, 1=Fault",
+    "29": "DC ESS BUS Power Supply Low: 0=not low, 1=low"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

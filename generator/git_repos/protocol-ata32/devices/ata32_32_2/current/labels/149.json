@@ -1,0 +1,24 @@
+{
+  "label_oct": "149",
+  "name": "WOFFW Sensor Data",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "WOFFW Sensor Status Data; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+  "discrete_bits": {
+    "11": "MLG RH WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+    "12": "MLG LH WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+    "13": "NLG WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+    "14": "MLG RH WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "15": "MLG LH WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "16": "NLG WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

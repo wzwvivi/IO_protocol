@@ -1,0 +1,15 @@
+{
+  "device_id": "ata90_90_1",
+  "device_name": "90-1-视觉辅助计算机",
+  "ata_code": "ATA90",
+  "parent_path": [
+    "ATA90-自主飞行系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:57:04.978785",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

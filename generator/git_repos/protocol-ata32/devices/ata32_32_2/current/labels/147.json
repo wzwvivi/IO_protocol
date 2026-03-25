@@ -1,0 +1,36 @@
+{
+  "label_oct": "147",
+  "name": "LG Position Sensors",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Status of LG Position Indication Sensors; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+  "discrete_bits": {
+    "11": "MLG RH Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+    "12": "MLG LH Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+    "13": "NLG Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+    "14": "MLG RH Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+    "15": "MLG LH Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+    "16": "NLG Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+    "17": "MLG RH Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "18": "MLG LH Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "19": "NLG Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "20": "MLG RH Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "21": "MLG LH Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "22": "NLG Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+    "23": "LGCL selected position up (retraction): 0=not up, 1=up",
+    "24": "LGCL selected position down (extension): 0=not down, 1=down",
+    "25": "LGCL selected position up operational: 0=not Operational, 1=Operational",
+    "26": "LGCL selected position down operational: 0=not Operational, 1=Operational",
+    "28": "Command Retract: 0=Not Command Retract, 1=Command Retract",
+    "29": "Command Extend: 0=Not Command Extend, 1=Command Extend"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

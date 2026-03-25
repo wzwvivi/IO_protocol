@@ -1,0 +1,20 @@
+{
+  "label_oct": "354",
+  "name": "控制信号",
+  "direction": "RDIU -> SCU",
+  "sources": [
+    "FCM 1"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "数据字6, 来自FCM 1",
+  "discrete_bits": {
+    "14": "调零指令: 0=调零, 1=无效",
+    "15": "转弯断开开关: 1=转弯断开, 0=无效 (方舱开关)"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

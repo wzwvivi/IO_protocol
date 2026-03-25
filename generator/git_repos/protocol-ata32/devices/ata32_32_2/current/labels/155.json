@@ -1,0 +1,20 @@
+{
+  "label_oct": "155",
+  "name": "LGCU 1/2 Maintenance Word 6 (Invalid ARINC Data)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "ARINC Availability information Transmitted by LGCU CC",
+  "discrete_bits": {
+    "11": "Invalid data of Time, Date, Flight Leg, A/C Registration: 0=valid data, 1=no valid data",
+    "25": "Invalid Crosscom Control Channel: 0=valid data, 1=no valid data"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

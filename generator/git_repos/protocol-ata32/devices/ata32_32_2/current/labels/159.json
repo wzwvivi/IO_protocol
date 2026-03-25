@@ -1,0 +1,27 @@
+{
+  "label_oct": "159",
+  "name": "LGCU 2 Maintenance Word 13 (Raw Discrete Input Data)",
+  "direction": "LGCU2 Control Channel -> External Receiver",
+  "sources": [
+    "LGCU2 Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Raw discrete input data from Maintenance Switch, Uplocks, Relays and LGCP; Transmitted by LGCU CC; SDI 10=A429_LGCU2_ConCh_Tx1; bits 11,12,20,21,22,27,28,29 undefined/blank in source",
+  "discrete_bits": {
+    "13": "AEV2_28V_POS1_DISC: 0=false, 1=true",
+    "14": "AEV2_28V_POS2_DISC: 0=false, 1=true",
+    "15": "LGCL/AES_28V_EN: 0=false, 1=true",
+    "17": "RH_MLG_UPLOCK_GND_DISC: 0=false, 1=true",
+    "18": "LH_MLG_UPLOCK_GND_DISC: 0=false, 1=true",
+    "19": "NLG_UPLOCK_GND_DISC: 0=false, 1=true",
+    "24": "RH_MLG_UPLOCK_28V_DISC: 0=false, 1=true",
+    "25": "LH_MLG_UPLOCK_28V_DISC: 0=false, 1=true",
+    "26": "NLG_UPLOCK_28V_DISC: 0=false, 1=true"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

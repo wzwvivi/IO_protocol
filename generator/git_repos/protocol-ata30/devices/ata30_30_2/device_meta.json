@@ -1,0 +1,15 @@
+{
+  "device_id": "ata30_30_2",
+  "device_name": "30-2-风挡雨刷马达",
+  "ata_code": "ATA30",
+  "parent_path": [
+    "ATA30-防除冰和除雨系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:56.423808",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

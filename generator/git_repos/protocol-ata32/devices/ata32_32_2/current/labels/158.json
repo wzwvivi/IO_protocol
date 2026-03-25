@@ -1,0 +1,36 @@
+{
+  "label_oct": "158",
+  "name": "LGCU 1/2 Maintenance Word 12 (LGCU internal faults)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Transmitted by LGCU CC; SSM definition in source table is reversed: 11=Normal Operation, 00=Failure Warning",
+  "discrete_bits": {
+    "11": "MC ADC BIT Flt: 0=no Fault, 1=Fault",
+    "12": "CC ADC BIT Flt: 0=no Fault, 1=Fault",
+    "13": "DAC BIT Flt (LGCU1 only): 0=no Fault, 1=Fault",
+    "14": "EnVlvDrvIct Flt (LGCU1 only): 0=no Fault, 1=Fault",
+    "15": "MC EnVlvDrvEnCld Flt (LGCU1 only): 0=no Fault, 1=Fault",
+    "17": "AevDoPos2Mon Flt (LGCU2 only): 0=no Fault, 1=Fault",
+    "18": "MC SwInopMonCirTest Flt: 0=no Fault, 1=Fault",
+    "19": "CC SwInopMonCirTest Flt: 0=no Fault, 1=Fault",
+    "20": "PowIntEvalCirTest Flt: 0=no Fault, 1=Fault",
+    "21": "AevDoPos1Mon Flt: 0=no Fault, 1=Fault",
+    "22": "ExtDoMon Flt: 0=no Fault, 1=Fault",
+    "23": "CmdAsymMon Flt (LGCU1 only): 0=no Fault, 1=Fault",
+    "24": "Internal Bus Flt: 0=no Fault, 1=Fault",
+    "25": "EEPROM CalibDataBIT Flt: 0=no Fault, 1=Fault",
+    "26": "MC TimingTest Flt: 0=no Fault, 1=Fault",
+    "27": "DrOpenDoMon Flt: 0=no Fault, 1=Fault",
+    "28": "DrCldDoMon Flt: 0=no Fault, 1=Fault",
+    "29": "RetDoMon Flt: 0=no Fault, 1=Fault"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

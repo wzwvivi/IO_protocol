@@ -1,0 +1,28 @@
+{
+  "label_oct": "164",
+  "name": "Radio Height",
+  "direction": "RADALT -> CPE",
+  "sources": [
+    "RADALT"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -8192 到 8191.875; 表内位权描述存在疑似排版错误(18/20位重复16, 25位缺256); bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率50ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Radio Height",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "Feet"
+    }
+  ]
+}

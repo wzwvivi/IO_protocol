@@ -1,0 +1,35 @@
+{
+  "label_oct": "152",
+  "name": "LGCU 1/2 Maintenance Word 1 (LGCIS / AES faults)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "LGS failure occurrence for trouble shooting; Transmitted by LGCU Control Channel",
+  "discrete_bits": {
+    "11": "LGCU Non Dispatchable Fault (only LGCU1): 0=no fault, 1=fault",
+    "12": "AES Relay 3 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault",
+    "13": "AES Relay 3 Electrical Fault (only LGCU2): 0=no fault, 1=fault",
+    "14": "AES Relay 2 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault",
+    "15": "AES Relay 1 electrical Fault (only LGCU2): 0=no fault, 1=fault",
+    "16": "AES Relay 2 electrical Fault (only LGCU2): 0=no fault, 1=fault",
+    "17": "AES NG Uplk electrical Fault (only LGCU1): 0=no fault, 1=fault",
+    "18": "AES LG Uplk electrical Fault (only LGCU2): 0=no fault, 1=fault",
+    "19": "AES RG Uplk electrical Fault (only LGCU2): 0=no fault, 1=fault",
+    "22": "EHM3 Fault: 0=no fault, 1=fault",
+    "23": "LGCL electrical Fault: 0=no fault, 1=fault",
+    "24": "LGCL non Dispatchable Fault: 0=no fault, 1=fault",
+    "25": "AEV Position2 electrical Fault(only LGCU2): 0=no fault, 1=fault",
+    "26": "EHM1 Fault: 0=no fault, 1=fault",
+    "27": "EHM2 Fault: 0=no fault, 1=fault",
+    "28": "AEV Position1 electrical Fault: 0=no fault, 1=fault",
+    "29": "AES Relay 1 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

@@ -1,0 +1,55 @@
+{
+  "label_oct": "273",
+  "name": "GPS Sensor Status",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制DISC; GPS Sensor Operational Mode values refer to ARINC 743A-5 Attachment 4-2A label 273; 更新速率1200ms",
+  "discrete_bits": {
+    "11": "MSB Satellites Visible: 0=15 or less Visible(forced), 1=>15 Visible",
+    "12": "DADC/FMS source present: 0=Present, 1=Not present",
+    "13": "DADC/FMS source: 0=Primary, 1=Secondary",
+    "14": "IRS/FMS source present: 0=Present, 1=Not present",
+    "15": "IRS/FMS source: 0=Primary, 1=Secondary",
+    "29": "MSB Satellites Tracked: 0=15 or less Tracked, 1=>15 Tracked"
+  },
+  "special_fields": [
+    {
+      "bits": [
+        24,
+        28
+      ],
+      "name": "GPS Sensor Operational Mode",
+      "type": "enum",
+      "values": {}
+    }
+  ],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        16,
+        19
+      ],
+      "name": "Number of Satellites Visible",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        20,
+        23
+      ],
+      "name": "Number of Satellites Tracked",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    }
+  ]
+}

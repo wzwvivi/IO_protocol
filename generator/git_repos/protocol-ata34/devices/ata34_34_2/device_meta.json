@@ -1,0 +1,15 @@
+{
+  "device_id": "ata34_34_2",
+  "device_name": "34-2-ADC（大气数据计算机）",
+  "ata_code": "ATA34",
+  "parent_path": [
+    "ATA34-导航系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "标准大气协议",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:57:01.242313",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

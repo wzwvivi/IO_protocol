@@ -1,0 +1,15 @@
+{
+  "device_id": "ata24_24_3",
+  "device_name": "24-3-高压配电单元PDU",
+  "ata_code": "ATA24",
+  "parent_path": [
+    "ATA24-电源系统"
+  ],
+  "current_version": "V2.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:54.031273",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

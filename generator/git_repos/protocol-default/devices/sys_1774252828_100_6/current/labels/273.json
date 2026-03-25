@@ -1,0 +1,25 @@
+{
+  "label_oct": "273",
+  "name": "GPS Sensor Status",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {
+    "1": "DADC/FMS source present. 0=Present, 1=Not present",
+    "2": "DADC/FMS source. 0=Primary, 1=Secondary",
+    "3": "IRS/FMS source present. 0=Present, 1=Not present",
+    "4": "IRS/FMS source. 0=Primary, 1=Secondary",
+    "5": "Number of Satellites Visible. 0 to 15",
+    "6": "Number of Satellites Tracked. 0 to 15",
+    "7": "MSB of Satellites Tracked 1 > 15 Tracked, 0 = 15 or less Tracked"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

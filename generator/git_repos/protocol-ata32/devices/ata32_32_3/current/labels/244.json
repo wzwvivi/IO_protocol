@@ -1,0 +1,63 @@
+{
+  "label_oct": "244",
+  "name": "状态上报",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "SCU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU数据字5, 前轮工作状态: 010=转弯, 011=减摆, 100=调零",
+  "discrete_bits": {
+    "12": "脚蹬解除状态: 1=解除状态, 0=正常状态"
+  },
+  "special_fields": [
+    {
+      "bits": [
+        14,
+        16
+      ],
+      "name": "前轮工作状态上报",
+      "type": "enum",
+      "values": {
+        "2": "转弯状态",
+        "3": "减摆状态",
+        "4": "调零状态"
+      }
+    },
+    {
+      "bits": [
+        17,
+        18
+      ],
+      "name": "牵引状态",
+      "type": "enum",
+      "values": {
+        "0": "牵引无效状态",
+        "1": "允许牵引状态",
+        "2": "禁止牵引状态",
+        "3": "(未定义)"
+      }
+    },
+    {
+      "bits": [
+        19,
+        22
+      ],
+      "name": "软件大版本",
+      "type": "uint"
+    },
+    {
+      "bits": [
+        23,
+        26
+      ],
+      "name": "软件小版本",
+      "type": "uint"
+    }
+  ],
+  "bnr_fields": []
+}

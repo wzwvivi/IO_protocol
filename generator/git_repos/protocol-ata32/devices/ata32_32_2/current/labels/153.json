@@ -1,0 +1,27 @@
+{
+  "label_oct": "153",
+  "name": "LGCU 1/2 Maintenance Word 2 (Adj Requ of LG Prox)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "LGS Sensor Adjustment required information; Each Sensor 1 transmitted by LGCU1 CC and Sensor 2 by LGCU2 CC",
+  "discrete_bits": {
+    "11": "MLG LH WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "12": "MLG RH WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "13": "NLG WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "14": "MLG LH downlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "15": "MLG RH dowlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "16": "NLG downlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "17": "NLG uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "18": "MLG RH uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+    "19": "MLG LH uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

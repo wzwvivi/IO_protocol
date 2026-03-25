@@ -1,0 +1,15 @@
+{
+  "device_id": "ata32_32_2",
+  "device_name": "32-2-收放控制单元",
+  "ata_code": "ATA32",
+  "parent_path": [
+    "ATA32-起落架系统"
+  ],
+  "current_version": "V2.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:58.231851",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

@@ -1,0 +1,29 @@
+{
+  "label_oct": "255",
+  "name": "Hybrid Longitude",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Hybrid Longitude",
+      "range": "-180到179.999828",
+      "resolution": 0.000172,
+      "sign_bit": 29,
+      "unit": "degrees"
+    }
+  ]
+}

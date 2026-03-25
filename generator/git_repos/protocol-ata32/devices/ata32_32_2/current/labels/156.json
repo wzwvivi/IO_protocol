@@ -1,0 +1,27 @@
+{
+  "label_oct": "156",
+  "name": "LGCU 1/2 Maintenance Word 8 (LG Sensor Unreasonable)",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "LG sensor unreasonable information; Transmitted by LGCU CC; bits 21-28 blank/undefined in source table",
+  "discrete_bits": {
+    "11": "MLG LH WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "12": "MLG RH WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "13": "NLG WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "14": "MLG LH downlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "15": "MLG RH dowlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "16": "NLG downlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "17": "NLG uplock Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "18": "MLG RH uplock Proxi unreasonable: 0=not unreason., 1=unreason.",
+    "19": "MLG LH uplock Proxi unreasonable: 0=not unreason., 1=unreason."
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

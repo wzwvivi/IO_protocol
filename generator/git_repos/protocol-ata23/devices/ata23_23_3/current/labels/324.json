@@ -1,0 +1,28 @@
+{
+  "label_oct": "324",
+  "name": "Pitch Angle",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Nose Up, 1=Nose Down; 更新速率20ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        14,
+        28
+      ],
+      "name": "Pitch Angle",
+      "resolution": 0.0055,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

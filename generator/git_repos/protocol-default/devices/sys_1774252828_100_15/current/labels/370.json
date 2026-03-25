@@ -1,0 +1,28 @@
+{
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        28
+      ],
+      "name": "GPS Height WGS-84",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "Feet"
+    }
+  ],
+  "data_type": "",
+  "direction": "GPS -> CPE",
+  "discrete_bits": {},
+  "label_oct": "370",
+  "name": "GPS Height WGS-84",
+  "notes": "range -131072 to 131071.875; sign: 0=Positive(Up), 1=Negative(Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "GPS"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

@@ -1,0 +1,72 @@
+{
+  "label_oct": "260",
+  "name": "Date",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BCD; 单位 D:M:Y; 更新速率1200ms",
+  "discrete_bits": {},
+  "special_fields": [
+    {
+      "bits": [
+        11,
+        14
+      ],
+      "name": "Year x1",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        15,
+        18
+      ],
+      "name": "Year x10",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        19,
+        22
+      ],
+      "name": "Month x1",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        23,
+        23
+      ],
+      "name": "Month x10",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        24,
+        27
+      ],
+      "name": "Day x1",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        28,
+        29
+      ],
+      "name": "Day x10",
+      "type": "bcd",
+      "values": {}
+    }
+  ],
+  "bnr_fields": []
+}

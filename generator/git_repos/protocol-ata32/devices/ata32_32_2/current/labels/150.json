@@ -1,0 +1,31 @@
+{
+  "label_oct": "150",
+  "name": "Consolidated WOW Data",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "WOW Data; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+  "discrete_bits": {
+    "12": "All Gear WOW: 0=not WOW, 1=WOW",
+    "13": "MLG WOW (LH and RH): 0=not WOW, 1=WOW",
+    "14": "GR_ WOFFW: 0=not WOFFW, 1=WOFFW",
+    "16": "NLG Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+    "17": "MLG RH Uplock Switch Off Monitor (LGCU2 only): 0=not in OFF position, 1=in OFF position",
+    "18": "MLG LH Uplock Switch Off Monitor (LGCU2 only): 0=not in OFF position, 1=in OFF position",
+    "19": "NLG Door Uplock Switch Off Monitor (LGCU1 only): 0=not in OFF position, 1=in OFF position",
+    "20": "MLG RH Door Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+    "21": "MLG LH Door Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+    "23": "DI_MON_AES_GND_DISC: 0=GND connected, 1=GND disconnected",
+    "24": "DI_AES_28V_EN (LGCU2 only): 0=28V not enabled, 1=28V enabled",
+    "25": "All Gear WOW operational: 0=not Operational, 1=Operational",
+    "26": "MLG WOW (LH and RH) operational: 0=not Operational, 1=Operational"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

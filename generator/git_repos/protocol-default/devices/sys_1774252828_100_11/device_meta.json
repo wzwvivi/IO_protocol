@@ -1,0 +1,15 @@
+{
+  "device_id": "sys_1774252828_100_11",
+  "device_name": "100-11-自定-429",
+  "ata_code": "DEFAULT",
+  "parent_path": [
+    "ATA-100 自定义"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:57:08.032283",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

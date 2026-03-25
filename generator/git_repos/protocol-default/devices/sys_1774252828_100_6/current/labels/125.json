@@ -1,0 +1,17 @@
+{
+  "label_oct": "125",
+  "name": "UTC",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": []
+}

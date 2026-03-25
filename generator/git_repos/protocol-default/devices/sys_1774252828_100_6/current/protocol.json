@@ -1,0 +1,687 @@
+{
+  "protocol_meta": {
+    "name": "100-6-空地数据管理计算机-429",
+    "version": "V2.0",
+    "description": ""
+  },
+  "device_meta_ref": {
+    "device_id": "sys_1774252828_100_6",
+    "ata_code": "DEFAULT"
+  },
+  "version_info": {
+    "version": "V2.0",
+    "created_at": "2026-03-25T06:57:07.522913"
+  },
+  "labels": [
+    {
+      "label_oct": "076",
+      "name": "GPS Altitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Altitude",
+          "range": "-131072到131071.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "110",
+      "name": "GPS Latitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Latitude",
+          "range": "-180到179.999828",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "111",
+      "name": "GPS Longitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Longitude",
+          "range": "-180到179.999828",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "120",
+      "name": "GPS Latitude Fine",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Latitude Fine",
+          "range": "0到0.00017157755792140960693",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "121",
+      "name": "GPS Longitude Fine",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Longitude Fine",
+          "range": "0到0.00017157755792140960693",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "125",
+      "name": "UTC",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "132",
+      "name": "Hybrid True Heading",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Hybrid True Heading",
+          "range": "-180到179.9945",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "150",
+      "name": "UTC",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {
+        "23": "脚蹬: 1=正常"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "164",
+      "name": "Radio Height",
+      "direction": "RADALT -> CPE",
+      "sources": [
+        "RADALT"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Radio Height",
+          "range": "-8192到8191.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "175",
+      "name": "Hybrid Ground Speed",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Hybrid Ground Speed",
+          "range": "0到4095.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "knots"
+        }
+      ]
+    },
+    {
+      "label_oct": "212",
+      "name": "Altitude Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Altitude Rate",
+          "range": "-32768到32752",
+          "resolution": 16,
+          "sign_bit": 29,
+          "unit": "Feet/Minute"
+        }
+      ]
+    },
+    {
+      "label_oct": "254",
+      "name": "Hybrid Latitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Hybrid Latitude",
+          "range": "-180到179.999828",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "255",
+      "name": "Hybrid Longitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Hybrid Longitude",
+          "range": "-180到179.999828",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "261",
+      "name": "Hybrid Altitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Hybrid Altitude",
+          "range": "-131072到131071.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "273",
+      "name": "GPS Sensor Status",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {
+        "1": "DADC/FMS source present. 0=Present, 1=Not present",
+        "2": "DADC/FMS source. 0=Primary, 1=Secondary",
+        "3": "IRS/FMS source present. 0=Present, 1=Not present",
+        "4": "IRS/FMS source. 0=Primary, 1=Secondary",
+        "5": "Number of Satellites Visible. 0 to 15",
+        "6": "Number of Satellites Tracked. 0 to 15",
+        "7": "MSB of Satellites Tracked 1 > 15 Tracked, 0 = 15 or less Tracked"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "312",
+      "name": "Ground Speed",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Ground Speed",
+          "range": "0到4095.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "knots"
+        }
+      ]
+    },
+    {
+      "label_oct": "313",
+      "name": "True Track Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "True Track Angle",
+          "range": "-180到179.9945",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "314",
+      "name": "True Heading",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "True Heading",
+          "range": "-180到179.9945",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "324",
+      "name": "Pitch Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Pitch Angle",
+          "range": "-180到179.9945",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "325",
+      "name": "Roll Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Roll Angle",
+          "range": "-180到179.9945",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "326",
+      "name": "Body Pitch Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Body Pitch Rate",
+          "range": "-128到127.985",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "degrees/second"
+        }
+      ]
+    },
+    {
+      "label_oct": "327",
+      "name": "Body Roll Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Body Roll Rate",
+          "range": "-128到127.985",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "degrees/second"
+        }
+      ]
+    },
+    {
+      "label_oct": "330",
+      "name": "Body Yaw Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Body Yaw Rate",
+          "range": "-128到127.985",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "degrees/second"
+        }
+      ]
+    },
+    {
+      "label_oct": "370",
+      "name": "GPS Height WGS-84",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "GPS Height WGS-84",
+          "range": "-131072到131071.875",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    }
+  ]
+}

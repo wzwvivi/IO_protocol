@@ -1,0 +1,936 @@
+{
+  "version": "V7.0",
+  "created_at": "2026-03-25T07:23:19.234710",
+  "created_by": "admin",
+  "protocol_meta": {
+    "name": "100-15-空地数据管理计算机-429",
+    "version": "V6.0",
+    "description": ""
+  },
+  "labels": [
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "GPS Latitude Fine",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "120",
+      "name": "GPS Latitude Fine",
+      "notes": "range 0 to 0.00017157755792140960693; bits 11-17 pad; bit 29 fixed 0, sign determined by label 110; split 32-bit latitude low part; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "GPS Longitude Fine",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "121",
+      "name": "GPS Longitude Fine",
+      "notes": "range 0 to 0.00017157755792140960693; bits 11-17 pad; bit 29 fixed 0, sign determined by paired longitude label; split 32-bit longitude low part; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [],
+      "data_type": "DISCRETE",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {
+        "9": "脚蹬"
+      },
+      "label_oct": "125",
+      "name": "UTC",
+      "notes": "BCD time Hr:Min; range 0 to 23:59.9; bit 29 pad; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Tenths of Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Tens of Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            26
+          ],
+          "name": "Hours",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            27,
+            28
+          ],
+          "name": "Tens of Hours",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Track Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "132",
+      "name": "True Track Angle",
+      "notes": "Hybrid True Heading/混合真航向; range -180 to 179.9945; bits 11-13 pad; sign: 0=East of North, 1=West of North; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            12,
+            17
+          ],
+          "name": "Seconds",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            18,
+            23
+          ],
+          "name": "Minutes",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            24,
+            28
+          ],
+          "name": "Hours",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {
+        "11": "GPS system clock source flag: 0=Not GPS system clock source, 1=GPS system clock source"
+      },
+      "label_oct": "150",
+      "name": "UTC",
+      "notes": "CUSTOM Binary UTC H:M:S; bit 29 reserved always 0 positive; See ARINC 429 Attachment 6 table 6-27; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Radio Height",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ],
+      "data_type": "",
+      "direction": "RADALT -> CPE",
+      "discrete_bits": {},
+      "label_oct": "164",
+      "name": "Radio Height",
+      "notes": "range -8192 to 8191.875; table appears inconsistent in bit weights around bits 18-21, extracted as single BNR field per declared BNR/range/resolution; sign: 0=Positive(Up), 1=Negative(Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "RADALT"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [],
+      "data_type": "",
+      "direction": "RADALT -> CPE",
+      "discrete_bits": {},
+      "label_oct": "165",
+      "name": "Radio Height",
+      "notes": "BCD Radio Height; range -20000 to 7999.9; document marks resolution 16 but field layout is BCD digits; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "RADALT"
+      ],
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Radio Height x0.1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Radio Height x1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Radio Height x10",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            26
+          ],
+          "name": "Radio Height x100",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            27,
+            29
+          ],
+          "name": "Radio Height x1000",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Hybrid Ground Speed",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Knots"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "175",
+      "name": "Hybrid Ground Speed",
+      "notes": "range 0 to 4095.875; bit 29 always 0/positive; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "Altitude Rate",
+          "resolution": 16,
+          "sign_bit": 29,
+          "unit": "Feet/Minute"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "212",
+      "name": "Altitude Rate",
+      "notes": "range -32768 to 32752; bits 11-17 pad; sign: 0=Positive(Up), 1=Negative(Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            17
+          ],
+          "name": "ICAO Address Digit #1",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            18,
+            21
+          ],
+          "name": "ICAO Address Digit #2",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            22,
+            25
+          ],
+          "name": "ICAO Address Digit #3",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            26,
+            29
+          ],
+          "name": "ICAO Address Digit #4",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ],
+      "data_type": "",
+      "direction": "XPDR -> CPE",
+      "discrete_bits": {},
+      "label_oct": "214",
+      "name": "ICAO Address",
+      "notes": "ICAO 24-Bit Aircraft Address (part 1); bits 11-13 pad; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "XPDR"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            13,
+            16
+          ],
+          "name": "ICAO Address Digit #5",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            17,
+            20
+          ],
+          "name": "ICAO Address Digit #6",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ],
+      "data_type": "",
+      "direction": "XPDR -> CPE",
+      "discrete_bits": {},
+      "label_oct": "216",
+      "name": "ICAO Address",
+      "notes": "ICAO 24-Bit Aircraft Address (part 2); remaining bits pad; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "XPDR"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Latitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "254",
+      "name": "Hybrid Latitude",
+      "notes": "range -180 to 179.999828; sign: 0=Positive(North), 1=Negative(South); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Longitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "255",
+      "name": "Hybrid Longitude",
+      "notes": "range -180 to 179.999828; sign: 0=Positive(East), 1=Negative(West); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "260",
+      "name": "Date",
+      "notes": "BCD date D:M:Y; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Year (x1)",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Year (x10)",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Month (x1)",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            23
+          ],
+          "name": "Month (x10)",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            24,
+            27
+          ],
+          "name": "Day (x1)",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            28,
+            29
+          ],
+          "name": "Day (x10)",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Altitude",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "261",
+      "name": "Hybrid Altitude",
+      "notes": "range -131072 to 131071.875; sign: 0=Positive(Up), 1=Negative(Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            19
+          ],
+          "name": "Number of Satellites Visible",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            20,
+            23
+          ],
+          "name": "Number of Satellites Tracked",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {
+        "11": "MSB Satellites Visible: 0=15 or less Visible(forced), 1=>15 Visible",
+        "12": "DADC/FMS source present: 0=Present, 1=Not present",
+        "13": "DADC/FMS source: 0=Primary, 1=Secondary",
+        "14": "IRS/FMS source present: 0=Present, 1=Not present",
+        "15": "IRS/FMS source: 0=Primary, 1=Secondary",
+        "29": "MSB Satellites Tracked: 0=15 or less Tracked, 1=>15 Tracked"
+      },
+      "label_oct": "273",
+      "name": "GPS Sensor Status",
+      "notes": "DISC status label; operational mode refers to ARINC 743A-5 Attachment 4-2A label 273; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [
+        {
+          "bits": [
+            24,
+            28
+          ],
+          "name": "GPS Sensor Operational Mode",
+          "type": "enum",
+          "values": {}
+        }
+      ],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Ground Speed",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Knots"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "312",
+      "name": "Ground Speed",
+      "notes": "range 0 to 4095.875; bit 29 always 0/positive; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Track Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "313",
+      "name": "True Track Angle",
+      "notes": "range -180 to 179.9945; bits 11-13 pad; sign: 0=East of North, 1=West of North; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Heading",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "314",
+      "name": "True Heading",
+      "notes": "range -180 to 179.9945; bits 11-13 pad; sign: 0=Positive(East), 1=Negative(West); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Pitch Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "324",
+      "name": "Pitch Angle",
+      "notes": "range -180 to 179.9945; bits 11-13 pad; sign: 0=Nose Up, 1=Nose Down; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Roll Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "325",
+      "name": "Roll Angle",
+      "notes": "range -180 to 179.9945; bits 11-13 pad; sign: 0=Right Wing Down, 1=Left Wing Down; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Pitch Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "326",
+      "name": "Body Pitch Rate",
+      "notes": "range -128 to 127.985; bits 11-15 pad; sign: 0=Positive(Nose Up), 1=Negative(Nose Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Roll Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "327",
+      "name": "Body Roll Rate",
+      "notes": "range -128 to 127.985; bits 11-15 pad; sign: 0=Positive(Right Wing Down), 1=Negative(Left Wing Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Yaw Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ],
+      "data_type": "",
+      "direction": "IRS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "330",
+      "name": "Body Yaw Rate",
+      "notes": "range -128 to 127.985; bits 11-15 pad; sign: 0=Positive(Nose Right), 1=Negative(Nose Left); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "IRS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [],
+      "data_type": "",
+      "direction": "FMC -> CPE",
+      "discrete_bits": {},
+      "label_oct": "360",
+      "name": "Flight Information",
+      "notes": "Label 360 appears multiple times in document as segmented payload frames for flight information. Segment 1: constant/pad pattern with SSM=01. Segment 2: Flight Number Char #1 bits 9-11, Char #2 bits 16-22, Char #3 bits 23-29, SSM=00. Segment 3: Flight Number Char #4 bits 9-11, Char #5 bits 16-22, Char #6 bits 23-29, SSM=00. Segment 4: Flight Number Char #7 bits 9-11, Char #8 bits 16-22, Origin Char #1 bits 23-29, SSM=00. Segment 5: Origin Char #2 bits 9-11, Origin Char #3 bits 16-22, Origin Char #4 bits 23-29, SSM=00. Segment 6: Destination Char #1 bits 9-11, Destination Char #2 bits 16-22, Destination Char #3 bits 23-29, SSM=00. Segment 7: Destination Char #4 bits 9-11, bits 16-29 pad set to 0, SSM=00.",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "FMC"
+      ],
+      "special_fields": [],
+      "unit": ""
+    },
+    {
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "GPS Height WGS-84",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ],
+      "data_type": "",
+      "direction": "GPS -> CPE",
+      "discrete_bits": {},
+      "label_oct": "370",
+      "name": "GPS Height WGS-84",
+      "notes": "range -131072 to 131071.875; sign: 0=Positive(Up), 1=Negative(Down); SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+      "range": "",
+      "reserved_bits": "",
+      "resolution": null,
+      "sources": [
+        "GPS"
+      ],
+      "special_fields": [],
+      "unit": ""
+    }
+  ],
+  "label_count": 26,
+  "from_version": "V6.0"
+}

@@ -1,0 +1,63 @@
+{
+  "label_oct": "165",
+  "name": "Radio Height",
+  "direction": "RADALT -> CPE",
+  "sources": [
+    "RADALT"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BCD; 单位 Feet; 范围 -20000 到 7999.9; 更新速率200ms",
+  "discrete_bits": {},
+  "special_fields": [
+    {
+      "bits": [
+        11,
+        14
+      ],
+      "name": "Radio Height x0.1",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        15,
+        18
+      ],
+      "name": "Radio Height x1",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        19,
+        22
+      ],
+      "name": "Radio Height x10",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        23,
+        26
+      ],
+      "name": "Radio Height x100",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        27,
+        29
+      ],
+      "name": "Radio Height x1000",
+      "type": "bcd",
+      "values": {}
+    }
+  ],
+  "bnr_fields": []
+}

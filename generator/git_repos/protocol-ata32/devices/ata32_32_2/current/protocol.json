@@ -1,0 +1,758 @@
+{
+  "protocol_meta": {
+    "name": "32-2-收放控制单元",
+    "version": "V2.0",
+    "description": ""
+  },
+  "device_meta_ref": {
+    "device_id": "ata32_32_2",
+    "ata_code": "ATA32"
+  },
+  "version_info": {
+    "version": "V2.0",
+    "created_at": "2026-03-25T06:56:58.484565"
+  },
+  "labels": [
+    {
+      "label_oct": "144",
+      "name": "LG Prox LGCU1 Monitor Channel",
+      "direction": "LGCU1 Monitor Channel -> External Receiver",
+      "sources": [
+        "LGCU1 Monitor Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Landing Gear Sensor evaluated by the Monitor Channel of LGCU1; SDI 01=A429_LGCU1_MonCh_Tx1",
+      "discrete_bits": {
+        "11": "RH_MLG_Prox_WOFFW_1: 0=Not WOFFW, 1=WOFFW",
+        "12": "RH_MLG_Prox_WOFFW_1_OP: 0=Not Operational, 1=Operational",
+        "15": "RH_MLG_Prox_DNLK_1: 0=Not Downlocked, 1=Downlocked",
+        "16": "RH_MLG_Prox_DNLK_1_OP: 0=Not Operational, 1=Operational"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "145",
+      "name": "LG Prox Monitor Channel LGCU2",
+      "direction": "LGCU2 Monitor Channel -> External Receiver",
+      "sources": [
+        "LGCU2 Monitor Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Landing Gear Sensor evaluated by the Monitor Channel of LGCU2; SDI 10=A429_LGCU2_MonCh_Tx1",
+      "discrete_bits": {
+        "11": "LH_MLG_Prox_WOFFW_2: 0=Not WOFFW, 1=WOFFW",
+        "12": "LH_MLG_Prox_WOFFW_2_OP: 0=Not Operational, 1=Operational",
+        "15": "LH_MLG_Prox_DNLK_2: 0=Not Downlocked, 1=Downlocked",
+        "16": "LH_MLG_Prox_DNLK_2_OP: 0=Not Operational, 1=Operational"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "146",
+      "name": "LGCU Configuration Data",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Configuration Data (PNR, SNR, CRC automatic mode Tx); bits 9-31 per ARINC protocol automatic mode",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "147",
+      "name": "LG Position Sensors",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Status of LG Position Indication Sensors; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+      "discrete_bits": {
+        "11": "MLG RH Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+        "12": "MLG LH Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+        "13": "NLG Uplock Proxi Sensor: 0=not Uplocked, 1=Uplocked",
+        "14": "MLG RH Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+        "15": "MLG LH Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+        "16": "NLG Downlock Proxi Sensor: 0=not Downlocked, 1=Downlocked",
+        "17": "MLG RH Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "18": "MLG LH Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "19": "NLG Uplock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "20": "MLG RH Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "21": "MLG LH Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "22": "NLG Downlock Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "23": "LGCL selected position up (retraction): 0=not up, 1=up",
+        "24": "LGCL selected position down (extension): 0=not down, 1=down",
+        "25": "LGCL selected position up operational: 0=not Operational, 1=Operational",
+        "26": "LGCL selected position down operational: 0=not Operational, 1=Operational",
+        "28": "Command Retract: 0=Not Command Retract, 1=Command Retract",
+        "29": "Command Extend: 0=Not Command Extend, 1=Command Extend"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "148",
+      "name": "Consolidated LG Position Data",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Consolidated Status of LG Position; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+      "discrete_bits": {
+        "11": "All Gear Downlocked: 0=not Downlocked, 1=Downlocked",
+        "12": "All Gear Uplocked: 0=not Uplocked, 1=Uplocked",
+        "13": "NLG Uplocked: 0=not Uplocked, 1=Uplocked",
+        "14": "NLG Downlocked: 0=not Downlocked, 1=Downlocked",
+        "15": "Extension Driver energized: 0=not energized, 1=energized",
+        "16": "Retraction Driver energized: 0=not energized, 1=energized",
+        "22": "AES Relay 1 Driver Low energized (only LGCU2): 0=not energized, 1=energized",
+        "23": "AES Relay 3-5 Driver Low energized (only LGCU2): 0=not energized, 1=energized",
+        "24": "LgclUpDn (internal use): 0=False, 1=True",
+        "27": "Consolidated MLG Not Downlocked: 0=Downlocked, 1=not Downlocked",
+        "28": "Consolidated MLG Uplocked: 0=not Uplocked, 1=Uplocked",
+        "29": "LgclDnUp (internal use): 0=False, 1=True"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "149",
+      "name": "WOFFW Sensor Data",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "WOFFW Sensor Status Data; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+      "discrete_bits": {
+        "11": "MLG RH WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+        "12": "MLG LH WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+        "13": "NLG WOFFW Proxi Sensor: 0=not WOFFW, 1=WOFFW",
+        "14": "MLG RH WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "15": "MLG LH WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational",
+        "16": "NLG WOFFW Proxi Sensor operational: 0=not Operational, 1=Operational"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "150",
+      "name": "Consolidated WOW Data",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "WOW Data; Transmitted by LGCU Control Channel; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+      "discrete_bits": {
+        "12": "All Gear WOW: 0=not WOW, 1=WOW",
+        "13": "MLG WOW (LH and RH): 0=not WOW, 1=WOW",
+        "14": "GR_ WOFFW: 0=not WOFFW, 1=WOFFW",
+        "16": "NLG Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+        "17": "MLG RH Uplock Switch Off Monitor (LGCU2 only): 0=not in OFF position, 1=in OFF position",
+        "18": "MLG LH Uplock Switch Off Monitor (LGCU2 only): 0=not in OFF position, 1=in OFF position",
+        "19": "NLG Door Uplock Switch Off Monitor (LGCU1 only): 0=not in OFF position, 1=in OFF position",
+        "20": "MLG RH Door Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+        "21": "MLG LH Door Uplock Switch Off Monitor(LGCU1 only): 0=not in OFF position, 1=in OFF position",
+        "23": "DI_MON_AES_GND_DISC: 0=GND connected, 1=GND disconnected",
+        "24": "DI_AES_28V_EN (LGCU2 only): 0=28V not enabled, 1=28V enabled",
+        "25": "All Gear WOW operational: 0=not Operational, 1=Operational",
+        "26": "MLG WOW (LH and RH) operational: 0=not Operational, 1=Operational"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "151",
+      "name": "LG Position Indication Status for CAS",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "LG position and failure data; Transmitted by LGCU Control Channel",
+      "discrete_bits": {
+        "11": "LG System non Dispatchable Fault: 0=no fault, 1=fault",
+        "12": "LGCU Internal Fault: 0=no fault, 1=fault",
+        "13": "LG System Degraded: 0=not degraded, 1=degraded",
+        "14": "WOW System Fault: 0=no fault, 1=fault",
+        "15": "WOW System Degraded: 0=not degraded, 1=degraded",
+        "16": "Alternate Extension LG down: 0=not down, 1=down",
+        "17": "Alternate Extension LG fault: 0=no fault, 1=fault",
+        "18": "NG Disagree (NLG): 0=not disagree, 1=disagree",
+        "19": "LG Disagree (MLG LH): 0=not disagree, 1=disagree",
+        "20": "RG Disagree (MLG RH): 0=not disagree, 1=disagree",
+        "21": "NG Uplocked (NLG): 0=not uplocked, 1=uplocked",
+        "22": "LG Uplocked (MLG LH): 0=not uplocked, 1=uplocked",
+        "23": "RG Uplocked (MLG RH): 0=not uplocked, 1=uplocked",
+        "24": "NG In Transit (NLG): 0=not In Transit, 1=In Transit",
+        "25": "LG In Transit (MLG LH): 0=not In Transit, 1=In Transit",
+        "26": "RG In Transit (MLG RH): 0=not In Transit, 1=In Transit",
+        "27": "NG downlocked (NLG): 0=not downlocked, 1=downlocked",
+        "28": "LG downlocked (MLG LH): 0=not downlocked, 1=downlocked",
+        "29": "RG downlocked (MLG RH): 0=not downlocked, 1=downlocked"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "152",
+      "name": "LGCU 1/2 Maintenance Word 1 (LGCIS / AES faults)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "LGS failure occurrence for trouble shooting; Transmitted by LGCU Control Channel",
+      "discrete_bits": {
+        "11": "LGCU Non Dispatchable Fault (only LGCU1): 0=no fault, 1=fault",
+        "12": "AES Relay 3 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault",
+        "13": "AES Relay 3 Electrical Fault (only LGCU2): 0=no fault, 1=fault",
+        "14": "AES Relay 2 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault",
+        "15": "AES Relay 1 electrical Fault (only LGCU2): 0=no fault, 1=fault",
+        "16": "AES Relay 2 electrical Fault (only LGCU2): 0=no fault, 1=fault",
+        "17": "AES NG Uplk electrical Fault (only LGCU1): 0=no fault, 1=fault",
+        "18": "AES LG Uplk electrical Fault (only LGCU2): 0=no fault, 1=fault",
+        "19": "AES RG Uplk electrical Fault (only LGCU2): 0=no fault, 1=fault",
+        "22": "EHM3 Fault: 0=no fault, 1=fault",
+        "23": "LGCL electrical Fault: 0=no fault, 1=fault",
+        "24": "LGCL non Dispatchable Fault: 0=no fault, 1=fault",
+        "25": "AEV Position2 electrical Fault(only LGCU2): 0=no fault, 1=fault",
+        "26": "EHM1 Fault: 0=no fault, 1=fault",
+        "27": "EHM2 Fault: 0=no fault, 1=fault",
+        "28": "AEV Position1 electrical Fault: 0=no fault, 1=fault",
+        "29": "AES Relay 1 Non Dispatchable Fault (only LGCU2): 0=no fault, 1=fault"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "153",
+      "name": "LGCU 1/2 Maintenance Word 2 (Adj Requ of LG Prox)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "LGS Sensor Adjustment required information; Each Sensor 1 transmitted by LGCU1 CC and Sensor 2 by LGCU2 CC",
+      "discrete_bits": {
+        "11": "MLG LH WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "12": "MLG RH WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "13": "NLG WOFFW Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "14": "MLG LH downlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "15": "MLG RH dowlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "16": "NLG downlock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "17": "NLG uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "18": "MLG RH uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required",
+        "19": "MLG LH uplock Proxi Sensor adjustment: 0=adjust. not required, 1=adjust required"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "154",
+      "name": "LGCU 1/2 Maintenance Word 5",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Transmitted by LGCU CC",
+      "discrete_bits": {
+        "13": "AES Relay 4 Non Dispatchable Fault (only LGCU2): 0=not fault, 1=fault",
+        "14": "AES Relay 4 Electrical Fault (only LGCU2): 0=not fault, 1=fault",
+        "15": "AES Relay 5 Non Dispatchable Fault (only LGCU2): 0=not fault, 1=fault",
+        "16": "AES Relay 5 Electrical Fault (only LGCU2): 0=not fault, 1=fault"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "155",
+      "name": "LGCU 1/2 Maintenance Word 6 (Invalid ARINC Data)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "ARINC Availability information Transmitted by LGCU CC",
+      "discrete_bits": {
+        "11": "Invalid data of Time, Date, Flight Leg, A/C Registration: 0=valid data, 1=no valid data",
+        "25": "Invalid Crosscom Control Channel: 0=valid data, 1=no valid data"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "156",
+      "name": "LGCU 1/2 Maintenance Word 8 (LG Sensor Unreasonable)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "LG sensor unreasonable information; Transmitted by LGCU CC; bits 21-28 blank/undefined in source table",
+      "discrete_bits": {
+        "11": "MLG LH WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "12": "MLG RH WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "13": "NLG WOFFW Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "14": "MLG LH downlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "15": "MLG RH dowlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "16": "NLG downlock Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "17": "NLG uplock Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "18": "MLG RH uplock Proxi unreasonable: 0=not unreason., 1=unreason.",
+        "19": "MLG LH uplock Proxi unreasonable: 0=not unreason., 1=unreason."
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "157",
+      "name": "LGCU 1/2 Maintenance Word 9 (Electrical Fault of LG Prox)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "LG sensor fault information; Transmitted by LGCU CC",
+      "discrete_bits": {
+        "11": "MLG LH WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+        "12": "MLG RH WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+        "13": "NLG WOFFW Proxi Fault: 0=no Fault, 1=Fault",
+        "14": "MLG LH downlock Proxi Fault: 0=no Fault, 1=Fault",
+        "15": "MLG RH dowlock Proxi Fault: 0=no Fault, 1=Fault",
+        "16": "NLG downlock Proxi Fault: 0=no Fault, 1=Fault",
+        "17": "NLG uplock Proxi Fault: 0=no Fault, 1=Fault",
+        "18": "MLG RH uplock Proxi Fault: 0=no Fault, 1=Fault",
+        "19": "MLG LH uplock Proxi Fault: 0=no Fault, 1=Fault",
+        "21": "DO CONS MLG WOW Fault: 0=no Fault, 1=Fault",
+        "22": "DO MLG LH WOW Fault: 0=no Fault, 1=Fault",
+        "23": "DO MLG RH WOW Fault: 0=no Fault, 1=Fault",
+        "24": "DO CONS MLG UPLK Fault: 0=no Fault, 1=Fault",
+        "25": "DO CONS MLG NOT DNLK Fault: 0=no Fault, 1=Fault",
+        "26": "DC BUS Power Supply Low: 0=not low, 1=low",
+        "28": "AE Valve mechanical Fault: 0=no Fault, 1=Fault",
+        "29": "DC ESS BUS Power Supply Low: 0=not low, 1=low"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "158",
+      "name": "LGCU 1/2 Maintenance Word 12 (LGCU internal faults)",
+      "direction": "LGCU Control Channel -> External Receiver",
+      "sources": [
+        "LGCU Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Transmitted by LGCU CC; SSM definition in source table is reversed: 11=Normal Operation, 00=Failure Warning",
+      "discrete_bits": {
+        "11": "MC ADC BIT Flt: 0=no Fault, 1=Fault",
+        "12": "CC ADC BIT Flt: 0=no Fault, 1=Fault",
+        "13": "DAC BIT Flt (LGCU1 only): 0=no Fault, 1=Fault",
+        "14": "EnVlvDrvIct Flt (LGCU1 only): 0=no Fault, 1=Fault",
+        "15": "MC EnVlvDrvEnCld Flt (LGCU1 only): 0=no Fault, 1=Fault",
+        "17": "AevDoPos2Mon Flt (LGCU2 only): 0=no Fault, 1=Fault",
+        "18": "MC SwInopMonCirTest Flt: 0=no Fault, 1=Fault",
+        "19": "CC SwInopMonCirTest Flt: 0=no Fault, 1=Fault",
+        "20": "PowIntEvalCirTest Flt: 0=no Fault, 1=Fault",
+        "21": "AevDoPos1Mon Flt: 0=no Fault, 1=Fault",
+        "22": "ExtDoMon Flt: 0=no Fault, 1=Fault",
+        "23": "CmdAsymMon Flt (LGCU1 only): 0=no Fault, 1=Fault",
+        "24": "Internal Bus Flt: 0=no Fault, 1=Fault",
+        "25": "EEPROM CalibDataBIT Flt: 0=no Fault, 1=Fault",
+        "26": "MC TimingTest Flt: 0=no Fault, 1=Fault",
+        "27": "DrOpenDoMon Flt: 0=no Fault, 1=Fault",
+        "28": "DrCldDoMon Flt: 0=no Fault, 1=Fault",
+        "29": "RetDoMon Flt: 0=no Fault, 1=Fault"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "159",
+      "name": "LGCU 2 Maintenance Word 13 (Raw Discrete Input Data)",
+      "direction": "LGCU2 Control Channel -> External Receiver",
+      "sources": [
+        "LGCU2 Control Channel"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Raw discrete input data from Maintenance Switch, Uplocks, Relays and LGCP; Transmitted by LGCU CC; SDI 10=A429_LGCU2_ConCh_Tx1; bits 11,12,20,21,22,27,28,29 undefined/blank in source",
+      "discrete_bits": {
+        "13": "AEV2_28V_POS1_DISC: 0=false, 1=true",
+        "14": "AEV2_28V_POS2_DISC: 0=false, 1=true",
+        "15": "LGCL/AES_28V_EN: 0=false, 1=true",
+        "17": "RH_MLG_UPLOCK_GND_DISC: 0=false, 1=true",
+        "18": "LH_MLG_UPLOCK_GND_DISC: 0=false, 1=true",
+        "19": "NLG_UPLOCK_GND_DISC: 0=false, 1=true",
+        "24": "RH_MLG_UPLOCK_28V_DISC: 0=false, 1=true",
+        "25": "LH_MLG_UPLOCK_28V_DISC: 0=false, 1=true",
+        "26": "NLG_UPLOCK_28V_DISC: 0=false, 1=true"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "301",
+      "name": "A/C Registration Number Part 1",
+      "direction": "Aircraft Identification Source -> LGCU",
+      "sources": [
+        "Aircraft Identification Source"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Encoding Data Type: ISO #5",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            17
+          ],
+          "name": "Character 1",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            18,
+            24
+          ],
+          "name": "Character 2",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            25,
+            31
+          ],
+          "name": "Character 3",
+          "type": "iso5",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "303",
+      "name": "A/C Registration Number Part 3",
+      "direction": "Aircraft Identification Source -> LGCU",
+      "sources": [
+        "Aircraft Identification Source"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Encoding Data Type: ISO #5",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            17
+          ],
+          "name": "Character 7",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            18,
+            24
+          ],
+          "name": "Character 8",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            25,
+            31
+          ],
+          "name": "Character 9",
+          "type": "iso5",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "TBD",
+      "name": "UTC Time",
+      "direction": "GNSS/Clock Source -> LGCU Control Channel",
+      "sources": [
+        "GNSS/Clock Source"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Received by LGCU Control Channel; bit29 spare(0); SSM 30-31: 00=Failure Warning, 01=No Computed Data, 10=Functional Test, 11=Normal Operation",
+      "discrete_bits": {
+        "11": "GNSS System Clock used as source: 0=not GNSS System Clock, 1=GNSS System Clock"
+      },
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            12,
+            17
+          ],
+          "name": "Seconds",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": "s"
+        },
+        {
+          "data_bits": [
+            18,
+            23
+          ],
+          "name": "Minutes",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": "min"
+        },
+        {
+          "data_bits": [
+            24,
+            28
+          ],
+          "name": "Hours",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "label_oct": "TBD",
+      "name": "Flight Leg",
+      "direction": "OHMS/OMS -> LGCU",
+      "sources": [
+        "OHMS/OMS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Signed 2's Complement BNR; range -128 to +127; significant bits 7; when current flight leg is +127 and a new flight leg starts, transmitted value restarts at -128.",
+      "discrete_bits": {
+        "11": "OHMS全局终止标志布尔值: 0=FALSE, 1=TRUE"
+      },
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            22,
+            28
+          ],
+          "name": "Flight Leg",
+          "resolution": 1,
+          "sign_bit": 29,
+          "unit": "count"
+        }
+      ]
+    },
+    {
+      "label_oct": "TBD",
+      "name": "UTC Date",
+      "direction": "Date Source -> LGCU Control Channel",
+      "sources": [
+        "Date Source"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Date; Received by LGCU Control Channel; SSM 30-31: 00=Plus, 01=No Computed Data, 10=Functional Test, 11=Minus",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            14
+          ],
+          "name": "Year (ones)",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            15,
+            18
+          ],
+          "name": "Year (tens)",
+          "resolution": 10,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            19,
+            22
+          ],
+          "name": "Month (ones)",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            23,
+            23
+          ],
+          "name": "Month (tens)",
+          "resolution": 10,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            24,
+            27
+          ],
+          "name": "Day (ones)",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            28,
+            29
+          ],
+          "name": "Day (tens)",
+          "resolution": 10,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "TBD",
+      "name": "A/C Registration Number Part 2",
+      "direction": "Aircraft Identification Source -> LGCU",
+      "sources": [
+        "Aircraft Identification Source"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "Encoding Data Type: ISO #5",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            17
+          ],
+          "name": "Character 4",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            18,
+            24
+          ],
+          "name": "Character 5",
+          "type": "iso5",
+          "values": {}
+        },
+        {
+          "bits": [
+            25,
+            31
+          ],
+          "name": "Character 6",
+          "type": "iso5",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    }
+  ]
+}

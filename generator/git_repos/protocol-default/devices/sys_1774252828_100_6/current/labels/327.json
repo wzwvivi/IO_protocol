@@ -1,0 +1,29 @@
+{
+  "label_oct": "327",
+  "name": "Body Roll Rate",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Body Roll Rate",
+      "range": "-128到127.985",
+      "resolution": 0.015,
+      "sign_bit": 29,
+      "unit": "degrees/second"
+    }
+  ]
+}

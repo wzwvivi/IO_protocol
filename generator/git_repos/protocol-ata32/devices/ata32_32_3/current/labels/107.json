@@ -1,0 +1,42 @@
+{
+  "label_oct": "107",
+  "name": "test",
+  "direction": "RDIU -> SCU",
+  "sources": [],
+  "data_type": "DISCRETE",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {
+    "10": "脚蹬: 1=正常"
+  },
+  "special_fields": [
+    {
+      "bits": [
+        13,
+        15
+      ],
+      "name": "前轮",
+      "type": "enum",
+      "values": {
+        "2": "转弯状态",
+        "3": "减摆状态",
+        "4": "调零状态"
+      }
+    }
+  ],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        22,
+        26
+      ],
+      "name": "角度",
+      "resolution": 1,
+      "sign_bit": null,
+      "unit": ""
+    }
+  ]
+}

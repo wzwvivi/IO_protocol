@@ -1,0 +1,629 @@
+{
+  "protocol_meta": {
+    "name": "32-3-转弯控制单元-429",
+    "version": "V9.0",
+    "description": ""
+  },
+  "device_meta_ref": {
+    "device_id": "ata32_32_3",
+    "ata_code": "ATA32"
+  },
+  "version_info": {
+    "version": "V9.0",
+    "created_at": "2026-03-25T06:56:58.938715"
+  },
+  "labels": [
+    {
+      "label_oct": "107",
+      "name": "test",
+      "direction": "RDIU -> SCU",
+      "sources": [],
+      "data_type": "DISCRETE",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "",
+      "discrete_bits": {
+        "10": "脚蹬: 1=正常"
+      },
+      "special_fields": [
+        {
+          "bits": [
+            13,
+            15
+          ],
+          "name": "前轮",
+          "type": "enum",
+          "values": {
+            "2": "转弯状态",
+            "3": "减摆状态",
+            "4": "调零状态"
+          }
+        }
+      ],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            22,
+            26
+          ],
+          "name": "角度",
+          "resolution": 1,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "111",
+      "name": "前轮角度反馈",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字1, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "前轮角度",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "112",
+      "name": "左手轮指令",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字2, 范围±90°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "左手轮角度",
+          "resolution": 0.021978,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "113",
+      "name": "右手轮指令",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字3, 范围±90°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "右手轮角度",
+          "resolution": 0.021978,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "114",
+      "name": "零位历史值（累加值）",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字4, 范围±45°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "零位累加值",
+          "resolution": 0.010986,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "115",
+      "name": "脚蹬转弯指令",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 1"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字1, 来自FCM 1, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "脚蹬转弯指令",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "116",
+      "name": "脚蹬转弯指令",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 2"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字2, 来自FCM 2, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "脚蹬转弯指令",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "117",
+      "name": "脚蹬转弯指令",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 3"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字3, 来自FCM 3, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "脚蹬转弯指令",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "120",
+      "name": "脚蹬转弯指令",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 4"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字4, 来自FCM 4, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "脚蹬转弯指令",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "154",
+      "name": "控制信号",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "RDIU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU回报RDIU的ARINC429数据字4",
+      "discrete_bits": {
+        "13": "调零指令: 1=调零, 0=无效",
+        "14": "转弯断开开关: 1=转弯断开, 0=无效",
+        "15": "BCMU_PARK_BRK_ON: 1=有效, 0=无效"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "212",
+      "name": "脚蹬转弯指令回绕",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU回报RDIU的ARINC429数据字1, 范围±60°",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            17,
+            28
+          ],
+          "name": "脚蹬转弯指令回绕",
+          "resolution": 0.014653,
+          "sign_bit": 29,
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "label_oct": "244",
+      "name": "状态上报",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字5, 前轮工作状态: 010=转弯, 011=减摆, 100=调零",
+      "discrete_bits": {
+        "12": "脚蹬解除状态: 1=解除状态, 0=正常状态"
+      },
+      "special_fields": [
+        {
+          "bits": [
+            14,
+            16
+          ],
+          "name": "前轮工作状态上报",
+          "type": "enum",
+          "values": {
+            "2": "转弯状态",
+            "3": "减摆状态",
+            "4": "调零状态"
+          }
+        },
+        {
+          "bits": [
+            17,
+            18
+          ],
+          "name": "牵引状态",
+          "type": "enum",
+          "values": {
+            "0": "牵引无效状态",
+            "1": "允许牵引状态",
+            "2": "禁止牵引状态",
+            "3": "(未定义)"
+          }
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "软件大版本",
+          "type": "uint"
+        },
+        {
+          "bits": [
+            23,
+            26
+          ],
+          "name": "软件小版本",
+          "type": "uint"
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "270",
+      "name": "驾驶舱信号（驾驶舱转弯断开开关）",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "驾驶舱"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字5, 来自驾驶舱",
+      "discrete_bits": {
+        "15": "转弯断开开关: 1=转弯断开, 0=无效 (驾驶舱显控开关)"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "314",
+      "name": "故障状态字",
+      "direction": "SCU -> RDIU",
+      "sources": [
+        "SCU"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "SCU数据字6, 故障字1为故障0为正常",
+      "discrete_bits": {
+        "14": "左手轮传感器和值故障: 1=故障, 0=正常",
+        "15": "右手轮传感器和值故障: 1=故障, 0=正常",
+        "16": "ARINC429通讯故障: 1=故障, 0=正常",
+        "17": "前轮工作故障: 1=故障, 0=正常",
+        "18": "牵引超行程: 1=故障, 0=正常"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "354",
+      "name": "控制信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 1"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字6, 来自FCM 1",
+      "discrete_bits": {
+        "14": "调零指令: 0=调零, 1=无效",
+        "15": "转弯断开开关: 1=转弯断开, 0=无效 (方舱开关)"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "355",
+      "name": "控制信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 2"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字7, 来自FCM 2",
+      "discrete_bits": {
+        "14": "调零指令: 0=调零, 1=无效",
+        "15": "转弯断开开关: 1=转弯断开, 0=无效 (方舱开关)"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "356",
+      "name": "控制信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 3"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字8, 来自FCM 3",
+      "discrete_bits": {
+        "14": "调零指令: 0=调零, 1=无效",
+        "15": "转弯断开开关: 1=转弯断开, 0=无效 (方舱开关)"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "357",
+      "name": "控制信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 4"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字9, 来自FCM 4",
+      "discrete_bits": {
+        "14": "调零指令: 0=调零, 1=无效",
+        "15": "转弯断开开关: 1=转弯断开, 0=无效 (方舱开关)"
+      },
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "374",
+      "name": "空速信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 1"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字10, 来自FCM 1, 范围0-270 Knot (无符号)",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            15,
+            28
+          ],
+          "name": "空速",
+          "resolution": 0.125,
+          "sign_bit": null,
+          "unit": "Knot"
+        }
+      ]
+    },
+    {
+      "label_oct": "375",
+      "name": "空速信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 2"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字11, 来自FCM 2, 范围0-270 Knot (无符号)",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            15,
+            28
+          ],
+          "name": "空速",
+          "resolution": 0.125,
+          "sign_bit": null,
+          "unit": "Knot"
+        }
+      ]
+    },
+    {
+      "label_oct": "376",
+      "name": "空速信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 3"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字12, 来自FCM 3, 范围0-270 Knot (无符号)",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            15,
+            28
+          ],
+          "name": "空速",
+          "resolution": 0.125,
+          "sign_bit": null,
+          "unit": "Knot"
+        }
+      ]
+    },
+    {
+      "label_oct": "377",
+      "name": "空速信号",
+      "direction": "RDIU -> SCU",
+      "sources": [
+        "FCM 4"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "数据字13, 来自FCM 4, 范围0-270 Knot (无符号)",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            15,
+            28
+          ],
+          "name": "空速",
+          "resolution": 0.125,
+          "sign_bit": null,
+          "unit": "Knot"
+        }
+      ]
+    }
+  ]
+}

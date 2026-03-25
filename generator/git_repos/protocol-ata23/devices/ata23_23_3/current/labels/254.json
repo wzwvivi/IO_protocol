@@ -1,0 +1,28 @@
+{
+  "label_oct": "254",
+  "name": "Hybrid Latitude",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -180到179.999828; bit 29: 0=Positive(North), 1=Negative(South); 更新速率100ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        28
+      ],
+      "name": "Hybrid Latitude",
+      "resolution": 0.000172,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "bnr_fields": [],
+  "data_type": "DISCRETE",
+  "direction": "GPS -> CPE",
+  "discrete_bits": {
+    "9": "脚蹬"
+  },
+  "label_oct": "125",
+  "name": "UTC",
+  "notes": "BCD time Hr:Min; range 0 to 23:59.9; bit 29 pad; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "GPS"
+  ],
+  "special_fields": [
+    {
+      "bits": [
+        11,
+        14
+      ],
+      "name": "Tenths of Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        15,
+        18
+      ],
+      "name": "Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        19,
+        22
+      ],
+      "name": "Tens of Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        23,
+        26
+      ],
+      "name": "Hours",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        27,
+        28
+      ],
+      "name": "Tens of Hours",
+      "type": "bcd",
+      "values": {}
+    }
+  ],
+  "unit": ""
+}

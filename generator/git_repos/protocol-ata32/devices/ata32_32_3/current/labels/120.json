@@ -1,0 +1,28 @@
+{
+  "label_oct": "120",
+  "name": "脚蹬转弯指令",
+  "direction": "RDIU -> SCU",
+  "sources": [
+    "FCM 4"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "数据字4, 来自FCM 4, 范围±60°",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        17,
+        28
+      ],
+      "name": "脚蹬转弯指令",
+      "resolution": 0.014653,
+      "sign_bit": 29,
+      "unit": "°"
+    }
+  ]
+}

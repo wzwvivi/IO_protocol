@@ -1,0 +1,5 @@
+# 忽略临时文件
+*.tmp
+*.bak
+.DS_Store
+__pycache__/

@@ -1,0 +1,29 @@
+{
+  "label_oct": "261",
+  "name": "Hybrid Altitude",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Hybrid Altitude",
+      "range": "-131072到131071.875",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "Feet"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "device_id": "sys_1774252828_100_15",
+  "device_name": "100-15-空地数据管理计算机-429",
+  "ata_code": "DEFAULT",
+  "parent_path": [
+    "ATA-100 自定义"
+  ],
+  "current_version": "V11.0",
+  "current_protocol_version_name": "100-15-空地数据管理计算机-429-V1.0",
+  "current_commit": "fb34670e66a42b702a277671ee229c53dac540ec",
+  "updated_at": "2026-03-25T07:55:20.647517",
+  "updated_by": "admin",
+  "description": null,
+  "status": "active"
+}

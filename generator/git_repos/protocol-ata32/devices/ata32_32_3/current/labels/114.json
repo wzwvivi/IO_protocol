@@ -1,0 +1,28 @@
+{
+  "label_oct": "114",
+  "name": "零位历史值（累加值）",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "SCU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU数据字4, 范围±45°",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        17,
+        28
+      ],
+      "name": "零位累加值",
+      "resolution": 0.010986,
+      "sign_bit": 29,
+      "unit": "°"
+    }
+  ]
+}

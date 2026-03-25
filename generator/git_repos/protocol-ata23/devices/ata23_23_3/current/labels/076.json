@@ -1,0 +1,28 @@
+{
+  "label_oct": "076",
+  "name": "GPS Altitude",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -131072 到 131071.875; bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率1200ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        28
+      ],
+      "name": "GPS Altitude",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "Feet"
+    }
+  ]
+}

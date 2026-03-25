@@ -1,0 +1,38 @@
+{
+  "bnr_fields": [
+    {
+      "data_bits": [
+        13,
+        16
+      ],
+      "name": "ICAO Address Digit #5",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        17,
+        20
+      ],
+      "name": "ICAO Address Digit #6",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    }
+  ],
+  "data_type": "",
+  "direction": "XPDR -> CPE",
+  "discrete_bits": {},
+  "label_oct": "216",
+  "name": "ICAO Address",
+  "notes": "ICAO 24-Bit Aircraft Address (part 2); remaining bits pad; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "XPDR"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

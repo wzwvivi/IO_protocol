@@ -1,0 +1,21 @@
+{
+  "label_oct": "154",
+  "name": "控制信号",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "RDIU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU回报RDIU的ARINC429数据字4",
+  "discrete_bits": {
+    "13": "调零指令: 1=调零, 0=无效",
+    "14": "转弯断开开关: 1=转弯断开, 0=无效",
+    "15": "BCMU_PARK_BRK_ON: 1=有效, 0=无效"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

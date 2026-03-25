@@ -1,0 +1,15 @@
+{
+  "device_id": "ata21_21_1",
+  "device_name": "21-1-通风系统控制器-429",
+  "ata_code": "ATA21",
+  "parent_path": [
+    "ATA21-空调系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:50.962145",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

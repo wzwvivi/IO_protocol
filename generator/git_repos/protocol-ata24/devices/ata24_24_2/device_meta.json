@@ -1,0 +1,15 @@
+{
+  "device_id": "ata24_24_2",
+  "device_name": "24-2-配电盘箱",
+  "ata_code": "ATA24",
+  "parent_path": [
+    "ATA24-电源系统"
+  ],
+  "current_version": "V4.0",
+  "current_protocol_version_name": "CE-25A项目电源系统配电盘箱CAN总线ICD文件框架-V4.0",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:53.949349",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

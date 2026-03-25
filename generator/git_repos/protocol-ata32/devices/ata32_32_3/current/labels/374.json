@@ -1,0 +1,28 @@
+{
+  "label_oct": "374",
+  "name": "空速信号",
+  "direction": "RDIU -> SCU",
+  "sources": [
+    "FCM 1"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "数据字10, 来自FCM 1, 范围0-270 Knot (无符号)",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        15,
+        28
+      ],
+      "name": "空速",
+      "resolution": 0.125,
+      "sign_bit": null,
+      "unit": "Knot"
+    }
+  ]
+}

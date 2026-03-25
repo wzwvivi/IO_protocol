@@ -1,0 +1,29 @@
+{
+  "label_oct": "326",
+  "name": "Body Pitch Rate",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Body Pitch Rate",
+      "range": "-128到127.985",
+      "resolution": 0.015,
+      "sign_bit": 29,
+      "unit": "degrees/second"
+    }
+  ]
+}

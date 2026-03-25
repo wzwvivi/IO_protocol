@@ -1,0 +1,17 @@
+{
+  "label_oct": "360",
+  "name": "Flight Information",
+  "direction": "FMC -> CPE",
+  "sources": [
+    "FMC"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制DISC; Label 360 appears multiple times in document to carry segmented Flight Information payloads (status/header, Flight Number chars #1-#8, Origin chars #1-#4, Destination chars #1-#4, padding). Same label reused across multiple words/frames; SSM values in notes distinguish segments (01 for first/status frame, 00 for subsequent text frames).",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": []
+}

@@ -1,0 +1,28 @@
+{
+  "label_oct": "314",
+  "name": "True Heading",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Positive(East), 1=Negative(West); 更新速率50ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        14,
+        28
+      ],
+      "name": "True Heading",
+      "resolution": 0.0055,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

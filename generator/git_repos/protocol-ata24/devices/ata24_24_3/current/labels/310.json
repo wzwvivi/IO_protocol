@@ -1,0 +1,28 @@
+{
+  "label_oct": "310",
+  "name": "纬度信息",
+  "direction": "IRS -> ELT",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制=BNR；范围=-90~90；更新速率=200ms；发送速率=100 kbps；SSM(31-30)定义：00=故障告警，01=无计算数据，10=功能测试，11=正常操作。",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        29
+      ],
+      "name": "当前纬度",
+      "resolution": 0.000171661376953125,
+      "sign_bit": null,
+      "unit": "度"
+    }
+  ]
+}

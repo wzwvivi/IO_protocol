@@ -1,0 +1,50 @@
+{
+  "bnr_fields": [
+    {
+      "data_bits": [
+        12,
+        17
+      ],
+      "name": "Seconds",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        18,
+        23
+      ],
+      "name": "Minutes",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        24,
+        28
+      ],
+      "name": "Hours",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    }
+  ],
+  "data_type": "",
+  "direction": "GPS -> CPE",
+  "discrete_bits": {
+    "11": "GPS system clock source flag: 0=Not GPS system clock source, 1=GPS system clock source"
+  },
+  "label_oct": "150",
+  "name": "UTC",
+  "notes": "CUSTOM Binary UTC H:M:S; bit 29 reserved always 0 positive; See ARINC 429 Attachment 6 table 6-27; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "GPS"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

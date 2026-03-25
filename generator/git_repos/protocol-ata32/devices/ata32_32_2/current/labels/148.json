@@ -1,0 +1,30 @@
+{
+  "label_oct": "148",
+  "name": "Consolidated LG Position Data",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Consolidated Status of LG Position; SDI 01=A429_LGCU1_ConCh_Tx1, 10=A429_LGCU2_ConCh_Tx1",
+  "discrete_bits": {
+    "11": "All Gear Downlocked: 0=not Downlocked, 1=Downlocked",
+    "12": "All Gear Uplocked: 0=not Uplocked, 1=Uplocked",
+    "13": "NLG Uplocked: 0=not Uplocked, 1=Uplocked",
+    "14": "NLG Downlocked: 0=not Downlocked, 1=Downlocked",
+    "15": "Extension Driver energized: 0=not energized, 1=energized",
+    "16": "Retraction Driver energized: 0=not energized, 1=energized",
+    "22": "AES Relay 1 Driver Low energized (only LGCU2): 0=not energized, 1=energized",
+    "23": "AES Relay 3-5 Driver Low energized (only LGCU2): 0=not energized, 1=energized",
+    "24": "LgclUpDn (internal use): 0=False, 1=True",
+    "27": "Consolidated MLG Not Downlocked: 0=Downlocked, 1=not Downlocked",
+    "28": "Consolidated MLG Uplocked: 0=not Uplocked, 1=Uplocked",
+    "29": "LgclDnUp (internal use): 0=False, 1=True"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

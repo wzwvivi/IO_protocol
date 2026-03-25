@@ -1,0 +1,28 @@
+{
+  "label_oct": "311",
+  "name": "经度",
+  "direction": "IRS -> ELT",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制=BNR；范围=-180~179.999828；更新速率=200ms；发送速率=100 kbps；SSM(31-30)定义：00=故障告警，01=无计算数据，10=功能测试，11=正常操作。",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        9,
+        29
+      ],
+      "name": "当前经度",
+      "resolution": 0.000171661376953125,
+      "sign_bit": null,
+      "unit": "度"
+    }
+  ]
+}

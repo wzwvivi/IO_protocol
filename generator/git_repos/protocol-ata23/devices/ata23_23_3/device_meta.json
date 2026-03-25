@@ -1,0 +1,15 @@
+{
+  "device_id": "ata23_23_3",
+  "device_name": "23-3-5G ATG CPE-429",
+  "ata_code": "ATA23",
+  "parent_path": [
+    "ATA23-通信系统"
+  ],
+  "current_version": "V2.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:51.869239",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

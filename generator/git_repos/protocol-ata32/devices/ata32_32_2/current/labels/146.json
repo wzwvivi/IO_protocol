@@ -1,0 +1,17 @@
+{
+  "label_oct": "146",
+  "name": "LGCU Configuration Data",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Configuration Data (PNR, SNR, CRC automatic mode Tx); bits 9-31 per ARINC protocol automatic mode",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": []
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "release_id": "sys_1774252828_100_6_v1_0",
+    "device_id": "sys_1774252828_100_6",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 24 个 Label",
+    "change_stats": {
+      "added": 24,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-24T12:44:40.641110"
+  },
+  {
+    "release_id": "sys_1774252828_100_6_v1_0",
+    "device_id": "sys_1774252828_100_6",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 24 个 Label",
+    "change_stats": {
+      "added": 24,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-24T12:44:40.641110"
+  },
+  {
+    "release_id": "sys_1774252828_100_6_v1_0",
+    "device_id": "sys_1774252828_100_6",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 24 个 Label",
+    "change_stats": {
+      "added": 24,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-24T12:44:40.641110"
+  }
+]

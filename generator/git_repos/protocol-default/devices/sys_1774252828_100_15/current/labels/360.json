@@ -1,0 +1,17 @@
+{
+  "bnr_fields": [],
+  "data_type": "",
+  "direction": "FMC -> CPE",
+  "discrete_bits": {},
+  "label_oct": "360",
+  "name": "Flight Information",
+  "notes": "Label 360 appears multiple times in document as segmented payload frames for flight information. Segment 1: constant/pad pattern with SSM=01. Segment 2: Flight Number Char #1 bits 9-11, Char #2 bits 16-22, Char #3 bits 23-29, SSM=00. Segment 3: Flight Number Char #4 bits 9-11, Char #5 bits 16-22, Char #6 bits 23-29, SSM=00. Segment 4: Flight Number Char #7 bits 9-11, Char #8 bits 16-22, Origin Char #1 bits 23-29, SSM=00. Segment 5: Origin Char #2 bits 9-11, Origin Char #3 bits 16-22, Origin Char #4 bits 23-29, SSM=00. Segment 6: Destination Char #1 bits 9-11, Destination Char #2 bits 16-22, Destination Char #3 bits 23-29, SSM=00. Segment 7: Destination Char #4 bits 9-11, bits 16-29 pad set to 0, SSM=00.",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "FMC"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

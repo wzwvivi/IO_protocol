@@ -1,0 +1,23 @@
+{
+  "label_oct": "314",
+  "name": "故障状态字",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "SCU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU数据字6, 故障字1为故障0为正常",
+  "discrete_bits": {
+    "14": "左手轮传感器和值故障: 1=故障, 0=正常",
+    "15": "右手轮传感器和值故障: 1=故障, 0=正常",
+    "16": "ARINC429通讯故障: 1=故障, 0=正常",
+    "17": "前轮工作故障: 1=故障, 0=正常",
+    "18": "牵引超行程: 1=故障, 0=正常"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

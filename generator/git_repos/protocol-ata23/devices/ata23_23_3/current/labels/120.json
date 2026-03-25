@@ -1,0 +1,28 @@
+{
+  "label_oct": "120",
+  "name": "GPS Latitude Fine",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 0 到 0.00017157755792140960693; bits 11-17 Pad; bit 29 fixed 0, sign determined by label 110; 与Label 110组合表示32位纬度低11位; 更新速率1200ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        18,
+        28
+      ],
+      "name": "GPS Latitude Fine",
+      "resolution": 8.38e-08,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

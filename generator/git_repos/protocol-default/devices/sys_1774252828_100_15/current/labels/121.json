@@ -1,0 +1,31 @@
+{
+  "bnr_fields": [
+    {
+      "data_bits": [
+        18,
+        28
+      ],
+      "name": "GPS Longitude Fine",
+      "resolution": 8.38e-08,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ],
+  "data_type": "DISCRETE",
+  "direction": "GPS -> CPE",
+  "discrete_bits": {
+    "12": "脚蹬",
+    "17": "cc"
+  },
+  "label_oct": "121",
+  "name": "GPS Longitude Fine",
+  "notes": "range 0 to 0.00017157755792140960693; bits 11-17 pad; bit 29 fixed 0, sign determined by paired longitude label; split 32-bit longitude low part; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "GPS"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

@@ -1,0 +1,29 @@
+{
+  "label_oct": "121",
+  "name": "GPS Longitude Fine",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "GPS Longitude Fine",
+      "range": "0到0.00017157755792140960693",
+      "resolution": 8.38e-08,
+      "sign_bit": 29,
+      "unit": "degrees"
+    }
+  ]
+}

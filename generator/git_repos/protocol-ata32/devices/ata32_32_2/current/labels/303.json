@@ -1,0 +1,45 @@
+{
+  "label_oct": "303",
+  "name": "A/C Registration Number Part 3",
+  "direction": "Aircraft Identification Source -> LGCU",
+  "sources": [
+    "Aircraft Identification Source"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Encoding Data Type: ISO #5",
+  "discrete_bits": {},
+  "special_fields": [
+    {
+      "bits": [
+        11,
+        17
+      ],
+      "name": "Character 7",
+      "type": "iso5",
+      "values": {}
+    },
+    {
+      "bits": [
+        18,
+        24
+      ],
+      "name": "Character 8",
+      "type": "iso5",
+      "values": {}
+    },
+    {
+      "bits": [
+        25,
+        31
+      ],
+      "name": "Character 9",
+      "type": "iso5",
+      "values": {}
+    }
+  ],
+  "bnr_fields": []
+}

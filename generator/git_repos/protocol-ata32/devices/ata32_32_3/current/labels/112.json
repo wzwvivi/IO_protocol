@@ -1,0 +1,28 @@
+{
+  "label_oct": "112",
+  "name": "左手轮指令",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "SCU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU数据字2, 范围±90°",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        17,
+        28
+      ],
+      "name": "左手轮角度",
+      "resolution": 0.021978,
+      "sign_bit": 29,
+      "unit": "°"
+    }
+  ]
+}

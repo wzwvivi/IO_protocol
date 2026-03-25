@@ -1,0 +1,13 @@
+{
+  "device_id": "ata52",
+  "device_name": "ATA52-舱门系统",
+  "ata_code": "ATA52",
+  "parent_path": [],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:57:03.661398",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

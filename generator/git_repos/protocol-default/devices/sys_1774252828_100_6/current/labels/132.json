@@ -1,0 +1,29 @@
+{
+  "label_oct": "132",
+  "name": "Hybrid True Heading",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Hybrid True Heading",
+      "range": "-180到179.9945",
+      "resolution": 0.0055,
+      "sign_bit": 29,
+      "unit": "degrees"
+    }
+  ]
+}

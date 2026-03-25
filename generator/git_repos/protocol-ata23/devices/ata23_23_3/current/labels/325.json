@@ -1,0 +1,28 @@
+{
+  "label_oct": "325",
+  "name": "Roll Angle",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Right Wing Down, 1=Left Wing Down; 更新速率20ms",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        14,
+        28
+      ],
+      "name": "Roll Angle",
+      "resolution": 0.0055,
+      "sign_bit": 29,
+      "unit": "Degrees"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "device_id": "ata32_32_3",
+  "device_name": "32-3-转弯控制单元-429",
+  "ata_code": "ATA32",
+  "parent_path": [
+    "ATA32-起落架系统"
+  ],
+  "current_version": "V9.0",
+  "current_protocol_version_name": "转弯系统ARINC429通讯协议-V5.0",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:58.635346",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

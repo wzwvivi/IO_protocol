@@ -1,0 +1,1049 @@
+{
+  "protocol_meta": {
+    "name": "23-3-5G ATG CPE-429",
+    "version": "V2.0",
+    "description": ""
+  },
+  "device_meta_ref": {
+    "device_id": "ata23_23_3",
+    "ata_code": "ATA23"
+  },
+  "version_info": {
+    "version": "V2.0",
+    "created_at": "2026-03-25T06:56:52.284711"
+  },
+  "labels": [
+    {
+      "label_oct": "076",
+      "name": "GPS Altitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -131072 到 131071.875; bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "GPS Altitude",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "110",
+      "name": "GPS Latitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.999828; bit 29: 0=Positive(North), 1=Negative(South); 与Label 120组合表示单个32位two's complement纬度值; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "GPS Latitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "111",
+      "name": "GPS Longitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.999828; bit 29: 0=Positive(East), 1=Negative(West); 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "GPS Longitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "112",
+      "name": "GPS Altitude",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 0 到 4095.875; bits 11-13 Pad; bit 29 always positive; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "GPS Altitude",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "120",
+      "name": "GPS Latitude Fine",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 0 到 0.00017157755792140960693; bits 11-17 Pad; bit 29 fixed 0, sign determined by label 110; 与Label 110组合表示32位纬度低11位; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "GPS Latitude Fine",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "121",
+      "name": "GPS Longitude Fine",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 0 到 0.00017157755792140960693; bits 11-17 Pad; bit 29 fixed 0, sign determined by paired longitude label; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "GPS Longitude Fine",
+          "resolution": 8.38e-08,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "125",
+      "name": "UTC",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BCD; 单位 Hr:Min; 范围 0 到 23:59.9; bit 29 Pad; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Tenths of Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Tens of Minutes",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            26
+          ],
+          "name": "Hours",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            27,
+            28
+          ],
+          "name": "Tens of Hours",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "132",
+      "name": "True Track Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=East of North, 1=West of North; 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Track Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "150",
+      "name": "UTC",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制CUSTOM Binary; 单位 H:M:S; 范围 0 到 23:59:59; bit 29 reserved and always 0(positive); See ARINC 429 Attachment 6 table 6-27; 更新速率1200ms",
+      "discrete_bits": {
+        "11": "GPS system clock source flag: 0=Not GPS system clock source, 1=GPS system clock source"
+      },
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            12,
+            17
+          ],
+          "name": "Seconds",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            18,
+            23
+          ],
+          "name": "Minutes",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            24,
+            28
+          ],
+          "name": "Hours",
+          "resolution": null,
+          "sign_bit": 29,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "164",
+      "name": "Radio Height",
+      "direction": "RADALT -> CPE",
+      "sources": [
+        "RADALT"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -8192 到 8191.875; 表内位权描述存在疑似排版错误(18/20位重复16, 25位缺256); bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            11,
+            28
+          ],
+          "name": "Radio Height",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "165",
+      "name": "Radio Height",
+      "direction": "RADALT -> CPE",
+      "sources": [
+        "RADALT"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BCD; 单位 Feet; 范围 -20000 到 7999.9; 更新速率200ms",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Radio Height x0.1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Radio Height x1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Radio Height x10",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            26
+          ],
+          "name": "Radio Height x100",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            27,
+            29
+          ],
+          "name": "Radio Height x1000",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "175",
+      "name": "Hybrid Ground Speed",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 0到4095.875; bits 11-13 Pad; bit 29 always 0/positive; 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Hybrid Ground Speed",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Knots"
+        }
+      ]
+    },
+    {
+      "label_oct": "212",
+      "name": "Altitude Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -32768到32752; bits 11-17 Pad; bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率62.5ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            18,
+            28
+          ],
+          "name": "Altitude Rate",
+          "resolution": 16,
+          "sign_bit": 29,
+          "unit": "Feet/Minute"
+        }
+      ]
+    },
+    {
+      "label_oct": "214",
+      "name": "ICAO Address",
+      "direction": "XPDR -> CPE",
+      "sources": [
+        "XPDR"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制DISC; ICAO 24-Bit Aircraft Address (part 1); bits 11-13 Pad; 更新速率N/A",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            17
+          ],
+          "name": "ICAO Address Digit #1",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            18,
+            21
+          ],
+          "name": "ICAO Address Digit #2",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            22,
+            25
+          ],
+          "name": "ICAO Address Digit #3",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            26,
+            29
+          ],
+          "name": "ICAO Address Digit #4",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "216",
+      "name": "ICAO Address",
+      "direction": "XPDR -> CPE",
+      "sources": [
+        "XPDR"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制DISC; ICAO 24-Bit Aircraft Address (part 2); other bits Pad; 更新速率N/A",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            13,
+            16
+          ],
+          "name": "ICAO Address Digit #5",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            17,
+            20
+          ],
+          "name": "ICAO Address Digit #6",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "254",
+      "name": "Hybrid Latitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180到179.999828; bit 29: 0=Positive(North), 1=Negative(South); 更新速率100ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Latitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "255",
+      "name": "Hybrid Longitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.999828; bit 29: 0=Positive(East), 1=Negative(West); 更新速率100ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Longitude",
+          "resolution": 0.000172,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "260",
+      "name": "Date",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BCD; 单位 D:M:Y; 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [
+        {
+          "bits": [
+            11,
+            14
+          ],
+          "name": "Year x1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            15,
+            18
+          ],
+          "name": "Year x10",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            19,
+            22
+          ],
+          "name": "Month x1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            23,
+            23
+          ],
+          "name": "Month x10",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            24,
+            27
+          ],
+          "name": "Day x1",
+          "type": "bcd",
+          "values": {}
+        },
+        {
+          "bits": [
+            28,
+            29
+          ],
+          "name": "Day x10",
+          "type": "bcd",
+          "values": {}
+        }
+      ],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "261",
+      "name": "Hybrid Altitude",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -131072 到 131071.875; bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率40ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "Hybrid Altitude",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    },
+    {
+      "label_oct": "273",
+      "name": "GPS Sensor Status",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制DISC; GPS Sensor Operational Mode values refer to ARINC 743A-5 Attachment 4-2A label 273; 更新速率1200ms",
+      "discrete_bits": {
+        "11": "MSB Satellites Visible: 0=15 or less Visible(forced), 1=>15 Visible",
+        "12": "DADC/FMS source present: 0=Present, 1=Not present",
+        "13": "DADC/FMS source: 0=Primary, 1=Secondary",
+        "14": "IRS/FMS source present: 0=Present, 1=Not present",
+        "15": "IRS/FMS source: 0=Primary, 1=Secondary",
+        "29": "MSB Satellites Tracked: 0=15 or less Tracked, 1=>15 Tracked"
+      },
+      "special_fields": [
+        {
+          "bits": [
+            24,
+            28
+          ],
+          "name": "GPS Sensor Operational Mode",
+          "type": "enum",
+          "values": {}
+        }
+      ],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            19
+          ],
+          "name": "Number of Satellites Visible",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        },
+        {
+          "data_bits": [
+            20,
+            23
+          ],
+          "name": "Number of Satellites Tracked",
+          "resolution": null,
+          "sign_bit": null,
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "label_oct": "312",
+      "name": "Ground Speed",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 0-4095.875; bits 11-13 Pad; bit 29 always 0/positive; 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Ground Speed",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Knots"
+        }
+      ]
+    },
+    {
+      "label_oct": "313",
+      "name": "True Track Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=East of North, 1=West of North; 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Track Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "314",
+      "name": "True Heading",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Positive(East), 1=Negative(West); 更新速率50ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "True Heading",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "324",
+      "name": "Pitch Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Nose Up, 1=Nose Down; 更新速率20ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Pitch Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "325",
+      "name": "Roll Angle",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -180 到 179.9945; bits 11-13 Pad; bit 29: 0=Right Wing Down, 1=Left Wing Down; 更新速率20ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            14,
+            28
+          ],
+          "name": "Roll Angle",
+          "resolution": 0.0055,
+          "sign_bit": 29,
+          "unit": "Degrees"
+        }
+      ]
+    },
+    {
+      "label_oct": "326",
+      "name": "Body Pitch Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -128 到 127.985; bits 11-15 Pad; bit 29: 0=Positive(Nose Up), 1=Negative(Nose Down); 更新速率20ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Pitch Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ]
+    },
+    {
+      "label_oct": "327",
+      "name": "Body Roll Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -128 到 127.985; bits 11-15 Pad; bit 29: 0=Positive(Right Wing Down), 1=Negative(Left Wing Down); 更新速率20ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Roll Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ]
+    },
+    {
+      "label_oct": "330",
+      "name": "Body Yaw Rate",
+      "direction": "IRS -> CPE",
+      "sources": [
+        "IRS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -128 到 127.985; bits 11-15 Pad; bit 29: 0=Positive(Nose Right), 1=Negative(Nose Left); 更新速率20ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            16,
+            28
+          ],
+          "name": "Body Yaw Rate",
+          "resolution": 0.015,
+          "sign_bit": 29,
+          "unit": "Degrees/Second"
+        }
+      ]
+    },
+    {
+      "label_oct": "360",
+      "name": "Flight Information",
+      "direction": "FMC -> CPE",
+      "sources": [
+        "FMC"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制DISC; Label 360 appears multiple times in document to carry segmented Flight Information payloads (status/header, Flight Number chars #1-#8, Origin chars #1-#4, Destination chars #1-#4, padding). Same label reused across multiple words/frames; SSM values in notes distinguish segments (01 for first/status frame, 00 for subsequent text frames).",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": []
+    },
+    {
+      "label_oct": "370",
+      "name": "GPS Height WGS-84",
+      "direction": "GPS -> CPE",
+      "sources": [
+        "GPS"
+      ],
+      "data_type": "",
+      "unit": "",
+      "range": "",
+      "resolution": null,
+      "reserved_bits": "",
+      "notes": "码制BNR; 范围 -131072 到 131071.875; bit 29: 0=Positive(Up), 1=Negative(Down); 更新速率1200ms",
+      "discrete_bits": {},
+      "special_fields": [],
+      "bnr_fields": [
+        {
+          "data_bits": [
+            9,
+            28
+          ],
+          "name": "GPS Height WGS-84",
+          "resolution": 0.125,
+          "sign_bit": 29,
+          "unit": "Feet"
+        }
+      ]
+    }
+  ]
+}

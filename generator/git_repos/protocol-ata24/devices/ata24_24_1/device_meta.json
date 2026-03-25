@@ -1,0 +1,15 @@
+{
+  "device_id": "ata24_24_1",
+  "device_name": "24-1-270V&28V BMS",
+  "ata_code": "ATA24",
+  "parent_path": [
+    "ATA24-电源系统"
+  ],
+  "current_version": "V2.5.2",
+  "current_protocol_version_name": "270V&28V BMS-V2.5.2",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:53.850413",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

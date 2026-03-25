@@ -1,0 +1,63 @@
+{
+  "label_oct": "125",
+  "name": "UTC",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制BCD; 单位 Hr:Min; 范围 0 到 23:59.9; bit 29 Pad; 更新速率1200ms",
+  "discrete_bits": {},
+  "special_fields": [
+    {
+      "bits": [
+        11,
+        14
+      ],
+      "name": "Tenths of Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        15,
+        18
+      ],
+      "name": "Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        19,
+        22
+      ],
+      "name": "Tens of Minutes",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        23,
+        26
+      ],
+      "name": "Hours",
+      "type": "bcd",
+      "values": {}
+    },
+    {
+      "bits": [
+        27,
+        28
+      ],
+      "name": "Tens of Hours",
+      "type": "bcd",
+      "values": {}
+    }
+  ],
+  "bnr_fields": []
+}

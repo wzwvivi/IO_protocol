@@ -1,0 +1,287 @@
+[
+  {
+    "release_id": "sys_1774252828_100_15_v11_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V10.0",
+    "to_version": "V11.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "7d9f2de70e0f2f88f07bd96315906c11fb2c8b40",
+    "git_tag": "sys_1774252828_100_15-v11.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:55:13.295981",
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "label_count": 25
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v10_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V9.0",
+    "to_version": "V10.0",
+    "summary": "修改",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "82d1f3073ab2cdb6860158ceca1ace4ba21765f0",
+    "git_tag": "sys_1774252828_100_15-v10.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:52:31.417846",
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "label_count": 25
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v9_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V8.0",
+    "to_version": "V9.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "2558298aa90cc3da6e0ce333d78d729cdb31cc6d",
+    "git_tag": "sys_1774252828_100_15-v9.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:52:13.308821",
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "label_count": 25
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v8_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V7.0",
+    "to_version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "656842f467c96fce498bcc01ebb961f1536e4a14",
+    "git_tag": "sys_1774252828_100_15-v8.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:24:15.902436",
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [
+        {
+          "label_oct": "120",
+          "name": "GPS Latitude Fine",
+          "direction": "GPS -> CPE"
+        }
+      ],
+      "modified_details": []
+    }
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v7_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V6.0",
+    "to_version": "V7.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "3fae34617934ebd416553c57ea7601cccee96e48",
+    "git_tag": "sys_1774252828_100_15-v7.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:23:19.234710",
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [
+        {
+          "label_oct": "112",
+          "name": "GPS Altitude",
+          "direction": "GPS -> CPE"
+        }
+      ],
+      "modified_details": []
+    }
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v6_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V5.0",
+    "to_version": "V6.0",
+    "summary": "删除",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "a131c45c2563518eaa7fc77c1726e3369966f230",
+    "git_tag": "sys_1774252828_100_15-v6.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T06:59:43.205597"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v1_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 30 个 Label",
+    "change_stats": {
+      "added": 30,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:47:48.983548"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v2_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V2.0",
+    "summary": "修复",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:48:09.526390"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v1_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 30 个 Label",
+    "change_stats": {
+      "added": 30,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:47:48.983548"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v2_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V2.0",
+    "summary": "修复",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:48:09.526390"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v5_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V4.0",
+    "to_version": "V5.0",
+    "summary": "删除",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "9ba346ca9a8403910b2dead845a10960418a41cd",
+    "git_tag": "sys_1774252828_100_15-v5.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T06:53:45.988079"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v4_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "V3.0",
+    "to_version": "V4.0",
+    "summary": "删除",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "5b60a09aa3286d9df2327a2e8ffcda1051fa6953",
+    "git_tag": "sys_1774252828_100_15-v4.0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T06:53:00.797805"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v1_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V1.0",
+    "summary": "新增 30 个 Label",
+    "change_stats": {
+      "added": 30,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:47:48.983548"
+  },
+  {
+    "release_id": "sys_1774252828_100_15_v2_0",
+    "device_id": "sys_1774252828_100_15",
+    "from_version": "",
+    "to_version": "V2.0",
+    "summary": "修复",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T01:48:09.526390"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "label_oct": "144",
+  "name": "LG Prox LGCU1 Monitor Channel",
+  "direction": "LGCU1 Monitor Channel -> External Receiver",
+  "sources": [
+    "LGCU1 Monitor Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Landing Gear Sensor evaluated by the Monitor Channel of LGCU1; SDI 01=A429_LGCU1_MonCh_Tx1",
+  "discrete_bits": {
+    "11": "RH_MLG_Prox_WOFFW_1: 0=Not WOFFW, 1=WOFFW",
+    "12": "RH_MLG_Prox_WOFFW_1_OP: 0=Not Operational, 1=Operational",
+    "15": "RH_MLG_Prox_DNLK_1: 0=Not Downlocked, 1=Downlocked",
+    "16": "RH_MLG_Prox_DNLK_1_OP: 0=Not Operational, 1=Operational"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

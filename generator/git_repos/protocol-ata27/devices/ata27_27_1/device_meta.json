@@ -1,0 +1,15 @@
+{
+  "device_id": "ata27_27_1",
+  "device_name": "27-1-主飞控作动",
+  "ata_code": "ATA27",
+  "parent_path": [
+    "ATA27-飞行控制系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:55.246464",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

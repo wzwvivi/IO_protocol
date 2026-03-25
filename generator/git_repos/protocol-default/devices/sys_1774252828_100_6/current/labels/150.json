@@ -1,0 +1,19 @@
+{
+  "label_oct": "150",
+  "name": "UTC",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {
+    "23": "脚蹬: 1=正常"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

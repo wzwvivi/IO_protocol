@@ -1,0 +1,29 @@
+{
+  "label_oct": "175",
+  "name": "Hybrid Ground Speed",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Hybrid Ground Speed",
+      "range": "0到4095.875",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "knots"
+    }
+  ]
+}

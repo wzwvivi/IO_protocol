@@ -1,0 +1,15 @@
+{
+  "device_id": "ata30_30_1",
+  "device_name": "30-1-防除冰系统控制器",
+  "ata_code": "ATA30",
+  "parent_path": [
+    "ATA30-防除冰和除雨系统"
+  ],
+  "current_version": "V1.0",
+  "current_protocol_version_name": "",
+  "current_commit": "",
+  "updated_at": "2026-03-25T06:56:56.339943",
+  "updated_by": "",
+  "description": "",
+  "status": "active"
+}

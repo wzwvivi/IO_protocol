@@ -1,0 +1,50 @@
+{
+  "label_oct": "150",
+  "name": "UTC",
+  "direction": "GPS -> CPE",
+  "sources": [
+    "GPS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制CUSTOM Binary; 单位 H:M:S; 范围 0 到 23:59:59; bit 29 reserved and always 0(positive); See ARINC 429 Attachment 6 table 6-27; 更新速率1200ms",
+  "discrete_bits": {
+    "11": "GPS system clock source flag: 0=Not GPS system clock source, 1=GPS system clock source"
+  },
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        12,
+        17
+      ],
+      "name": "Seconds",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        18,
+        23
+      ],
+      "name": "Minutes",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        24,
+        28
+      ],
+      "name": "Hours",
+      "resolution": null,
+      "sign_bit": 29,
+      "unit": ""
+    }
+  ]
+}

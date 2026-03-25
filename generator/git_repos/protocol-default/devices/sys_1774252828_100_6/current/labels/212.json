@@ -1,0 +1,29 @@
+{
+  "label_oct": "212",
+  "name": "Altitude Rate",
+  "direction": "IRS -> CPE",
+  "sources": [
+    "IRS"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        11,
+        28
+      ],
+      "name": "Altitude Rate",
+      "range": "-32768到32752",
+      "resolution": 16,
+      "sign_bit": 29,
+      "unit": "Feet/Minute"
+    }
+  ]
+}

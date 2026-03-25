@@ -1,0 +1,28 @@
+{
+  "bnr_fields": [
+    {
+      "data_bits": [
+        14,
+        28
+      ],
+      "name": "Hybrid Ground Speed",
+      "resolution": 0.125,
+      "sign_bit": 29,
+      "unit": "Knots"
+    }
+  ],
+  "data_type": "",
+  "direction": "IRS -> CPE",
+  "discrete_bits": {},
+  "label_oct": "175",
+  "name": "Hybrid Ground Speed",
+  "notes": "range 0 to 4095.875; bit 29 always 0/positive; SSM(31-30): 00=故障告警, 01=无计算数据, 10=功能测试, 11=正常操作",
+  "range": "",
+  "reserved_bits": "",
+  "resolution": null,
+  "sources": [
+    "IRS"
+  ],
+  "special_fields": [],
+  "unit": ""
+}

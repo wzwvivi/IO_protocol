@@ -1,0 +1,173 @@
+[
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325075520.647517",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V11.0",
+    "summary": "修正",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 0
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": []
+    },
+    "git_commit": "c586e2b0bc2d98df68539e1cd262352f4640feb2",
+    "has_changed": false,
+    "is_release": false,
+    "release_id": "",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:55:20.647517",
+    "label_count": 25
+  },
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325075513.295981",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V11.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "git_commit": "7d9f2de70e0f2f88f07bd96315906c11fb2c8b40",
+    "has_changed": true,
+    "is_release": true,
+    "release_id": "sys_1774252828_100_15_v11_0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:55:13.295981",
+    "label_count": 25
+  },
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325075231.417846",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V10.0",
+    "summary": "修改",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "git_commit": "82d1f3073ab2cdb6860158ceca1ace4ba21765f0",
+    "has_changed": true,
+    "is_release": true,
+    "release_id": "sys_1774252828_100_15_v10_0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:52:31.417846",
+    "label_count": 25
+  },
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325075213.308821",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V9.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [],
+      "modified_details": [
+        {
+          "label_oct": "121",
+          "name": "GPS Longitude Fine",
+          "old_name": "GPS Longitude Fine",
+          "new_name": "GPS Longitude Fine"
+        }
+      ]
+    },
+    "git_commit": "2558298aa90cc3da6e0ce333d78d729cdb31cc6d",
+    "has_changed": true,
+    "is_release": true,
+    "release_id": "sys_1774252828_100_15_v9_0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:52:13.308821",
+    "label_count": 25
+  },
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325072415.902436",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [
+        {
+          "label_oct": "120",
+          "name": "GPS Latitude Fine",
+          "direction": "GPS -> CPE"
+        }
+      ],
+      "modified_details": []
+    },
+    "git_commit": "656842f467c96fce498bcc01ebb961f1536e4a14",
+    "has_changed": true,
+    "is_release": true,
+    "release_id": "sys_1774252828_100_15_v8_0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:24:15.902436",
+    "label_count": 25
+  },
+  {
+    "save_id": "sys_1774252828_100_15_save_20260325072319.234710",
+    "device_id": "sys_1774252828_100_15",
+    "version": "V7.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "diff_details": {
+      "added_details": [],
+      "removed_details": [
+        {
+          "label_oct": "112",
+          "name": "GPS Altitude",
+          "direction": "GPS -> CPE"
+        }
+      ],
+      "modified_details": []
+    },
+    "git_commit": "3fae34617934ebd416553c57ea7601cccee96e48",
+    "has_changed": true,
+    "is_release": true,
+    "release_id": "sys_1774252828_100_15_v7_0",
+    "created_by": "admin",
+    "created_at": "2026-03-25T07:23:19.234710",
+    "label_count": 26
+  }
+]

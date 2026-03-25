@@ -20,11 +20,7 @@ wheels/
 .installed.cfg
 *.egg
 
-<<<<<<< HEAD
-# Virtual environments
-=======
 # 虚拟环境
->>>>>>> dd3a4e574b75391165a819393490ca7e53125f6c
 venv/
 ENV/
 env/
@@ -37,36 +33,6 @@ env/
 *.swo
 *~
 
-<<<<<<< HEAD
-# Output files (generated)
-output/
-*.xlsx
-
-# Test files
-test_*.py
-test_*.c
-test_*.txt
-quick_test.py
-verify_*.py
-
-# Local data (will be created on first run)
-# 注意：generator/data/arinc429.db 需要保留，用于 Docker 部署
-data/
-!generator/data/
-generator/data/*
-!generator/data/arinc429.db
-!generator/data/.gitkeep
-
-# Git 存储仓库（协议版本数据）- 需要保留
-!generator/git_repos/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-=======
 # 系统文件
 .DS_Store
 Thumbs.db
@@ -113,4 +79,3 @@ rebuild_docker.bat
 # 保留重要文件
 !data/arinc429.db
 !output/.gitkeep
->>>>>>> dd3a4e574b75391165a819393490ca7e53125f6c

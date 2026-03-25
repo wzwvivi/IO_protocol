@@ -1,0 +1,58 @@
+{
+  "label_oct": "214",
+  "name": "ICAO Address",
+  "direction": "XPDR -> CPE",
+  "sources": [
+    "XPDR"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "码制DISC; ICAO 24-Bit Aircraft Address (part 1); bits 11-13 Pad; 更新速率N/A",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        14,
+        17
+      ],
+      "name": "ICAO Address Digit #1",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        18,
+        21
+      ],
+      "name": "ICAO Address Digit #2",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        22,
+        25
+      ],
+      "name": "ICAO Address Digit #3",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    },
+    {
+      "data_bits": [
+        26,
+        29
+      ],
+      "name": "ICAO Address Digit #4",
+      "resolution": null,
+      "sign_bit": null,
+      "unit": ""
+    }
+  ]
+}

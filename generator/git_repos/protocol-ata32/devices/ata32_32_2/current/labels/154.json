@@ -1,0 +1,22 @@
+{
+  "label_oct": "154",
+  "name": "LGCU 1/2 Maintenance Word 5",
+  "direction": "LGCU Control Channel -> External Receiver",
+  "sources": [
+    "LGCU Control Channel"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "Transmitted by LGCU CC",
+  "discrete_bits": {
+    "13": "AES Relay 4 Non Dispatchable Fault (only LGCU2): 0=not fault, 1=fault",
+    "14": "AES Relay 4 Electrical Fault (only LGCU2): 0=not fault, 1=fault",
+    "15": "AES Relay 5 Non Dispatchable Fault (only LGCU2): 0=not fault, 1=fault",
+    "16": "AES Relay 5 Electrical Fault (only LGCU2): 0=not fault, 1=fault"
+  },
+  "special_fields": [],
+  "bnr_fields": []
+}

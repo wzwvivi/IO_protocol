@@ -1,0 +1,258 @@
+[
+  {
+    "release_id": "ata32_32_3_v5_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V5.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:12.376867"
+  },
+  {
+    "release_id": "ata32_32_3_v6_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V6.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:14.971021"
+  },
+  {
+    "release_id": "ata32_32_3_v7_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V7.0",
+    "summary": "新增 1 个 Label",
+    "change_stats": {
+      "added": 1,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:28:52.074730"
+  },
+  {
+    "release_id": "ata32_32_3_v8_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:31:22.044022"
+  },
+  {
+    "release_id": "ata32_32_3_v5_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V5.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:12.376867"
+  },
+  {
+    "release_id": "ata32_32_3_v6_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V6.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:14.971021"
+  },
+  {
+    "release_id": "ata32_32_3_v7_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V7.0",
+    "summary": "新增 1 个 Label",
+    "change_stats": {
+      "added": 1,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:28:52.074730"
+  },
+  {
+    "release_id": "ata32_32_3_v8_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:31:22.044022"
+  },
+  {
+    "release_id": "ata32_32_3_v5_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V5.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:12.376867"
+  },
+  {
+    "release_id": "ata32_32_3_v6_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V6.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:14.971021"
+  },
+  {
+    "release_id": "ata32_32_3_v7_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V7.0",
+    "summary": "新增 1 个 Label",
+    "change_stats": {
+      "added": 1,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:28:52.074730"
+  },
+  {
+    "release_id": "ata32_32_3_v8_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:31:22.044022"
+  },
+  {
+    "release_id": "ata32_32_3_v5_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V5.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:12.376867"
+  },
+  {
+    "release_id": "ata32_32_3_v6_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V6.0",
+    "summary": "修改 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 1,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:19:14.971021"
+  },
+  {
+    "release_id": "ata32_32_3_v7_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V7.0",
+    "summary": "新增 1 个 Label",
+    "change_stats": {
+      "added": 1,
+      "modified": 0,
+      "deleted": 0
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:28:52.074730"
+  },
+  {
+    "release_id": "ata32_32_3_v8_0",
+    "device_id": "ata32_32_3",
+    "from_version": "",
+    "to_version": "V8.0",
+    "summary": "删除 1 个 Label",
+    "change_stats": {
+      "added": 0,
+      "modified": 0,
+      "deleted": 1
+    },
+    "git_commit": "",
+    "git_tag": "",
+    "created_by": "admin",
+    "created_at": "2026-03-19T10:31:22.044022"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "label_oct": "111",
+  "name": "前轮角度反馈",
+  "direction": "SCU -> RDIU",
+  "sources": [
+    "SCU"
+  ],
+  "data_type": "",
+  "unit": "",
+  "range": "",
+  "resolution": null,
+  "reserved_bits": "",
+  "notes": "SCU数据字1, 范围±60°",
+  "discrete_bits": {},
+  "special_fields": [],
+  "bnr_fields": [
+    {
+      "data_bits": [
+        17,
+        28
+      ],
+      "name": "前轮角度",
+      "resolution": 0.014653,
+      "sign_bit": 29,
+      "unit": "°"
+    }
+  ]
+}
