@@ -1,26 +1,24 @@
-# Python
+# ============================================
+# 协议管理平台 - Git 忽略配置
+# 只上传 generator 目录下的平台代码
+# ============================================
+
+# 忽略根目录下所有不相关的文件
+/*
+!generator/
+!.gitignore
+!README.md
+
+# ============================================
+# generator 目录内的忽略规则
+# ============================================
+
+# Python 缓存
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Virtual environments
+# 虚拟环境
 venv/
 ENV/
 env/
@@ -33,23 +31,39 @@ env/
 *.swo
 *~
 
-# Output files (generated)
-output/
-*.xlsx
-
-# Test files
-test_*.py
-test_*.c
-test_*.txt
-quick_test.py
-verify_*.py
-
-# Local data (will be created on first run)
-data/
-
-# OS files
+# 系统文件
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Logs
+# 输出目录中的生成文件（保留目录结构）
+generator/output/*.py
+generator/output/*.c
+generator/output/*.h
+generator/output/*.zip
+generator/output/*.xlsx
+
+# 临时文件
 *.log
+*.tmp
+*.bak
+~$*
+
+# 环境变量文件（包含敏感信息）
+.env
+.env.local
+.env.*.local
+
+# 上传的临时文件
+generator/data/uploads/*
+!generator/data/uploads/.gitkeep
+
+# seed_data 目录（空目录）
+generator/seed_data/*
+!generator/seed_data/.gitkeep
+
+# ============================================
+# 必须保留的文件
+# ============================================
+!generator/data/arinc429.db
+!generator/git_repos/
