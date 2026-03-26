@@ -1,12 +1,15 @@
 # ============================================
-# 协议管理平台 - Git 忽略配置
+# ARINC429 协议管理平台 - Git 忽略配置
 # 只上传 generator 目录下的平台代码
 # ============================================
 
 # 忽略根目录下所有不相关的文件
 /*
-!generator/
+
+# 只保留这些
 !.gitignore
+!README.md
+!generator/
 
 # ============================================
 # generator 目录内的忽略规则
@@ -16,6 +19,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.Python
 
 # 虚拟环境
 venv/
@@ -57,7 +61,7 @@ generator/output/*.xlsx
 generator/data/uploads/*
 !generator/data/uploads/.gitkeep
 
-# seed_data 目录（空目录）
+# seed_data 目录
 generator/seed_data/*
 !generator/seed_data/.gitkeep
 
@@ -68,23 +72,25 @@ generator/analyze_*.py
 generator/debug_*.py
 generator/check_*.py
 generator/test_*.py
-generator/build_*.py
 generator/find_*.py
+generator/build_*.py
 generator/export_md.py
-
-# 调试批处理文件
 generator/run_*.bat
 generator/rebuild_*.bat
-generator/check_llm_status.bat
+generator/*_llm*.bat
 generator/set_llm_key.bat
 generator/update_api_key.bat
-generator/test_model.bat
 generator/build_docker.bat
+generator/check_llm_status.bat
+generator/test_model.bat
 
 # ============================================
 # 必须保留的文件
 # ============================================
 !generator/data/arinc429.db
+!generator/data/.gitkeep
 !generator/git_repos/
-!generator/git_storage/
-!generator/templates/
+!generator/output/.gitkeep
+
+# git_repos 内的 .git 目录（防止子模块）
+generator/git_repos/*/.git/
