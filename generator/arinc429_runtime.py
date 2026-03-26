@@ -95,7 +95,7 @@ def check_odd_parity(word):
 
 
 def decode_ssm(ssm_val):
-    """解码状态矩阵 (SSM, Bits 30-31)
+    """解码状态矩阵 (SSM, Bits 30-31) - 默认 BNR 类型
     
     按协议文档定义:
       00 → 故障
@@ -115,6 +115,74 @@ def decode_ssm(ssm_val):
         0b11: '11-正常'
     }
     return ssm_map.get(ssm_val, f'{ssm_val:02b}-未知')
+
+
+def decode_ssm_by_type(ssm_val, ssm_type='bnr'):
+    """根据信号类型解码状态矩阵 (SSM, Bits 30-31)
+    
+    不同信号类型的 SSM 含义不同:
+    - BNR (二进制数值): 00=故障, 01=无计算数据, 10=功能测试, 11=正常操作
+    - BCD (十进制编码): 00=正(北/东/右), 01=无计算数据, 10=功能测试, 11=负(南/西/左)
+    - DISCRETE (离散): 00=已验证数据/正常操作, 01=无计算数据, 10=功能测试, 11=故障告警
+    
+    Args:
+        ssm_val: 0-3 (bit31为高位, bit30为低位)
+        ssm_type: 信号类型 ('bnr', 'bcd', 'discrete')
+    Returns:
+        状态描述字符串, 格式: "XX-含义"
+    """
+    ssm_maps = {
+        'bnr': {
+            0b00: '00-故障告警',
+            0b01: '01-无计算数据',
+            0b10: '10-功能测试',
+            0b11: '11-正常操作'
+        },
+        'bcd': {
+            0b00: '00-正(北/东/右)',
+            0b01: '01-无计算数据',
+            0b10: '10-功能测试',
+            0b11: '11-负(南/西/左)'
+        },
+        'discrete': {
+            0b00: '00-已验证/正常',
+            0b01: '01-无计算数据',
+            0b10: '10-功能测试',
+            0b11: '11-故障告警'
+        }
+    }
+    
+    ssm_map = ssm_maps.get(ssm_type, ssm_maps['bnr'])
+    return ssm_map.get(ssm_val, f'{ssm_val:02b}-未知')
+
+
+def decode_bcd_field(raw_value, num_bits):
+    """解码 BCD (Binary Coded Decimal) 字段
+    
+    BCD 编码中，每 4 位表示一个十进制数字 (0-9)。
+    例如: 0011 0101 (二进制) = 35 (十进制)，而不是 53
+    
+    Args:
+        raw_value: 从位段提取的原始值
+        num_bits: 位段的位数
+    Returns:
+        解码后的十进制值
+    """
+    result = 0
+    multiplier = 1
+    
+    # 每 4 位处理一个 BCD 数字
+    num_digits = (num_bits + 3) // 4  # 向上取整
+    
+    for i in range(num_digits):
+        digit = (raw_value >> (i * 4)) & 0x0F
+        if digit > 9:
+            # 无效 BCD 数字，返回原始值并标记
+            return raw_value  # 或者可以返回特殊标记
+        result += digit * multiplier
+        multiplier *= 10
+    
+    return result
 
 
 def decode_bnr_signed(word, data_start, data_end, sign_bit, resolution):

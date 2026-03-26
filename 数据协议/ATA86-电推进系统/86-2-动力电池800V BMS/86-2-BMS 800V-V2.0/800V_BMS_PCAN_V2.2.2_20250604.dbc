@@ -1,0 +1,843 @@
+VERSION ""
+
+
+NS_ : 
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_:
+
+BU_:BMS FCS VCU
+
+
+BO_ 2415984641 FMC1_PwrUpCommand: 8 FMC1
+ SG_ FMCPriorStat : 7|4@0+ (1,0) [0|2] "" BMS
+ SG_ PlaneLocInfo : 3|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat1HVPwrUpRqst : 15|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat2HVPwrUpRqst : 11|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat3HVPwrUpRqst : 23|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat4HVPwrUpRqst : 19|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat5HVPwrUpRqst : 31|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat6HVPwrUpRqst : 27|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat7HVPwrUpRqst : 39|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat8HVPwrUpRqst : 35|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat9HVPwrUpRqst : 47|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat10HVPwrUpRqst : 43|4@0+ (1,0) [0|2] "" BMS
+BO_ 2415984642 FMC2_PwrUpCommand: 8 FMC2
+ SG_ FMCPriorStat : 7|4@0+ (1,0) [0|2] "" BMS
+ SG_ PlaneLocInfo : 3|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat1HVPwrUpRqst : 15|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat2HVPwrUpRqst : 11|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat3HVPwrUpRqst : 23|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat4HVPwrUpRqst : 19|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat5HVPwrUpRqst : 31|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat6HVPwrUpRqst : 27|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat7HVPwrUpRqst : 39|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat8HVPwrUpRqst : 35|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat9HVPwrUpRqst : 47|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat10HVPwrUpRqst : 43|4@0+ (1,0) [0|2] "" BMS
+BO_ 2550202385 BatP1_BMS_PackState: 8 BMS
+ SG_ P1_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P1_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P1_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P1_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P1_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P1_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P1_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267921 BatP1_BMS_PackMeasData: 8 BMS
+ SG_ P1_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P1_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333457 BatP1_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P1_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P1_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P1_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P1_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P1_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P1_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365073 BatP1_BMS_PackSeriesNumber: 8 BMS
+ SG_ P1_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202402 BatP2_BMS_PackState: 8 BMS
+ SG_ P2_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P2_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P2_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P2_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P2_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P2_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P2_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267938 BatP2_BMS_PackMeasData: 8 BMS
+ SG_ P2_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P2_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333474 BatP2_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P2_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P2_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P2_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P2_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P2_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P2_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365090 BatP2_BMS_PackSeriesNumber: 8 BMS
+ SG_ P2_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202419 BatP3_BMS_PackState: 8 BMS
+ SG_ P3_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P3_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P3_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P3_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P3_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P3_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P3_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267955 BatP3_BMS_PackMeasData: 8 BMS
+ SG_ P3_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P3_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333491 BatP3_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P3_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P3_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P3_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P3_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P3_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P3_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365107 BatP3_BMS_PackSeriesNumber: 8 BMS
+ SG_ P3_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202436 BatP4_BMS_PackState: 8 BMS
+ SG_ P4_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P4_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P4_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P4_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P4_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P4_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P4_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267972 BatP4_BMS_PackMeasData: 8 BMS
+ SG_ P4_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P4_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333508 BatP4_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P4_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P4_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P4_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P4_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P4_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P4_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365124 BatP4_BMS_PackSeriesNumber: 8 BMS
+ SG_ P4_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202453 BatP5_BMS_PackState: 8 BMS
+ SG_ P5_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P5_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P5_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P5_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P5_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P5_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P5_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P5_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P5_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267989 BatP5_BMS_PackMeasData: 8 BMS
+ SG_ P5_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P5_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P5_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333525 BatP5_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P5_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P5_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P5_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P5_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P5_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P5_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365141 BatP5_BMS_PackSeriesNumber: 8 BMS
+ SG_ P5_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202470 BatP6_BMS_PackState: 8 BMS
+ SG_ P6_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P6_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P6_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P6_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P6_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P6_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P6_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P6_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P6_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550268006 BatP6_BMS_PackMeasData: 8 BMS
+ SG_ P6_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P6_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P6_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333542 BatP6_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P6_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P6_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P6_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P6_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P6_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P6_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365158 BatP6_BMS_PackSeriesNumber: 8 BMS
+ SG_ P6_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202487 BatP7_BMS_PackState: 8 BMS
+ SG_ P7_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P7_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P7_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P7_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P7_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P7_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P7_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P7_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P7_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550268023 BatP7_BMS_PackMeasData: 8 BMS
+ SG_ P7_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P7_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P7_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333559 BatP7_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P7_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P7_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P7_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P7_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P7_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P7_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365175 BatP7_BMS_PackSeriesNumber: 8 BMS
+ SG_ P7_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202504 BatP8_BMS_PackState: 8 BMS
+ SG_ P8_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P8_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P8_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P8_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P8_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P8_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P8_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P8_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P8_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550268040 BatP8_BMS_PackMeasData: 8 BMS
+ SG_ P8_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P8_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P8_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333576 BatP8_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P8_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P8_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P8_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P8_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P8_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P8_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365192 BatP8_BMS_PackSeriesNumber: 8 BMS
+ SG_ P8_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202521 BatP9_BMS_PackState: 8 BMS
+ SG_ P9_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P9_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P9_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P9_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P9_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P9_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P9_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P9_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P9_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550268057 BatP9_BMS_PackMeasData: 8 BMS
+ SG_ P9_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P9_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P9_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333593 BatP9_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P9_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P9_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P9_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P9_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P9_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P9_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365209 BatP9_BMS_PackSeriesNumber: 8 BMS
+ SG_ P9_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550202538 BatP10_BMS_PackState: 8 BMS
+ SG_ P10_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P10_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P10_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P10_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P10_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P10_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P10_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P10_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P10_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550268074 BatP10_BMS_PackMeasData: 8 BMS
+ SG_ P10_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P10_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P10_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333610 BatP10_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P10_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P10_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P10_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P10_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P10_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P10_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365226 BatP10_BMS_PackSeriesNumber: 8 BMS
+ SG_ P10_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+
+
+
+CM_ SG_ 2415984641 FMCPriorStat "FMC设备的优先级状态";
+CM_ SG_ 2415984641 PlaneLocInfo "飞机的位置信息";
+CM_ SG_ 2415984641 Bat1HVPwrUpRqst "飞控发送给BMS1的高压上电命令";
+CM_ SG_ 2415984641 Bat2HVPwrUpRqst "飞控发送给BMS2的高压上电命令";
+CM_ SG_ 2415984641 Bat3HVPwrUpRqst "飞控发送给BMS3的高压上电命令";
+CM_ SG_ 2415984641 Bat4HVPwrUpRqst "飞控发送给BMS4的高压上电命令";
+CM_ SG_ 2415984641 Bat5HVPwrUpRqst "飞控发送给BMS5的高压上电命令";
+CM_ SG_ 2415984641 Bat6HVPwrUpRqst "飞控发送给BMS6的高压上电命令";
+CM_ SG_ 2415984641 Bat7HVPwrUpRqst "飞控发送给BMS7的高压上电命令";
+CM_ SG_ 2415984641 Bat8HVPwrUpRqst "飞控发送给BMS8的高压上电命令";
+CM_ SG_ 2415984641 Bat9HVPwrUpRqst "飞控发送给BMS9的高压上电命令";
+CM_ SG_ 2415984641 Bat10HVPwrUpRqst "飞控发送给BMS10的高压上电命令";
+CM_ SG_ 2415984642 FMCPriorStat "FMC设备的优先级状态";
+CM_ SG_ 2415984642 PlaneLocInfo "飞机的位置信息";
+CM_ SG_ 2415984642 Bat1HVPwrUpRqst "飞控发送给BMS1的高压上电命令";
+CM_ SG_ 2415984642 Bat2HVPwrUpRqst "飞控发送给BMS2的高压上电命令";
+CM_ SG_ 2415984642 Bat3HVPwrUpRqst "飞控发送给BMS3的高压上电命令";
+CM_ SG_ 2415984642 Bat4HVPwrUpRqst "飞控发送给BMS4的高压上电命令";
+CM_ SG_ 2415984642 Bat5HVPwrUpRqst "飞控发送给BMS5的高压上电命令";
+CM_ SG_ 2415984642 Bat6HVPwrUpRqst "飞控发送给BMS6的高压上电命令";
+CM_ SG_ 2415984642 Bat7HVPwrUpRqst "飞控发送给BMS7的高压上电命令";
+CM_ SG_ 2415984642 Bat8HVPwrUpRqst "飞控发送给BMS8的高压上电命令";
+CM_ SG_ 2415984642 Bat9HVPwrUpRqst "飞控发送给BMS9的高压上电命令";
+CM_ SG_ 2415984642 Bat10HVPwrUpRqst "飞控发送给BMS10的高压上电命令";
+CM_ SG_ 2550202385 P1_BMS_Stat "电池包1的BMS系统状态";
+CM_ SG_ 2550202385 P1_MainCntctrStat "电池包1的BMS继电器状态";
+CM_ SG_ 2550202385 P1_PackFltLvl "电池包1的故障等级";
+CM_ SG_ 2550202385 P1_BatThrmlReqStat "电池包1的热管理请求";
+CM_ SG_ 2550202385 P1_HVSysIsolDetStat "电池包1的高压系统绝缘检测状态";
+CM_ SG_ 2550202385 P1_PackVolt "电池包1的总电压";
+CM_ SG_ 2550202385 P1_NegCntctr1ClsdCmnd "电池包1的主负继电器1闭合命令";
+CM_ SG_ 2550202385 P1_NegCntctr2ClsdCmnd "电池包1的主负继电器2闭合命令";
+CM_ SG_ 2550202385 P1_PosCntctrClsdCmnd "电池包1的主正继电器闭合命令";
+CM_ SG_ 2550202385 P1_PreCntctrClsdCmnd "电池包1的预充继电器闭合命令";
+CM_ SG_ 2550202385 P1_Branch1Crnt "电池包1的支路1电流";
+CM_ SG_ 2550202385 P1_FlgHvInhibit "电池包1的禁止高压上电标志位";
+CM_ SG_ 2550202385 P1_FlgHVPwrDown "电池包1的故障高压下电标志位";
+CM_ SG_ 2550202385 P1_FlgDCChgInhibit "电池包1的禁止快充标志位";
+CM_ SG_ 2550202385 P1_DCChrgAbrtRsn "电池包1的快充停止原因";
+CM_ SG_ 2550267921 P1_HvBusVlt "电池包1的外部高压总线电压";
+CM_ SG_ 2550267921 P1_PackTotCrnt "电池包1的总电流";
+CM_ SG_ 2550267921 P1_HVSysIsolRes "电池包1的高压系统绝缘阻值";
+CM_ SG_ 2550333457 P1_PackSOC "电池包1的SOC";
+CM_ SG_ 2550333457 P1_PackRemEnrgy "电池包1的剩余能量";
+CM_ SG_ 2550333457 P1_PackSOE "电池包1的SOE";
+CM_ SG_ 2550333457 P1_ChrgCrntLimCof "电池包1的充电电流限制系数";
+CM_ SG_ 2550333457 P1_ChrgCrntLimVal "电池包1的充电电流限值";
+CM_ SG_ 2550333457 P1_PlugInChrgVolt "电池包1的外插充电电压";
+CM_ SG_ 2552365073 P1_PackSerNum "电池包1的序列号";
+CM_ SG_ 2550202402 P2_BMS_Stat "电池包2的BMS系统状态";
+CM_ SG_ 2550202402 P2_MainCntctrStat "电池包2的BMS继电器状态";
+CM_ SG_ 2550202402 P2_PackFltLvl "电池包2的故障等级";
+CM_ SG_ 2550202402 P2_BatThrmlReqStat "电池包2的热管理请求";
+CM_ SG_ 2550202402 P2_HVSysIsolDetStat "电池包2的高压系统绝缘检测状态";
+CM_ SG_ 2550202402 P2_PackVolt "电池包2的总电压";
+CM_ SG_ 2550202402 P2_NegCntctr1ClsdCmnd "电池包2的主负继电器1闭合命令";
+CM_ SG_ 2550202402 P2_NegCntctr2ClsdCmnd "电池包2的主负继电器2闭合命令";
+CM_ SG_ 2550202402 P2_PosCntctrClsdCmnd "电池包2的主正继电器闭合命令";
+CM_ SG_ 2550202402 P2_PreCntctrClsdCmnd "电池包2的预充继电器闭合命令";
+CM_ SG_ 2550202402 P2_Branch1Crnt "电池包2的支路1电流";
+CM_ SG_ 2550202402 P2_FlgHvInhibit "电池包2的禁止高压上电标志位";
+CM_ SG_ 2550202402 P2_FlgHVPwrDown "电池包2的故障高压下电标志位";
+CM_ SG_ 2550202402 P2_FlgDCChgInhibit "电池包2的禁止快充标志位";
+CM_ SG_ 2550202402 P2_DCChrgAbrtRsn "电池包2的快充停止原因";
+CM_ SG_ 2550267938 P2_HvBusVlt "电池包2的外部高压总线电压";
+CM_ SG_ 2550267938 P2_PackTotCrnt "电池包2的总电流";
+CM_ SG_ 2550267938 P2_HVSysIsolRes "电池包2的高压系统绝缘阻值";
+CM_ SG_ 2550333474 P2_PackSOC "电池包2的SOC";
+CM_ SG_ 2550333474 P2_PackRemEnrgy "电池包2的剩余能量";
+CM_ SG_ 2550333474 P2_PackSOE "电池包2的SOE";
+CM_ SG_ 2550333474 P2_ChrgCrntLimCof "电池包2的充电电流限制系数";
+CM_ SG_ 2550333474 P2_ChrgCrntLimVal "电池包2的充电电流限值";
+CM_ SG_ 2550333474 P2_PlugInChrgVolt "电池包2的外插充电电压";
+CM_ SG_ 2552365090 P2_PackSerNum "电池包2的序列号";
+CM_ SG_ 2550202419 P3_BMS_Stat "电池包3的BMS系统状态";
+CM_ SG_ 2550202419 P3_MainCntctrStat "电池包3的BMS继电器状态";
+CM_ SG_ 2550202419 P3_PackFltLvl "电池包3的故障等级";
+CM_ SG_ 2550202419 P3_BatThrmlReqStat "电池包3的热管理请求";
+CM_ SG_ 2550202419 P3_HVSysIsolDetStat "电池包3的高压系统绝缘检测状态";
+CM_ SG_ 2550202419 P3_PackVolt "电池包3的总电压";
+CM_ SG_ 2550202419 P3_NegCntctr1ClsdCmnd "电池包3的主负继电器1闭合命令";
+CM_ SG_ 2550202419 P3_NegCntctr2ClsdCmnd "电池包3的主负继电器2闭合命令";
+CM_ SG_ 2550202419 P3_PosCntctrClsdCmnd "电池包3的主正继电器闭合命令";
+CM_ SG_ 2550202419 P3_PreCntctrClsdCmnd "电池包3的预充继电器闭合命令";
+CM_ SG_ 2550202419 P3_Branch1Crnt "电池包3的支路1电流";
+CM_ SG_ 2550202419 P3_FlgHvInhibit "电池包3的禁止高压上电标志位";
+CM_ SG_ 2550202419 P3_FlgHVPwrDown "电池包3的故障高压下电标志位";
+CM_ SG_ 2550202419 P3_FlgDCChgInhibit "电池包3的禁止快充标志位";
+CM_ SG_ 2550202419 P3_DCChrgAbrtRsn "电池包3的快充停止原因";
+CM_ SG_ 2550267955 P3_HvBusVlt "电池包3的外部高压总线电压";
+CM_ SG_ 2550267955 P3_PackTotCrnt "电池包3的总电流";
+CM_ SG_ 2550267955 P3_HVSysIsolRes "电池包3的高压系统绝缘阻值";
+CM_ SG_ 2550333491 P3_PackSOC "电池包3的SOC";
+CM_ SG_ 2550333491 P3_PackRemEnrgy "电池包3的剩余能量";
+CM_ SG_ 2550333491 P3_PackSOE "电池包3的SOE";
+CM_ SG_ 2550333491 P3_ChrgCrntLimCof "电池包3的充电电流限制系数";
+CM_ SG_ 2550333491 P3_ChrgCrntLimVal "电池包3的充电电流限值";
+CM_ SG_ 2550333491 P3_PlugInChrgVolt "电池包3的外插充电电压";
+CM_ SG_ 2552365107 P3_PackSerNum "电池包3的序列号";
+CM_ SG_ 2550202436 P4_BMS_Stat "电池包4的BMS系统状态";
+CM_ SG_ 2550202436 P4_MainCntctrStat "电池包4的BMS继电器状态";
+CM_ SG_ 2550202436 P4_PackFltLvl "电池包4的故障等级";
+CM_ SG_ 2550202436 P4_BatThrmlReqStat "电池包4的热管理请求";
+CM_ SG_ 2550202436 P4_HVSysIsolDetStat "电池包4的高压系统绝缘检测状态";
+CM_ SG_ 2550202436 P4_PackVolt "电池包4的总电压";
+CM_ SG_ 2550202436 P4_NegCntctr1ClsdCmnd "电池包4的主负继电器1闭合命令";
+CM_ SG_ 2550202436 P4_NegCntctr2ClsdCmnd "电池包4的主负继电器2闭合命令";
+CM_ SG_ 2550202436 P4_PosCntctrClsdCmnd "电池包4的主正继电器闭合命令";
+CM_ SG_ 2550202436 P4_PreCntctrClsdCmnd "电池包4的预充继电器闭合命令";
+CM_ SG_ 2550202436 P4_Branch1Crnt "电池包4的支路1电流";
+CM_ SG_ 2550202436 P4_FlgHvInhibit "电池包4的禁止高压上电标志位";
+CM_ SG_ 2550202436 P4_FlgHVPwrDown "电池包4的故障高压下电标志位";
+CM_ SG_ 2550202436 P4_FlgDCChgInhibit "电池包4的禁止快充标志位";
+CM_ SG_ 2550202436 P4_DCChrgAbrtRsn "电池包4的快充停止原因";
+CM_ SG_ 2550267972 P4_HvBusVlt "电池包4的外部高压总线电压";
+CM_ SG_ 2550267972 P4_PackTotCrnt "电池包4的总电流";
+CM_ SG_ 2550267972 P4_HVSysIsolRes "电池包4的高压系统绝缘阻值";
+CM_ SG_ 2550333508 P4_PackSOC "电池包4的SOC";
+CM_ SG_ 2550333508 P4_PackRemEnrgy "电池包4的剩余能量";
+CM_ SG_ 2550333508 P4_PackSOE "电池包4的SOE";
+CM_ SG_ 2550333508 P4_ChrgCrntLimCof "电池包4的充电电流限制系数";
+CM_ SG_ 2550333508 P4_ChrgCrntLimVal "电池包4的充电电流限值";
+CM_ SG_ 2550333508 P4_PlugInChrgVolt "电池包4的外插充电电压";
+CM_ SG_ 2552365124 P4_PackSerNum "电池包4的序列号";
+CM_ SG_ 2550202453 P5_BMS_Stat "电池包5的BMS系统状态";
+CM_ SG_ 2550202453 P5_MainCntctrStat "电池包5的BMS继电器状态";
+CM_ SG_ 2550202453 P5_PackFltLvl "电池包5的故障等级";
+CM_ SG_ 2550202453 P5_BatThrmlReqStat "电池包5的热管理请求";
+CM_ SG_ 2550202453 P5_HVSysIsolDetStat "电池包5的高压系统绝缘检测状态";
+CM_ SG_ 2550202453 P5_PackVolt "电池包5的总电压";
+CM_ SG_ 2550202453 P5_NegCntctr1ClsdCmnd "电池包5的主负继电器1闭合命令";
+CM_ SG_ 2550202453 P5_NegCntctr2ClsdCmnd "电池包5的主负继电器2闭合命令";
+CM_ SG_ 2550202453 P5_PosCntctrClsdCmnd "电池包5的主正继电器闭合命令";
+CM_ SG_ 2550202453 P5_PreCntctrClsdCmnd "电池包5的预充继电器闭合命令";
+CM_ SG_ 2550202453 P5_Branch1Crnt "电池包5的支路1电流";
+CM_ SG_ 2550202453 P5_FlgHvInhibit "电池包5的禁止高压上电标志位";
+CM_ SG_ 2550202453 P5_FlgHVPwrDown "电池包5的故障高压下电标志位";
+CM_ SG_ 2550202453 P5_FlgDCChgInhibit "电池包5的禁止快充标志位";
+CM_ SG_ 2550202453 P5_DCChrgAbrtRsn "电池包5的快充停止原因";
+CM_ SG_ 2550267989 P5_HvBusVlt "电池包5的外部高压总线电压";
+CM_ SG_ 2550267989 P5_PackTotCrnt "电池包5的总电流";
+CM_ SG_ 2550267989 P5_HVSysIsolRes "电池包5的高压系统绝缘阻值";
+CM_ SG_ 2550333525 P5_PackSOC "电池包5的SOC";
+CM_ SG_ 2550333525 P5_PackRemEnrgy "电池包5的剩余能量";
+CM_ SG_ 2550333525 P5_PackSOE "电池包5的SOE";
+CM_ SG_ 2550333525 P5_ChrgCrntLimCof "电池包5的充电电流限制系数";
+CM_ SG_ 2550333525 P5_ChrgCrntLimVal "电池包5的充电电流限值";
+CM_ SG_ 2550333525 P5_PlugInChrgVolt "电池包5的外插充电电压";
+CM_ SG_ 2552365141 P5_PackSerNum "电池包5的序列号";
+CM_ SG_ 2550202470 P6_BMS_Stat "电池包6的BMS系统状态";
+CM_ SG_ 2550202470 P6_MainCntctrStat "电池包6的BMS继电器状态";
+CM_ SG_ 2550202470 P6_PackFltLvl "电池包6的故障等级";
+CM_ SG_ 2550202470 P6_BatThrmlReqStat "电池包6的热管理请求";
+CM_ SG_ 2550202470 P6_HVSysIsolDetStat "电池包6的高压系统绝缘检测状态";
+CM_ SG_ 2550202470 P6_PackVolt "电池包6的总电压";
+CM_ SG_ 2550202470 P6_NegCntctr1ClsdCmnd "电池包6的主负继电器1闭合命令";
+CM_ SG_ 2550202470 P6_NegCntctr2ClsdCmnd "电池包6的主负继电器2闭合命令";
+CM_ SG_ 2550202470 P6_PosCntctrClsdCmnd "电池包6的主正继电器闭合命令";
+CM_ SG_ 2550202470 P6_PreCntctrClsdCmnd "电池包6的预充继电器闭合命令";
+CM_ SG_ 2550202470 P6_Branch1Crnt "电池包6的支路1电流";
+CM_ SG_ 2550202470 P6_FlgHvInhibit "电池包6的禁止高压上电标志位";
+CM_ SG_ 2550202470 P6_FlgHVPwrDown "电池包6的故障高压下电标志位";
+CM_ SG_ 2550202470 P6_FlgDCChgInhibit "电池包6的禁止快充标志位";
+CM_ SG_ 2550202470 P6_DCChrgAbrtRsn "电池包6的快充停止原因";
+CM_ SG_ 2550268006 P6_HvBusVlt "电池包6的外部高压总线电压";
+CM_ SG_ 2550268006 P6_PackTotCrnt "电池包6的总电流";
+CM_ SG_ 2550268006 P6_HVSysIsolRes "电池包6的高压系统绝缘阻值";
+CM_ SG_ 2550333542 P6_PackSOC "电池包6的SOC";
+CM_ SG_ 2550333542 P6_PackRemEnrgy "电池包6的剩余能量";
+CM_ SG_ 2550333542 P6_PackSOE "电池包6的SOE";
+CM_ SG_ 2550333542 P6_ChrgCrntLimCof "电池包6的充电电流限制系数";
+CM_ SG_ 2550333542 P6_ChrgCrntLimVal "电池包6的充电电流限值";
+CM_ SG_ 2550333542 P6_PlugInChrgVolt "电池包6的外插充电电压";
+CM_ SG_ 2552365158 P6_PackSerNum "电池包6的序列号";
+CM_ SG_ 2550202487 P7_BMS_Stat "电池包7的BMS系统状态";
+CM_ SG_ 2550202487 P7_MainCntctrStat "电池包7的BMS继电器状态";
+CM_ SG_ 2550202487 P7_PackFltLvl "电池包7的故障等级";
+CM_ SG_ 2550202487 P7_BatThrmlReqStat "电池包7的热管理请求";
+CM_ SG_ 2550202487 P7_HVSysIsolDetStat "电池包7的高压系统绝缘检测状态";
+CM_ SG_ 2550202487 P7_PackVolt "电池包7的总电压";
+CM_ SG_ 2550202487 P7_NegCntctr1ClsdCmnd "电池包7的主负继电器1闭合命令";
+CM_ SG_ 2550202487 P7_NegCntctr2ClsdCmnd "电池包7的主负继电器2闭合命令";
+CM_ SG_ 2550202487 P7_PosCntctrClsdCmnd "电池包7的主正继电器闭合命令";
+CM_ SG_ 2550202487 P7_PreCntctrClsdCmnd "电池包7的预充继电器闭合命令";
+CM_ SG_ 2550202487 P7_Branch1Crnt "电池包7的支路1电流";
+CM_ SG_ 2550202487 P7_FlgHvInhibit "电池包7的禁止高压上电标志位";
+CM_ SG_ 2550202487 P7_FlgHVPwrDown "电池包7的故障高压下电标志位";
+CM_ SG_ 2550202487 P7_FlgDCChgInhibit "电池包7的禁止快充标志位";
+CM_ SG_ 2550202487 P7_DCChrgAbrtRsn "电池包7的快充停止原因";
+CM_ SG_ 2550268023 P7_HvBusVlt "电池包7的外部高压总线电压";
+CM_ SG_ 2550268023 P7_PackTotCrnt "电池包7的总电流";
+CM_ SG_ 2550268023 P7_HVSysIsolRes "电池包7的高压系统绝缘阻值";
+CM_ SG_ 2550333559 P7_PackSOC "电池包7的SOC";
+CM_ SG_ 2550333559 P7_PackRemEnrgy "电池包7的剩余能量";
+CM_ SG_ 2550333559 P7_PackSOE "电池包7的SOE";
+CM_ SG_ 2550333559 P7_ChrgCrntLimCof "电池包7的充电电流限制系数";
+CM_ SG_ 2550333559 P7_ChrgCrntLimVal "电池包7的充电电流限值";
+CM_ SG_ 2550333559 P7_PlugInChrgVolt "电池包7的外插充电电压";
+CM_ SG_ 2552365175 P7_PackSerNum "电池包7的序列号";
+CM_ SG_ 2550202504 P8_BMS_Stat "电池包8的BMS系统状态";
+CM_ SG_ 2550202504 P8_MainCntctrStat "电池包8的BMS继电器状态";
+CM_ SG_ 2550202504 P8_PackFltLvl "电池包8的故障等级";
+CM_ SG_ 2550202504 P8_BatThrmlReqStat "电池包8的热管理请求";
+CM_ SG_ 2550202504 P8_HVSysIsolDetStat "电池包8的高压系统绝缘检测状态";
+CM_ SG_ 2550202504 P8_PackVolt "电池包8的总电压";
+CM_ SG_ 2550202504 P8_NegCntctr1ClsdCmnd "电池包8的主负继电器1闭合命令";
+CM_ SG_ 2550202504 P8_NegCntctr2ClsdCmnd "电池包8的主负继电器2闭合命令";
+CM_ SG_ 2550202504 P8_PosCntctrClsdCmnd "电池包8的主正继电器闭合命令";
+CM_ SG_ 2550202504 P8_PreCntctrClsdCmnd "电池包8的预充继电器闭合命令";
+CM_ SG_ 2550202504 P8_Branch1Crnt "电池包8的支路1电流";
+CM_ SG_ 2550202504 P8_FlgHvInhibit "电池包8的禁止高压上电标志位";
+CM_ SG_ 2550202504 P8_FlgHVPwrDown "电池包8的故障高压下电标志位";
+CM_ SG_ 2550202504 P8_FlgDCChgInhibit "电池包8的禁止快充标志位";
+CM_ SG_ 2550202504 P8_DCChrgAbrtRsn "电池包8的快充停止原因";
+CM_ SG_ 2550268040 P8_HvBusVlt "电池包8的外部高压总线电压";
+CM_ SG_ 2550268040 P8_PackTotCrnt "电池包8的总电流";
+CM_ SG_ 2550268040 P8_HVSysIsolRes "电池包8的高压系统绝缘阻值";
+CM_ SG_ 2550333576 P8_PackSOC "电池包8的SOC";
+CM_ SG_ 2550333576 P8_PackRemEnrgy "电池包8的剩余能量";
+CM_ SG_ 2550333576 P8_PackSOE "电池包8的SOE";
+CM_ SG_ 2550333576 P8_ChrgCrntLimCof "电池包8的充电电流限制系数";
+CM_ SG_ 2550333576 P8_ChrgCrntLimVal "电池包8的充电电流限值";
+CM_ SG_ 2550333576 P8_PlugInChrgVolt "电池包8的外插充电电压";
+CM_ SG_ 2552365192 P8_PackSerNum "电池包8的序列号";
+CM_ SG_ 2550202521 P9_BMS_Stat "电池包9的BMS系统状态";
+CM_ SG_ 2550202521 P9_MainCntctrStat "电池包9的BMS继电器状态";
+CM_ SG_ 2550202521 P9_PackFltLvl "电池包9的故障等级";
+CM_ SG_ 2550202521 P9_BatThrmlReqStat "电池包9的热管理请求";
+CM_ SG_ 2550202521 P9_HVSysIsolDetStat "电池包9的高压系统绝缘检测状态";
+CM_ SG_ 2550202521 P9_PackVolt "电池包9的总电压";
+CM_ SG_ 2550202521 P9_NegCntctr1ClsdCmnd "电池包9的主负继电器1闭合命令";
+CM_ SG_ 2550202521 P9_NegCntctr2ClsdCmnd "电池包9的主负继电器2闭合命令";
+CM_ SG_ 2550202521 P9_PosCntctrClsdCmnd "电池包9的主正继电器闭合命令";
+CM_ SG_ 2550202521 P9_PreCntctrClsdCmnd "电池包9的预充继电器闭合命令";
+CM_ SG_ 2550202521 P9_Branch1Crnt "电池包9的支路1电流";
+CM_ SG_ 2550202521 P9_FlgHvInhibit "电池包9的禁止高压上电标志位";
+CM_ SG_ 2550202521 P9_FlgHVPwrDown "电池包9的故障高压下电标志位";
+CM_ SG_ 2550202521 P9_FlgDCChgInhibit "电池包9的禁止快充标志位";
+CM_ SG_ 2550202521 P9_DCChrgAbrtRsn "电池包9的快充停止原因";
+CM_ SG_ 2550268057 P9_HvBusVlt "电池包9的外部高压总线电压";
+CM_ SG_ 2550268057 P9_PackTotCrnt "电池包9的总电流";
+CM_ SG_ 2550268057 P9_HVSysIsolRes "电池包9的高压系统绝缘阻值";
+CM_ SG_ 2550333593 P9_PackSOC "电池包9的SOC";
+CM_ SG_ 2550333593 P9_PackRemEnrgy "电池包9的剩余能量";
+CM_ SG_ 2550333593 P9_PackSOE "电池包9的SOE";
+CM_ SG_ 2550333593 P9_ChrgCrntLimCof "电池包9的充电电流限制系数";
+CM_ SG_ 2550333593 P9_ChrgCrntLimVal "电池包9的充电电流限值";
+CM_ SG_ 2550333593 P9_PlugInChrgVolt "电池包9的外插充电电压";
+CM_ SG_ 2552365209 P9_PackSerNum "电池包9的序列号";
+CM_ SG_ 2550202538 P10_BMS_Stat "电池包10的BMS系统状态";
+CM_ SG_ 2550202538 P10_MainCntctrStat "电池包10的BMS继电器状态";
+CM_ SG_ 2550202538 P10_PackFltLvl "电池包10的故障等级";
+CM_ SG_ 2550202538 P10_BatThrmlReqStat "电池包10的热管理请求";
+CM_ SG_ 2550202538 P10_HVSysIsolDetStat "电池包10的高压系统绝缘检测状态";
+CM_ SG_ 2550202538 P10_PackVolt "电池包10的总电压";
+CM_ SG_ 2550202538 P10_NegCntctr1ClsdCmnd "电池包10的主负继电器1闭合命令";
+CM_ SG_ 2550202538 P10_NegCntctr2ClsdCmnd "电池包10的主负继电器2闭合命令";
+CM_ SG_ 2550202538 P10_PosCntctrClsdCmnd "电池包10的主正继电器闭合命令";
+CM_ SG_ 2550202538 P10_PreCntctrClsdCmnd "电池包10的预充继电器闭合命令";
+CM_ SG_ 2550202538 P10_Branch1Crnt "电池包10的支路1电流";
+CM_ SG_ 2550202538 P10_FlgHvInhibit "电池包10的禁止高压上电标志位";
+CM_ SG_ 2550202538 P10_FlgHVPwrDown "电池包10的故障高压下电标志位";
+CM_ SG_ 2550202538 P10_FlgDCChgInhibit "电池包10的禁止快充标志位";
+CM_ SG_ 2550202538 P10_DCChrgAbrtRsn "电池包10的快充停止原因";
+CM_ SG_ 2550268074 P10_HvBusVlt "电池包10的外部高压总线电压";
+CM_ SG_ 2550268074 P10_PackTotCrnt "电池包10的总电流";
+CM_ SG_ 2550268074 P10_HVSysIsolRes "电池包10的高压系统绝缘阻值";
+CM_ SG_ 2550333610 P10_PackSOC "电池包10的SOC";
+CM_ SG_ 2550333610 P10_PackRemEnrgy "电池包10的剩余能量";
+CM_ SG_ 2550333610 P10_PackSOE "电池包10的SOE";
+CM_ SG_ 2550333610 P10_ChrgCrntLimCof "电池包10的充电电流限制系数";
+CM_ SG_ 2550333610 P10_ChrgCrntLimVal "电池包10的充电电流限值";
+CM_ SG_ 2550333610 P10_PlugInChrgVolt "电池包10的外插充电电压";
+CM_ SG_ 2552365226 P10_PackSerNum "电池包10的序列号";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","IfActive","Event";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 5000;
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnChange","NoSigSendType";
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "CANFD_BRS" "0";
+BA_DEF_DEF_  "VFrameFormat" "ExtendedCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "PCAN";
+BA_ "GenMsgCycleTime" BO_ 2415984641 10;
+BA_ "GenMsgSendType" BO_ 2415984641 0;
+BA_ "GenMsgCycleTime" BO_ 2415984642 10;
+BA_ "GenMsgSendType" BO_ 2415984642 0;
+BA_ "GenMsgCycleTime" BO_ 2550202385 10;
+BA_ "GenMsgSendType" BO_ 2550202385 0;
+BA_ "GenMsgCycleTime" BO_ 2550267921 100;
+BA_ "GenMsgSendType" BO_ 2550267921 0;
+BA_ "GenMsgCycleTime" BO_ 2550333457 100;
+BA_ "GenMsgSendType" BO_ 2550333457 0;
+BA_ "GenMsgCycleTime" BO_ 2552365073 1000;
+BA_ "GenMsgSendType" BO_ 2552365073 0;
+BA_ "GenMsgCycleTime" BO_ 2550202402 10;
+BA_ "GenMsgSendType" BO_ 2550202402 0;
+BA_ "GenMsgCycleTime" BO_ 2550267938 100;
+BA_ "GenMsgSendType" BO_ 2550267938 0;
+BA_ "GenMsgCycleTime" BO_ 2550333474 100;
+BA_ "GenMsgSendType" BO_ 2550333474 0;
+BA_ "GenMsgCycleTime" BO_ 2552365090 1000;
+BA_ "GenMsgSendType" BO_ 2552365090 0;
+BA_ "GenMsgCycleTime" BO_ 2550202419 10;
+BA_ "GenMsgSendType" BO_ 2550202419 0;
+BA_ "GenMsgCycleTime" BO_ 2550267955 100;
+BA_ "GenMsgSendType" BO_ 2550267955 0;
+BA_ "GenMsgCycleTime" BO_ 2550333491 100;
+BA_ "GenMsgSendType" BO_ 2550333491 0;
+BA_ "GenMsgCycleTime" BO_ 2552365107 1000;
+BA_ "GenMsgSendType" BO_ 2552365107 0;
+BA_ "GenMsgCycleTime" BO_ 2550202436 10;
+BA_ "GenMsgSendType" BO_ 2550202436 0;
+BA_ "GenMsgCycleTime" BO_ 2550267972 100;
+BA_ "GenMsgSendType" BO_ 2550267972 0;
+BA_ "GenMsgCycleTime" BO_ 2550333508 100;
+BA_ "GenMsgSendType" BO_ 2550333508 0;
+BA_ "GenMsgCycleTime" BO_ 2552365124 1000;
+BA_ "GenMsgSendType" BO_ 2552365124 0;
+BA_ "GenMsgCycleTime" BO_ 2550202453 10;
+BA_ "GenMsgSendType" BO_ 2550202453 0;
+BA_ "GenMsgCycleTime" BO_ 2550267989 100;
+BA_ "GenMsgSendType" BO_ 2550267989 0;
+BA_ "GenMsgCycleTime" BO_ 2550333525 100;
+BA_ "GenMsgSendType" BO_ 2550333525 0;
+BA_ "GenMsgCycleTime" BO_ 2552365141 1000;
+BA_ "GenMsgSendType" BO_ 2552365141 0;
+BA_ "GenMsgCycleTime" BO_ 2550202470 10;
+BA_ "GenMsgSendType" BO_ 2550202470 0;
+BA_ "GenMsgCycleTime" BO_ 2550268006 100;
+BA_ "GenMsgSendType" BO_ 2550268006 0;
+BA_ "GenMsgCycleTime" BO_ 2550333542 100;
+BA_ "GenMsgSendType" BO_ 2550333542 0;
+BA_ "GenMsgCycleTime" BO_ 2552365158 1000;
+BA_ "GenMsgSendType" BO_ 2552365158 0;
+BA_ "GenMsgCycleTime" BO_ 2550202487 10;
+BA_ "GenMsgSendType" BO_ 2550202487 0;
+BA_ "GenMsgCycleTime" BO_ 2550268023 100;
+BA_ "GenMsgSendType" BO_ 2550268023 0;
+BA_ "GenMsgCycleTime" BO_ 2550333559 100;
+BA_ "GenMsgSendType" BO_ 2550333559 0;
+BA_ "GenMsgCycleTime" BO_ 2552365175 1000;
+BA_ "GenMsgSendType" BO_ 2552365175 0;
+BA_ "GenMsgCycleTime" BO_ 2550202504 10;
+BA_ "GenMsgSendType" BO_ 2550202504 0;
+BA_ "GenMsgCycleTime" BO_ 2550268040 100;
+BA_ "GenMsgSendType" BO_ 2550268040 0;
+BA_ "GenMsgCycleTime" BO_ 2550333576 100;
+BA_ "GenMsgSendType" BO_ 2550333576 0;
+BA_ "GenMsgCycleTime" BO_ 2552365192 1000;
+BA_ "GenMsgSendType" BO_ 2552365192 0;
+BA_ "GenMsgCycleTime" BO_ 2550202521 10;
+BA_ "GenMsgSendType" BO_ 2550202521 0;
+BA_ "GenMsgCycleTime" BO_ 2550268057 100;
+BA_ "GenMsgSendType" BO_ 2550268057 0;
+BA_ "GenMsgCycleTime" BO_ 2550333593 100;
+BA_ "GenMsgSendType" BO_ 2550333593 0;
+BA_ "GenMsgCycleTime" BO_ 2552365209 1000;
+BA_ "GenMsgSendType" BO_ 2552365209 0;
+BA_ "GenMsgCycleTime" BO_ 2550202538 10;
+BA_ "GenMsgSendType" BO_ 2550202538 0;
+BA_ "GenMsgCycleTime" BO_ 2550268074 100;
+BA_ "GenMsgSendType" BO_ 2550268074 0;
+BA_ "GenMsgCycleTime" BO_ 2550333610 100;
+BA_ "GenMsgSendType" BO_ 2550333610 0;
+BA_ "GenMsgCycleTime" BO_ 2552365226 1000;
+BA_ "GenMsgSendType" BO_ 2552365226 0;
+VAL_ 2415984641 FMCPriorStat 01 "Main" 00 "Backup" ;
+VAL_ 2415984641 PlaneLocInfo 01 "In the Air" 00 "On the Ground" ;
+VAL_ 2415984641 Bat1HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat2HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat3HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat4HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat5HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat6HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat7HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat8HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat9HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat10HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 FMCPriorStat 01 "Main" 00 "Backup" ;
+VAL_ 2415984642 PlaneLocInfo 01 "In the Air" 00 "On the Ground" ;
+VAL_ 2415984642 Bat1HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat2HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat3HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat4HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat5HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat6HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat7HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat8HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat9HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat10HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2550202385 P1_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202385 P1_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202385 P1_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202385 P1_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202385 P1_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202385 P1_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202402 P2_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202402 P2_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202402 P2_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202402 P2_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202402 P2_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202419 P3_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202419 P3_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202419 P3_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202419 P3_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202419 P3_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202436 P4_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202436 P4_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202436 P4_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202436 P4_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202436 P4_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202453 P5_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202453 P5_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202453 P5_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202453 P5_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202453 P5_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202453 P5_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202453 P5_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202453 P5_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202453 P5_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202470 P6_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202470 P6_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202470 P6_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202470 P6_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202470 P6_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202470 P6_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202470 P6_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202470 P6_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202470 P6_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202487 P7_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202487 P7_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202487 P7_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202487 P7_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202487 P7_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202487 P7_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202487 P7_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202487 P7_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202487 P7_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202504 P8_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202504 P8_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202504 P8_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202504 P8_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202504 P8_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202504 P8_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202504 P8_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202504 P8_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202504 P8_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202521 P9_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202521 P9_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202521 P9_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202521 P9_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202521 P9_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202521 P9_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202521 P9_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202521 P9_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202521 P9_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202538 P10_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202538 P10_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202538 P10_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202538 P10_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202538 P10_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202538 P10_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202538 P10_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202538 P10_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202538 P10_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;

@@ -15,15 +15,22 @@ from datetime import datetime
 from jinja2 import Environment, BaseLoader
 
 
-def validate_config(config):
+def validate_config(config, labels=None, skip_empty_labels=False):
     """验证协议配置的完整性和正确性
+    
+    支持新旧两种格式：
+    - 旧格式: { protocol_meta, labels }
+    - 新格式: { protocol_meta, device_tree } (labels 作为参数传入)
     
     Args:
         config: 协议配置字典
+        labels: 可选，直接传入 labels 列表（用于新格式）
+        skip_empty_labels: 如果为 True，跳过空 label_oct 的 Label 而不是报错
     Returns:
         错误列表 (空列表表示验证通过)
     """
     errors = []
+    warnings = []
     
     # 检查必需字段
     if not config.get('protocol_meta'):
@@ -35,11 +42,14 @@ def validate_config(config):
         if not meta.get('version'):
             errors.append('protocol_meta.version 不能为空')
     
-    if not config.get('labels'):
-        errors.append('缺少 labels 字段')
+    # 获取 labels：优先使用传入的参数，其次从配置中获取
+    if labels is None:
+        labels = config.get('labels', [])
+    
+    if not labels:
+        errors.append('缺少 labels 字段或 labels 为空')
         return errors
     
-    labels = config['labels']
     if not isinstance(labels, list) or len(labels) == 0:
         errors.append('labels 必须是非空数组')
         return errors
@@ -49,9 +59,13 @@ def validate_config(config):
     for i, label in enumerate(labels):
         prefix = f'labels[{i}]'
         
-        # 必需字段
+        # 必需字段 - label_oct
         if not label.get('label_oct'):
-            errors.append(f'{prefix}: label_oct 不能为空')
+            if skip_empty_labels:
+                warnings.append(f'{prefix}: label_oct 为空，已跳过')
+                continue
+            else:
+                errors.append(f'{prefix}: label_oct 不能为空')
         else:
             # 检查八进制格式
             try:
@@ -548,26 +562,29 @@ if __name__ == '__main__':
 
 
 # ============================================================
-# C 代码模板
+# C 语言解析器模板 - 头文件 (.h)
 # ============================================================
 
-C_PARSER_TEMPLATE = '''/**
- * {{ protocol_name }} - ARINC429 解析器 (C语言版本)
+C_HEADER_TEMPLATE = '''/**
+ * {{ protocol_name }} - ARINC429 解析器头文件
  * 版本: {{ protocol_version }}
  * {{ protocol_description }}
  * 
  * 自动生成时间: {{ generated_at }}
- * 
- * 编译: gcc -o arinc429_parser {{ script_name }} -lm
- * 使用: ./arinc429_parser <hex_word>
- *       ./arinc429_parser B2 00 FF 67
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef ARINC429_PARSER_H
+#define ARINC429_PARSER_H
+
 #include <stdint.h>
-#include <math.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// ============================================================
+// 常量定义
+// ============================================================
 
 #define MAX_BNR_FIELDS 4
 #define MAX_DISCRETE_BITS 16
@@ -611,13 +628,10 @@ typedef struct {
     int label_dec;
     const char* name;
     const char* direction;
-    // BNR 字段
     int bnr_field_count;
     BnrFieldDef bnr_fields[MAX_BNR_FIELDS];
-    // 离散位
     int discrete_bit_count;
     DiscreteBitDef discrete_bits[MAX_DISCRETE_BITS];
-    // 特殊字段 (多位枚举)
     int special_field_count;
     SpecialFieldDef special_fields[MAX_SPECIAL_FIELDS];
     const char* notes;
@@ -635,7 +649,6 @@ typedef struct {
     int known;
     const char* name;
     const char* direction;
-    // BNR结果
     int bnr_count;
     struct {
         const char* name;
@@ -644,58 +657,125 @@ typedef struct {
         double physical_value;
         const char* unit;
     } bnr_results[MAX_BNR_FIELDS];
-    // 离散位结果
     int discrete_count;
     struct {
         int bit_num;
         int value;
         const char* description;
     } discrete_results[MAX_DISCRETE_BITS];
-    // 特殊字段结果
     int special_count;
     struct {
         const char* name;
         int raw_value;
         const char* description;
+        char desc_buf[32];
     } special_results[MAX_SPECIAL_FIELDS];
 } ParseResult;
+
+// ============================================================
+// 函数声明
+// ============================================================
+
+// 基础工具函数
+uint8_t reverse_bits_8(uint8_t byte_val);
+int extract_label(uint32_t word, char* label_oct_str);
+int extract_bit(uint32_t word, int bit_num);
+uint32_t extract_bits(uint32_t word, int start_bit, int end_bit);
+int check_odd_parity(uint32_t word);
+const char* decode_ssm(int ssm_val);
+const LabelDef* find_label_def(int label_dec);
+
+// 核心解析函数
+void parse_arinc429_word(uint32_t word, ParseResult* result);
+
+// 输出函数
+void print_result(const ParseResult* r);
+void print_csv_header(void);
+void print_csv_result(const ParseResult* r);
+
+// 辅助函数
+uint32_t bytes_to_word(uint8_t b0, uint8_t b1, uint8_t b2, uint8_t b3);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // ARINC429_PARSER_H
+'''
+
+
+# ============================================================
+# C 语言解析器模板 - 源文件 (.c)
+# ============================================================
+
+C_SOURCE_TEMPLATE = '''/**
+ * {{ protocol_name }} - ARINC429 解析器源文件
+ * 版本: {{ protocol_version }}
+ * {{ protocol_description }}
+ * 
+ * 自动生成时间: {{ generated_at }}
+ * 
+ * 编译: gcc -o arinc429_parser arinc429_parser.c -lm
+ * 使用: ./arinc429_parser <hex_word>
+ *       ./arinc429_parser B2 00 FF 67
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include "arinc429_parser.h"
 
 // ============================================================
 // Label 定义表 - {{ protocol_name }}
 // ============================================================
 
 static const LabelDef LABEL_DEFS[] = {
-{% for label in labels %}
+{%- for label in labels %}
     {
         "{{ label.label_oct }}", 0{{ label.label_oct }}, "{{ label.name }}", "{{ label.direction }}",
         // BNR fields
         {{ label.bnr_fields | length }}, {
-{% for bf in label.bnr_fields %}
+{%- if label.bnr_fields %}
+{%- for bf in label.bnr_fields %}
             {"{{ bf.name }}", {{ bf.data_bits[0] }}, {{ bf.data_bits[1] }}, {{ bf.sign_bit if bf.sign_bit else 0 }}, {{ bf.resolution }}, "{{ bf.unit | default('', true) }}"},
-{% endfor %}
+{%- endfor %}
+{%- else %}
+            {0}
+{%- endif %}
         },
         // Discrete bits
         {{ label.discrete_bits_list | length }}, {
-{% for bit_num, desc in label.discrete_bits_list %}
-            {{{ bit_num }}, "{{ desc | replace('"', '\\"') }}"},
-{% endfor %}
+{%- if label.discrete_bits_list %}
+{%- for bit_num, desc in label.discrete_bits_list %}
+            { {{ bit_num }}, "{{ desc | replace('"', '\\"') }}" },
+{%- endfor %}
+{%- else %}
+            {0}
+{%- endif %}
         },
         // Special fields
         {{ label.special_fields | length }}, {
-{% for sf in label.special_fields %}
+{%- if label.special_fields %}
+{%- for sf in label.special_fields %}
             {"{{ sf.name }}", {{ sf.bits[0] }}, {{ sf.bits[1] }}, {{ 1 if sf.type == 'enum' else 0 }}, {{ sf.values_list | length if sf.values_list else 0 }}, {
-{% if sf.values_list %}
-{% for val, desc in sf.values_list %}
-                {{{ val }}, "{{ desc | replace('"', '\\"') }}"},
-{% endfor %}
-{% endif %}
-            }},
-{% endfor %}
+{%- if sf.values_list %}
+{%- for val, desc in sf.values_list %}
+                { {{ val }}, "{{ desc | replace('"', '\\"') }}" },
+{%- endfor %}
+{%- else %}
+                {0}
+{%- endif %}
+            } },
+{%- endfor %}
+{%- else %}
+            {0}
+{%- endif %}
         },
         "{{ label.notes | default('', true) | replace('"', '\\"') }}"
     },
-{% endfor %}
-    {NULL, 0, NULL, NULL, 0, {}, 0, {}, 0, {}, NULL}  // 结束标记
+{%- endfor %}
+    {NULL, 0, NULL, NULL, 0, {% raw %}{{0}}{% endraw %}, 0, {% raw %}{{0}}{% endraw %}, 0, {% raw %}{{0}}{% endraw %}, NULL}  // 结束标记
 };
 
 // ============================================================
@@ -823,14 +903,18 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
             result->special_results[i].raw_value = raw_val;
             result->special_results[i].description = "未定义";
             
-            // 查找枚举值描述
             if (sf->is_enum) {
+                // 枚举类型: 查找枚举值描述
                 for (int j = 0; j < sf->enum_count; j++) {
                     if (sf->enum_values[j].value == raw_val) {
                         result->special_results[i].description = sf->enum_values[j].description;
                         break;
                     }
                 }
+            } else {
+                // uint类型: 直接将数值转为字符串作为描述
+                sprintf(result->special_results[i].desc_buf, "%d", raw_val);
+                result->special_results[i].description = result->special_results[i].desc_buf;
             }
         }
     } else {
@@ -973,7 +1057,10 @@ def generate_parser_code(config):
     """
     # 准备模板数据 (深拷贝避免修改原配置)
     meta = config.get('protocol_meta', {})
-    labels = copy.deepcopy(config.get('labels', []))
+    raw_labels = copy.deepcopy(config.get('labels', []))
+    
+    # 过滤掉无效的 Labels（label_oct 为空的）
+    labels = [l for l in raw_labels if l.get('label_oct')]
     
     # 预处理每个 Label
     for label in labels:
@@ -1031,18 +1118,11 @@ def generate_parser_code(config):
     return code
 
 
-def generate_c_parser_code(config):
-    """根据配置生成 C 语言解析脚本
+def _preprocess_labels_for_c(raw_labels):
+    """预处理 Labels 用于 C 代码生成"""
+    # 过滤掉无效的 Labels（label_oct 为空的）
+    labels = [l for l in raw_labels if l.get('label_oct')]
     
-    Args:
-        config: 协议配置字典
-    Returns:
-        生成的 C 代码字符串
-    """
-    meta = config.get('protocol_meta', {})
-    labels = copy.deepcopy(config.get('labels', []))
-    
-    # 预处理每个 Label
     for label in labels:
         label['label_dec'] = int(label['label_oct'], 8)
         if not label.get('sources'):
@@ -1076,19 +1156,44 @@ def generate_c_parser_code(config):
         else:
             label['special_fields'] = []
     
+    return labels
+
+
+def generate_c_parser_code(config):
+    """根据配置生成 C 语言解析代码 (.h 和 .c)
+    
+    Args:
+        config: 协议配置字典
+    Returns:
+        字典 {'header': str, 'source': str} 包含 .h 和 .c 代码
+    """
+    meta = config.get('protocol_meta', {})
+    raw_labels = copy.deepcopy(config.get('labels', []))
+    labels = _preprocess_labels_for_c(raw_labels)
+    
     env = Environment(loader=BaseLoader())
-    template = env.from_string(C_PARSER_TEMPLATE)
     
-    code = template.render(
-        protocol_name=meta.get('name', 'ARINC429 Protocol'),
-        protocol_version=meta.get('version', '1.0'),
-        protocol_description=meta.get('description', ''),
-        generated_at=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        script_name=f"{meta.get('name', 'protocol')}_parser.c",
-        labels=labels
-    )
+    # 模板参数
+    template_params = {
+        'protocol_name': meta.get('name', 'ARINC429 Protocol'),
+        'protocol_version': meta.get('version', '1.0'),
+        'protocol_description': meta.get('description', ''),
+        'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'labels': labels
+    }
     
-    return code
+    # 生成头文件
+    header_template = env.from_string(C_HEADER_TEMPLATE)
+    header_code = header_template.render(**template_params)
+    
+    # 生成源文件
+    source_template = env.from_string(C_SOURCE_TEMPLATE)
+    source_code = source_template.render(**template_params)
+    
+    return {
+        'header': header_code,
+        'source': source_code
+    }
 
 
 if __name__ == '__main__':

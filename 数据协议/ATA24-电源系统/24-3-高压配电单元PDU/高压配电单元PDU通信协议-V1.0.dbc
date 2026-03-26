@@ -1,0 +1,196 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: PDU2_Contactor_Control_Ins PDU1_Contactor_Control_Ins PDU2_Self_Check_data PDU1_Self_Check_data PUD2_Power_Data PDU1_Power_Data PDU2_Ver PDU1_Ver
+VAL_TABLE_ Con_workstate 14 "欠压跳闸故障" 13 "超压跳闸故障" 12 "短路跳闸故障" 11 "过流跳闸故障" 10 "接通故障" 9 "断开故障" 6 "欠压跳闸" 5 "超压跳闸" 4 "短路跳闸" 3 "过流跳闸" 2 "接通" 1 "断开" 0 "初始化" ;
+VAL_TABLE_ Bh_state 1 "有电" 0 "无电" ;
+VAL_TABLE_ Fuse_state 1 "熔断" 0 "正常" ;
+VAL_TABLE_ Current_10 1 "大于" 0 "不大于" ;
+VAL_TABLE_ ctrl_command 165 "接通" 90 "断开" ;
+VAL_TABLE_ state 1 "故障" 0 "正常" ;
+
+
+BO_ 2416005120 PDU2_Contactor_Control_Ins: 1 Vector__XXX
+ SG_ PDU2_Contactor_Control_Ins : 0|8@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 2416001024 PDU1_Contactor_Control_Ins: 1 PDU1_Contactor_Control_Ins
+ SG_ PDU1_Contactor_Control_Ins : 0|8@1+ (1,0) [0|7] "" Vector__XXX
+
+BO_ 2416050256 PDU2_Self_Check_data: 2 PDU2_Self_Check_data
+ SG_ PDU2_Contactor_Work_status : 12|4@1+ (1,0) [0|14] "" Vector__XXX
+ SG_ PDU2_Res : 10|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PDU2_Fuse_Status : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_Contactor_Bh_Work_status : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_10Current : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_Signal_Self_Check : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PUD2_ADC_Cir : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_Power_Self_Check : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_Flash_Self_Check : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_CAN2_Flt : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_CAN1_Flt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU2_MUC_Self_Check : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2415984720 PDU2_Power_data: 8 PUD2_Power_Data
+ SG_ PDU2_Anti_icing_contactor_A : 48|16@1+ (0.1,0) [0|6553.5] "A" Vector__XXX
+ SG_ PDU2_Fuse_Output_Voltage : 32|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+ SG_ PDU2_Anti_icing_contactor_V : 16|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+ SG_ PDU2_DC800V_Power : 0|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+
+BO_ 2416050240 PDU1_Self_Check_data: 2 PDU1_Self_Check_data
+ SG_ PDU1_Contactor_Bh_Work_Status : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_Contactor_Work_status : 12|4@1+ (1,0) [0|14] "" Vector__XXX
+ SG_ PDU1_Res : 10|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PDU1_Fuse_Status : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PUD1_10Current : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_Signal_Self_Check : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PUD1_ADC_Cir : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_Power_Self_Check : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_Flash_Self_Check : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_CAN2_Flt : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_CAN1_Flt : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU1_MCU_Self_Check : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2415984704 PDU1_Power_data: 8 PDU1_Power_Data
+ SG_ PDU1_Anti_icing_contactor_A : 48|16@1+ (0.1,0) [0|6553.5] "A" Vector__XXX
+ SG_ PDU1_Fuse_Output_Voltage : 32|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+ SG_ PDU1_Anti_icing_contactor_V : 16|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+ SG_ PDU1_DC800V_Power : 0|16@1+ (0.1,0) [0|6553.5] "V" Vector__XXX
+
+BO_ 2416115792 PDU2_Ver: 8 Vector__XXX
+ SG_ PDU2_Day : 56|8@1+ (1,0) [1|49] "" Vector__XXX
+ SG_ PDU2_Month : 48|8@1+ (1,0) [1|18] "" Vector__XXX
+ SG_ PDU2_Year : 32|16@1+ (1,0) [0|39321] "" Vector__XXX
+ SG_ PDU2_Version_Number_D : 24|8@1+ (1,0) [0|153] "" Vector__XXX
+ SG_ PDU2_Version_Number_C : 16|8@1+ (1,0) [0|153] "" Vector__XXX
+ SG_ PDU2_Version_Number_B : 8|8@1+ (1,0) [0|153] "" Vector__XXX
+ SG_ PDU2_Version_Number_A : 0|8@1+ (1,0) [0|153] "" Vector__XXX
+
+BO_ 2416115776 PDU1_Ver: 8 PDU2_Ver
+ SG_ PDU1_Day : 56|8@1+ (1,0) [1|49] ""  PDU1_Ver
+ SG_ PDU1_Month : 48|8@1+ (1,0) [1|18] ""  PDU1_Ver
+ SG_ PDU1_Year : 32|16@1+ (1,0) [0|9999] ""  PDU1_Ver
+ SG_ PDU1_Version_Number_D : 24|8@1+ (1,0) [0|153] ""  PDU1_Ver
+ SG_ PDU1_Version_Number_C : 16|8@1+ (1,0) [0|153] ""  PDU1_Ver
+ SG_ PDU1_Version_Number_B : 8|8@1+ (1,0) [0|153] ""  PDU1_Ver
+ SG_ PDU1_Version_Number_A : 0|8@1+ (1,0) [0|153] ""  PDU1_Ver
+
+
+
+CM_ SG_ 2416005120 PDU2_Contactor_Control_Ins "0xA5：接通， 0x5A：断开，其他无效";
+CM_ SG_ 2416001024 PDU1_Contactor_Control_Ins "0xA5：接通， 0x5A：断开，其他无效";
+CM_ SG_ 2416050256 PDU2_Contactor_Work_status "0:初始化; 1:断开;2:接通;3:过流跳闸;
+4:短路跳闸;5:超压跳闸;6:欠压跳闸;
+9:断开故障;10:接通故障;
+11:过流跳闸故障;12:短路跳闸故障;
+13:超压跳闸故障;14:欠压跳闸故障;
+其他无定义";
+CM_ SG_ 2416050256 PDU2_Res "无定义，默认0";
+CM_ SG_ 2416050256 PDU2_Fuse_Status "0：正常，1：熔断";
+CM_ SG_ 2416050256 PDU2_Contactor_Bh_Work_status "0=无电，1=有电";
+CM_ SG_ 2416050256 PDU2_10Current "0：不大于，1：大于";
+CM_ SG_ 2416050256 PDU2_Signal_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050256 PUD2_ADC_Cir "0：正常，1：故障";
+CM_ SG_ 2416050256 PDU2_Power_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050256 PDU2_Flash_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050256 PDU2_CAN2_Flt "0：正常，1：故障";
+CM_ SG_ 2416050256 PDU2_CAN1_Flt "0：正常，1：故障";
+CM_ SG_ 2416050256 PDU2_MUC_Self_Check "0：正常，1：故障";
+CM_ SG_ 2415984720 PDU2_Anti_icing_contactor_A "LSB = 0.1A
+";
+CM_ SG_ 2415984720 PDU2_Fuse_Output_Voltage "LSB = 0.1V";
+CM_ SG_ 2415984720 PDU2_Anti_icing_contactor_V "LSB = 0.1V";
+CM_ SG_ 2415984720 PDU2_DC800V_Power "LSB = 0.1V";
+CM_ SG_ 2416050240 PDU1_Contactor_Bh_Work_Status "0=无电，1=有电";
+CM_ SG_ 2416050240 PDU1_Contactor_Work_status "0:初始化; 1:断开;2:接通;3:过流跳闸;
+4:短路跳闸;5:超压跳闸;6:欠压跳闸;
+9:断开故障;10:接通故障;
+11:过流跳闸故障;12:短路跳闸故障;
+13:超压跳闸故障;14:欠压跳闸故障;
+其他无定义";
+CM_ SG_ 2416050240 PDU1_Res "无定义，默认0";
+CM_ SG_ 2416050240 PDU1_Fuse_Status "0：正常，1：熔断";
+CM_ SG_ 2416050240 PUD1_10Current "0：不大于，1：大于";
+CM_ SG_ 2416050240 PDU1_Signal_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050240 PUD1_ADC_Cir "0：正常，1：故障";
+CM_ SG_ 2416050240 PDU1_Power_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050240 PDU1_Flash_Self_Check "0：正常，1：故障";
+CM_ SG_ 2416050240 PDU1_CAN2_Flt "0：正常，1：故障";
+CM_ SG_ 2416050240 PDU1_CAN1_Flt "0：正常，1：故障";
+CM_ SG_ 2416050240 PDU1_MCU_Self_Check "0：正常，1：故障";
+CM_ SG_ 2415984704 PDU1_Anti_icing_contactor_A "LSB = 0.1A";
+CM_ SG_ 2415984704 PDU1_Fuse_Output_Voltage "LSB = 0.1V";
+CM_ SG_ 2415984704 PDU1_Anti_icing_contactor_V "LSB = 0.1V";
+CM_ SG_ 2415984704 PDU1_DC800V_Power "LSB = 0.1V";
+CM_ SG_ 2416115792 PDU2_Day "BCD码，1-31，错误填全1";
+CM_ SG_ 2416115792 PDU2_Month "BCD码，1-12，错误填全1";
+CM_ SG_ 2416115792 PDU2_Year "BCD码，0000年-9999年，错误填全1";
+CM_ SG_ 2416115792 PDU2_Version_Number_D "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115792 PDU2_Version_Number_C "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115792 PDU2_Version_Number_B "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115792 PDU2_Version_Number_A "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115776 PDU1_Day "BCD码，1-31，错误填全1";
+CM_ SG_ 2416115776 PDU1_Month "BCD码，1-12，错误填全1";
+CM_ SG_ 2416115776 PDU1_Year "BCD码，0000年-9999年，错误填全1";
+CM_ SG_ 2416115776 PDU1_Version_Number_D "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115776 PDU1_Version_Number_C "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115776 PDU1_Version_Number_B "BCD码，0-99，错误上报全1";
+CM_ SG_ 2416115776 PDU1_Version_Number_A "BCD码，0-99，错误上报全1";
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 2416050256 PDU2_Contactor_Work_status 14 "欠压跳闸故障" 13 "超压跳闸故障" 12 "短路跳闸故障" 11 "过流跳闸故障" 10 "接通故障" 9 "断开故障" 6 "欠压跳闸" 5 "超压跳闸" 4 "短路跳闸" 3 "过流跳闸" 2 "接通" 1 "断开" 0 "初始化" ;
+VAL_ 2416050256 PDU2_Fuse_Status 1 "熔断" 0 "正常" ;
+VAL_ 2416050256 PDU2_Contactor_Bh_Work_status 1 "有电" 0 "无电" ;
+VAL_ 2416050256 PDU2_10Current 1 "大于" 0 "不大于" ;
+VAL_ 2416050256 PDU2_Signal_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PUD2_ADC_Cir 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PDU2_Power_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PDU2_Flash_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PDU2_CAN2_Flt 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PDU2_CAN1_Flt 1 "故障" 0 "正常" ;
+VAL_ 2416050256 PDU2_MUC_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_Contactor_Bh_Work_Status 1 "有电" 0 "无电" ;
+VAL_ 2416050240 PDU1_Contactor_Work_status 14 "欠压跳闸故障" 13 "超压跳闸故障" 12 "短路跳闸故障" 11 "过流跳闸故障" 10 "接通故障" 9 "断开故障" 6 "欠压跳闸" 5 "超压跳闸" 4 "短路跳闸" 3 "过流跳闸" 2 "接通" 1 "断开" 0 "初始化" ;
+VAL_ 2416050240 PDU1_Fuse_Status 1 "熔断" 0 "正常" ;
+VAL_ 2416050240 PUD1_10Current 1 "大于" 0 "不大于" ;
+VAL_ 2416050240 PDU1_Signal_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PUD1_ADC_Cir 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_Power_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_Flash_Self_Check 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_CAN2_Flt 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_CAN1_Flt 1 "故障" 0 "正常" ;
+VAL_ 2416050240 PDU1_MCU_Self_Check 1 "故障" 0 "正常" ;
+

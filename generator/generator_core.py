@@ -105,6 +105,7 @@ def validate_config(config, labels=None, skip_empty_labels=False):
 
 
 # Jinja2 模板 - 生成的 Python 解析脚本
+# 注意：所有字符串值使用 pystr 过滤器进行安全转义
 PARSER_TEMPLATE = '''# -*- coding: utf-8 -*-
 """
 {{ protocol_name }} - ARINC429 解析脚本
@@ -123,8 +124,8 @@ from datetime import datetime
 try:
     from arinc429_runtime import (
         reverse_bits_8, extract_label, extract_bit, extract_bits,
-        check_odd_parity, decode_ssm, decode_bnr_signed, decode_bnr_unsigned,
-        interpret_discrete_desc, parse_hex_input, load_raw_byte_file,
+        check_odd_parity, decode_ssm, decode_ssm_by_type, decode_bnr_signed, decode_bnr_unsigned,
+        decode_bcd_field, interpret_discrete_desc, parse_hex_input, load_raw_byte_file,
         create_excel_workbook, write_excel_row, finalize_excel
     )
 except ImportError:
@@ -141,15 +142,17 @@ except ImportError:
 LABEL_{{ label.label_oct }} = {
     'label_oct': '{{ label.label_oct }}',
     'label_dec': {{ label.label_dec }},  # 八进制 {{ label.label_oct }}
-    'name': '{{ label.name | default("Unknown", true) }}',
-    'direction': '{{ label.direction | default("", true) }}',
+    'name': {{ label.name | default("Unknown", true) | pystr }},
+    'direction': {{ label.direction | default("", true) | pystr }},
     'sources': {{ label.sources | tojson }},
+    'sdi': {{ label.sdi | default('None', true) }},  # SDI 过滤 (None=不过滤, 0-3=指定SDI)
+    'ssm_type': {{ label.ssm_type | default("'bnr'", true) }},  # SSM 解释类型: 'bnr', 'discrete', 'bcd'
 {% if label.bnr_fields %}
     # BNR 数值字段
     'bnr_fields': [
 {% for bf in label.bnr_fields %}
         {
-            'name': '{{ bf.name | default("BNR_Value", true) }}',
+            'name': {{ bf.name | default("BNR_Value", true) | pystr }},
             'data_bits': ({{ bf.data_bits[0] | default(11, true) }}, {{ bf.data_bits[1] | default(29, true) }}),
 {% if bf.sign_bit %}
             'sign_bit': {{ bf.sign_bit }},
@@ -159,7 +162,7 @@ LABEL_{{ label.label_oct }} = {
             'signed': False,
 {% endif %}
             'resolution': {{ bf.resolution if bf.resolution is not none and bf.resolution != '' else 1 }},
-            'unit': '{{ bf.unit | default("", true) }}'
+            'unit': {{ bf.unit | default("", true) | pystr }}
         },
 {% endfor %}
     ],
@@ -168,33 +171,51 @@ LABEL_{{ label.label_oct }} = {
     # 单bit离散信号
     'discrete_bits': {
 {% for bit_num, desc in label.discrete_bits_list %}
-        {{ bit_num }}: '{{ desc }}',
+        {{ bit_num }}: {{ desc | pystr }},
 {% endfor %}
     },
 {% endif %}
 {% if label.special_fields %}
-    # 多bit枚举字段
+    # 多bit字段 (枚举/uint/bcd)
     'special_fields': [
 {% for sf in label.special_fields %}
-        {'name': '{{ sf.name | default("Field", true) }}', 'bits': ({{ sf.bits[0] | default(11, true) }}, {{ sf.bits[1] | default(29, true) }}){% if sf.type == 'enum' %}, 'values': {
+        {'name': {{ sf.name | default("Field", true) | pystr }}, 'bits': ({{ sf.bits[0] | default(11, true) }}, {{ sf.bits[1] | default(29, true) }}), 'type': {{ sf.type | default('enum', true) | pystr }}{% if sf.type == 'enum' %}, 'values': {
 {% for val, desc in sf.values_list %}
-            {{ val }}: '{{ desc }}',
+            {{ val }}: {{ desc | pystr }},
 {% endfor %}
-        }{% elif sf.type == 'uint' %}, 'type': 'uint'{% endif %}},
+        }{% endif %}},
 {% endfor %}
     ],
 {% endif %}
-    'notes': '{{ label.notes | default("", true) }}'
+    'notes': {{ label.notes | default("", true) | pystr }}
 }
 {% endfor %}
 
 # ============================================================
-# Label 查找表
+# Label 查找表 (支持 Label+SDI 组合匹配)
 # ============================================================
 
-LABEL_LOOKUP = {}
+LABEL_LOOKUP = {}  # key: label_dec, value: label_def (无SDI区分时)
+LABEL_SDI_LOOKUP = {}  # key: (label_dec, sdi), value: label_def (有SDI区分时)
+
 for _def in [{% for label in labels %}LABEL_{{ label.label_oct }}{% if not loop.last %}, {% endif %}{% endfor %}]:
-    LABEL_LOOKUP[_def['label_dec']] = _def
+    if _def.get('sdi') is not None:
+        # 有 SDI 指定时，按 (label, sdi) 组合存储
+        LABEL_SDI_LOOKUP[(_def['label_dec'], _def['sdi'])] = _def
+    else:
+        # 无 SDI 指定时，按 label 存储
+        LABEL_LOOKUP[_def['label_dec']] = _def
+
+
+def find_label_def(label_dec, sdi=None):
+    """查找 Label 定义，优先按 Label+SDI 匹配"""
+    if sdi is not None:
+        # 先尝试精确匹配 (label, sdi)
+        key = (label_dec, sdi)
+        if key in LABEL_SDI_LOOKUP:
+            return LABEL_SDI_LOOKUP[key]
+    # 回退到仅按 label 匹配
+    return LABEL_LOOKUP.get(label_dec)
 
 
 # ============================================================
@@ -227,21 +248,24 @@ def parse_arinc429_word(word):
     # 4. 提取SSM (bits 30-31)
     ssm = extract_bits(word, 30, 31)
     result['ssm_raw'] = ssm
-    result['ssm_desc'] = decode_ssm(ssm)
     
     # 5. 提取奇校验位 (bit 32)
     parity_bit = extract_bit(word, 32)
     result['parity_bit'] = parity_bit
     result['parity_ok'] = check_odd_parity(word)
     
-    # 6. 查找协议定义
-    word_def = LABEL_LOOKUP.get(label_dec)
+    # 6. 查找协议定义 (支持 Label+SDI 组合匹配)
+    word_def = find_label_def(label_dec, sdi)
     if word_def:
         result['known'] = True
         result['name'] = word_def['name']
         result['direction'] = word_def['direction']
         result['sources'] = word_def['sources']
         result['notes'] = word_def.get('notes', '')
+        
+        # 根据信号类型解释 SSM
+        ssm_type = word_def.get('ssm_type', 'bnr')
+        result['ssm_desc'] = decode_ssm_by_type(ssm, ssm_type)
         
         # 7. 解析 BNR 数值字段
         bnr_results = []
@@ -296,31 +320,48 @@ def parse_arinc429_word(word):
                 })
         result['discrete_bits'] = discrete_results
         
-        # 9. 解码特殊多位字段
+        # 9. 解码特殊多位字段 (支持 enum/uint/bcd)
         special_results = []
         if 'special_fields' in word_def:
             for sf in word_def['special_fields']:
                 bs, be = sf['bits']
                 field_val = extract_bits(word, bs, be)
-                if 'values' in sf:
-                    val_desc = sf['values'].get(field_val, f'未定义({field_val})')
+                field_type = sf.get('type', 'enum')
+                
+                if field_type == 'bcd':
+                    # BCD 解码：每4位表示一个十进制数字
+                    bcd_val = decode_bcd_field(field_val, be - bs + 1)
                     special_results.append({
                         'name': sf['name'],
                         'bits': f'bit{bs}-bit{be}',
                         'raw_value': field_val,
-                        'description': val_desc
+                        'bcd_value': bcd_val,
+                        'description': str(bcd_val),
+                        'type': 'bcd'
                     })
-                elif sf.get('type') == 'uint':
+                elif field_type == 'uint':
                     special_results.append({
                         'name': sf['name'],
                         'bits': f'bit{bs}-bit{be}',
                         'raw_value': field_val,
-                        'description': str(field_val)
+                        'description': str(field_val),
+                        'type': 'uint'
+                    })
+                else:  # enum
+                    values = sf.get('values', {})
+                    val_desc = values.get(field_val, f'未定义({field_val})')
+                    special_results.append({
+                        'name': sf['name'],
+                        'bits': f'bit{bs}-bit{be}',
+                        'raw_value': field_val,
+                        'description': val_desc,
+                        'type': 'enum'
                     })
         result['special_fields'] = special_results
     else:
         result['known'] = False
         result['name'] = f'未知Label ({label_oct} oct)'
+        result['ssm_desc'] = decode_ssm(ssm)  # 未知 Label 使用默认 SSM 解释
         all_bits = {}
         for i in range(1, 33):
             all_bits[i] = extract_bit(word, i)
@@ -620,7 +661,7 @@ typedef struct {
     const char* name;
     int bit_start;
     int bit_end;
-    int is_enum;        // 1=枚举, 0=无符号整数
+    int field_type;     // 0=uint, 1=enum, 2=bcd
     int enum_count;
     EnumValueDef enum_values[MAX_ENUM_VALUES];
 } SpecialFieldDef;
@@ -760,7 +801,7 @@ static const LabelDef LABEL_DEFS[] = {
         {{ label.special_fields | length }}, {
 {%- if label.special_fields %}
 {%- for sf in label.special_fields %}
-            {"{{ sf.name | replace('"', '\\"') }}", {{ sf.bits[0] }}, {{ sf.bits[1] }}, {{ 1 if sf.type == 'enum' else 0 }}, {{ sf.values_list | length if sf.values_list else 0 }}, {
+            {"{{ sf.name | replace('"', '\\"') }}", {{ sf.bits[0] }}, {{ sf.bits[1] }}, {{ 2 if sf.type == 'bcd' else (1 if sf.type == 'enum' else 0) }}, {{ sf.values_list | length if sf.values_list else 0 }}, {
 {%- if sf.values_list %}
 {%- for val, desc in sf.values_list %}
                 { {{ val }}, "{{ desc | replace('"', '\\"') | replace('\n', ' ') }}" },
@@ -895,7 +936,7 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
             result->discrete_results[i].description = db->description;
         }
         
-        // 解析所有特殊字段 (多位枚举)
+        // 解析所有特殊字段 (枚举/uint/bcd)
         result->special_count = def->special_field_count;
         for (int i = 0; i < def->special_field_count; i++) {
             const SpecialFieldDef* sf = &def->special_fields[i];
@@ -905,7 +946,7 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
             result->special_results[i].raw_value = raw_val;
             result->special_results[i].description = "未定义";
             
-            if (sf->is_enum) {
+            if (sf->field_type == 1) {
                 // 枚举类型: 查找枚举值描述
                 for (int j = 0; j < sf->enum_count; j++) {
                     if (sf->enum_values[j].value == raw_val) {
@@ -913,6 +954,22 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
                         break;
                     }
                 }
+            } else if (sf->field_type == 2) {
+                // BCD类型: 每4位表示一个十进制数字
+                int bcd_val = 0;
+                int multiplier = 1;
+                int num_bits = sf->bit_end - sf->bit_start + 1;
+                int num_digits = (num_bits + 3) / 4;
+                int temp = raw_val;
+                for (int d = 0; d < num_digits; d++) {
+                    int digit = temp & 0x0F;
+                    if (digit > 9) digit = 0;  // 无效BCD数字
+                    bcd_val += digit * multiplier;
+                    multiplier *= 10;
+                    temp >>= 4;
+                }
+                sprintf(result->special_results[i].desc_buf, "%d (BCD)", bcd_val);
+                result->special_results[i].description = result->special_results[i].desc_buf;
             } else {
                 // uint类型: 直接将数值转为字符串作为描述
                 sprintf(result->special_results[i].desc_buf, "%d", raw_val);
@@ -1143,6 +1200,22 @@ def generate_parser_code(config):
     
     # 创建 Jinja2 环境
     env = Environment(loader=BaseLoader())
+    
+    # 添加 Python 字符串安全转义过滤器
+    def pystr_filter(value):
+        """将值转为安全的 Python 字符串字面量"""
+        if value is None:
+            return "''"
+        s = str(value)
+        # 转义反斜杠、单引号、换行等
+        s = s.replace('\\', '\\\\')
+        s = s.replace("'", "\\'")
+        s = s.replace('\n', '\\n')
+        s = s.replace('\r', '\\r')
+        s = s.replace('\t', '\\t')
+        return f"'{s}'"
+    
+    env.filters['pystr'] = pystr_filter
     template = env.from_string(PARSER_TEMPLATE)
     
     # 渲染模板
@@ -1277,17 +1350,115 @@ def _preprocess_labels_for_c(raw_labels):
     return labels
 
 
-def generate_c_parser_code(config):
+# C 代码生成的字段数量上限
+C_LIMITS = {
+    'MAX_BNR_FIELDS': 4,
+    'MAX_DISCRETE_BITS': 16,
+    'MAX_SPECIAL_FIELDS': 8,
+    'MAX_ENUM_VALUES': 8
+}
+
+
+def validate_labels_for_c(labels):
+    """验证 Labels 是否符合 C 代码生成的限制
+    
+    Args:
+        labels: 预处理后的 Labels 列表
+    Returns:
+        (is_valid, errors, warnings) 元组
+    """
+    errors = []
+    warnings = []
+    
+    for label in labels:
+        label_id = label.get('label_oct', '???')
+        label_name = label.get('name', '未命名')
+        prefix = f"Label {label_id} ({label_name})"
+        
+        # 检查 BNR 字段数量
+        bnr_count = len(label.get('bnr_fields', []))
+        if bnr_count > C_LIMITS['MAX_BNR_FIELDS']:
+            errors.append(f"{prefix}: BNR 字段数 {bnr_count} 超过上限 {C_LIMITS['MAX_BNR_FIELDS']}")
+        
+        # 检查离散位数量
+        discrete_count = len(label.get('discrete_bits_list', []))
+        if discrete_count > C_LIMITS['MAX_DISCRETE_BITS']:
+            errors.append(f"{prefix}: 离散位数 {discrete_count} 超过上限 {C_LIMITS['MAX_DISCRETE_BITS']}")
+        
+        # 检查特殊字段数量
+        special_count = len(label.get('special_fields', []))
+        if special_count > C_LIMITS['MAX_SPECIAL_FIELDS']:
+            errors.append(f"{prefix}: 特殊字段数 {special_count} 超过上限 {C_LIMITS['MAX_SPECIAL_FIELDS']}")
+        
+        # 检查枚举值数量
+        for sf in label.get('special_fields', []):
+            enum_count = len(sf.get('values_list', []))
+            if enum_count > C_LIMITS['MAX_ENUM_VALUES']:
+                errors.append(f"{prefix}.{sf.get('name', 'Field')}: 枚举值数 {enum_count} 超过上限 {C_LIMITS['MAX_ENUM_VALUES']}")
+        
+        # 检查位段合法性
+        all_bits_used = set()
+        
+        # BNR 字段位段检查
+        for bf in label.get('bnr_fields', []):
+            bits = bf.get('data_bits', [])
+            if len(bits) >= 2:
+                start, end = bits[0], bits[1]
+                if start > end:
+                    errors.append(f"{prefix}.{bf.get('name', 'BNR')}: 位段起始 {start} > 结束 {end}")
+                if start < 1 or end > 32:
+                    errors.append(f"{prefix}.{bf.get('name', 'BNR')}: 位段 [{start}, {end}] 超出 1-32 范围")
+                # 检查重叠
+                for b in range(start, end + 1):
+                    if b in all_bits_used:
+                        warnings.append(f"{prefix}.{bf.get('name', 'BNR')}: 位 {b} 与其他字段重叠")
+                    all_bits_used.add(b)
+        
+        # 离散位检查
+        for bit_num, _ in label.get('discrete_bits_list', []):
+            if bit_num < 1 or bit_num > 32:
+                errors.append(f"{prefix}: 离散位 {bit_num} 超出 1-32 范围")
+            if bit_num in all_bits_used:
+                warnings.append(f"{prefix}: 离散位 {bit_num} 与其他字段重叠")
+            all_bits_used.add(bit_num)
+        
+        # 特殊字段位段检查
+        for sf in label.get('special_fields', []):
+            bits = sf.get('bits', [])
+            if len(bits) >= 2:
+                start, end = bits[0], bits[1]
+                if start > end:
+                    errors.append(f"{prefix}.{sf.get('name', 'Field')}: 位段起始 {start} > 结束 {end}")
+                if start < 1 or end > 32:
+                    errors.append(f"{prefix}.{sf.get('name', 'Field')}: 位段 [{start}, {end}] 超出 1-32 范围")
+                for b in range(start, end + 1):
+                    if b in all_bits_used:
+                        warnings.append(f"{prefix}.{sf.get('name', 'Field')}: 位 {b} 与其他字段重叠")
+                    all_bits_used.add(b)
+    
+    return len(errors) == 0, errors, warnings
+
+
+def generate_c_parser_code(config, strict=True):
     """根据配置生成 C 语言解析代码 (.h 和 .c)
     
     Args:
         config: 协议配置字典
+        strict: 是否严格校验（True 时超限会抛异常）
     Returns:
-        字典 {'header': str, 'source': str} 包含 .h 和 .c 代码
+        字典 {'header': str, 'source': str, 'warnings': list} 包含 .h 和 .c 代码
+    Raises:
+        ValueError: 当 strict=True 且校验失败时
     """
     meta = config.get('protocol_meta', {})
     raw_labels = copy.deepcopy(config.get('labels', []))
     labels = _preprocess_labels_for_c(raw_labels)
+    
+    # 校验字段数量和位段合法性
+    is_valid, errors, warnings = validate_labels_for_c(labels)
+    
+    if not is_valid and strict:
+        raise ValueError(f"C 代码生成校验失败:\n" + "\n".join(f"  - {e}" for e in errors))
     
     env = Environment(loader=BaseLoader())
     
@@ -1310,7 +1481,9 @@ def generate_c_parser_code(config):
     
     return {
         'header': header_code,
-        'source': source_code
+        'source': source_code,
+        'validation_errors': errors,
+        'validation_warnings': warnings
     }
 
 

@@ -1024,7 +1024,7 @@ def api_get_device_tree():
                                 node['version_history'] = version_manager.get_device_version_history(device_id)
                             else:
                                 # 回退到数据库获取 labels（设备树结构仍从数据库读取）
-                                node['labels'] = db_get_labels(device_id)
+                            node['labels'] = db_get_labels(device_id)
                                 node['version_history'] = []
                             
                             # 添加锁状态（使用内存锁管理器）
@@ -1096,7 +1096,7 @@ def api_get_device_labels(device_id):
     try:
         username = get_current_user()['username']
         version_manager = get_version_manager()
-        
+    
         # 优先从 Git 存储获取设备信息
         git_device_info = version_manager.get_device_info(device_id)
         
@@ -1110,44 +1110,44 @@ def api_get_device_labels(device_id):
             updated_at = git_device_info.get('updated_at', '')
             updated_by = git_device_info.get('updated_by', '')
             current_protocol_version_name = git_device_info.get('current_protocol_version_name', '')
-            
-            # 获取版本历史
+        
+        # 获取版本历史
             version_history = version_manager.get_device_version_history(device_id)
-            
+        
             # 构建可切换的版本列表（去重，每个版本号只保留一条）
-            saved_versions = [{
-                'version': current_ver,
-                'label_count': len(labels),
-                'is_current': True,
+        saved_versions = [{
+            'version': current_ver,
+            'label_count': len(labels),
+            'is_current': True,
                 'updated_at': updated_at
-            }]
-            
+        }]
+        
             seen_versions = {current_ver}  # 用于去重
-            for record in version_history:
+        for record in version_history:
                 ver = record.get('version', '')
                 if ver in seen_versions:
-                    continue
+                continue
                 seen_versions.add(ver)
-                saved_versions.append({
+            saved_versions.append({
                     'version': ver,
-                    'label_count': record.get('label_count', 0),
-                    'is_current': False,
-                    'updated_at': record.get('updated_at', ''),
-                    'change_summary': record.get('change_summary', '')
-                })
-            
-            # 如果请求了特定历史版本
-            labels_to_return = labels
-            viewing_version = current_ver
-            is_viewing_history = False
-            
-            if requested_version and requested_version != current_ver:
+                'label_count': record.get('label_count', 0),
+                'is_current': False,
+                'updated_at': record.get('updated_at', ''),
+                'change_summary': record.get('change_summary', '')
+            })
+        
+        # 如果请求了特定历史版本
+        labels_to_return = labels
+        viewing_version = current_ver
+        is_viewing_history = False
+        
+        if requested_version and requested_version != current_ver:
                 snapshot = version_manager.get_version_snapshot(device_id, requested_version)
-                if snapshot:
+            if snapshot:
                     labels_to_return = snapshot.get('labels', [])
-                    viewing_version = requested_version
-                    is_viewing_history = True
-            
+                viewing_version = requested_version
+                is_viewing_history = True
+        
             # 获取锁状态（使用内存锁管理器）
             lock_manager = get_lock_manager()
             lock_result = lock_manager.get_lock_info_for_user(device_id, username)
@@ -1155,19 +1155,19 @@ def api_get_device_labels(device_id):
             can_edit = lock_result['can_edit']
             lock_info = lock_result['lock_info']
             
-            return jsonify({
-                'success': True,
-                'device_id': device_id,
+        return jsonify({
+            'success': True,
+            'device_id': device_id,
                 'device_name': device_name,
-                'device_version': current_ver,
+            'device_version': current_ver,
                 'device_description': device_description,
-                'viewing_version': viewing_version,
-                'is_viewing_history': is_viewing_history,
-                'current_version_name': current_protocol_version_name,
+            'viewing_version': viewing_version,
+            'is_viewing_history': is_viewing_history,
+            'current_version_name': current_protocol_version_name,
                 'current_protocol_version_id': None,  # Git 存储不使用协议版本 ID
                 'protocol_versions': [],  # Git 存储暂不支持多协议版本
-                'saved_versions': saved_versions,
-                'labels': labels_to_return,
+            'saved_versions': saved_versions,
+            'labels': labels_to_return,
                 'version_history': version_history[:20],
                 # 锁状态
                 'lock_status': lock_status,
@@ -1436,10 +1436,10 @@ def api_get_device_version_history(device_id):
             device_info = version_manager.get_device_info(device_id)
             device_name = device_info.get('device_name', '') if device_info else device_id
             current_version = device_info.get('current_version', 'V1.0') if device_info else 'V1.0'
-            
-            return jsonify({
-                'success': True,
-                'device_id': device_id,
+        
+        return jsonify({
+            'success': True,
+            'device_id': device_id,
                 'device_name': device_name,
                 'current_version': current_version,
                 'total_versions': len(git_history),

@@ -1,0 +1,3671 @@
+VERSION ""
+
+
+NS_ : 
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_:
+
+BU_:BMS FCS VCU
+
+
+BO_ 2415984641 LBPCU_PwrUpCommand: 8 FMC1
+ SG_ FMCPriorStat : 7|4@0+ (1,0) [0|2] "" BMS
+ SG_ PlaneLocInfo : 3|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat1HVPwrUpRqst : 15|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat2HVPwrUpRqst : 11|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat3HVPwrUpRqst : 23|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat4HVPwrUpRqst : 19|4@0+ (1,0) [0|2] "" BMS
+BO_ 2415984642 RBPCU_PwrUpCommand: 8 FMC2
+ SG_ FMCPriorStat : 7|4@0+ (1,0) [0|2] "" BMS
+ SG_ PlaneLocInfo : 3|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat1HVPwrUpRqst : 15|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat2HVPwrUpRqst : 11|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat3HVPwrUpRqst : 23|4@0+ (1,0) [0|2] "" BMS
+ SG_ Bat4HVPwrUpRqst : 19|4@0+ (1,0) [0|2] "" BMS
+BO_ 2550202385 BatP1_BMS_PackState: 8 BMS
+ SG_ P1_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P1_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P1_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P1_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P1_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P1_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P1_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267921 BatP1_BMS_PackMeasData: 8 BMS
+ SG_ P1_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P1_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333457 BatP1_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P1_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P1_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P1_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P1_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P1_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P1_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365073 BatP1_BMS_PackSeriesNumber: 8 BMS
+ SG_ P1_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550398993 BatP1_BMS_PowerSupplyInfo: 8 BMS
+ SG_ P1_BMSPwrSuplVlt1 : 7|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P1_BMSPwrSuplVlt2 : 14|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P1_ChrgStationAuxPwrSuplVlt : 21|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P1_BMSKL15ON : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_DCStepState : 27|8@0+ (1,0) [0|255] "" FMC
+ SG_ P1_ExtLvWakeup_28VOnly : 35|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2550464529 BatP1_BMS_PackUsageLimit: 8 BMS
+ SG_ P1_PackVltUprLmt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_PackVltLoLmt : 9|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P1_PackMaxDschrgCrnt : 27|14@0+ (0.1,0) [0|1600] "A" FMC
+ SG_ P1_PackMaxChrgCrnt : 45|14@0+ (0.1,0) [0|1600] "A" FMC
+BO_ 2550530065 BatP1_BMS_PackPowerCapability: 8 BMS
+ SG_ P1_PackDschrgPwrLmt : 7|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P1_PackDschrgPwrStat : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_PackChrgPwrLmt : 11|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P1_PackChrgPwrStat : 17|2@0+ (1,0) [0|3] "" FMC
+BO_ 2550595601 BatP1_BMS_ChargingInfo: 8 BMS
+ SG_ P1_ChrgrCplrStat : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_HVBattChrgSysStatus : 6|4@0+ (1,0) [0|15] "" FMC
+ SG_ P1_DCChrgCrntCmd : 2|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P1_CC2Vlt : 9|8@0+ (0.1,0) [0|25] "V" FMC
+ SG_ P1_DCRcptPosTemp : 17|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P1_DCRcptNegTemp : 24|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P1_Tm2FullChrg : 47|14@0+ (1,0) [0|65535] "min" FMC
+BO_ 2550661137 BatP1_BMS_ThermalManagement: 8 BMS
+ SG_ P1_Inlet1ClntTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_Inlet2ClntTemp : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_Outlet1ClntTemp : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_Outlet2ClntTemp : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_TrgtClntTemp : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_TrgtClntFlowRate : 48|9@0+ (0.2,0) [0|100] "C" FMC
+BO_ 2550726673 BatP1_BMS_CellVoltMaxMin: 8 BMS
+ SG_ P1_MaxCellVlt : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_MaxCellVltNum : 10|9@0+ (1,0) [0|500] "" FMC
+ SG_ P1_MinCellVlt : 17|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_MinCellVltNum : 36|9@0+ (1,0) [0|500] "" FMC
+ SG_ P1_AvgCellVlt : 43|13@0+ (0.001,0) [0|5] "V" FMC
+BO_ 2550792209 BatP1_BMS_CellTempMaxMin: 8 BMS
+ SG_ P1_MaxCellTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_MaxCellTempNum : 12|9@0+ (1,0) [0|500] "" FMC
+ SG_ P1_MinCellTemp : 19|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_MinCellTempNum : 24|9@0+ (1,0) [0|500] "" FMC
+ SG_ P1_AvgCellTemp : 47|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550857745 BatP1_BMS_PackFaultInfo1: 8 BMS
+ SG_ P1_PackTotFltNum : 7|8@0+ (1,0) [0|200] "" FMC
+ SG_ P1_CellOverVoltage : 15|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_CellUnderVoltage : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_CellVoltageDiffHi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PackOverVoltage : 10|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_PackUnderVoltage : 8|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_CellOverTemp : 22|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_CellTempLow : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellTempDiffHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PackDschrgCrntHi : 18|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_PackChrgCrntHi : 16|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_PackCrnSnsr1OffsetHi : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_HVIsolFlt : 29|2@0+ (1,0) [0|3] "" FMC
+ SG_ P1_HVILFlt : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_ThrmlRunaway : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellVoltInvalid : 25|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellTempInvalid : 24|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_DaisyChainComFlt : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PackVoltRatFlt : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CrntSnsr1Invalid : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CrntSnsr1OOR : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CrntSnsr2Invalid : 35|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CrntSnsr2OOR : 34|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PackCrnSnsr2OffsetHi : 33|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_OutofEnergy : 32|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_IsolDetCircErr : 47|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_HVILCircShortToGND : 46|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_HVILCircShortToPwr : 45|1@0+ (1,0) [0|1] "" FMC
+BO_ 2550923281 BatP1_BMS_PackFaultInfo2: 8 BMS
+ SG_ P1_MainPosCntctrStkClsd : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_MainPosCntctrStkOpn : 6|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_MainNegCntctr1StkClsd : 5|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_MainNegCntctr1StkOpn : 4|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_MainNegCntctr2StkClsd : 3|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_MainNegCntctr2StkOpn : 2|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PrechargTmOut : 1|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PrechrgCrntHi : 0|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_ChrgCplrPosTempHi : 15|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_ChrgCplrNegTempHi : 14|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BMSPwrSuplVlt1Hi : 13|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BMSPwrSuplVlt1Lo : 12|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BMSPwrSuplVlt2Hi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BMSPwrSuplVlt2Lo : 10|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CntctrCirPwrSuplVltLo : 9|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CntctrCirPwrSuplVltHi : 8|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CAN1BusOff : 23|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CAN1BusTmOut : 22|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CAN2BusOff : 21|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CAN2BusTmOut : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellBalCircTempHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_ClntInTempHi : 18|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_ClntOutTempHi : 17|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellExtrmUdrVolt : 16|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_CellExtrmOvrVolt : 31|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch1DischrgCrntHi  : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch2DischrgCrntHi  : 29|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch1ChrgCrntHi  : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_Branch2ChrgCrntHi  : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_InitFailed : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_PackErrCode : 25|10@0+ (1,0) [0|1023] "" FMC
+BO_ 2550988817 BatP1_BMS_PackConfigInfo: 8 BMS
+ SG_ P1_PackTotCellNum : 7|9@0+ (1,0) [0|500] "" FMC
+ SG_ P1_PackTotCellTempSnsrNum : 14|9@0+ (1,0) [0|500] "" FMC
+BO_ 2552299537 BatP1_BMS_BMSVersion: 8 BMS
+ SG_ P1_BMSASWMajVerNum : 7|8@0+ (1,0) [0|9] "" FMC
+ SG_ P1_BMSASWMinVerNum : 15|8@0+ (1,0) [0|99] "" FMC
+ SG_ P1_BMSASWPatchVerNum : 23|8@0+ (1,0) [0|255] "" FMC
+ SG_ P1_BMSBSWMajVerNum : 31|8@0+ (1,0) [0|9] "" FMC
+ SG_ P1_BMSBSWMinVerNum : 39|8@0+ (1,0) [0|99] "" FMC
+ SG_ P1_BMSBSWPatchVerNum : 47|8@0+ (1,0) [0|255] "" FMC
+BO_ 2554396689 BatP1_BMS_CellVoltageM0: 8 BMS
+ SG_ P1_CellVoltage1 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage2 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage3 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage4 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell1 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell2 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell3 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell4 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554462225 BatP1_BMS_CellVoltageM1: 8 BMS
+ SG_ P1_CellVoltage5 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage6 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage7 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage8 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell5 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell6 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell7 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell8 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554527761 BatP1_BMS_CellVoltageM2: 8 BMS
+ SG_ P1_CellVoltage9 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage10 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage11 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage12 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell9 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell10 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell11 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell12 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554593297 BatP1_BMS_CellVoltageM3: 8 BMS
+ SG_ P1_CellVoltage13 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage14 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage15 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage16 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell13 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell14 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell15 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell16 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554658833 BatP1_BMS_CellVoltageM4: 8 BMS
+ SG_ P1_CellVoltage17 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage18 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage19 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage20 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell17 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell18 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell19 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell20 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554724369 BatP1_BMS_CellVoltageM5: 8 BMS
+ SG_ P1_CellVoltage21 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage22 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage23 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage24 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell21 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell22 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell23 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell24 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554789905 BatP1_BMS_CellVoltageM6: 8 BMS
+ SG_ P1_CellVoltage25 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage26 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage27 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage28 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell25 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell26 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell27 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell28 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554855441 BatP1_BMS_CellVoltageM7: 8 BMS
+ SG_ P1_CellVoltage29 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage30 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage31 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_CellVoltage32 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P1_BalSwCell29 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell30 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell31 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P1_BalSwCell32 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2558525457 BatP1_BMS_CellTempM0: 8 BMS
+ SG_ P1_CellTemp1 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp2 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp3 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp4 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp5 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558590993 BatP1_BMS_CellTempM1: 8 BMS
+ SG_ P1_CellTemp6 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp7 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp8 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp9 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp10 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558656529 BatP1_BMS_CellTempM2: 8 BMS
+ SG_ P1_CellTemp11 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp12 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp13 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp14 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp15 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558722065 BatP1_BMS_CellTempM3: 8 BMS
+ SG_ P1_CellTemp16 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp17 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp18 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp19 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp20 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558787601 BatP1_BMS_CellTempM4: 8 BMS
+ SG_ P1_CellTemp21 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp22 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp23 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp24 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp25 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558853137 BatP1_BMS_CellTempM5: 8 BMS
+ SG_ P1_CellTemp26 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp27 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp28 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp29 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp30 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558918673 BatP1_BMS_CellTempM6: 8 BMS
+ SG_ P1_CellTemp31 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P1_CellTemp32 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550202402 BatP2_BMS_PackState: 8 BMS
+ SG_ P2_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P2_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P2_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P2_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P2_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P2_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P2_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267938 BatP2_BMS_PackMeasData: 8 BMS
+ SG_ P2_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P2_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333474 BatP2_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P2_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P2_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P2_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P2_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P2_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P2_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365090 BatP2_BMS_PackSeriesNumber: 8 BMS
+ SG_ P2_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550399010 BatP2_BMS_PowerSupplyInfo: 8 BMS
+ SG_ P2_BMSPwrSuplVlt1 : 7|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P2_BMSPwrSuplVlt2 : 14|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P2_ChrgStationAuxPwrSuplVlt : 21|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P2_BMSKL15ON : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_DCStepState : 27|8@0+ (1,0) [0|255] "" FMC
+ SG_ P2_ExtLvWakeup_28VOnly : 35|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2550464546 BatP2_BMS_PackUsageLimit: 8 BMS
+ SG_ P2_PackVltUprLmt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_PackVltLoLmt : 9|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P2_PackMaxDschrgCrnt : 27|14@0+ (0.1,0) [0|1600] "A" FMC
+ SG_ P2_PackMaxChrgCrnt : 45|14@0+ (0.1,0) [0|1600] "A" FMC
+BO_ 2550530082 BatP2_BMS_PackPowerCapability: 8 BMS
+ SG_ P2_PackDschrgPwrLmt : 7|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P2_PackDschrgPwrStat : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_PackChrgPwrLmt : 11|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P2_PackChrgPwrStat : 17|2@0+ (1,0) [0|3] "" FMC
+BO_ 2550595618 BatP2_BMS_ChargingInfo: 8 BMS
+ SG_ P2_ChrgrCplrStat : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_HVBattChrgSysStatus : 6|4@0+ (1,0) [0|15] "" FMC
+ SG_ P2_DCChrgCrntCmd : 2|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P2_CC2Vlt : 9|8@0+ (0.1,0) [0|25] "V" FMC
+ SG_ P2_DCRcptPosTemp : 17|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P2_DCRcptNegTemp : 24|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P2_Tm2FullChrg : 47|14@0+ (1,0) [0|65535] "min" FMC
+BO_ 2550661154 BatP2_BMS_ThermalManagement: 8 BMS
+ SG_ P2_Inlet1ClntTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_Inlet2ClntTemp : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_Outlet1ClntTemp : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_Outlet2ClntTemp : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_TrgtClntTemp : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_TrgtClntFlowRate : 48|9@0+ (0.2,0) [0|100] "C" FMC
+BO_ 2550726690 BatP2_BMS_CellVoltMaxMin: 8 BMS
+ SG_ P2_MaxCellVlt : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_MaxCellVltNum : 10|9@0+ (1,0) [0|500] "" FMC
+ SG_ P2_MinCellVlt : 17|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_MinCellVltNum : 36|9@0+ (1,0) [0|500] "" FMC
+ SG_ P2_AvgCellVlt : 43|13@0+ (0.001,0) [0|5] "V" FMC
+BO_ 2550792226 BatP2_BMS_CellTempMaxMin: 8 BMS
+ SG_ P2_MaxCellTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_MaxCellTempNum : 12|9@0+ (1,0) [0|500] "" FMC
+ SG_ P2_MinCellTemp : 19|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_MinCellTempNum : 24|9@0+ (1,0) [0|500] "" FMC
+ SG_ P2_AvgCellTemp : 47|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550857762 BatP2_BMS_PackFaultInfo1: 8 BMS
+ SG_ P2_PackTotFltNum : 7|8@0+ (1,0) [0|200] "" FMC
+ SG_ P2_CellOverVoltage : 15|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_CellUnderVoltage : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_CellVoltageDiffHi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PackOverVoltage : 10|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_PackUnderVoltage : 8|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_CellOverTemp : 22|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_CellTempLow : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellTempDiffHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PackDschrgCrntHi : 18|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_PackChrgCrntHi : 16|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_PackCrnSnsr1OffsetHi : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_HVIsolFlt : 29|2@0+ (1,0) [0|3] "" FMC
+ SG_ P2_HVILFlt : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_ThrmlRunaway : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellVoltInvalid : 25|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellTempInvalid : 24|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_DaisyChainComFlt : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PackVoltRatFlt : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CrntSnsr1Invalid : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CrntSnsr1OOR : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CrntSnsr2Invalid : 35|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CrntSnsr2OOR : 34|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PackCrnSnsr2OffsetHi : 33|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_OutofEnergy : 32|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_IsolDetCircErr : 47|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_HVILCircShortToGND : 46|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_HVILCircShortToPwr : 45|1@0+ (1,0) [0|1] "" FMC
+BO_ 2550923298 BatP2_BMS_PackFaultInfo2: 8 BMS
+ SG_ P2_MainPosCntctrStkClsd : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_MainPosCntctrStkOpn : 6|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_MainNegCntctr1StkClsd : 5|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_MainNegCntctr1StkOpn : 4|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_MainNegCntctr2StkClsd : 3|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_MainNegCntctr2StkOpn : 2|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PrechargTmOut : 1|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PrechrgCrntHi : 0|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_ChrgCplrPosTempHi : 15|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_ChrgCplrNegTempHi : 14|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BMSPwrSuplVlt1Hi : 13|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BMSPwrSuplVlt1Lo : 12|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BMSPwrSuplVlt2Hi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BMSPwrSuplVlt2Lo : 10|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CntctrCirPwrSuplVltLo : 9|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CntctrCirPwrSuplVltHi : 8|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CAN1BusOff : 23|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CAN1BusTmOut : 22|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CAN2BusOff : 21|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CAN2BusTmOut : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellBalCircTempHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_ClntInTempHi : 18|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_ClntOutTempHi : 17|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellExtrmUdrVolt : 16|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_CellExtrmOvrVolt : 31|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch1DischrgCrntHi  : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch2DischrgCrntHi  : 29|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch1ChrgCrntHi  : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_Branch2ChrgCrntHi  : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_InitFailed : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_PackErrCode : 25|10@0+ (1,0) [0|1023] "" FMC
+BO_ 2550988834 BatP2_BMS_PackConfigInfo: 8 BMS
+ SG_ P2_PackTotCellNum : 7|9@0+ (1,0) [0|500] "" FMC
+ SG_ P2_PackTotCellTempSnsrNum : 14|9@0+ (1,0) [0|500] "" FMC
+BO_ 2552299554 BatP2_BMS_BMSVersion: 8 BMS
+ SG_ P2_BMSASWMajVerNum : 7|8@0+ (1,0) [0|9] "" FMC
+ SG_ P2_BMSASWMinVerNum : 15|8@0+ (1,0) [0|99] "" FMC
+ SG_ P2_BMSASWPatchVerNum : 23|8@0+ (1,0) [0|255] "" FMC
+ SG_ P2_BMSBSWMajVerNum : 31|8@0+ (1,0) [0|9] "" FMC
+ SG_ P2_BMSBSWMinVerNum : 39|8@0+ (1,0) [0|99] "" FMC
+ SG_ P2_BMSBSWPatchVerNum : 47|8@0+ (1,0) [0|255] "" FMC
+BO_ 2554396706 BatP2_BMS_CellVoltageM0: 8 BMS
+ SG_ P2_CellVoltage1 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage2 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage3 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage4 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell1 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell2 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell3 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell4 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554462242 BatP2_BMS_CellVoltageM1: 8 BMS
+ SG_ P2_CellVoltage5 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage6 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage7 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage8 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell5 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell6 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell7 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell8 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554527778 BatP2_BMS_CellVoltageM2: 8 BMS
+ SG_ P2_CellVoltage9 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage10 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage11 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage12 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell9 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell10 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell11 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell12 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554593314 BatP2_BMS_CellVoltageM3: 8 BMS
+ SG_ P2_CellVoltage13 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage14 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage15 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage16 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell13 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell14 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell15 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell16 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554658850 BatP2_BMS_CellVoltageM4: 8 BMS
+ SG_ P2_CellVoltage17 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage18 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage19 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage20 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell17 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell18 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell19 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell20 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554724386 BatP2_BMS_CellVoltageM5: 8 BMS
+ SG_ P2_CellVoltage21 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage22 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage23 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage24 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell21 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell22 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell23 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell24 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554789922 BatP2_BMS_CellVoltageM6: 8 BMS
+ SG_ P2_CellVoltage25 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage26 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage27 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage28 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell25 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell26 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell27 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell28 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554855458 BatP2_BMS_CellVoltageM7: 8 BMS
+ SG_ P2_CellVoltage29 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage30 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage31 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage32 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell29 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell30 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell31 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell32 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554920994 BatP2_BMS_CellVoltageM8: 8 BMS
+ SG_ P2_CellVoltage33 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage34 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage35 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage36 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell33 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell34 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell35 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell36 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554986530 BatP2_BMS_CellVoltageM9: 8 BMS
+ SG_ P2_CellVoltage37 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage38 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage39 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage40 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell37 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell38 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell39 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell40 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555052066 BatP2_BMS_CellVoltageM10: 8 BMS
+ SG_ P2_CellVoltage41 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage42 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage43 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage44 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell41 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell42 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell43 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell44 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555117602 BatP2_BMS_CellVoltageM11: 8 BMS
+ SG_ P2_CellVoltage45 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage46 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage47 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage48 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell45 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell46 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell47 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell48 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555183138 BatP2_BMS_CellVoltageM12: 8 BMS
+ SG_ P2_CellVoltage49 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage50 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage51 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage52 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell49 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell50 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell51 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell52 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555248674 BatP2_BMS_CellVoltageM13: 8 BMS
+ SG_ P2_CellVoltage53 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage54 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage55 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage56 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell53 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell54 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell55 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell56 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555314210 BatP2_BMS_CellVoltageM14: 8 BMS
+ SG_ P2_CellVoltage57 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage58 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage59 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage60 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell57 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell58 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell59 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell60 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555379746 BatP2_BMS_CellVoltageM15: 8 BMS
+ SG_ P2_CellVoltage61 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage62 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage63 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage64 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell61 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell62 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell63 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell64 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555445282 BatP2_BMS_CellVoltageM16: 8 BMS
+ SG_ P2_CellVoltage65 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage66 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage67 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage68 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell65 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell66 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell67 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell68 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555510818 BatP2_BMS_CellVoltageM17: 8 BMS
+ SG_ P2_CellVoltage69 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage70 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage71 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_CellVoltage72 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P2_BalSwCell69 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell70 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell71 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P2_BalSwCell72 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2558525474 BatP2_BMS_CellTempM0: 8 BMS
+ SG_ P2_CellTemp1 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp2 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp3 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp4 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp5 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558591010 BatP2_BMS_CellTempM1: 8 BMS
+ SG_ P2_CellTemp6 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp7 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp8 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp9 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp10 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558656546 BatP2_BMS_CellTempM2: 8 BMS
+ SG_ P2_CellTemp11 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp12 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp13 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp14 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp15 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558722082 BatP2_BMS_CellTempM3: 8 BMS
+ SG_ P2_CellTemp16 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp17 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp18 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp19 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp20 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558787618 BatP2_BMS_CellTempM4: 8 BMS
+ SG_ P2_CellTemp21 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp22 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp23 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp24 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp25 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558853154 BatP2_BMS_CellTempM5: 8 BMS
+ SG_ P2_CellTemp26 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp27 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp28 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp29 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp30 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558918690 BatP2_BMS_CellTempM6: 8 BMS
+ SG_ P2_CellTemp31 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp32 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp33 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp34 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp35 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558984226 BatP2_BMS_CellTempM7: 8 BMS
+ SG_ P2_CellTemp36 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp37 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp38 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp39 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp40 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559049762 BatP2_BMS_CellTempM8: 8 BMS
+ SG_ P2_CellTemp41 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp42 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp43 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp44 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp45 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559115298 BatP2_BMS_CellTempM9: 8 BMS
+ SG_ P2_CellTemp46 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp47 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp48 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp49 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp50 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559180834 BatP2_BMS_CellTempM10: 8 BMS
+ SG_ P2_CellTemp51 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp52 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp53 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp54 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp55 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559246370 BatP2_BMS_CellTempM11: 8 BMS
+ SG_ P2_CellTemp56 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp57 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp58 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp59 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp60 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559311906 BatP2_BMS_CellTempM12: 8 BMS
+ SG_ P2_CellTemp61 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp62 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp63 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp64 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp65 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559377442 BatP2_BMS_CellTempM13: 8 BMS
+ SG_ P2_CellTemp66 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp67 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp68 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp69 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp70 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559442978 BatP2_BMS_CellTempM14: 8 BMS
+ SG_ P2_CellTemp71 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P2_CellTemp72 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550202419 BatP3_BMS_PackState: 8 BMS
+ SG_ P3_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P3_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P3_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P3_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P3_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P3_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P3_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267955 BatP3_BMS_PackMeasData: 8 BMS
+ SG_ P3_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P3_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333491 BatP3_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P3_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P3_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P3_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P3_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P3_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P3_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365107 BatP3_BMS_PackSeriesNumber: 8 BMS
+ SG_ P3_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550399027 BatP3_BMS_PowerSupplyInfo: 8 BMS
+ SG_ P3_BMSPwrSuplVlt1 : 7|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P3_BMSPwrSuplVlt2 : 14|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P3_ChrgStationAuxPwrSuplVlt : 21|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P3_BMSKL15ON : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_DCStepState : 27|8@0+ (1,0) [0|255] "" FMC
+ SG_ P3_ExtLvWakeup_28VOnly : 35|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2550464563 BatP3_BMS_PackUsageLimit: 8 BMS
+ SG_ P3_PackVltUprLmt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_PackVltLoLmt : 9|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P3_PackMaxDschrgCrnt : 27|14@0+ (0.1,0) [0|1600] "A" FMC
+ SG_ P3_PackMaxChrgCrnt : 45|14@0+ (0.1,0) [0|1600] "A" FMC
+BO_ 2550530099 BatP3_BMS_PackPowerCapability: 8 BMS
+ SG_ P3_PackDschrgPwrLmt : 7|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P3_PackDschrgPwrStat : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_PackChrgPwrLmt : 11|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P3_PackChrgPwrStat : 17|2@0+ (1,0) [0|3] "" FMC
+BO_ 2550595635 BatP3_BMS_ChargingInfo: 8 BMS
+ SG_ P3_ChrgrCplrStat : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_HVBattChrgSysStatus : 6|4@0+ (1,0) [0|15] "" FMC
+ SG_ P3_DCChrgCrntCmd : 2|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P3_CC2Vlt : 9|8@0+ (0.1,0) [0|25] "V" FMC
+ SG_ P3_DCRcptPosTemp : 17|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P3_DCRcptNegTemp : 24|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P3_Tm2FullChrg : 47|14@0+ (1,0) [0|65535] "min" FMC
+BO_ 2550661171 BatP3_BMS_ThermalManagement: 8 BMS
+ SG_ P3_Inlet1ClntTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_Inlet2ClntTemp : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_Outlet1ClntTemp : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_Outlet2ClntTemp : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_TrgtClntTemp : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_TrgtClntFlowRate : 48|9@0+ (0.2,0) [0|100] "C" FMC
+BO_ 2550726707 BatP3_BMS_CellVoltMaxMin: 8 BMS
+ SG_ P3_MaxCellVlt : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_MaxCellVltNum : 10|9@0+ (1,0) [0|500] "" FMC
+ SG_ P3_MinCellVlt : 17|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_MinCellVltNum : 36|9@0+ (1,0) [0|500] "" FMC
+ SG_ P3_AvgCellVlt : 43|13@0+ (0.001,0) [0|5] "V" FMC
+BO_ 2550792243 BatP3_BMS_CellTempMaxMin: 8 BMS
+ SG_ P3_MaxCellTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_MaxCellTempNum : 12|9@0+ (1,0) [0|500] "" FMC
+ SG_ P3_MinCellTemp : 19|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_MinCellTempNum : 24|9@0+ (1,0) [0|500] "" FMC
+ SG_ P3_AvgCellTemp : 47|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550857779 BatP3_BMS_PackFaultInfo1: 8 BMS
+ SG_ P3_PackTotFltNum : 7|8@0+ (1,0) [0|200] "" FMC
+ SG_ P3_CellOverVoltage : 15|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_CellUnderVoltage : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_CellVoltageDiffHi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PackOverVoltage : 10|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_PackUnderVoltage : 8|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_CellOverTemp : 22|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_CellTempLow : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellTempDiffHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PackDschrgCrntHi : 18|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_PackChrgCrntHi : 16|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_PackCrnSnsr1OffsetHi : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_HVIsolFlt : 29|2@0+ (1,0) [0|3] "" FMC
+ SG_ P3_HVILFlt : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_ThrmlRunaway : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellVoltInvalid : 25|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellTempInvalid : 24|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_DaisyChainComFlt : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PackVoltRatFlt : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CrntSnsr1Invalid : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CrntSnsr1OOR : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CrntSnsr2Invalid : 35|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CrntSnsr2OOR : 34|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PackCrnSnsr2OffsetHi : 33|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_OutofEnergy : 32|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_IsolDetCircErr : 47|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_HVILCircShortToGND : 46|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_HVILCircShortToPwr : 45|1@0+ (1,0) [0|1] "" FMC
+BO_ 2550923315 BatP3_BMS_PackFaultInfo2: 8 BMS
+ SG_ P3_MainPosCntctrStkClsd : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_MainPosCntctrStkOpn : 6|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_MainNegCntctr1StkClsd : 5|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_MainNegCntctr1StkOpn : 4|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_MainNegCntctr2StkClsd : 3|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_MainNegCntctr2StkOpn : 2|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PrechargTmOut : 1|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PrechrgCrntHi : 0|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_ChrgCplrPosTempHi : 15|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_ChrgCplrNegTempHi : 14|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BMSPwrSuplVlt1Hi : 13|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BMSPwrSuplVlt1Lo : 12|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BMSPwrSuplVlt2Hi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BMSPwrSuplVlt2Lo : 10|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CntctrCirPwrSuplVltLo : 9|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CntctrCirPwrSuplVltHi : 8|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CAN1BusOff : 23|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CAN1BusTmOut : 22|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CAN2BusOff : 21|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CAN2BusTmOut : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellBalCircTempHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_ClntInTempHi : 18|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_ClntOutTempHi : 17|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellExtrmUdrVolt : 16|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_CellExtrmOvrVolt : 31|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch1DischrgCrntHi  : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch2DischrgCrntHi  : 29|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch1ChrgCrntHi  : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_Branch2ChrgCrntHi  : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_InitFailed : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_PackErrCode : 25|10@0+ (1,0) [0|1023] "" FMC
+BO_ 2550988851 BatP3_BMS_PackConfigInfo: 8 BMS
+ SG_ P3_PackTotCellNum : 7|9@0+ (1,0) [0|500] "" FMC
+ SG_ P3_PackTotCellTempSnsrNum : 14|9@0+ (1,0) [0|500] "" FMC
+BO_ 2552299571 BatP3_BMS_BMSVersion: 8 BMS
+ SG_ P3_BMSASWMajVerNum : 7|8@0+ (1,0) [0|9] "" FMC
+ SG_ P3_BMSASWMinVerNum : 15|8@0+ (1,0) [0|99] "" FMC
+ SG_ P3_BMSASWPatchVerNum : 23|8@0+ (1,0) [0|255] "" FMC
+ SG_ P3_BMSBSWMajVerNum : 31|8@0+ (1,0) [0|9] "" FMC
+ SG_ P3_BMSBSWMinVerNum : 39|8@0+ (1,0) [0|99] "" FMC
+ SG_ P3_BMSBSWPatchVerNum : 47|8@0+ (1,0) [0|255] "" FMC
+BO_ 2554396723 BatP3_BMS_CellVoltageM0: 8 BMS
+ SG_ P3_CellVoltage1 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage2 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage3 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage4 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell1 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell2 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell3 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell4 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554462259 BatP3_BMS_CellVoltageM1: 8 BMS
+ SG_ P3_CellVoltage5 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage6 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage7 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage8 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell5 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell6 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell7 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell8 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554527795 BatP3_BMS_CellVoltageM2: 8 BMS
+ SG_ P3_CellVoltage9 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage10 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage11 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage12 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell9 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell10 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell11 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell12 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554593331 BatP3_BMS_CellVoltageM3: 8 BMS
+ SG_ P3_CellVoltage13 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage14 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage15 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage16 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell13 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell14 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell15 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell16 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554658867 BatP3_BMS_CellVoltageM4: 8 BMS
+ SG_ P3_CellVoltage17 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage18 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage19 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage20 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell17 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell18 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell19 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell20 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554724403 BatP3_BMS_CellVoltageM5: 8 BMS
+ SG_ P3_CellVoltage21 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage22 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage23 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage24 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell21 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell22 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell23 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell24 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554789939 BatP3_BMS_CellVoltageM6: 8 BMS
+ SG_ P3_CellVoltage25 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage26 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage27 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage28 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell25 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell26 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell27 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell28 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554855475 BatP3_BMS_CellVoltageM7: 8 BMS
+ SG_ P3_CellVoltage29 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage30 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage31 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage32 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell29 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell30 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell31 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell32 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554921011 BatP3_BMS_CellVoltageM8: 8 BMS
+ SG_ P3_CellVoltage33 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage34 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage35 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage36 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell33 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell34 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell35 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell36 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554986547 BatP3_BMS_CellVoltageM9: 8 BMS
+ SG_ P3_CellVoltage37 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage38 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage39 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage40 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell37 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell38 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell39 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell40 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555052083 BatP3_BMS_CellVoltageM10: 8 BMS
+ SG_ P3_CellVoltage41 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage42 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage43 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage44 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell41 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell42 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell43 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell44 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555117619 BatP3_BMS_CellVoltageM11: 8 BMS
+ SG_ P3_CellVoltage45 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage46 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage47 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage48 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell45 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell46 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell47 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell48 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555183155 BatP3_BMS_CellVoltageM12: 8 BMS
+ SG_ P3_CellVoltage49 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage50 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage51 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage52 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell49 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell50 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell51 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell52 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555248691 BatP3_BMS_CellVoltageM13: 8 BMS
+ SG_ P3_CellVoltage53 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage54 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage55 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage56 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell53 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell54 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell55 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell56 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555314227 BatP3_BMS_CellVoltageM14: 8 BMS
+ SG_ P3_CellVoltage57 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage58 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage59 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage60 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell57 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell58 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell59 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell60 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555379763 BatP3_BMS_CellVoltageM15: 8 BMS
+ SG_ P3_CellVoltage61 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage62 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage63 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage64 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell61 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell62 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell63 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell64 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555445299 BatP3_BMS_CellVoltageM16: 8 BMS
+ SG_ P3_CellVoltage65 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage66 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage67 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage68 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell65 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell66 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell67 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell68 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555510835 BatP3_BMS_CellVoltageM17: 8 BMS
+ SG_ P3_CellVoltage69 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage70 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage71 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_CellVoltage72 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P3_BalSwCell69 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell70 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell71 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P3_BalSwCell72 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2558525491 BatP3_BMS_CellTempM0: 8 BMS
+ SG_ P3_CellTemp1 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp2 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp3 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp4 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp5 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558591027 BatP3_BMS_CellTempM1: 8 BMS
+ SG_ P3_CellTemp6 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp7 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp8 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp9 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp10 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558656563 BatP3_BMS_CellTempM2: 8 BMS
+ SG_ P3_CellTemp11 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp12 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp13 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp14 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp15 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558722099 BatP3_BMS_CellTempM3: 8 BMS
+ SG_ P3_CellTemp16 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp17 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp18 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp19 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp20 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558787635 BatP3_BMS_CellTempM4: 8 BMS
+ SG_ P3_CellTemp21 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp22 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp23 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp24 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp25 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558853171 BatP3_BMS_CellTempM5: 8 BMS
+ SG_ P3_CellTemp26 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp27 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp28 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp29 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp30 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558918707 BatP3_BMS_CellTempM6: 8 BMS
+ SG_ P3_CellTemp31 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp32 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp33 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp34 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp35 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558984243 BatP3_BMS_CellTempM7: 8 BMS
+ SG_ P3_CellTemp36 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp37 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp38 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp39 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp40 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559049779 BatP3_BMS_CellTempM8: 8 BMS
+ SG_ P3_CellTemp41 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp42 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp43 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp44 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp45 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559115315 BatP3_BMS_CellTempM9: 8 BMS
+ SG_ P3_CellTemp46 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp47 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp48 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp49 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp50 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559180851 BatP3_BMS_CellTempM10: 8 BMS
+ SG_ P3_CellTemp51 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp52 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp53 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp54 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp55 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559246387 BatP3_BMS_CellTempM11: 8 BMS
+ SG_ P3_CellTemp56 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp57 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp58 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp59 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp60 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559311923 BatP3_BMS_CellTempM12: 8 BMS
+ SG_ P3_CellTemp61 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp62 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp63 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp64 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp65 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559377459 BatP3_BMS_CellTempM13: 8 BMS
+ SG_ P3_CellTemp66 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp67 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp68 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp69 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp70 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559442995 BatP3_BMS_CellTempM14: 8 BMS
+ SG_ P3_CellTemp71 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P3_CellTemp72 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550202436 BatP4_BMS_PackState: 8 BMS
+ SG_ P4_BMS_Stat : 7|4@0+ (1,0) [0|15] "" FMC
+ SG_ P4_MainCntctrStat : 3|4@0+ (1,0) [0|15] "" FMC
+ SG_ P4_PackFltLvl : 15|6@0+ (1,0) [0|5] "" FMC
+ SG_ P4_BatThrmlReqStat : 9|2@0+ (1,0) [0|2] "" FMC
+ SG_ P4_HVSysIsolDetStat : 23|2@0+ (1,0) [0|2] "" FMC
+ SG_ P4_PackVolt : 21|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_NegCntctr1ClsdCmnd : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_NegCntctr2ClsdCmnd : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PosCntctrClsdCmnd : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PreCntctrClsdCmnd : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch1Crnt : 35|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P4_FlgHvInhibit : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_FlgHVPwrDown : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_FlgDCChgInhibit : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_DCChrgAbrtRsn : 48|5@0+ (1,0) [0|31] "" FMC
+BO_ 2550267972 BatP4_BMS_PackMeasData: 8 BMS
+ SG_ P4_HvBusVlt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_PackTotCrnt : 9|16@0+ (0.1,-2000) [-2000|2000] "A" FMC
+ SG_ P4_HVSysIsolRes : 25|16@0+ (1,0) [0|65000] "kohm" FMC
+BO_ 2550333508 BatP4_BMS_PackEnergyChargeInfo: 8 BMS
+ SG_ P4_PackSOC : 7|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P4_PackRemEnrgy : 13|11@0+ (0.1,0) [0|200] "kWh" FMC
+ SG_ P4_PackSOE : 18|10@0+ (0.1,0) [0|100] "%" FMC
+ SG_ P4_ChrgCrntLimCof : 24|8@0+ (1,0) [0|100] "%" FMC
+ SG_ P4_ChrgCrntLimVal : 32|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P4_PlugInChrgVolt : 55|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2552365124 BatP4_BMS_PackSeriesNumber: 8 BMS
+ SG_ P4_PackSerNum : 7|64@0+ (1,0) [0|9999999] "" FMC
+BO_ 2550399044 BatP4_BMS_PowerSupplyInfo: 8 BMS
+ SG_ P4_BMSPwrSuplVlt1 : 7|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P4_BMSPwrSuplVlt2 : 14|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P4_ChrgStationAuxPwrSuplVlt : 21|9@0+ (0.1,0) [0|50] "V" FMC
+ SG_ P4_BMSKL15ON : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_DCStepState : 27|8@0+ (1,0) [0|255] "" FMC
+ SG_ P4_ExtLvWakeup_28VOnly : 35|9@0+ (0.1,0) [0|50] "V" FMC
+BO_ 2550464580 BatP4_BMS_PackUsageLimit: 8 BMS
+ SG_ P4_PackVltUprLmt : 7|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_PackVltLoLmt : 9|14@0+ (0.1,0) [0|1200] "V" FMC
+ SG_ P4_PackMaxDschrgCrnt : 27|14@0+ (0.1,0) [0|1600] "A" FMC
+ SG_ P4_PackMaxChrgCrnt : 45|14@0+ (0.1,0) [0|1600] "A" FMC
+BO_ 2550530116 BatP4_BMS_PackPowerCapability: 8 BMS
+ SG_ P4_PackDschrgPwrLmt : 7|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P4_PackDschrgPwrStat : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_PackChrgPwrLmt : 11|10@0+ (1,0) [0|1000] "kW" FMC
+ SG_ P4_PackChrgPwrStat : 17|2@0+ (1,0) [0|3] "" FMC
+BO_ 2550595652 BatP4_BMS_ChargingInfo: 8 BMS
+ SG_ P4_ChrgrCplrStat : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_HVBattChrgSysStatus : 6|4@0+ (1,0) [0|15] "" FMC
+ SG_ P4_DCChrgCrntCmd : 2|9@0+ (1,0) [0|500] "A" FMC
+ SG_ P4_CC2Vlt : 9|8@0+ (0.1,0) [0|25] "V" FMC
+ SG_ P4_DCRcptPosTemp : 17|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P4_DCRcptNegTemp : 24|9@0+ (0.5,-40) [-40|150] "C" FMC
+ SG_ P4_Tm2FullChrg : 47|14@0+ (1,0) [0|65535] "min" FMC
+BO_ 2550661188 BatP4_BMS_ThermalManagement: 8 BMS
+ SG_ P4_Inlet1ClntTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_Inlet2ClntTemp : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_Outlet1ClntTemp : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_Outlet2ClntTemp : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_TrgtClntTemp : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_TrgtClntFlowRate : 48|9@0+ (0.2,0) [0|100] "C" FMC
+BO_ 2550726724 BatP4_BMS_CellVoltMaxMin: 8 BMS
+ SG_ P4_MaxCellVlt : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_MaxCellVltNum : 10|9@0+ (1,0) [0|500] "" FMC
+ SG_ P4_MinCellVlt : 17|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_MinCellVltNum : 36|9@0+ (1,0) [0|500] "" FMC
+ SG_ P4_AvgCellVlt : 43|13@0+ (0.001,0) [0|5] "V" FMC
+BO_ 2550792260 BatP4_BMS_CellTempMaxMin: 8 BMS
+ SG_ P4_MaxCellTemp : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_MaxCellTempNum : 12|9@0+ (1,0) [0|500] "" FMC
+ SG_ P4_MinCellTemp : 19|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_MinCellTempNum : 24|9@0+ (1,0) [0|500] "" FMC
+ SG_ P4_AvgCellTemp : 47|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2550857796 BatP4_BMS_PackFaultInfo1: 8 BMS
+ SG_ P4_PackTotFltNum : 7|8@0+ (1,0) [0|200] "" FMC
+ SG_ P4_CellOverVoltage : 15|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_CellUnderVoltage : 13|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_CellVoltageDiffHi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PackOverVoltage : 10|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_PackUnderVoltage : 8|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_CellOverTemp : 22|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_CellTempLow : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellTempDiffHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PackDschrgCrntHi : 18|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_PackChrgCrntHi : 16|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_PackCrnSnsr1OffsetHi : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_HVIsolFlt : 29|2@0+ (1,0) [0|3] "" FMC
+ SG_ P4_HVILFlt : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_ThrmlRunaway : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellVoltInvalid : 25|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellTempInvalid : 24|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_DaisyChainComFlt : 39|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PackVoltRatFlt : 38|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CrntSnsr1Invalid : 37|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CrntSnsr1OOR : 36|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CrntSnsr2Invalid : 35|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CrntSnsr2OOR : 34|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PackCrnSnsr2OffsetHi : 33|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_OutofEnergy : 32|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_IsolDetCircErr : 47|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_HVILCircShortToGND : 46|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_HVILCircShortToPwr : 45|1@0+ (1,0) [0|1] "" FMC
+BO_ 2550923332 BatP4_BMS_PackFaultInfo2: 8 BMS
+ SG_ P4_MainPosCntctrStkClsd : 7|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_MainPosCntctrStkOpn : 6|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_MainNegCntctr1StkClsd : 5|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_MainNegCntctr1StkOpn : 4|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_MainNegCntctr2StkClsd : 3|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_MainNegCntctr2StkOpn : 2|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PrechargTmOut : 1|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PrechrgCrntHi : 0|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_ChrgCplrPosTempHi : 15|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_ChrgCplrNegTempHi : 14|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BMSPwrSuplVlt1Hi : 13|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BMSPwrSuplVlt1Lo : 12|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BMSPwrSuplVlt2Hi : 11|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BMSPwrSuplVlt2Lo : 10|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CntctrCirPwrSuplVltLo : 9|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CntctrCirPwrSuplVltHi : 8|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CAN1BusOff : 23|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CAN1BusTmOut : 22|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CAN2BusOff : 21|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CAN2BusTmOut : 20|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellBalCircTempHi : 19|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_ClntInTempHi : 18|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_ClntOutTempHi : 17|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellExtrmUdrVolt : 16|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_CellExtrmOvrVolt : 31|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch1DischrgCrntHi  : 30|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch2DischrgCrntHi  : 29|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch1ChrgCrntHi  : 28|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_Branch2ChrgCrntHi  : 27|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_InitFailed : 26|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_PackErrCode : 25|10@0+ (1,0) [0|1023] "" FMC
+BO_ 2550988868 BatP4_BMS_PackConfigInfo: 8 BMS
+ SG_ P4_PackTotCellNum : 7|9@0+ (1,0) [0|500] "" FMC
+ SG_ P4_PackTotCellTempSnsrNum : 14|9@0+ (1,0) [0|500] "" FMC
+BO_ 2552299588 BatP4_BMS_BMSVersion: 8 BMS
+ SG_ P4_BMSASWMajVerNum : 7|8@0+ (1,0) [0|9] "" FMC
+ SG_ P4_BMSASWMinVerNum : 15|8@0+ (1,0) [0|99] "" FMC
+ SG_ P4_BMSASWPatchVerNum : 23|8@0+ (1,0) [0|255] "" FMC
+ SG_ P4_BMSBSWMajVerNum : 31|8@0+ (1,0) [0|9] "" FMC
+ SG_ P4_BMSBSWMinVerNum : 39|8@0+ (1,0) [0|99] "" FMC
+ SG_ P4_BMSBSWPatchVerNum : 47|8@0+ (1,0) [0|255] "" FMC
+BO_ 2554396740 BatP4_BMS_CellVoltageM0: 8 BMS
+ SG_ P4_CellVoltage1 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage2 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage3 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage4 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell1 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell2 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell3 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell4 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554462276 BatP4_BMS_CellVoltageM1: 8 BMS
+ SG_ P4_CellVoltage5 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage6 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage7 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage8 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell5 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell6 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell7 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell8 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554527812 BatP4_BMS_CellVoltageM2: 8 BMS
+ SG_ P4_CellVoltage9 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage10 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage11 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage12 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell9 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell10 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell11 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell12 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554593348 BatP4_BMS_CellVoltageM3: 8 BMS
+ SG_ P4_CellVoltage13 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage14 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage15 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage16 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell13 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell14 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell15 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell16 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554658884 BatP4_BMS_CellVoltageM4: 8 BMS
+ SG_ P4_CellVoltage17 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage18 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage19 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage20 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell17 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell18 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell19 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell20 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554724420 BatP4_BMS_CellVoltageM5: 8 BMS
+ SG_ P4_CellVoltage21 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage22 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage23 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage24 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell21 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell22 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell23 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell24 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554789956 BatP4_BMS_CellVoltageM6: 8 BMS
+ SG_ P4_CellVoltage25 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage26 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage27 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage28 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell25 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell26 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell27 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell28 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554855492 BatP4_BMS_CellVoltageM7: 8 BMS
+ SG_ P4_CellVoltage29 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage30 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage31 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage32 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell29 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell30 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell31 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell32 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554921028 BatP4_BMS_CellVoltageM8: 8 BMS
+ SG_ P4_CellVoltage33 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage34 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage35 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage36 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell33 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell34 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell35 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell36 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2554986564 BatP4_BMS_CellVoltageM9: 8 BMS
+ SG_ P4_CellVoltage37 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage38 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage39 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage40 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell37 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell38 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell39 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell40 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555052100 BatP4_BMS_CellVoltageM10: 8 BMS
+ SG_ P4_CellVoltage41 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage42 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage43 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage44 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell41 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell42 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell43 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell44 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555117636 BatP4_BMS_CellVoltageM11: 8 BMS
+ SG_ P4_CellVoltage45 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage46 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage47 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage48 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell45 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell46 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell47 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell48 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555183172 BatP4_BMS_CellVoltageM12: 8 BMS
+ SG_ P4_CellVoltage49 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage50 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage51 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage52 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell49 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell50 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell51 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell52 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555248708 BatP4_BMS_CellVoltageM13: 8 BMS
+ SG_ P4_CellVoltage53 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage54 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage55 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage56 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell53 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell54 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell55 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell56 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555314244 BatP4_BMS_CellVoltageM14: 8 BMS
+ SG_ P4_CellVoltage57 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage58 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage59 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage60 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell57 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell58 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell59 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell60 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555379780 BatP4_BMS_CellVoltageM15: 8 BMS
+ SG_ P4_CellVoltage61 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage62 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage63 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage64 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell61 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell62 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell63 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell64 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555445316 BatP4_BMS_CellVoltageM16: 8 BMS
+ SG_ P4_CellVoltage65 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage66 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage67 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage68 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell65 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell66 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell67 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell68 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2555510852 BatP4_BMS_CellVoltageM17: 8 BMS
+ SG_ P4_CellVoltage69 : 7|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage70 : 10|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage71 : 29|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_CellVoltage72 : 32|13@0+ (0.001,0) [0|5] "V" FMC
+ SG_ P4_BalSwCell69 : 51|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell70 : 50|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell71 : 49|1@0+ (1,0) [0|1] "" FMC
+ SG_ P4_BalSwCell72 : 48|1@0+ (1,0) [0|1] "" FMC
+BO_ 2558525508 BatP4_BMS_CellTempM0: 8 BMS
+ SG_ P4_CellTemp1 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp2 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp3 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp4 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp5 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558591044 BatP4_BMS_CellTempM1: 8 BMS
+ SG_ P4_CellTemp6 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp7 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp8 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp9 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp10 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558656580 BatP4_BMS_CellTempM2: 8 BMS
+ SG_ P4_CellTemp11 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp12 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp13 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp14 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp15 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558722116 BatP4_BMS_CellTempM3: 8 BMS
+ SG_ P4_CellTemp16 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp17 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp18 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp19 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp20 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558787652 BatP4_BMS_CellTempM4: 8 BMS
+ SG_ P4_CellTemp21 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp22 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp23 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp24 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp25 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558853188 BatP4_BMS_CellTempM5: 8 BMS
+ SG_ P4_CellTemp26 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp27 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp28 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp29 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp30 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558918724 BatP4_BMS_CellTempM6: 8 BMS
+ SG_ P4_CellTemp31 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp32 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp33 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp34 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp35 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2558984260 BatP4_BMS_CellTempM7: 8 BMS
+ SG_ P4_CellTemp36 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp37 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp38 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp39 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp40 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559049796 BatP4_BMS_CellTempM8: 8 BMS
+ SG_ P4_CellTemp41 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp42 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp43 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp44 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp45 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559115332 BatP4_BMS_CellTempM9: 8 BMS
+ SG_ P4_CellTemp46 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp47 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp48 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp49 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp50 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559180868 BatP4_BMS_CellTempM10: 8 BMS
+ SG_ P4_CellTemp51 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp52 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp53 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp54 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp55 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559246404 BatP4_BMS_CellTempM11: 8 BMS
+ SG_ P4_CellTemp56 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp57 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp58 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp59 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp60 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559311940 BatP4_BMS_CellTempM12: 8 BMS
+ SG_ P4_CellTemp61 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp62 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp63 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp64 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp65 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559377476 BatP4_BMS_CellTempM13: 8 BMS
+ SG_ P4_CellTemp66 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp67 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp68 : 17|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp69 : 38|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp70 : 43|11@0+ (0.1,-40) [-40|150] "C" FMC
+BO_ 2559443012 BatP4_BMS_CellTempM14: 8 BMS
+ SG_ P4_CellTemp71 : 7|11@0+ (0.1,-40) [-40|150] "C" FMC
+ SG_ P4_CellTemp72 : 12|11@0+ (0.1,-40) [-40|150] "C" FMC
+
+
+
+CM_ SG_ 2415984641 FMCPriorStat "FMC设备的优先级状态";
+CM_ SG_ 2415984641 PlaneLocInfo "飞机的位置信息";
+CM_ SG_ 2415984641 Bat1HVPwrUpRqst "飞控发送给BMS1的高压上电命令";
+CM_ SG_ 2415984641 Bat2HVPwrUpRqst "飞控发送给BMS2的高压上电命令";
+CM_ SG_ 2415984641 Bat3HVPwrUpRqst "飞控发送给BMS3的高压上电命令";
+CM_ SG_ 2415984641 Bat4HVPwrUpRqst "飞控发送给BMS4的高压上电命令";
+CM_ SG_ 2415984642 FMCPriorStat "FMC设备的优先级状态";
+CM_ SG_ 2415984642 PlaneLocInfo "飞机的位置信息";
+CM_ SG_ 2415984642 Bat1HVPwrUpRqst "飞控发送给BMS1的高压上电命令";
+CM_ SG_ 2415984642 Bat2HVPwrUpRqst "飞控发送给BMS2的高压上电命令";
+CM_ SG_ 2415984642 Bat3HVPwrUpRqst "飞控发送给BMS3的高压上电命令";
+CM_ SG_ 2415984642 Bat4HVPwrUpRqst "飞控发送给BMS4的高压上电命令";
+CM_ SG_ 2550202385 P1_BMS_Stat "电池包1的BMS系统状态";
+CM_ SG_ 2550202385 P1_MainCntctrStat "电池包1的BMS继电器状态";
+CM_ SG_ 2550202385 P1_PackFltLvl "电池包1的故障等级";
+CM_ SG_ 2550202385 P1_BatThrmlReqStat "电池包1的热管理请求";
+CM_ SG_ 2550202385 P1_HVSysIsolDetStat "电池包1的高压系统绝缘检测状态";
+CM_ SG_ 2550202385 P1_PackVolt "电池包1的总电压";
+CM_ SG_ 2550202385 P1_NegCntctr1ClsdCmnd "电池包1的主负继电器1闭合命令";
+CM_ SG_ 2550202385 P1_NegCntctr2ClsdCmnd "电池包1的主负继电器2闭合命令";
+CM_ SG_ 2550202385 P1_PosCntctrClsdCmnd "电池包1的主正继电器闭合命令";
+CM_ SG_ 2550202385 P1_PreCntctrClsdCmnd "电池包1的预充继电器闭合命令";
+CM_ SG_ 2550202385 P1_Branch1Crnt "电池包1的支路1电流";
+CM_ SG_ 2550202385 P1_FlgHvInhibit "电池包1的禁止高压上电标志位";
+CM_ SG_ 2550202385 P1_FlgHVPwrDown "电池包1的故障高压下电标志位";
+CM_ SG_ 2550202385 P1_FlgDCChgInhibit "电池包1的禁止快充标志位";
+CM_ SG_ 2550202385 P1_DCChrgAbrtRsn "电池包1的快充停止原因";
+CM_ SG_ 2550267921 P1_HvBusVlt "电池包1的外部高压总线电压";
+CM_ SG_ 2550267921 P1_PackTotCrnt "电池包1的总电流";
+CM_ SG_ 2550267921 P1_HVSysIsolRes "电池包1的高压系统绝缘阻值";
+CM_ SG_ 2550333457 P1_PackSOC "电池包1的SOC";
+CM_ SG_ 2550333457 P1_PackRemEnrgy "电池包1的剩余能量";
+CM_ SG_ 2550333457 P1_PackSOE "电池包1的SOE";
+CM_ SG_ 2550333457 P1_ChrgCrntLimCof "电池包1的充电电流限制系数";
+CM_ SG_ 2550333457 P1_ChrgCrntLimVal "电池包1的充电电流限值";
+CM_ SG_ 2550333457 P1_PlugInChrgVolt "电池包1的外插充电电压";
+CM_ SG_ 2552365073 P1_PackSerNum "电池包1的序列号";
+CM_ SG_ 2550398993 P1_BMSPwrSuplVlt1 "电池包1的BMS供电电源电压1";
+CM_ SG_ 2550398993 P1_BMSPwrSuplVlt2 "电池包1的BMS供电电源电压2";
+CM_ SG_ 2550398993 P1_ChrgStationAuxPwrSuplVlt "电池包1的快充桩A+电压";
+CM_ SG_ 2550398993 P1_BMSKL15ON "电池包1的BMS唤醒信号";
+CM_ SG_ 2550398993 P1_DCStepState "电池包1的充电状态机";
+CM_ SG_ 2550398993 P1_ExtLvWakeup_28VOnly "电池包1的外部唤醒";
+CM_ SG_ 2550464529 P1_PackVltUprLmt "电池包1的电压使用上限";
+CM_ SG_ 2550464529 P1_PackVltLoLmt "电池包1的电压使用下限";
+CM_ SG_ 2550464529 P1_PackMaxDschrgCrnt "电池包1的最大允许放电电流";
+CM_ SG_ 2550464529 P1_PackMaxChrgCrnt "电池包1的最大允许充电电流";
+CM_ SG_ 2550530065 P1_PackDschrgPwrLmt "电池包1的放电功率限值";
+CM_ SG_ 2550530065 P1_PackDschrgPwrStat "电池包1的放电功率状态";
+CM_ SG_ 2550530065 P1_PackChrgPwrLmt "电池包1的充电功率限值";
+CM_ SG_ 2550530065 P1_PackChrgPwrStat "电池包1的充电功率状态";
+CM_ SG_ 2550595601 P1_ChrgrCplrStat "电池包1的充电枪连接状态";
+CM_ SG_ 2550595601 P1_HVBattChrgSysStatus "电池包1的充电系统状态";
+CM_ SG_ 2550595601 P1_DCChrgCrntCmd "电池包1的直流充电请求电流";
+CM_ SG_ 2550595601 P1_CC2Vlt "电池包1的CC2电压值";
+CM_ SG_ 2550595601 P1_DCRcptPosTemp "电池包1的快充充电插座正极温度";
+CM_ SG_ 2550595601 P1_DCRcptNegTemp "电池包1的快充充电插座负极温度";
+CM_ SG_ 2550595601 P1_Tm2FullChrg "电池包1满充剩余时间";
+CM_ SG_ 2550661137 P1_Inlet1ClntTemp "进水口1冷却液温度";
+CM_ SG_ 2550661137 P1_Inlet2ClntTemp "进水口2冷却液温度";
+CM_ SG_ 2550661137 P1_Outlet1ClntTemp "出水口1冷却液温度";
+CM_ SG_ 2550661137 P1_Outlet2ClntTemp "出水口2冷却液温度";
+CM_ SG_ 2550661137 P1_TrgtClntTemp "冷却水目标温度";
+CM_ SG_ 2550661137 P1_TrgtClntFlowRate "冷却水目标流量";
+CM_ SG_ 2550726673 P1_MaxCellVlt "电池包1的最大单体电压";
+CM_ SG_ 2550726673 P1_MaxCellVltNum "电池包1的最大单体电压编号";
+CM_ SG_ 2550726673 P1_MinCellVlt "电池包1的最小单体电压";
+CM_ SG_ 2550726673 P1_MinCellVltNum "电池包1的最小单体电压编号";
+CM_ SG_ 2550726673 P1_AvgCellVlt "电池包1的平均单体电压";
+CM_ SG_ 2550792209 P1_MaxCellTemp "电池包1的最高单体温度";
+CM_ SG_ 2550792209 P1_MaxCellTempNum "电池包1的最高单体温度编号";
+CM_ SG_ 2550792209 P1_MinCellTemp "电池包1的最低单体温度";
+CM_ SG_ 2550792209 P1_MinCellTempNum "电池包1的最低单体温度编号";
+CM_ SG_ 2550792209 P1_AvgCellTemp "电池包1的单体平均温度";
+CM_ SG_ 2550857745 P1_PackTotFltNum "电池包1的电池故障总数";
+CM_ SG_ 2550857745 P1_CellOverVoltage "电池包1的单体过压";
+CM_ SG_ 2550857745 P1_CellUnderVoltage "电池包1的单体欠压";
+CM_ SG_ 2550857745 P1_CellVoltageDiffHi "电池包1的单体压差过大";
+CM_ SG_ 2550857745 P1_PackOverVoltage "电池包1的电压过高";
+CM_ SG_ 2550857745 P1_PackUnderVoltage "电池包1的电压过低";
+CM_ SG_ 2550857745 P1_CellOverTemp "电池包1的单体过温";
+CM_ SG_ 2550857745 P1_CellTempLow "电池包1的单体温度过低";
+CM_ SG_ 2550857745 P1_CellTempDiffHi "电池包1的单体温度差异过大";
+CM_ SG_ 2550857745 P1_PackDschrgCrntHi "电池包1的放电电流过流";
+CM_ SG_ 2550857745 P1_PackChrgCrntHi "电池包1的充电电流过流";
+CM_ SG_ 2550857745 P1_PackCrnSnsr1OffsetHi "电池包1的电流传感器1零漂过大";
+CM_ SG_ 2550857745 P1_HVIsolFlt "电池包1的高压绝缘故障";
+CM_ SG_ 2550857745 P1_HVILFlt "电池包1的高压互锁故障";
+CM_ SG_ 2550857745 P1_ThrmlRunaway "电池包1的热失控故障";
+CM_ SG_ 2550857745 P1_CellVoltInvalid "电池包1的单体电压采样失效";
+CM_ SG_ 2550857745 P1_CellTempInvalid "电池包1的电芯温度采样失效";
+CM_ SG_ 2550857745 P1_DaisyChainComFlt "电池包1的菊花链通信故障";
+CM_ SG_ 2550857745 P1_PackVoltRatFlt "电池包1的总电压与单体电压总和偏差过大";
+CM_ SG_ 2550857745 P1_CrntSnsr1Invalid "电池包1的电流传感器1电流采样失效";
+CM_ SG_ 2550857745 P1_CrntSnsr1OOR "电池包1的电流传感器1电流超出采样范围";
+CM_ SG_ 2550857745 P1_CrntSnsr2Invalid "电池包1的电流传感器2电流采样失效";
+CM_ SG_ 2550857745 P1_CrntSnsr2OOR "电池包1的电流传感器2电流超出采样范围";
+CM_ SG_ 2550857745 P1_PackCrnSnsr2OffsetHi "电池包1的电流传感器2零漂过大";
+CM_ SG_ 2550857745 P1_OutofEnergy "电池包1的电池剩余电量低";
+CM_ SG_ 2550857745 P1_IsolDetCircErr "电池包1的绝缘检测电路失效";
+CM_ SG_ 2550857745 P1_HVILCircShortToGND "电池包1的高压互锁对地短路";
+CM_ SG_ 2550857745 P1_HVILCircShortToPwr "电池包1的高压互锁对电源短路";
+CM_ SG_ 2550923281 P1_MainPosCntctrStkClsd "电池包1的主正继电器粘连故障";
+CM_ SG_ 2550923281 P1_MainPosCntctrStkOpn "电池包1的主正继电器常开故障";
+CM_ SG_ 2550923281 P1_MainNegCntctr1StkClsd "电池包1的主负继电器1粘连故障";
+CM_ SG_ 2550923281 P1_MainNegCntctr1StkOpn "电池包1的主负继电器1常开故障";
+CM_ SG_ 2550923281 P1_MainNegCntctr2StkClsd "电池包1的主负继电器2粘连故障";
+CM_ SG_ 2550923281 P1_MainNegCntctr2StkOpn "电池包1的主负继电器2常开故障";
+CM_ SG_ 2550923281 P1_PrechargTmOut "电池包1的预充超时故障";
+CM_ SG_ 2550923281 P1_PrechrgCrntHi "电池包1的预充过流故障";
+CM_ SG_ 2550923281 P1_ChrgCplrPosTempHi "电池包1的充电正极接口温度过高故障";
+CM_ SG_ 2550923281 P1_ChrgCplrNegTempHi "电池包1的充电负极接口温度过高故障";
+CM_ SG_ 2550923281 P1_BMSPwrSuplVlt1Hi "电池包1的BMS供电电压1过高";
+CM_ SG_ 2550923281 P1_BMSPwrSuplVlt1Lo "电池包1的BMS供电电压1过低";
+CM_ SG_ 2550923281 P1_BMSPwrSuplVlt2Hi "电池包1的BMS供电电压2过高";
+CM_ SG_ 2550923281 P1_BMSPwrSuplVlt2Lo "电池包1的BMS供电电压2过低";
+CM_ SG_ 2550923281 P1_CntctrCirPwrSuplVltLo "电池包1的继电器驱动供电电压过低";
+CM_ SG_ 2550923281 P1_CntctrCirPwrSuplVltHi "电池包1的继电器驱动供电电压过高";
+CM_ SG_ 2550923281 P1_CAN1BusOff "电池包1的CAN1通信Bus off";
+CM_ SG_ 2550923281 P1_CAN1BusTmOut "电池包1的CAN1报文超时（Timeout）";
+CM_ SG_ 2550923281 P1_CAN2BusOff "电池包1的CAN2通信Bus off";
+CM_ SG_ 2550923281 P1_CAN2BusTmOut "电池包1的CAN2报文超时（Timeout）";
+CM_ SG_ 2550923281 P1_CellBalCircTempHi "电池包1的均衡电路过温";
+CM_ SG_ 2550923281 P1_ClntInTempHi "电池包1的入水口温度过高";
+CM_ SG_ 2550923281 P1_ClntOutTempHi "电池包1的出水口温度过高";
+CM_ SG_ 2550923281 P1_CellExtrmUdrVolt "电池包1的单体极限欠压";
+CM_ SG_ 2550923281 P1_CellExtrmOvrVolt "电池包1的单体极限过压";
+CM_ SG_ 2550923281 P1_Branch1DischrgCrntHi  "电池包1的支路1放电过流";
+CM_ SG_ 2550923281 P1_Branch2DischrgCrntHi  "电池包1的支路2放电过流";
+CM_ SG_ 2550923281 P1_Branch1ChrgCrntHi  "电池包1的支路1充电过流";
+CM_ SG_ 2550923281 P1_Branch2ChrgCrntHi  "电池包1的支路2充电过流";
+CM_ SG_ 2550923281 P1_InitFailed "电池包1的BMS初始化失败";
+CM_ SG_ 2550923281 P1_PackErrCode "电池包1的故障代码";
+CM_ SG_ 2550988817 P1_PackTotCellNum "电池包1的单体电池总数";
+CM_ SG_ 2550988817 P1_PackTotCellTempSnsrNum "电池包1的单体温度传感器总数";
+CM_ SG_ 2552299537 P1_BMSASWMajVerNum "电池包1的BMS应用层软件主版本号";
+CM_ SG_ 2552299537 P1_BMSASWMinVerNum "电池包1的BMS应用层软件子版本号";
+CM_ SG_ 2552299537 P1_BMSASWPatchVerNum "电池包1的BMS应用层软件修订版本号";
+CM_ SG_ 2552299537 P1_BMSBSWMajVerNum "电池包1的BMS底层软件主版本号";
+CM_ SG_ 2552299537 P1_BMSBSWMinVerNum "电池包1的BMS底层软件子版本号";
+CM_ SG_ 2552299537 P1_BMSBSWPatchVerNum "电池包1的BMS底层软件修订版本号";
+CM_ SG_ 2554396689 P1_CellVoltage1 "电池包1的单体电压1";
+CM_ SG_ 2554396689 P1_CellVoltage2 "电池包1的单体电压2";
+CM_ SG_ 2554396689 P1_CellVoltage3 "电池包1的单体电压3";
+CM_ SG_ 2554396689 P1_CellVoltage4 "电池包1的单体电压4";
+CM_ SG_ 2554396689 P1_BalSwCell1 "电池包1的电芯1均衡状态";
+CM_ SG_ 2554396689 P1_BalSwCell2 "电池包1的电芯2均衡状态";
+CM_ SG_ 2554396689 P1_BalSwCell3 "电池包1的电芯3均衡状态";
+CM_ SG_ 2554396689 P1_BalSwCell4 "电池包1的电芯4均衡状态";
+CM_ SG_ 2554462225 P1_CellVoltage5 "电池包1的单体电压5";
+CM_ SG_ 2554462225 P1_CellVoltage6 "电池包1的单体电压6";
+CM_ SG_ 2554462225 P1_CellVoltage7 "电池包1的单体电压7";
+CM_ SG_ 2554462225 P1_CellVoltage8 "电池包1的单体电压8";
+CM_ SG_ 2554462225 P1_BalSwCell5 "电池包1的电芯5均衡状态";
+CM_ SG_ 2554462225 P1_BalSwCell6 "电池包1的电芯6均衡状态";
+CM_ SG_ 2554462225 P1_BalSwCell7 "电池包1的电芯7均衡状态";
+CM_ SG_ 2554462225 P1_BalSwCell8 "电池包1的电芯8均衡状态";
+CM_ SG_ 2554527761 P1_CellVoltage9 "电池包1的单体电压9";
+CM_ SG_ 2554527761 P1_CellVoltage10 "电池包1的单体电压10";
+CM_ SG_ 2554527761 P1_CellVoltage11 "电池包1的单体电压11";
+CM_ SG_ 2554527761 P1_CellVoltage12 "电池包1的单体电压12";
+CM_ SG_ 2554527761 P1_BalSwCell9 "电池包1的电芯9均衡状态";
+CM_ SG_ 2554527761 P1_BalSwCell10 "电池包1的电芯10均衡状态";
+CM_ SG_ 2554527761 P1_BalSwCell11 "电池包1的电芯11均衡状态";
+CM_ SG_ 2554527761 P1_BalSwCell12 "电池包1的电芯12均衡状态";
+CM_ SG_ 2554593297 P1_CellVoltage13 "电池包1的单体电压13";
+CM_ SG_ 2554593297 P1_CellVoltage14 "电池包1的单体电压14";
+CM_ SG_ 2554593297 P1_CellVoltage15 "电池包1的单体电压15";
+CM_ SG_ 2554593297 P1_CellVoltage16 "电池包1的单体电压16";
+CM_ SG_ 2554593297 P1_BalSwCell13 "电池包1的电芯13均衡状态";
+CM_ SG_ 2554593297 P1_BalSwCell14 "电池包1的电芯14均衡状态";
+CM_ SG_ 2554593297 P1_BalSwCell15 "电池包1的电芯15均衡状态";
+CM_ SG_ 2554593297 P1_BalSwCell16 "电池包1的电芯16均衡状态";
+CM_ SG_ 2554658833 P1_CellVoltage17 "电池包1的单体电压17";
+CM_ SG_ 2554658833 P1_CellVoltage18 "电池包1的单体电压18";
+CM_ SG_ 2554658833 P1_CellVoltage19 "电池包1的单体电压19";
+CM_ SG_ 2554658833 P1_CellVoltage20 "电池包1的单体电压20";
+CM_ SG_ 2554658833 P1_BalSwCell17 "电池包1的电芯17均衡状态";
+CM_ SG_ 2554658833 P1_BalSwCell18 "电池包1的电芯18均衡状态";
+CM_ SG_ 2554658833 P1_BalSwCell19 "电池包1的电芯19均衡状态";
+CM_ SG_ 2554658833 P1_BalSwCell20 "电池包1的电芯20均衡状态";
+CM_ SG_ 2554724369 P1_CellVoltage21 "电池包1的单体电压21";
+CM_ SG_ 2554724369 P1_CellVoltage22 "电池包1的单体电压22";
+CM_ SG_ 2554724369 P1_CellVoltage23 "电池包1的单体电压23";
+CM_ SG_ 2554724369 P1_CellVoltage24 "电池包1的单体电压24";
+CM_ SG_ 2554724369 P1_BalSwCell21 "电池包1的电芯21均衡状态";
+CM_ SG_ 2554724369 P1_BalSwCell22 "电池包1的电芯22均衡状态";
+CM_ SG_ 2554724369 P1_BalSwCell23 "电池包1的电芯23均衡状态";
+CM_ SG_ 2554724369 P1_BalSwCell24 "电池包1的电芯24均衡状态";
+CM_ SG_ 2554789905 P1_CellVoltage25 "电池包1的单体电压25";
+CM_ SG_ 2554789905 P1_CellVoltage26 "电池包1的单体电压26";
+CM_ SG_ 2554789905 P1_CellVoltage27 "电池包1的单体电压27";
+CM_ SG_ 2554789905 P1_CellVoltage28 "电池包1的单体电压28";
+CM_ SG_ 2554789905 P1_BalSwCell25 "电池包1的电芯25均衡状态";
+CM_ SG_ 2554789905 P1_BalSwCell26 "电池包1的电芯26均衡状态";
+CM_ SG_ 2554789905 P1_BalSwCell27 "电池包1的电芯27均衡状态";
+CM_ SG_ 2554789905 P1_BalSwCell28 "电池包1的电芯28均衡状态";
+CM_ SG_ 2554855441 P1_CellVoltage29 "电池包1的单体电压29";
+CM_ SG_ 2554855441 P1_CellVoltage30 "电池包1的单体电压30";
+CM_ SG_ 2554855441 P1_CellVoltage31 "电池包1的单体电压31";
+CM_ SG_ 2554855441 P1_CellVoltage32 "电池包1的单体电压32";
+CM_ SG_ 2554855441 P1_BalSwCell29 "电池包1的电芯29均衡状态";
+CM_ SG_ 2554855441 P1_BalSwCell30 "电池包1的电芯30均衡状态";
+CM_ SG_ 2554855441 P1_BalSwCell31 "电池包1的电芯31均衡状态";
+CM_ SG_ 2554855441 P1_BalSwCell32 "电池包1的电芯32均衡状态";
+CM_ SG_ 2558525457 P1_CellTemp1 "电池包1的单体温度1";
+CM_ SG_ 2558525457 P1_CellTemp2 "电池包1的单体温度2";
+CM_ SG_ 2558525457 P1_CellTemp3 "电池包1的单体温度3";
+CM_ SG_ 2558525457 P1_CellTemp4 "电池包1的单体温度4";
+CM_ SG_ 2558525457 P1_CellTemp5 "电池包1的单体温度5";
+CM_ SG_ 2558590993 P1_CellTemp6 "电池包1的单体温度6";
+CM_ SG_ 2558590993 P1_CellTemp7 "电池包1的单体温度7";
+CM_ SG_ 2558590993 P1_CellTemp8 "电池包1的单体温度8";
+CM_ SG_ 2558590993 P1_CellTemp9 "电池包1的单体温度9";
+CM_ SG_ 2558590993 P1_CellTemp10 "电池包1的单体温度10";
+CM_ SG_ 2558656529 P1_CellTemp11 "电池包1的单体温度11";
+CM_ SG_ 2558656529 P1_CellTemp12 "电池包1的单体温度12";
+CM_ SG_ 2558656529 P1_CellTemp13 "电池包1的单体温度13";
+CM_ SG_ 2558656529 P1_CellTemp14 "电池包1的单体温度14";
+CM_ SG_ 2558656529 P1_CellTemp15 "电池包1的单体温度15";
+CM_ SG_ 2558722065 P1_CellTemp16 "电池包1的单体温度16";
+CM_ SG_ 2558722065 P1_CellTemp17 "电池包1的单体温度17";
+CM_ SG_ 2558722065 P1_CellTemp18 "电池包1的单体温度18";
+CM_ SG_ 2558722065 P1_CellTemp19 "电池包1的单体温度19";
+CM_ SG_ 2558722065 P1_CellTemp20 "电池包1的单体温度20";
+CM_ SG_ 2558787601 P1_CellTemp21 "电池包1的单体温度21";
+CM_ SG_ 2558787601 P1_CellTemp22 "电池包1的单体温度22";
+CM_ SG_ 2558787601 P1_CellTemp23 "电池包1的单体温度23";
+CM_ SG_ 2558787601 P1_CellTemp24 "电池包1的单体温度24";
+CM_ SG_ 2558787601 P1_CellTemp25 "电池包1的单体温度25";
+CM_ SG_ 2558853137 P1_CellTemp26 "电池包1的单体温度26";
+CM_ SG_ 2558853137 P1_CellTemp27 "电池包1的单体温度27";
+CM_ SG_ 2558853137 P1_CellTemp28 "电池包1的单体温度28";
+CM_ SG_ 2558853137 P1_CellTemp29 "电池包1的单体温度29";
+CM_ SG_ 2558853137 P1_CellTemp30 "电池包1的单体温度30";
+CM_ SG_ 2558918673 P1_CellTemp31 "电池包1的单体温度31";
+CM_ SG_ 2558918673 P1_CellTemp32 "电池包1的单体温度32";
+CM_ SG_ 2550202402 P2_BMS_Stat "电池包2的BMS系统状态";
+CM_ SG_ 2550202402 P2_MainCntctrStat "电池包2的BMS继电器状态";
+CM_ SG_ 2550202402 P2_PackFltLvl "电池包2的故障等级";
+CM_ SG_ 2550202402 P2_BatThrmlReqStat "电池包2的热管理请求";
+CM_ SG_ 2550202402 P2_HVSysIsolDetStat "电池包2的高压系统绝缘检测状态";
+CM_ SG_ 2550202402 P2_PackVolt "电池包2的总电压";
+CM_ SG_ 2550202402 P2_NegCntctr1ClsdCmnd "电池包2的主负继电器1闭合命令";
+CM_ SG_ 2550202402 P2_NegCntctr2ClsdCmnd "电池包2的主负继电器2闭合命令";
+CM_ SG_ 2550202402 P2_PosCntctrClsdCmnd "电池包2的主正继电器闭合命令";
+CM_ SG_ 2550202402 P2_PreCntctrClsdCmnd "电池包2的预充继电器闭合命令";
+CM_ SG_ 2550202402 P2_Branch1Crnt "电池包2的支路1电流";
+CM_ SG_ 2550202402 P2_FlgHvInhibit "电池包2的禁止高压上电标志位";
+CM_ SG_ 2550202402 P2_FlgHVPwrDown "电池包2的故障高压下电标志位";
+CM_ SG_ 2550202402 P2_FlgDCChgInhibit "电池包2的禁止快充标志位";
+CM_ SG_ 2550202402 P2_DCChrgAbrtRsn "电池包2的快充停止原因";
+CM_ SG_ 2550267938 P2_HvBusVlt "电池包2的外部高压总线电压";
+CM_ SG_ 2550267938 P2_PackTotCrnt "电池包2的总电流";
+CM_ SG_ 2550267938 P2_HVSysIsolRes "电池包2的高压系统绝缘阻值";
+CM_ SG_ 2550333474 P2_PackSOC "电池包2的SOC";
+CM_ SG_ 2550333474 P2_PackRemEnrgy "电池包2的剩余能量";
+CM_ SG_ 2550333474 P2_PackSOE "电池包2的SOE";
+CM_ SG_ 2550333474 P2_ChrgCrntLimCof "电池包2的充电电流限制系数";
+CM_ SG_ 2550333474 P2_ChrgCrntLimVal "电池包2的充电电流限值";
+CM_ SG_ 2550333474 P2_PlugInChrgVolt "电池包2的外插充电电压";
+CM_ SG_ 2552365090 P2_PackSerNum "电池包2的序列号";
+CM_ SG_ 2550399010 P2_BMSPwrSuplVlt1 "电池包2的BMS供电电源电压1";
+CM_ SG_ 2550399010 P2_BMSPwrSuplVlt2 "电池包2的BMS供电电源电压2";
+CM_ SG_ 2550399010 P2_ChrgStationAuxPwrSuplVlt "电池包2的快充桩A+电压";
+CM_ SG_ 2550399010 P2_BMSKL15ON "电池包2的BMS唤醒信号";
+CM_ SG_ 2550399010 P2_DCStepState "电池包2的充电状态机";
+CM_ SG_ 2550399010 P2_ExtLvWakeup_28VOnly "电池包2的外部唤醒";
+CM_ SG_ 2550464546 P2_PackVltUprLmt "电池包2的电压使用上限";
+CM_ SG_ 2550464546 P2_PackVltLoLmt "电池包2的电压使用下限";
+CM_ SG_ 2550464546 P2_PackMaxDschrgCrnt "电池包2的最大允许放电电流";
+CM_ SG_ 2550464546 P2_PackMaxChrgCrnt "电池包2的最大允许充电电流";
+CM_ SG_ 2550530082 P2_PackDschrgPwrLmt "电池包2的放电功率限值";
+CM_ SG_ 2550530082 P2_PackDschrgPwrStat "电池包2的放电功率状态";
+CM_ SG_ 2550530082 P2_PackChrgPwrLmt "电池包2的充电功率限值";
+CM_ SG_ 2550530082 P2_PackChrgPwrStat "电池包2的充电功率状态";
+CM_ SG_ 2550595618 P2_ChrgrCplrStat "电池包2的充电枪连接状态";
+CM_ SG_ 2550595618 P2_HVBattChrgSysStatus "电池包2的充电系统状态";
+CM_ SG_ 2550595618 P2_DCChrgCrntCmd "电池包2的直流充电请求电流";
+CM_ SG_ 2550595618 P2_CC2Vlt "电池包2的CC2电压值";
+CM_ SG_ 2550595618 P2_DCRcptPosTemp "电池包2的快充充电插座正极温度";
+CM_ SG_ 2550595618 P2_DCRcptNegTemp "电池包2的快充充电插座负极温度";
+CM_ SG_ 2550595618 P2_Tm2FullChrg "电池包2满充剩余时间";
+CM_ SG_ 2550661154 P2_Inlet1ClntTemp "进水口1冷却液温度";
+CM_ SG_ 2550661154 P2_Inlet2ClntTemp "进水口2冷却液温度";
+CM_ SG_ 2550661154 P2_Outlet1ClntTemp "出水口1冷却液温度";
+CM_ SG_ 2550661154 P2_Outlet2ClntTemp "出水口2冷却液温度";
+CM_ SG_ 2550661154 P2_TrgtClntTemp "冷却水目标温度";
+CM_ SG_ 2550661154 P2_TrgtClntFlowRate "冷却水目标流量";
+CM_ SG_ 2550726690 P2_MaxCellVlt "电池包2的最大单体电压";
+CM_ SG_ 2550726690 P2_MaxCellVltNum "电池包2的最大单体电压编号";
+CM_ SG_ 2550726690 P2_MinCellVlt "电池包2的最小单体电压";
+CM_ SG_ 2550726690 P2_MinCellVltNum "电池包2的最小单体电压编号";
+CM_ SG_ 2550726690 P2_AvgCellVlt "电池包2的平均单体电压";
+CM_ SG_ 2550792226 P2_MaxCellTemp "电池包2的最高单体温度";
+CM_ SG_ 2550792226 P2_MaxCellTempNum "电池包2的最高单体温度编号";
+CM_ SG_ 2550792226 P2_MinCellTemp "电池包2的最低单体温度";
+CM_ SG_ 2550792226 P2_MinCellTempNum "电池包2的最低单体温度编号";
+CM_ SG_ 2550792226 P2_AvgCellTemp "电池包2的单体平均温度";
+CM_ SG_ 2550857762 P2_PackTotFltNum "电池包2的电池故障总数";
+CM_ SG_ 2550857762 P2_CellOverVoltage "电池包2的单体过压";
+CM_ SG_ 2550857762 P2_CellUnderVoltage "电池包2的单体欠压";
+CM_ SG_ 2550857762 P2_CellVoltageDiffHi "电池包2的单体压差过大";
+CM_ SG_ 2550857762 P2_PackOverVoltage "电池包2的电压过高";
+CM_ SG_ 2550857762 P2_PackUnderVoltage "电池包2的电压过低";
+CM_ SG_ 2550857762 P2_CellOverTemp "电池包2的单体过温";
+CM_ SG_ 2550857762 P2_CellTempLow "电池包2的单体温度过低";
+CM_ SG_ 2550857762 P2_CellTempDiffHi "电池包2的单体温度差异过大";
+CM_ SG_ 2550857762 P2_PackDschrgCrntHi "电池包2的放电电流过流";
+CM_ SG_ 2550857762 P2_PackChrgCrntHi "电池包2的充电电流过流";
+CM_ SG_ 2550857762 P2_PackCrnSnsr1OffsetHi "电池包2的电流传感器1零漂过大";
+CM_ SG_ 2550857762 P2_HVIsolFlt "电池包2的高压绝缘故障";
+CM_ SG_ 2550857762 P2_HVILFlt "电池包2的高压互锁故障";
+CM_ SG_ 2550857762 P2_ThrmlRunaway "电池包2的热失控故障";
+CM_ SG_ 2550857762 P2_CellVoltInvalid "电池包2的单体电压采样失效";
+CM_ SG_ 2550857762 P2_CellTempInvalid "电池包2的电芯温度采样失效";
+CM_ SG_ 2550857762 P2_DaisyChainComFlt "电池包2的菊花链通信故障";
+CM_ SG_ 2550857762 P2_PackVoltRatFlt "电池包2的总电压与单体电压总和偏差过大";
+CM_ SG_ 2550857762 P2_CrntSnsr1Invalid "电池包2的电流传感器1电流采样失效";
+CM_ SG_ 2550857762 P2_CrntSnsr1OOR "电池包2的电流传感器1电流超出采样范围";
+CM_ SG_ 2550857762 P2_CrntSnsr2Invalid "电池包2的电流传感器2电流采样失效";
+CM_ SG_ 2550857762 P2_CrntSnsr2OOR "电池包2的电流传感器2电流超出采样范围";
+CM_ SG_ 2550857762 P2_PackCrnSnsr2OffsetHi "电池包2的电流传感器2零漂过大";
+CM_ SG_ 2550857762 P2_OutofEnergy "电池包2的电池剩余电量低";
+CM_ SG_ 2550857762 P2_IsolDetCircErr "电池包2的绝缘检测电路失效";
+CM_ SG_ 2550857762 P2_HVILCircShortToGND "电池包2的高压互锁对地短路";
+CM_ SG_ 2550857762 P2_HVILCircShortToPwr "电池包2的高压互锁对电源短路";
+CM_ SG_ 2550923298 P2_MainPosCntctrStkClsd "电池包2的主正继电器粘连故障";
+CM_ SG_ 2550923298 P2_MainPosCntctrStkOpn "电池包2的主正继电器常开故障";
+CM_ SG_ 2550923298 P2_MainNegCntctr1StkClsd "电池包2的主负继电器1粘连故障";
+CM_ SG_ 2550923298 P2_MainNegCntctr1StkOpn "电池包2的主负继电器1常开故障";
+CM_ SG_ 2550923298 P2_MainNegCntctr2StkClsd "电池包2的主负继电器2粘连故障";
+CM_ SG_ 2550923298 P2_MainNegCntctr2StkOpn "电池包2的主负继电器2常开故障";
+CM_ SG_ 2550923298 P2_PrechargTmOut "电池包2的预充超时故障";
+CM_ SG_ 2550923298 P2_PrechrgCrntHi "电池包2的预充过流故障";
+CM_ SG_ 2550923298 P2_ChrgCplrPosTempHi "电池包2的充电正极接口温度过高故障";
+CM_ SG_ 2550923298 P2_ChrgCplrNegTempHi "电池包2的充电负极接口温度过高故障";
+CM_ SG_ 2550923298 P2_BMSPwrSuplVlt1Hi "电池包2的BMS供电电压1过高";
+CM_ SG_ 2550923298 P2_BMSPwrSuplVlt1Lo "电池包2的BMS供电电压1过低";
+CM_ SG_ 2550923298 P2_BMSPwrSuplVlt2Hi "电池包2的BMS供电电压2过高";
+CM_ SG_ 2550923298 P2_BMSPwrSuplVlt2Lo "电池包2的BMS供电电压2过低";
+CM_ SG_ 2550923298 P2_CntctrCirPwrSuplVltLo "电池包2的继电器驱动供电电压过低";
+CM_ SG_ 2550923298 P2_CntctrCirPwrSuplVltHi "电池包2的继电器驱动供电电压过高";
+CM_ SG_ 2550923298 P2_CAN1BusOff "电池包2的CAN1通信Bus off";
+CM_ SG_ 2550923298 P2_CAN1BusTmOut "电池包2的CAN1报文超时（Timeout）";
+CM_ SG_ 2550923298 P2_CAN2BusOff "电池包2的CAN2通信Bus off";
+CM_ SG_ 2550923298 P2_CAN2BusTmOut "电池包2的CAN2报文超时（Timeout）";
+CM_ SG_ 2550923298 P2_CellBalCircTempHi "电池包2的均衡电路过温";
+CM_ SG_ 2550923298 P2_ClntInTempHi "电池包2的入水口温度过高";
+CM_ SG_ 2550923298 P2_ClntOutTempHi "电池包2的出水口温度过高";
+CM_ SG_ 2550923298 P2_CellExtrmUdrVolt "电池包2的单体极限欠压";
+CM_ SG_ 2550923298 P2_CellExtrmOvrVolt "电池包2的单体极限过压";
+CM_ SG_ 2550923298 P2_Branch1DischrgCrntHi  "电池包2的支路1放电过流";
+CM_ SG_ 2550923298 P2_Branch2DischrgCrntHi  "电池包2的支路2放电过流";
+CM_ SG_ 2550923298 P2_Branch1ChrgCrntHi  "电池包2的支路1充电过流";
+CM_ SG_ 2550923298 P2_Branch2ChrgCrntHi  "电池包2的支路2充电过流";
+CM_ SG_ 2550923298 P2_InitFailed "电池包2的BMS初始化失败";
+CM_ SG_ 2550923298 P2_PackErrCode "电池包2的故障代码";
+CM_ SG_ 2550988834 P2_PackTotCellNum "电池包2的单体电池总数";
+CM_ SG_ 2550988834 P2_PackTotCellTempSnsrNum "电池包2的单体温度传感器总数";
+CM_ SG_ 2552299554 P2_BMSASWMajVerNum "电池包2的BMS应用层软件主版本号";
+CM_ SG_ 2552299554 P2_BMSASWMinVerNum "电池包2的BMS应用层软件子版本号";
+CM_ SG_ 2552299554 P2_BMSASWPatchVerNum "电池包2的BMS应用层软件修订版本号";
+CM_ SG_ 2552299554 P2_BMSBSWMajVerNum "电池包2的BMS底层软件主版本号";
+CM_ SG_ 2552299554 P2_BMSBSWMinVerNum "电池包2的BMS底层软件子版本号";
+CM_ SG_ 2552299554 P2_BMSBSWPatchVerNum "电池包2的BMS底层软件修订版本号";
+CM_ SG_ 2554396706 P2_CellVoltage1 "电池包2的单体电压1";
+CM_ SG_ 2554396706 P2_CellVoltage2 "电池包2的单体电压2";
+CM_ SG_ 2554396706 P2_CellVoltage3 "电池包2的单体电压3";
+CM_ SG_ 2554396706 P2_CellVoltage4 "电池包2的单体电压4";
+CM_ SG_ 2554396706 P2_BalSwCell1 "电池包2的电芯1均衡状态";
+CM_ SG_ 2554396706 P2_BalSwCell2 "电池包2的电芯2均衡状态";
+CM_ SG_ 2554396706 P2_BalSwCell3 "电池包2的电芯3均衡状态";
+CM_ SG_ 2554396706 P2_BalSwCell4 "电池包2的电芯4均衡状态";
+CM_ SG_ 2554462242 P2_CellVoltage5 "电池包2的单体电压5";
+CM_ SG_ 2554462242 P2_CellVoltage6 "电池包2的单体电压6";
+CM_ SG_ 2554462242 P2_CellVoltage7 "电池包2的单体电压7";
+CM_ SG_ 2554462242 P2_CellVoltage8 "电池包2的单体电压8";
+CM_ SG_ 2554462242 P2_BalSwCell5 "电池包2的电芯5均衡状态";
+CM_ SG_ 2554462242 P2_BalSwCell6 "电池包2的电芯6均衡状态";
+CM_ SG_ 2554462242 P2_BalSwCell7 "电池包2的电芯7均衡状态";
+CM_ SG_ 2554462242 P2_BalSwCell8 "电池包2的电芯8均衡状态";
+CM_ SG_ 2554527778 P2_CellVoltage9 "电池包2的单体电压9";
+CM_ SG_ 2554527778 P2_CellVoltage10 "电池包2的单体电压10";
+CM_ SG_ 2554527778 P2_CellVoltage11 "电池包2的单体电压11";
+CM_ SG_ 2554527778 P2_CellVoltage12 "电池包2的单体电压12";
+CM_ SG_ 2554527778 P2_BalSwCell9 "电池包2的电芯9均衡状态";
+CM_ SG_ 2554527778 P2_BalSwCell10 "电池包2的电芯10均衡状态";
+CM_ SG_ 2554527778 P2_BalSwCell11 "电池包2的电芯11均衡状态";
+CM_ SG_ 2554527778 P2_BalSwCell12 "电池包2的电芯12均衡状态";
+CM_ SG_ 2554593314 P2_CellVoltage13 "电池包2的单体电压13";
+CM_ SG_ 2554593314 P2_CellVoltage14 "电池包2的单体电压14";
+CM_ SG_ 2554593314 P2_CellVoltage15 "电池包2的单体电压15";
+CM_ SG_ 2554593314 P2_CellVoltage16 "电池包2的单体电压16";
+CM_ SG_ 2554593314 P2_BalSwCell13 "电池包2的电芯13均衡状态";
+CM_ SG_ 2554593314 P2_BalSwCell14 "电池包2的电芯14均衡状态";
+CM_ SG_ 2554593314 P2_BalSwCell15 "电池包2的电芯15均衡状态";
+CM_ SG_ 2554593314 P2_BalSwCell16 "电池包2的电芯16均衡状态";
+CM_ SG_ 2554658850 P2_CellVoltage17 "电池包2的单体电压17";
+CM_ SG_ 2554658850 P2_CellVoltage18 "电池包2的单体电压18";
+CM_ SG_ 2554658850 P2_CellVoltage19 "电池包2的单体电压19";
+CM_ SG_ 2554658850 P2_CellVoltage20 "电池包2的单体电压20";
+CM_ SG_ 2554658850 P2_BalSwCell17 "电池包2的电芯17均衡状态";
+CM_ SG_ 2554658850 P2_BalSwCell18 "电池包2的电芯18均衡状态";
+CM_ SG_ 2554658850 P2_BalSwCell19 "电池包2的电芯19均衡状态";
+CM_ SG_ 2554658850 P2_BalSwCell20 "电池包2的电芯20均衡状态";
+CM_ SG_ 2554724386 P2_CellVoltage21 "电池包2的单体电压21";
+CM_ SG_ 2554724386 P2_CellVoltage22 "电池包2的单体电压22";
+CM_ SG_ 2554724386 P2_CellVoltage23 "电池包2的单体电压23";
+CM_ SG_ 2554724386 P2_CellVoltage24 "电池包2的单体电压24";
+CM_ SG_ 2554724386 P2_BalSwCell21 "电池包2的电芯21均衡状态";
+CM_ SG_ 2554724386 P2_BalSwCell22 "电池包2的电芯22均衡状态";
+CM_ SG_ 2554724386 P2_BalSwCell23 "电池包2的电芯23均衡状态";
+CM_ SG_ 2554724386 P2_BalSwCell24 "电池包2的电芯24均衡状态";
+CM_ SG_ 2554789922 P2_CellVoltage25 "电池包2的单体电压25";
+CM_ SG_ 2554789922 P2_CellVoltage26 "电池包2的单体电压26";
+CM_ SG_ 2554789922 P2_CellVoltage27 "电池包2的单体电压27";
+CM_ SG_ 2554789922 P2_CellVoltage28 "电池包2的单体电压28";
+CM_ SG_ 2554789922 P2_BalSwCell25 "电池包2的电芯25均衡状态";
+CM_ SG_ 2554789922 P2_BalSwCell26 "电池包2的电芯26均衡状态";
+CM_ SG_ 2554789922 P2_BalSwCell27 "电池包2的电芯27均衡状态";
+CM_ SG_ 2554789922 P2_BalSwCell28 "电池包2的电芯28均衡状态";
+CM_ SG_ 2554855458 P2_CellVoltage29 "电池包2的单体电压29";
+CM_ SG_ 2554855458 P2_CellVoltage30 "电池包2的单体电压30";
+CM_ SG_ 2554855458 P2_CellVoltage31 "电池包2的单体电压31";
+CM_ SG_ 2554855458 P2_CellVoltage32 "电池包2的单体电压32";
+CM_ SG_ 2554855458 P2_BalSwCell29 "电池包2的电芯29均衡状态";
+CM_ SG_ 2554855458 P2_BalSwCell30 "电池包2的电芯30均衡状态";
+CM_ SG_ 2554855458 P2_BalSwCell31 "电池包2的电芯31均衡状态";
+CM_ SG_ 2554855458 P2_BalSwCell32 "电池包2的电芯32均衡状态";
+CM_ SG_ 2554920994 P2_CellVoltage33 "电池包2的单体电压33";
+CM_ SG_ 2554920994 P2_CellVoltage34 "电池包2的单体电压34";
+CM_ SG_ 2554920994 P2_CellVoltage35 "电池包2的单体电压35";
+CM_ SG_ 2554920994 P2_CellVoltage36 "电池包2的单体电压36";
+CM_ SG_ 2554920994 P2_BalSwCell33 "电池包2的电芯33均衡状态";
+CM_ SG_ 2554920994 P2_BalSwCell34 "电池包2的电芯34均衡状态";
+CM_ SG_ 2554920994 P2_BalSwCell35 "电池包2的电芯35均衡状态";
+CM_ SG_ 2554920994 P2_BalSwCell36 "电池包2的电芯36均衡状态";
+CM_ SG_ 2554986530 P2_CellVoltage37 "电池包2的单体电压37";
+CM_ SG_ 2554986530 P2_CellVoltage38 "电池包2的单体电压38";
+CM_ SG_ 2554986530 P2_CellVoltage39 "电池包2的单体电压39";
+CM_ SG_ 2554986530 P2_CellVoltage40 "电池包2的单体电压40";
+CM_ SG_ 2554986530 P2_BalSwCell37 "电池包2的电芯37均衡状态";
+CM_ SG_ 2554986530 P2_BalSwCell38 "电池包2的电芯38均衡状态";
+CM_ SG_ 2554986530 P2_BalSwCell39 "电池包2的电芯39均衡状态";
+CM_ SG_ 2554986530 P2_BalSwCell40 "电池包2的电芯40均衡状态";
+CM_ SG_ 2555052066 P2_CellVoltage41 "电池包2的单体电压41";
+CM_ SG_ 2555052066 P2_CellVoltage42 "电池包2的单体电压42";
+CM_ SG_ 2555052066 P2_CellVoltage43 "电池包2的单体电压43";
+CM_ SG_ 2555052066 P2_CellVoltage44 "电池包2的单体电压44";
+CM_ SG_ 2555052066 P2_BalSwCell41 "电池包2的电芯41均衡状态";
+CM_ SG_ 2555052066 P2_BalSwCell42 "电池包2的电芯42均衡状态";
+CM_ SG_ 2555052066 P2_BalSwCell43 "电池包2的电芯43均衡状态";
+CM_ SG_ 2555052066 P2_BalSwCell44 "电池包2的电芯44均衡状态";
+CM_ SG_ 2555117602 P2_CellVoltage45 "电池包2的单体电压45";
+CM_ SG_ 2555117602 P2_CellVoltage46 "电池包2的单体电压46";
+CM_ SG_ 2555117602 P2_CellVoltage47 "电池包2的单体电压47";
+CM_ SG_ 2555117602 P2_CellVoltage48 "电池包2的单体电压48";
+CM_ SG_ 2555117602 P2_BalSwCell45 "电池包2的电芯45均衡状态";
+CM_ SG_ 2555117602 P2_BalSwCell46 "电池包2的电芯46均衡状态";
+CM_ SG_ 2555117602 P2_BalSwCell47 "电池包2的电芯47均衡状态";
+CM_ SG_ 2555117602 P2_BalSwCell48 "电池包2的电芯48均衡状态";
+CM_ SG_ 2555183138 P2_CellVoltage49 "电池包2的单体电压49";
+CM_ SG_ 2555183138 P2_CellVoltage50 "电池包2的单体电压50";
+CM_ SG_ 2555183138 P2_CellVoltage51 "电池包2的单体电压51";
+CM_ SG_ 2555183138 P2_CellVoltage52 "电池包2的单体电压52";
+CM_ SG_ 2555183138 P2_BalSwCell49 "电池包2的电芯49均衡状态";
+CM_ SG_ 2555183138 P2_BalSwCell50 "电池包2的电芯50均衡状态";
+CM_ SG_ 2555183138 P2_BalSwCell51 "电池包2的电芯51均衡状态";
+CM_ SG_ 2555183138 P2_BalSwCell52 "电池包2的电芯52均衡状态";
+CM_ SG_ 2555248674 P2_CellVoltage53 "电池包2的单体电压53";
+CM_ SG_ 2555248674 P2_CellVoltage54 "电池包2的单体电压54";
+CM_ SG_ 2555248674 P2_CellVoltage55 "电池包2的单体电压55";
+CM_ SG_ 2555248674 P2_CellVoltage56 "电池包2的单体电压56";
+CM_ SG_ 2555248674 P2_BalSwCell53 "电池包2的电芯53均衡状态";
+CM_ SG_ 2555248674 P2_BalSwCell54 "电池包2的电芯54均衡状态";
+CM_ SG_ 2555248674 P2_BalSwCell55 "电池包2的电芯55均衡状态";
+CM_ SG_ 2555248674 P2_BalSwCell56 "电池包2的电芯56均衡状态";
+CM_ SG_ 2555314210 P2_CellVoltage57 "电池包2的单体电压57";
+CM_ SG_ 2555314210 P2_CellVoltage58 "电池包2的单体电压58";
+CM_ SG_ 2555314210 P2_CellVoltage59 "电池包2的单体电压59";
+CM_ SG_ 2555314210 P2_CellVoltage60 "电池包2的单体电压60";
+CM_ SG_ 2555314210 P2_BalSwCell57 "电池包2的电芯57均衡状态";
+CM_ SG_ 2555314210 P2_BalSwCell58 "电池包2的电芯58均衡状态";
+CM_ SG_ 2555314210 P2_BalSwCell59 "电池包2的电芯59均衡状态";
+CM_ SG_ 2555314210 P2_BalSwCell60 "电池包2的电芯60均衡状态";
+CM_ SG_ 2555379746 P2_CellVoltage61 "电池包2的单体电压61";
+CM_ SG_ 2555379746 P2_CellVoltage62 "电池包2的单体电压62";
+CM_ SG_ 2555379746 P2_CellVoltage63 "电池包2的单体电压63";
+CM_ SG_ 2555379746 P2_CellVoltage64 "电池包2的单体电压64";
+CM_ SG_ 2555379746 P2_BalSwCell61 "电池包2的电芯61均衡状态";
+CM_ SG_ 2555379746 P2_BalSwCell62 "电池包2的电芯62均衡状态";
+CM_ SG_ 2555379746 P2_BalSwCell63 "电池包2的电芯63均衡状态";
+CM_ SG_ 2555379746 P2_BalSwCell64 "电池包2的电芯64均衡状态";
+CM_ SG_ 2555445282 P2_CellVoltage65 "电池包2的单体电压65";
+CM_ SG_ 2555445282 P2_CellVoltage66 "电池包2的单体电压66";
+CM_ SG_ 2555445282 P2_CellVoltage67 "电池包2的单体电压67";
+CM_ SG_ 2555445282 P2_CellVoltage68 "电池包2的单体电压68";
+CM_ SG_ 2555445282 P2_BalSwCell65 "电池包2的电芯65均衡状态";
+CM_ SG_ 2555445282 P2_BalSwCell66 "电池包2的电芯66均衡状态";
+CM_ SG_ 2555445282 P2_BalSwCell67 "电池包2的电芯67均衡状态";
+CM_ SG_ 2555445282 P2_BalSwCell68 "电池包2的电芯68均衡状态";
+CM_ SG_ 2555510818 P2_CellVoltage69 "电池包2的单体电压69";
+CM_ SG_ 2555510818 P2_CellVoltage70 "电池包2的单体电压70";
+CM_ SG_ 2555510818 P2_CellVoltage71 "电池包2的单体电压71";
+CM_ SG_ 2555510818 P2_CellVoltage72 "电池包2的单体电压72";
+CM_ SG_ 2555510818 P2_BalSwCell69 "电池包2的电芯69均衡状态";
+CM_ SG_ 2555510818 P2_BalSwCell70 "电池包2的电芯70均衡状态";
+CM_ SG_ 2555510818 P2_BalSwCell71 "电池包2的电芯71均衡状态";
+CM_ SG_ 2555510818 P2_BalSwCell72 "电池包2的电芯72均衡状态";
+CM_ SG_ 2558525474 P2_CellTemp1 "电池包2的单体温度1";
+CM_ SG_ 2558525474 P2_CellTemp2 "电池包2的单体温度2";
+CM_ SG_ 2558525474 P2_CellTemp3 "电池包2的单体温度3";
+CM_ SG_ 2558525474 P2_CellTemp4 "电池包2的单体温度4";
+CM_ SG_ 2558525474 P2_CellTemp5 "电池包2的单体温度5";
+CM_ SG_ 2558591010 P2_CellTemp6 "电池包2的单体温度6";
+CM_ SG_ 2558591010 P2_CellTemp7 "电池包2的单体温度7";
+CM_ SG_ 2558591010 P2_CellTemp8 "电池包2的单体温度8";
+CM_ SG_ 2558591010 P2_CellTemp9 "电池包2的单体温度9";
+CM_ SG_ 2558591010 P2_CellTemp10 "电池包2的单体温度10";
+CM_ SG_ 2558656546 P2_CellTemp11 "电池包2的单体温度11";
+CM_ SG_ 2558656546 P2_CellTemp12 "电池包2的单体温度12";
+CM_ SG_ 2558656546 P2_CellTemp13 "电池包2的单体温度13";
+CM_ SG_ 2558656546 P2_CellTemp14 "电池包2的单体温度14";
+CM_ SG_ 2558656546 P2_CellTemp15 "电池包2的单体温度15";
+CM_ SG_ 2558722082 P2_CellTemp16 "电池包2的单体温度16";
+CM_ SG_ 2558722082 P2_CellTemp17 "电池包2的单体温度17";
+CM_ SG_ 2558722082 P2_CellTemp18 "电池包2的单体温度18";
+CM_ SG_ 2558722082 P2_CellTemp19 "电池包2的单体温度19";
+CM_ SG_ 2558722082 P2_CellTemp20 "电池包2的单体温度20";
+CM_ SG_ 2558787618 P2_CellTemp21 "电池包2的单体温度21";
+CM_ SG_ 2558787618 P2_CellTemp22 "电池包2的单体温度22";
+CM_ SG_ 2558787618 P2_CellTemp23 "电池包2的单体温度23";
+CM_ SG_ 2558787618 P2_CellTemp24 "电池包2的单体温度24";
+CM_ SG_ 2558787618 P2_CellTemp25 "电池包2的单体温度25";
+CM_ SG_ 2558853154 P2_CellTemp26 "电池包2的单体温度26";
+CM_ SG_ 2558853154 P2_CellTemp27 "电池包2的单体温度27";
+CM_ SG_ 2558853154 P2_CellTemp28 "电池包2的单体温度28";
+CM_ SG_ 2558853154 P2_CellTemp29 "电池包2的单体温度29";
+CM_ SG_ 2558853154 P2_CellTemp30 "电池包2的单体温度30";
+CM_ SG_ 2558918690 P2_CellTemp31 "电池包2的单体温度31";
+CM_ SG_ 2558918690 P2_CellTemp32 "电池包2的单体温度32";
+CM_ SG_ 2558918690 P2_CellTemp33 "电池包2的单体温度33";
+CM_ SG_ 2558918690 P2_CellTemp34 "电池包2的单体温度34";
+CM_ SG_ 2558918690 P2_CellTemp35 "电池包2的单体温度35";
+CM_ SG_ 2558984226 P2_CellTemp36 "电池包2的单体温度36";
+CM_ SG_ 2558984226 P2_CellTemp37 "电池包2的单体温度37";
+CM_ SG_ 2558984226 P2_CellTemp38 "电池包2的单体温度38";
+CM_ SG_ 2558984226 P2_CellTemp39 "电池包2的单体温度39";
+CM_ SG_ 2558984226 P2_CellTemp40 "电池包2的单体温度40";
+CM_ SG_ 2559049762 P2_CellTemp41 "电池包2的单体温度41";
+CM_ SG_ 2559049762 P2_CellTemp42 "电池包2的单体温度42";
+CM_ SG_ 2559049762 P2_CellTemp43 "电池包2的单体温度43";
+CM_ SG_ 2559049762 P2_CellTemp44 "电池包2的单体温度44";
+CM_ SG_ 2559049762 P2_CellTemp45 "电池包2的单体温度45";
+CM_ SG_ 2559115298 P2_CellTemp46 "电池包2的单体温度46";
+CM_ SG_ 2559115298 P2_CellTemp47 "电池包2的单体温度47";
+CM_ SG_ 2559115298 P2_CellTemp48 "电池包2的单体温度48";
+CM_ SG_ 2559115298 P2_CellTemp49 "电池包2的单体温度49";
+CM_ SG_ 2559115298 P2_CellTemp50 "电池包2的单体温度50";
+CM_ SG_ 2559180834 P2_CellTemp51 "电池包2的单体温度51";
+CM_ SG_ 2559180834 P2_CellTemp52 "电池包2的单体温度52";
+CM_ SG_ 2559180834 P2_CellTemp53 "电池包2的单体温度53";
+CM_ SG_ 2559180834 P2_CellTemp54 "电池包2的单体温度54";
+CM_ SG_ 2559180834 P2_CellTemp55 "电池包2的单体温度55";
+CM_ SG_ 2559246370 P2_CellTemp56 "电池包2的单体温度56";
+CM_ SG_ 2559246370 P2_CellTemp57 "电池包2的单体温度57";
+CM_ SG_ 2559246370 P2_CellTemp58 "电池包2的单体温度58";
+CM_ SG_ 2559246370 P2_CellTemp59 "电池包2的单体温度59";
+CM_ SG_ 2559246370 P2_CellTemp60 "电池包2的单体温度60";
+CM_ SG_ 2559311906 P2_CellTemp61 "电池包2的单体温度61";
+CM_ SG_ 2559311906 P2_CellTemp62 "电池包2的单体温度62";
+CM_ SG_ 2559311906 P2_CellTemp63 "电池包2的单体温度63";
+CM_ SG_ 2559311906 P2_CellTemp64 "电池包2的单体温度64";
+CM_ SG_ 2559311906 P2_CellTemp65 "电池包2的单体温度65";
+CM_ SG_ 2559377442 P2_CellTemp66 "电池包2的单体温度66";
+CM_ SG_ 2559377442 P2_CellTemp67 "电池包2的单体温度67";
+CM_ SG_ 2559377442 P2_CellTemp68 "电池包2的单体温度68";
+CM_ SG_ 2559377442 P2_CellTemp69 "电池包2的单体温度69";
+CM_ SG_ 2559377442 P2_CellTemp70 "电池包2的单体温度70";
+CM_ SG_ 2559442978 P2_CellTemp71 "电池包2的单体温度71";
+CM_ SG_ 2559442978 P2_CellTemp72 "电池包2的单体温度72";
+CM_ SG_ 2550202419 P3_BMS_Stat "电池包3的BMS系统状态";
+CM_ SG_ 2550202419 P3_MainCntctrStat "电池包3的BMS继电器状态";
+CM_ SG_ 2550202419 P3_PackFltLvl "电池包3的故障等级";
+CM_ SG_ 2550202419 P3_BatThrmlReqStat "电池包3的热管理请求";
+CM_ SG_ 2550202419 P3_HVSysIsolDetStat "电池包3的高压系统绝缘检测状态";
+CM_ SG_ 2550202419 P3_PackVolt "电池包3的总电压";
+CM_ SG_ 2550202419 P3_NegCntctr1ClsdCmnd "电池包3的主负继电器1闭合命令";
+CM_ SG_ 2550202419 P3_NegCntctr2ClsdCmnd "电池包3的主负继电器2闭合命令";
+CM_ SG_ 2550202419 P3_PosCntctrClsdCmnd "电池包3的主正继电器闭合命令";
+CM_ SG_ 2550202419 P3_PreCntctrClsdCmnd "电池包3的预充继电器闭合命令";
+CM_ SG_ 2550202419 P3_Branch1Crnt "电池包3的支路1电流";
+CM_ SG_ 2550202419 P3_FlgHvInhibit "电池包3的禁止高压上电标志位";
+CM_ SG_ 2550202419 P3_FlgHVPwrDown "电池包3的故障高压下电标志位";
+CM_ SG_ 2550202419 P3_FlgDCChgInhibit "电池包3的禁止快充标志位";
+CM_ SG_ 2550202419 P3_DCChrgAbrtRsn "电池包3的快充停止原因";
+CM_ SG_ 2550267955 P3_HvBusVlt "电池包3的外部高压总线电压";
+CM_ SG_ 2550267955 P3_PackTotCrnt "电池包3的总电流";
+CM_ SG_ 2550267955 P3_HVSysIsolRes "电池包3的高压系统绝缘阻值";
+CM_ SG_ 2550333491 P3_PackSOC "电池包3的SOC";
+CM_ SG_ 2550333491 P3_PackRemEnrgy "电池包3的剩余能量";
+CM_ SG_ 2550333491 P3_PackSOE "电池包3的SOE";
+CM_ SG_ 2550333491 P3_ChrgCrntLimCof "电池包3的充电电流限制系数";
+CM_ SG_ 2550333491 P3_ChrgCrntLimVal "电池包3的充电电流限值";
+CM_ SG_ 2550333491 P3_PlugInChrgVolt "电池包3的外插充电电压";
+CM_ SG_ 2552365107 P3_PackSerNum "电池包3的序列号";
+CM_ SG_ 2550399027 P3_BMSPwrSuplVlt1 "电池包3的BMS供电电源电压1";
+CM_ SG_ 2550399027 P3_BMSPwrSuplVlt2 "电池包3的BMS供电电源电压2";
+CM_ SG_ 2550399027 P3_ChrgStationAuxPwrSuplVlt "电池包3的快充桩A+电压";
+CM_ SG_ 2550399027 P3_BMSKL15ON "电池包3的BMS唤醒信号";
+CM_ SG_ 2550399027 P3_DCStepState "电池包3的充电状态机";
+CM_ SG_ 2550399027 P3_ExtLvWakeup_28VOnly "电池包3的外部唤醒";
+CM_ SG_ 2550464563 P3_PackVltUprLmt "电池包3的电压使用上限";
+CM_ SG_ 2550464563 P3_PackVltLoLmt "电池包3的电压使用下限";
+CM_ SG_ 2550464563 P3_PackMaxDschrgCrnt "电池包3的最大允许放电电流";
+CM_ SG_ 2550464563 P3_PackMaxChrgCrnt "电池包3的最大允许充电电流";
+CM_ SG_ 2550530099 P3_PackDschrgPwrLmt "电池包3的放电功率限值";
+CM_ SG_ 2550530099 P3_PackDschrgPwrStat "电池包3的放电功率状态";
+CM_ SG_ 2550530099 P3_PackChrgPwrLmt "电池包3的充电功率限值";
+CM_ SG_ 2550530099 P3_PackChrgPwrStat "电池包3的充电功率状态";
+CM_ SG_ 2550595635 P3_ChrgrCplrStat "电池包3的充电枪连接状态";
+CM_ SG_ 2550595635 P3_HVBattChrgSysStatus "电池包3的充电系统状态";
+CM_ SG_ 2550595635 P3_DCChrgCrntCmd "电池包3的直流充电请求电流";
+CM_ SG_ 2550595635 P3_CC2Vlt "电池包3的CC2电压值";
+CM_ SG_ 2550595635 P3_DCRcptPosTemp "电池包3的快充充电插座正极温度";
+CM_ SG_ 2550595635 P3_DCRcptNegTemp "电池包3的快充充电插座负极温度";
+CM_ SG_ 2550595635 P3_Tm2FullChrg "电池包3满充剩余时间";
+CM_ SG_ 2550661171 P3_Inlet1ClntTemp "进水口1冷却液温度";
+CM_ SG_ 2550661171 P3_Inlet2ClntTemp "进水口2冷却液温度";
+CM_ SG_ 2550661171 P3_Outlet1ClntTemp "出水口1冷却液温度";
+CM_ SG_ 2550661171 P3_Outlet2ClntTemp "出水口2冷却液温度";
+CM_ SG_ 2550661171 P3_TrgtClntTemp "冷却水目标温度";
+CM_ SG_ 2550661171 P3_TrgtClntFlowRate "冷却水目标流量";
+CM_ SG_ 2550726707 P3_MaxCellVlt "电池包3的最大单体电压";
+CM_ SG_ 2550726707 P3_MaxCellVltNum "电池包3的最大单体电压编号";
+CM_ SG_ 2550726707 P3_MinCellVlt "电池包3的最小单体电压";
+CM_ SG_ 2550726707 P3_MinCellVltNum "电池包3的最小单体电压编号";
+CM_ SG_ 2550726707 P3_AvgCellVlt "电池包3的平均单体电压";
+CM_ SG_ 2550792243 P3_MaxCellTemp "电池包3的最高单体温度";
+CM_ SG_ 2550792243 P3_MaxCellTempNum "电池包3的最高单体温度编号";
+CM_ SG_ 2550792243 P3_MinCellTemp "电池包3的最低单体温度";
+CM_ SG_ 2550792243 P3_MinCellTempNum "电池包3的最低单体温度编号";
+CM_ SG_ 2550792243 P3_AvgCellTemp "电池包3的单体平均温度";
+CM_ SG_ 2550857779 P3_PackTotFltNum "电池包3的电池故障总数";
+CM_ SG_ 2550857779 P3_CellOverVoltage "电池包3的单体过压";
+CM_ SG_ 2550857779 P3_CellUnderVoltage "电池包3的单体欠压";
+CM_ SG_ 2550857779 P3_CellVoltageDiffHi "电池包3的单体压差过大";
+CM_ SG_ 2550857779 P3_PackOverVoltage "电池包3的电压过高";
+CM_ SG_ 2550857779 P3_PackUnderVoltage "电池包3的电压过低";
+CM_ SG_ 2550857779 P3_CellOverTemp "电池包3的单体过温";
+CM_ SG_ 2550857779 P3_CellTempLow "电池包3的单体温度过低";
+CM_ SG_ 2550857779 P3_CellTempDiffHi "电池包3的单体温度差异过大";
+CM_ SG_ 2550857779 P3_PackDschrgCrntHi "电池包3的放电电流过流";
+CM_ SG_ 2550857779 P3_PackChrgCrntHi "电池包3的充电电流过流";
+CM_ SG_ 2550857779 P3_PackCrnSnsr1OffsetHi "电池包3的电流传感器1零漂过大";
+CM_ SG_ 2550857779 P3_HVIsolFlt "电池包3的高压绝缘故障";
+CM_ SG_ 2550857779 P3_HVILFlt "电池包3的高压互锁故障";
+CM_ SG_ 2550857779 P3_ThrmlRunaway "电池包3的热失控故障";
+CM_ SG_ 2550857779 P3_CellVoltInvalid "电池包3的单体电压采样失效";
+CM_ SG_ 2550857779 P3_CellTempInvalid "电池包3的电芯温度采样失效";
+CM_ SG_ 2550857779 P3_DaisyChainComFlt "电池包3的菊花链通信故障";
+CM_ SG_ 2550857779 P3_PackVoltRatFlt "电池包3的总电压与单体电压总和偏差过大";
+CM_ SG_ 2550857779 P3_CrntSnsr1Invalid "电池包3的电流传感器1电流采样失效";
+CM_ SG_ 2550857779 P3_CrntSnsr1OOR "电池包3的电流传感器1电流超出采样范围";
+CM_ SG_ 2550857779 P3_CrntSnsr2Invalid "电池包3的电流传感器2电流采样失效";
+CM_ SG_ 2550857779 P3_CrntSnsr2OOR "电池包3的电流传感器2电流超出采样范围";
+CM_ SG_ 2550857779 P3_PackCrnSnsr2OffsetHi "电池包3的电流传感器2零漂过大";
+CM_ SG_ 2550857779 P3_OutofEnergy "电池包3的电池剩余电量低";
+CM_ SG_ 2550857779 P3_IsolDetCircErr "电池包3的绝缘检测电路失效";
+CM_ SG_ 2550857779 P3_HVILCircShortToGND "电池包3的高压互锁对地短路";
+CM_ SG_ 2550857779 P3_HVILCircShortToPwr "电池包3的高压互锁对电源短路";
+CM_ SG_ 2550923315 P3_MainPosCntctrStkClsd "电池包3的主正继电器粘连故障";
+CM_ SG_ 2550923315 P3_MainPosCntctrStkOpn "电池包3的主正继电器常开故障";
+CM_ SG_ 2550923315 P3_MainNegCntctr1StkClsd "电池包3的主负继电器1粘连故障";
+CM_ SG_ 2550923315 P3_MainNegCntctr1StkOpn "电池包3的主负继电器1常开故障";
+CM_ SG_ 2550923315 P3_MainNegCntctr2StkClsd "电池包3的主负继电器2粘连故障";
+CM_ SG_ 2550923315 P3_MainNegCntctr2StkOpn "电池包3的主负继电器2常开故障";
+CM_ SG_ 2550923315 P3_PrechargTmOut "电池包3的预充超时故障";
+CM_ SG_ 2550923315 P3_PrechrgCrntHi "电池包3的预充过流故障";
+CM_ SG_ 2550923315 P3_ChrgCplrPosTempHi "电池包3的充电正极接口温度过高故障";
+CM_ SG_ 2550923315 P3_ChrgCplrNegTempHi "电池包3的充电负极接口温度过高故障";
+CM_ SG_ 2550923315 P3_BMSPwrSuplVlt1Hi "电池包3的BMS供电电压1过高";
+CM_ SG_ 2550923315 P3_BMSPwrSuplVlt1Lo "电池包3的BMS供电电压1过低";
+CM_ SG_ 2550923315 P3_BMSPwrSuplVlt2Hi "电池包3的BMS供电电压2过高";
+CM_ SG_ 2550923315 P3_BMSPwrSuplVlt2Lo "电池包3的BMS供电电压2过低";
+CM_ SG_ 2550923315 P3_CntctrCirPwrSuplVltLo "电池包3的继电器驱动供电电压过低";
+CM_ SG_ 2550923315 P3_CntctrCirPwrSuplVltHi "电池包3的继电器驱动供电电压过高";
+CM_ SG_ 2550923315 P3_CAN1BusOff "电池包3的CAN1通信Bus off";
+CM_ SG_ 2550923315 P3_CAN1BusTmOut "电池包3的CAN1报文超时（Timeout）";
+CM_ SG_ 2550923315 P3_CAN2BusOff "电池包3的CAN2通信Bus off";
+CM_ SG_ 2550923315 P3_CAN2BusTmOut "电池包3的CAN2报文超时（Timeout）";
+CM_ SG_ 2550923315 P3_CellBalCircTempHi "电池包3的均衡电路过温";
+CM_ SG_ 2550923315 P3_ClntInTempHi "电池包3的入水口温度过高";
+CM_ SG_ 2550923315 P3_ClntOutTempHi "电池包3的出水口温度过高";
+CM_ SG_ 2550923315 P3_CellExtrmUdrVolt "电池包3的单体极限欠压";
+CM_ SG_ 2550923315 P3_CellExtrmOvrVolt "电池包3的单体极限过压";
+CM_ SG_ 2550923315 P3_Branch1DischrgCrntHi  "电池包3的支路1放电过流";
+CM_ SG_ 2550923315 P3_Branch2DischrgCrntHi  "电池包3的支路2放电过流";
+CM_ SG_ 2550923315 P3_Branch1ChrgCrntHi  "电池包3的支路1充电过流";
+CM_ SG_ 2550923315 P3_Branch2ChrgCrntHi  "电池包3的支路2充电过流";
+CM_ SG_ 2550923315 P3_InitFailed "电池包3的BMS初始化失败";
+CM_ SG_ 2550923315 P3_PackErrCode "电池包3的故障代码";
+CM_ SG_ 2550988851 P3_PackTotCellNum "电池包3的单体电池总数";
+CM_ SG_ 2550988851 P3_PackTotCellTempSnsrNum "电池包3的单体温度传感器总数";
+CM_ SG_ 2552299571 P3_BMSASWMajVerNum "电池包3的BMS应用层软件主版本号";
+CM_ SG_ 2552299571 P3_BMSASWMinVerNum "电池包3的BMS应用层软件子版本号";
+CM_ SG_ 2552299571 P3_BMSASWPatchVerNum "电池包3的BMS应用层软件修订版本号";
+CM_ SG_ 2552299571 P3_BMSBSWMajVerNum "电池包3的BMS底层软件主版本号";
+CM_ SG_ 2552299571 P3_BMSBSWMinVerNum "电池包3的BMS底层软件子版本号";
+CM_ SG_ 2552299571 P3_BMSBSWPatchVerNum "电池包3的BMS底层软件修订版本号";
+CM_ SG_ 2554396723 P3_CellVoltage1 "电池包3的单体电压1";
+CM_ SG_ 2554396723 P3_CellVoltage2 "电池包3的单体电压2";
+CM_ SG_ 2554396723 P3_CellVoltage3 "电池包3的单体电压3";
+CM_ SG_ 2554396723 P3_CellVoltage4 "电池包3的单体电压4";
+CM_ SG_ 2554396723 P3_BalSwCell1 "电池包3的电芯1均衡状态";
+CM_ SG_ 2554396723 P3_BalSwCell2 "电池包3的电芯2均衡状态";
+CM_ SG_ 2554396723 P3_BalSwCell3 "电池包3的电芯3均衡状态";
+CM_ SG_ 2554396723 P3_BalSwCell4 "电池包3的电芯4均衡状态";
+CM_ SG_ 2554462259 P3_CellVoltage5 "电池包3的单体电压5";
+CM_ SG_ 2554462259 P3_CellVoltage6 "电池包3的单体电压6";
+CM_ SG_ 2554462259 P3_CellVoltage7 "电池包3的单体电压7";
+CM_ SG_ 2554462259 P3_CellVoltage8 "电池包3的单体电压8";
+CM_ SG_ 2554462259 P3_BalSwCell5 "电池包3的电芯5均衡状态";
+CM_ SG_ 2554462259 P3_BalSwCell6 "电池包3的电芯6均衡状态";
+CM_ SG_ 2554462259 P3_BalSwCell7 "电池包3的电芯7均衡状态";
+CM_ SG_ 2554462259 P3_BalSwCell8 "电池包3的电芯8均衡状态";
+CM_ SG_ 2554527795 P3_CellVoltage9 "电池包3的单体电压9";
+CM_ SG_ 2554527795 P3_CellVoltage10 "电池包3的单体电压10";
+CM_ SG_ 2554527795 P3_CellVoltage11 "电池包3的单体电压11";
+CM_ SG_ 2554527795 P3_CellVoltage12 "电池包3的单体电压12";
+CM_ SG_ 2554527795 P3_BalSwCell9 "电池包3的电芯9均衡状态";
+CM_ SG_ 2554527795 P3_BalSwCell10 "电池包3的电芯10均衡状态";
+CM_ SG_ 2554527795 P3_BalSwCell11 "电池包3的电芯11均衡状态";
+CM_ SG_ 2554527795 P3_BalSwCell12 "电池包3的电芯12均衡状态";
+CM_ SG_ 2554593331 P3_CellVoltage13 "电池包3的单体电压13";
+CM_ SG_ 2554593331 P3_CellVoltage14 "电池包3的单体电压14";
+CM_ SG_ 2554593331 P3_CellVoltage15 "电池包3的单体电压15";
+CM_ SG_ 2554593331 P3_CellVoltage16 "电池包3的单体电压16";
+CM_ SG_ 2554593331 P3_BalSwCell13 "电池包3的电芯13均衡状态";
+CM_ SG_ 2554593331 P3_BalSwCell14 "电池包3的电芯14均衡状态";
+CM_ SG_ 2554593331 P3_BalSwCell15 "电池包3的电芯15均衡状态";
+CM_ SG_ 2554593331 P3_BalSwCell16 "电池包3的电芯16均衡状态";
+CM_ SG_ 2554658867 P3_CellVoltage17 "电池包3的单体电压17";
+CM_ SG_ 2554658867 P3_CellVoltage18 "电池包3的单体电压18";
+CM_ SG_ 2554658867 P3_CellVoltage19 "电池包3的单体电压19";
+CM_ SG_ 2554658867 P3_CellVoltage20 "电池包3的单体电压20";
+CM_ SG_ 2554658867 P3_BalSwCell17 "电池包3的电芯17均衡状态";
+CM_ SG_ 2554658867 P3_BalSwCell18 "电池包3的电芯18均衡状态";
+CM_ SG_ 2554658867 P3_BalSwCell19 "电池包3的电芯19均衡状态";
+CM_ SG_ 2554658867 P3_BalSwCell20 "电池包3的电芯20均衡状态";
+CM_ SG_ 2554724403 P3_CellVoltage21 "电池包3的单体电压21";
+CM_ SG_ 2554724403 P3_CellVoltage22 "电池包3的单体电压22";
+CM_ SG_ 2554724403 P3_CellVoltage23 "电池包3的单体电压23";
+CM_ SG_ 2554724403 P3_CellVoltage24 "电池包3的单体电压24";
+CM_ SG_ 2554724403 P3_BalSwCell21 "电池包3的电芯21均衡状态";
+CM_ SG_ 2554724403 P3_BalSwCell22 "电池包3的电芯22均衡状态";
+CM_ SG_ 2554724403 P3_BalSwCell23 "电池包3的电芯23均衡状态";
+CM_ SG_ 2554724403 P3_BalSwCell24 "电池包3的电芯24均衡状态";
+CM_ SG_ 2554789939 P3_CellVoltage25 "电池包3的单体电压25";
+CM_ SG_ 2554789939 P3_CellVoltage26 "电池包3的单体电压26";
+CM_ SG_ 2554789939 P3_CellVoltage27 "电池包3的单体电压27";
+CM_ SG_ 2554789939 P3_CellVoltage28 "电池包3的单体电压28";
+CM_ SG_ 2554789939 P3_BalSwCell25 "电池包3的电芯25均衡状态";
+CM_ SG_ 2554789939 P3_BalSwCell26 "电池包3的电芯26均衡状态";
+CM_ SG_ 2554789939 P3_BalSwCell27 "电池包3的电芯27均衡状态";
+CM_ SG_ 2554789939 P3_BalSwCell28 "电池包3的电芯28均衡状态";
+CM_ SG_ 2554855475 P3_CellVoltage29 "电池包3的单体电压29";
+CM_ SG_ 2554855475 P3_CellVoltage30 "电池包3的单体电压30";
+CM_ SG_ 2554855475 P3_CellVoltage31 "电池包3的单体电压31";
+CM_ SG_ 2554855475 P3_CellVoltage32 "电池包3的单体电压32";
+CM_ SG_ 2554855475 P3_BalSwCell29 "电池包3的电芯29均衡状态";
+CM_ SG_ 2554855475 P3_BalSwCell30 "电池包3的电芯30均衡状态";
+CM_ SG_ 2554855475 P3_BalSwCell31 "电池包3的电芯31均衡状态";
+CM_ SG_ 2554855475 P3_BalSwCell32 "电池包3的电芯32均衡状态";
+CM_ SG_ 2554921011 P3_CellVoltage33 "电池包3的单体电压33";
+CM_ SG_ 2554921011 P3_CellVoltage34 "电池包3的单体电压34";
+CM_ SG_ 2554921011 P3_CellVoltage35 "电池包3的单体电压35";
+CM_ SG_ 2554921011 P3_CellVoltage36 "电池包3的单体电压36";
+CM_ SG_ 2554921011 P3_BalSwCell33 "电池包3的电芯33均衡状态";
+CM_ SG_ 2554921011 P3_BalSwCell34 "电池包3的电芯34均衡状态";
+CM_ SG_ 2554921011 P3_BalSwCell35 "电池包3的电芯35均衡状态";
+CM_ SG_ 2554921011 P3_BalSwCell36 "电池包3的电芯36均衡状态";
+CM_ SG_ 2554986547 P3_CellVoltage37 "电池包3的单体电压37";
+CM_ SG_ 2554986547 P3_CellVoltage38 "电池包3的单体电压38";
+CM_ SG_ 2554986547 P3_CellVoltage39 "电池包3的单体电压39";
+CM_ SG_ 2554986547 P3_CellVoltage40 "电池包3的单体电压40";
+CM_ SG_ 2554986547 P3_BalSwCell37 "电池包3的电芯37均衡状态";
+CM_ SG_ 2554986547 P3_BalSwCell38 "电池包3的电芯38均衡状态";
+CM_ SG_ 2554986547 P3_BalSwCell39 "电池包3的电芯39均衡状态";
+CM_ SG_ 2554986547 P3_BalSwCell40 "电池包3的电芯40均衡状态";
+CM_ SG_ 2555052083 P3_CellVoltage41 "电池包3的单体电压41";
+CM_ SG_ 2555052083 P3_CellVoltage42 "电池包3的单体电压42";
+CM_ SG_ 2555052083 P3_CellVoltage43 "电池包3的单体电压43";
+CM_ SG_ 2555052083 P3_CellVoltage44 "电池包3的单体电压44";
+CM_ SG_ 2555052083 P3_BalSwCell41 "电池包3的电芯41均衡状态";
+CM_ SG_ 2555052083 P3_BalSwCell42 "电池包3的电芯42均衡状态";
+CM_ SG_ 2555052083 P3_BalSwCell43 "电池包3的电芯43均衡状态";
+CM_ SG_ 2555052083 P3_BalSwCell44 "电池包3的电芯44均衡状态";
+CM_ SG_ 2555117619 P3_CellVoltage45 "电池包3的单体电压45";
+CM_ SG_ 2555117619 P3_CellVoltage46 "电池包3的单体电压46";
+CM_ SG_ 2555117619 P3_CellVoltage47 "电池包3的单体电压47";
+CM_ SG_ 2555117619 P3_CellVoltage48 "电池包3的单体电压48";
+CM_ SG_ 2555117619 P3_BalSwCell45 "电池包3的电芯45均衡状态";
+CM_ SG_ 2555117619 P3_BalSwCell46 "电池包3的电芯46均衡状态";
+CM_ SG_ 2555117619 P3_BalSwCell47 "电池包3的电芯47均衡状态";
+CM_ SG_ 2555117619 P3_BalSwCell48 "电池包3的电芯48均衡状态";
+CM_ SG_ 2555183155 P3_CellVoltage49 "电池包3的单体电压49";
+CM_ SG_ 2555183155 P3_CellVoltage50 "电池包3的单体电压50";
+CM_ SG_ 2555183155 P3_CellVoltage51 "电池包3的单体电压51";
+CM_ SG_ 2555183155 P3_CellVoltage52 "电池包3的单体电压52";
+CM_ SG_ 2555183155 P3_BalSwCell49 "电池包3的电芯49均衡状态";
+CM_ SG_ 2555183155 P3_BalSwCell50 "电池包3的电芯50均衡状态";
+CM_ SG_ 2555183155 P3_BalSwCell51 "电池包3的电芯51均衡状态";
+CM_ SG_ 2555183155 P3_BalSwCell52 "电池包3的电芯52均衡状态";
+CM_ SG_ 2555248691 P3_CellVoltage53 "电池包3的单体电压53";
+CM_ SG_ 2555248691 P3_CellVoltage54 "电池包3的单体电压54";
+CM_ SG_ 2555248691 P3_CellVoltage55 "电池包3的单体电压55";
+CM_ SG_ 2555248691 P3_CellVoltage56 "电池包3的单体电压56";
+CM_ SG_ 2555248691 P3_BalSwCell53 "电池包3的电芯53均衡状态";
+CM_ SG_ 2555248691 P3_BalSwCell54 "电池包3的电芯54均衡状态";
+CM_ SG_ 2555248691 P3_BalSwCell55 "电池包3的电芯55均衡状态";
+CM_ SG_ 2555248691 P3_BalSwCell56 "电池包3的电芯56均衡状态";
+CM_ SG_ 2555314227 P3_CellVoltage57 "电池包3的单体电压57";
+CM_ SG_ 2555314227 P3_CellVoltage58 "电池包3的单体电压58";
+CM_ SG_ 2555314227 P3_CellVoltage59 "电池包3的单体电压59";
+CM_ SG_ 2555314227 P3_CellVoltage60 "电池包3的单体电压60";
+CM_ SG_ 2555314227 P3_BalSwCell57 "电池包3的电芯57均衡状态";
+CM_ SG_ 2555314227 P3_BalSwCell58 "电池包3的电芯58均衡状态";
+CM_ SG_ 2555314227 P3_BalSwCell59 "电池包3的电芯59均衡状态";
+CM_ SG_ 2555314227 P3_BalSwCell60 "电池包3的电芯60均衡状态";
+CM_ SG_ 2555379763 P3_CellVoltage61 "电池包3的单体电压61";
+CM_ SG_ 2555379763 P3_CellVoltage62 "电池包3的单体电压62";
+CM_ SG_ 2555379763 P3_CellVoltage63 "电池包3的单体电压63";
+CM_ SG_ 2555379763 P3_CellVoltage64 "电池包3的单体电压64";
+CM_ SG_ 2555379763 P3_BalSwCell61 "电池包3的电芯61均衡状态";
+CM_ SG_ 2555379763 P3_BalSwCell62 "电池包3的电芯62均衡状态";
+CM_ SG_ 2555379763 P3_BalSwCell63 "电池包3的电芯63均衡状态";
+CM_ SG_ 2555379763 P3_BalSwCell64 "电池包3的电芯64均衡状态";
+CM_ SG_ 2555445299 P3_CellVoltage65 "电池包3的单体电压65";
+CM_ SG_ 2555445299 P3_CellVoltage66 "电池包3的单体电压66";
+CM_ SG_ 2555445299 P3_CellVoltage67 "电池包3的单体电压67";
+CM_ SG_ 2555445299 P3_CellVoltage68 "电池包3的单体电压68";
+CM_ SG_ 2555445299 P3_BalSwCell65 "电池包3的电芯65均衡状态";
+CM_ SG_ 2555445299 P3_BalSwCell66 "电池包3的电芯66均衡状态";
+CM_ SG_ 2555445299 P3_BalSwCell67 "电池包3的电芯67均衡状态";
+CM_ SG_ 2555445299 P3_BalSwCell68 "电池包3的电芯68均衡状态";
+CM_ SG_ 2555510835 P3_CellVoltage69 "电池包3的单体电压69";
+CM_ SG_ 2555510835 P3_CellVoltage70 "电池包3的单体电压70";
+CM_ SG_ 2555510835 P3_CellVoltage71 "电池包3的单体电压71";
+CM_ SG_ 2555510835 P3_CellVoltage72 "电池包3的单体电压72";
+CM_ SG_ 2555510835 P3_BalSwCell69 "电池包3的电芯69均衡状态";
+CM_ SG_ 2555510835 P3_BalSwCell70 "电池包3的电芯70均衡状态";
+CM_ SG_ 2555510835 P3_BalSwCell71 "电池包3的电芯71均衡状态";
+CM_ SG_ 2555510835 P3_BalSwCell72 "电池包3的电芯72均衡状态";
+CM_ SG_ 2558525491 P3_CellTemp1 "电池包3的单体温度1";
+CM_ SG_ 2558525491 P3_CellTemp2 "电池包3的单体温度2";
+CM_ SG_ 2558525491 P3_CellTemp3 "电池包3的单体温度3";
+CM_ SG_ 2558525491 P3_CellTemp4 "电池包3的单体温度4";
+CM_ SG_ 2558525491 P3_CellTemp5 "电池包3的单体温度5";
+CM_ SG_ 2558591027 P3_CellTemp6 "电池包3的单体温度6";
+CM_ SG_ 2558591027 P3_CellTemp7 "电池包3的单体温度7";
+CM_ SG_ 2558591027 P3_CellTemp8 "电池包3的单体温度8";
+CM_ SG_ 2558591027 P3_CellTemp9 "电池包3的单体温度9";
+CM_ SG_ 2558591027 P3_CellTemp10 "电池包3的单体温度10";
+CM_ SG_ 2558656563 P3_CellTemp11 "电池包3的单体温度11";
+CM_ SG_ 2558656563 P3_CellTemp12 "电池包3的单体温度12";
+CM_ SG_ 2558656563 P3_CellTemp13 "电池包3的单体温度13";
+CM_ SG_ 2558656563 P3_CellTemp14 "电池包3的单体温度14";
+CM_ SG_ 2558656563 P3_CellTemp15 "电池包3的单体温度15";
+CM_ SG_ 2558722099 P3_CellTemp16 "电池包3的单体温度16";
+CM_ SG_ 2558722099 P3_CellTemp17 "电池包3的单体温度17";
+CM_ SG_ 2558722099 P3_CellTemp18 "电池包3的单体温度18";
+CM_ SG_ 2558722099 P3_CellTemp19 "电池包3的单体温度19";
+CM_ SG_ 2558722099 P3_CellTemp20 "电池包3的单体温度20";
+CM_ SG_ 2558787635 P3_CellTemp21 "电池包3的单体温度21";
+CM_ SG_ 2558787635 P3_CellTemp22 "电池包3的单体温度22";
+CM_ SG_ 2558787635 P3_CellTemp23 "电池包3的单体温度23";
+CM_ SG_ 2558787635 P3_CellTemp24 "电池包3的单体温度24";
+CM_ SG_ 2558787635 P3_CellTemp25 "电池包3的单体温度25";
+CM_ SG_ 2558853171 P3_CellTemp26 "电池包3的单体温度26";
+CM_ SG_ 2558853171 P3_CellTemp27 "电池包3的单体温度27";
+CM_ SG_ 2558853171 P3_CellTemp28 "电池包3的单体温度28";
+CM_ SG_ 2558853171 P3_CellTemp29 "电池包3的单体温度29";
+CM_ SG_ 2558853171 P3_CellTemp30 "电池包3的单体温度30";
+CM_ SG_ 2558918707 P3_CellTemp31 "电池包3的单体温度31";
+CM_ SG_ 2558918707 P3_CellTemp32 "电池包3的单体温度32";
+CM_ SG_ 2558918707 P3_CellTemp33 "电池包3的单体温度33";
+CM_ SG_ 2558918707 P3_CellTemp34 "电池包3的单体温度34";
+CM_ SG_ 2558918707 P3_CellTemp35 "电池包3的单体温度35";
+CM_ SG_ 2558984243 P3_CellTemp36 "电池包3的单体温度36";
+CM_ SG_ 2558984243 P3_CellTemp37 "电池包3的单体温度37";
+CM_ SG_ 2558984243 P3_CellTemp38 "电池包3的单体温度38";
+CM_ SG_ 2558984243 P3_CellTemp39 "电池包3的单体温度39";
+CM_ SG_ 2558984243 P3_CellTemp40 "电池包3的单体温度40";
+CM_ SG_ 2559049779 P3_CellTemp41 "电池包3的单体温度41";
+CM_ SG_ 2559049779 P3_CellTemp42 "电池包3的单体温度42";
+CM_ SG_ 2559049779 P3_CellTemp43 "电池包3的单体温度43";
+CM_ SG_ 2559049779 P3_CellTemp44 "电池包3的单体温度44";
+CM_ SG_ 2559049779 P3_CellTemp45 "电池包3的单体温度45";
+CM_ SG_ 2559115315 P3_CellTemp46 "电池包3的单体温度46";
+CM_ SG_ 2559115315 P3_CellTemp47 "电池包3的单体温度47";
+CM_ SG_ 2559115315 P3_CellTemp48 "电池包3的单体温度48";
+CM_ SG_ 2559115315 P3_CellTemp49 "电池包3的单体温度49";
+CM_ SG_ 2559115315 P3_CellTemp50 "电池包3的单体温度50";
+CM_ SG_ 2559180851 P3_CellTemp51 "电池包3的单体温度51";
+CM_ SG_ 2559180851 P3_CellTemp52 "电池包3的单体温度52";
+CM_ SG_ 2559180851 P3_CellTemp53 "电池包3的单体温度53";
+CM_ SG_ 2559180851 P3_CellTemp54 "电池包3的单体温度54";
+CM_ SG_ 2559180851 P3_CellTemp55 "电池包3的单体温度55";
+CM_ SG_ 2559246387 P3_CellTemp56 "电池包3的单体温度56";
+CM_ SG_ 2559246387 P3_CellTemp57 "电池包3的单体温度57";
+CM_ SG_ 2559246387 P3_CellTemp58 "电池包3的单体温度58";
+CM_ SG_ 2559246387 P3_CellTemp59 "电池包3的单体温度59";
+CM_ SG_ 2559246387 P3_CellTemp60 "电池包3的单体温度60";
+CM_ SG_ 2559311923 P3_CellTemp61 "电池包3的单体温度61";
+CM_ SG_ 2559311923 P3_CellTemp62 "电池包3的单体温度62";
+CM_ SG_ 2559311923 P3_CellTemp63 "电池包3的单体温度63";
+CM_ SG_ 2559311923 P3_CellTemp64 "电池包3的单体温度64";
+CM_ SG_ 2559311923 P3_CellTemp65 "电池包3的单体温度65";
+CM_ SG_ 2559377459 P3_CellTemp66 "电池包3的单体温度66";
+CM_ SG_ 2559377459 P3_CellTemp67 "电池包3的单体温度67";
+CM_ SG_ 2559377459 P3_CellTemp68 "电池包3的单体温度68";
+CM_ SG_ 2559377459 P3_CellTemp69 "电池包3的单体温度69";
+CM_ SG_ 2559377459 P3_CellTemp70 "电池包3的单体温度70";
+CM_ SG_ 2559442995 P3_CellTemp71 "电池包3的单体温度71";
+CM_ SG_ 2559442995 P3_CellTemp72 "电池包3的单体温度72";
+CM_ SG_ 2550202436 P4_BMS_Stat "电池包4的BMS系统状态";
+CM_ SG_ 2550202436 P4_MainCntctrStat "电池包4的BMS继电器状态";
+CM_ SG_ 2550202436 P4_PackFltLvl "电池包4的故障等级";
+CM_ SG_ 2550202436 P4_BatThrmlReqStat "电池包4的热管理请求";
+CM_ SG_ 2550202436 P4_HVSysIsolDetStat "电池包4的高压系统绝缘检测状态";
+CM_ SG_ 2550202436 P4_PackVolt "电池包4的总电压";
+CM_ SG_ 2550202436 P4_NegCntctr1ClsdCmnd "电池包4的主负继电器1闭合命令";
+CM_ SG_ 2550202436 P4_NegCntctr2ClsdCmnd "电池包4的主负继电器2闭合命令";
+CM_ SG_ 2550202436 P4_PosCntctrClsdCmnd "电池包4的主正继电器闭合命令";
+CM_ SG_ 2550202436 P4_PreCntctrClsdCmnd "电池包4的预充继电器闭合命令";
+CM_ SG_ 2550202436 P4_Branch1Crnt "电池包4的支路1电流";
+CM_ SG_ 2550202436 P4_FlgHvInhibit "电池包4的禁止高压上电标志位";
+CM_ SG_ 2550202436 P4_FlgHVPwrDown "电池包4的故障高压下电标志位";
+CM_ SG_ 2550202436 P4_FlgDCChgInhibit "电池包4的禁止快充标志位";
+CM_ SG_ 2550202436 P4_DCChrgAbrtRsn "电池包4的快充停止原因";
+CM_ SG_ 2550267972 P4_HvBusVlt "电池包4的外部高压总线电压";
+CM_ SG_ 2550267972 P4_PackTotCrnt "电池包4的总电流";
+CM_ SG_ 2550267972 P4_HVSysIsolRes "电池包4的高压系统绝缘阻值";
+CM_ SG_ 2550333508 P4_PackSOC "电池包4的SOC";
+CM_ SG_ 2550333508 P4_PackRemEnrgy "电池包4的剩余能量";
+CM_ SG_ 2550333508 P4_PackSOE "电池包4的SOE";
+CM_ SG_ 2550333508 P4_ChrgCrntLimCof "电池包4的充电电流限制系数";
+CM_ SG_ 2550333508 P4_ChrgCrntLimVal "电池包4的充电电流限值";
+CM_ SG_ 2550333508 P4_PlugInChrgVolt "电池包4的外插充电电压";
+CM_ SG_ 2552365124 P4_PackSerNum "电池包4的序列号";
+CM_ SG_ 2550399044 P4_BMSPwrSuplVlt1 "电池包4的BMS供电电源电压1";
+CM_ SG_ 2550399044 P4_BMSPwrSuplVlt2 "电池包4的BMS供电电源电压2";
+CM_ SG_ 2550399044 P4_ChrgStationAuxPwrSuplVlt "电池包4的快充桩A+电压";
+CM_ SG_ 2550399044 P4_BMSKL15ON "电池包4的BMS唤醒信号";
+CM_ SG_ 2550399044 P4_DCStepState "电池包4的充电状态机";
+CM_ SG_ 2550399044 P4_ExtLvWakeup_28VOnly "电池包4的外部唤醒";
+CM_ SG_ 2550464580 P4_PackVltUprLmt "电池包4的电压使用上限";
+CM_ SG_ 2550464580 P4_PackVltLoLmt "电池包4的电压使用下限";
+CM_ SG_ 2550464580 P4_PackMaxDschrgCrnt "电池包4的最大允许放电电流";
+CM_ SG_ 2550464580 P4_PackMaxChrgCrnt "电池包4的最大允许充电电流";
+CM_ SG_ 2550530116 P4_PackDschrgPwrLmt "电池包4的放电功率限值";
+CM_ SG_ 2550530116 P4_PackDschrgPwrStat "电池包4的放电功率状态";
+CM_ SG_ 2550530116 P4_PackChrgPwrLmt "电池包4的充电功率限值";
+CM_ SG_ 2550530116 P4_PackChrgPwrStat "电池包4的充电功率状态";
+CM_ SG_ 2550595652 P4_ChrgrCplrStat "电池包4的充电枪连接状态";
+CM_ SG_ 2550595652 P4_HVBattChrgSysStatus "电池包4的充电系统状态";
+CM_ SG_ 2550595652 P4_DCChrgCrntCmd "电池包4的直流充电请求电流";
+CM_ SG_ 2550595652 P4_CC2Vlt "电池包4的CC2电压值";
+CM_ SG_ 2550595652 P4_DCRcptPosTemp "电池包4的快充充电插座正极温度";
+CM_ SG_ 2550595652 P4_DCRcptNegTemp "电池包4的快充充电插座负极温度";
+CM_ SG_ 2550595652 P4_Tm2FullChrg "电池包4满充剩余时间";
+CM_ SG_ 2550661188 P4_Inlet1ClntTemp "进水口1冷却液温度";
+CM_ SG_ 2550661188 P4_Inlet2ClntTemp "进水口2冷却液温度";
+CM_ SG_ 2550661188 P4_Outlet1ClntTemp "出水口1冷却液温度";
+CM_ SG_ 2550661188 P4_Outlet2ClntTemp "出水口2冷却液温度";
+CM_ SG_ 2550661188 P4_TrgtClntTemp "冷却水目标温度";
+CM_ SG_ 2550661188 P4_TrgtClntFlowRate "冷却水目标流量";
+CM_ SG_ 2550726724 P4_MaxCellVlt "电池包4的最大单体电压";
+CM_ SG_ 2550726724 P4_MaxCellVltNum "电池包4的最大单体电压编号";
+CM_ SG_ 2550726724 P4_MinCellVlt "电池包4的最小单体电压";
+CM_ SG_ 2550726724 P4_MinCellVltNum "电池包4的最小单体电压编号";
+CM_ SG_ 2550726724 P4_AvgCellVlt "电池包4的平均单体电压";
+CM_ SG_ 2550792260 P4_MaxCellTemp "电池包4的最高单体温度";
+CM_ SG_ 2550792260 P4_MaxCellTempNum "电池包4的最高单体温度编号";
+CM_ SG_ 2550792260 P4_MinCellTemp "电池包4的最低单体温度";
+CM_ SG_ 2550792260 P4_MinCellTempNum "电池包4的最低单体温度编号";
+CM_ SG_ 2550792260 P4_AvgCellTemp "电池包4的单体平均温度";
+CM_ SG_ 2550857796 P4_PackTotFltNum "电池包4的电池故障总数";
+CM_ SG_ 2550857796 P4_CellOverVoltage "电池包4的单体过压";
+CM_ SG_ 2550857796 P4_CellUnderVoltage "电池包4的单体欠压";
+CM_ SG_ 2550857796 P4_CellVoltageDiffHi "电池包4的单体压差过大";
+CM_ SG_ 2550857796 P4_PackOverVoltage "电池包4的电压过高";
+CM_ SG_ 2550857796 P4_PackUnderVoltage "电池包4的电压过低";
+CM_ SG_ 2550857796 P4_CellOverTemp "电池包4的单体过温";
+CM_ SG_ 2550857796 P4_CellTempLow "电池包4的单体温度过低";
+CM_ SG_ 2550857796 P4_CellTempDiffHi "电池包4的单体温度差异过大";
+CM_ SG_ 2550857796 P4_PackDschrgCrntHi "电池包4的放电电流过流";
+CM_ SG_ 2550857796 P4_PackChrgCrntHi "电池包4的充电电流过流";
+CM_ SG_ 2550857796 P4_PackCrnSnsr1OffsetHi "电池包4的电流传感器1零漂过大";
+CM_ SG_ 2550857796 P4_HVIsolFlt "电池包4的高压绝缘故障";
+CM_ SG_ 2550857796 P4_HVILFlt "电池包4的高压互锁故障";
+CM_ SG_ 2550857796 P4_ThrmlRunaway "电池包4的热失控故障";
+CM_ SG_ 2550857796 P4_CellVoltInvalid "电池包4的单体电压采样失效";
+CM_ SG_ 2550857796 P4_CellTempInvalid "电池包4的电芯温度采样失效";
+CM_ SG_ 2550857796 P4_DaisyChainComFlt "电池包4的菊花链通信故障";
+CM_ SG_ 2550857796 P4_PackVoltRatFlt "电池包4的总电压与单体电压总和偏差过大";
+CM_ SG_ 2550857796 P4_CrntSnsr1Invalid "电池包4的电流传感器1电流采样失效";
+CM_ SG_ 2550857796 P4_CrntSnsr1OOR "电池包4的电流传感器1电流超出采样范围";
+CM_ SG_ 2550857796 P4_CrntSnsr2Invalid "电池包4的电流传感器2电流采样失效";
+CM_ SG_ 2550857796 P4_CrntSnsr2OOR "电池包4的电流传感器2电流超出采样范围";
+CM_ SG_ 2550857796 P4_PackCrnSnsr2OffsetHi "电池包4的电流传感器2零漂过大";
+CM_ SG_ 2550857796 P4_OutofEnergy "电池包4的电池剩余电量低";
+CM_ SG_ 2550857796 P4_IsolDetCircErr "电池包4的绝缘检测电路失效";
+CM_ SG_ 2550857796 P4_HVILCircShortToGND "电池包4的高压互锁对地短路";
+CM_ SG_ 2550857796 P4_HVILCircShortToPwr "电池包4的高压互锁对电源短路";
+CM_ SG_ 2550923332 P4_MainPosCntctrStkClsd "电池包4的主正继电器粘连故障";
+CM_ SG_ 2550923332 P4_MainPosCntctrStkOpn "电池包4的主正继电器常开故障";
+CM_ SG_ 2550923332 P4_MainNegCntctr1StkClsd "电池包4的主负继电器1粘连故障";
+CM_ SG_ 2550923332 P4_MainNegCntctr1StkOpn "电池包4的主负继电器1常开故障";
+CM_ SG_ 2550923332 P4_MainNegCntctr2StkClsd "电池包4的主负继电器2粘连故障";
+CM_ SG_ 2550923332 P4_MainNegCntctr2StkOpn "电池包4的主负继电器2常开故障";
+CM_ SG_ 2550923332 P4_PrechargTmOut "电池包4的预充超时故障";
+CM_ SG_ 2550923332 P4_PrechrgCrntHi "电池包4的预充过流故障";
+CM_ SG_ 2550923332 P4_ChrgCplrPosTempHi "电池包4的充电正极接口温度过高故障";
+CM_ SG_ 2550923332 P4_ChrgCplrNegTempHi "电池包4的充电负极接口温度过高故障";
+CM_ SG_ 2550923332 P4_BMSPwrSuplVlt1Hi "电池包4的BMS供电电压1过高";
+CM_ SG_ 2550923332 P4_BMSPwrSuplVlt1Lo "电池包4的BMS供电电压1过低";
+CM_ SG_ 2550923332 P4_BMSPwrSuplVlt2Hi "电池包4的BMS供电电压2过高";
+CM_ SG_ 2550923332 P4_BMSPwrSuplVlt2Lo "电池包4的BMS供电电压2过低";
+CM_ SG_ 2550923332 P4_CntctrCirPwrSuplVltLo "电池包4的继电器驱动供电电压过低";
+CM_ SG_ 2550923332 P4_CntctrCirPwrSuplVltHi "电池包4的继电器驱动供电电压过高";
+CM_ SG_ 2550923332 P4_CAN1BusOff "电池包4的CAN1通信Bus off";
+CM_ SG_ 2550923332 P4_CAN1BusTmOut "电池包4的CAN1报文超时（Timeout）";
+CM_ SG_ 2550923332 P4_CAN2BusOff "电池包4的CAN2通信Bus off";
+CM_ SG_ 2550923332 P4_CAN2BusTmOut "电池包4的CAN2报文超时（Timeout）";
+CM_ SG_ 2550923332 P4_CellBalCircTempHi "电池包4的均衡电路过温";
+CM_ SG_ 2550923332 P4_ClntInTempHi "电池包4的入水口温度过高";
+CM_ SG_ 2550923332 P4_ClntOutTempHi "电池包4的出水口温度过高";
+CM_ SG_ 2550923332 P4_CellExtrmUdrVolt "电池包4的单体极限欠压";
+CM_ SG_ 2550923332 P4_CellExtrmOvrVolt "电池包4的单体极限过压";
+CM_ SG_ 2550923332 P4_Branch1DischrgCrntHi  "电池包4的支路1放电过流";
+CM_ SG_ 2550923332 P4_Branch2DischrgCrntHi  "电池包4的支路2放电过流";
+CM_ SG_ 2550923332 P4_Branch1ChrgCrntHi  "电池包4的支路1充电过流";
+CM_ SG_ 2550923332 P4_Branch2ChrgCrntHi  "电池包4的支路2充电过流";
+CM_ SG_ 2550923332 P4_InitFailed "电池包4的BMS初始化失败";
+CM_ SG_ 2550923332 P4_PackErrCode "电池包4的故障代码";
+CM_ SG_ 2550988868 P4_PackTotCellNum "电池包4的单体电池总数";
+CM_ SG_ 2550988868 P4_PackTotCellTempSnsrNum "电池包4的单体温度传感器总数";
+CM_ SG_ 2552299588 P4_BMSASWMajVerNum "电池包4的BMS应用层软件主版本号";
+CM_ SG_ 2552299588 P4_BMSASWMinVerNum "电池包4的BMS应用层软件子版本号";
+CM_ SG_ 2552299588 P4_BMSASWPatchVerNum "电池包4的BMS应用层软件修订版本号";
+CM_ SG_ 2552299588 P4_BMSBSWMajVerNum "电池包4的BMS底层软件主版本号";
+CM_ SG_ 2552299588 P4_BMSBSWMinVerNum "电池包4的BMS底层软件子版本号";
+CM_ SG_ 2552299588 P4_BMSBSWPatchVerNum "电池包4的BMS底层软件修订版本号";
+CM_ SG_ 2554396740 P4_CellVoltage1 "电池包4的单体电压1";
+CM_ SG_ 2554396740 P4_CellVoltage2 "电池包4的单体电压2";
+CM_ SG_ 2554396740 P4_CellVoltage3 "电池包4的单体电压3";
+CM_ SG_ 2554396740 P4_CellVoltage4 "电池包4的单体电压4";
+CM_ SG_ 2554396740 P4_BalSwCell1 "电池包4的电芯1均衡状态";
+CM_ SG_ 2554396740 P4_BalSwCell2 "电池包4的电芯2均衡状态";
+CM_ SG_ 2554396740 P4_BalSwCell3 "电池包4的电芯3均衡状态";
+CM_ SG_ 2554396740 P4_BalSwCell4 "电池包4的电芯4均衡状态";
+CM_ SG_ 2554462276 P4_CellVoltage5 "电池包4的单体电压5";
+CM_ SG_ 2554462276 P4_CellVoltage6 "电池包4的单体电压6";
+CM_ SG_ 2554462276 P4_CellVoltage7 "电池包4的单体电压7";
+CM_ SG_ 2554462276 P4_CellVoltage8 "电池包4的单体电压8";
+CM_ SG_ 2554462276 P4_BalSwCell5 "电池包4的电芯5均衡状态";
+CM_ SG_ 2554462276 P4_BalSwCell6 "电池包4的电芯6均衡状态";
+CM_ SG_ 2554462276 P4_BalSwCell7 "电池包4的电芯7均衡状态";
+CM_ SG_ 2554462276 P4_BalSwCell8 "电池包4的电芯8均衡状态";
+CM_ SG_ 2554527812 P4_CellVoltage9 "电池包4的单体电压9";
+CM_ SG_ 2554527812 P4_CellVoltage10 "电池包4的单体电压10";
+CM_ SG_ 2554527812 P4_CellVoltage11 "电池包4的单体电压11";
+CM_ SG_ 2554527812 P4_CellVoltage12 "电池包4的单体电压12";
+CM_ SG_ 2554527812 P4_BalSwCell9 "电池包4的电芯9均衡状态";
+CM_ SG_ 2554527812 P4_BalSwCell10 "电池包4的电芯10均衡状态";
+CM_ SG_ 2554527812 P4_BalSwCell11 "电池包4的电芯11均衡状态";
+CM_ SG_ 2554527812 P4_BalSwCell12 "电池包4的电芯12均衡状态";
+CM_ SG_ 2554593348 P4_CellVoltage13 "电池包4的单体电压13";
+CM_ SG_ 2554593348 P4_CellVoltage14 "电池包4的单体电压14";
+CM_ SG_ 2554593348 P4_CellVoltage15 "电池包4的单体电压15";
+CM_ SG_ 2554593348 P4_CellVoltage16 "电池包4的单体电压16";
+CM_ SG_ 2554593348 P4_BalSwCell13 "电池包4的电芯13均衡状态";
+CM_ SG_ 2554593348 P4_BalSwCell14 "电池包4的电芯14均衡状态";
+CM_ SG_ 2554593348 P4_BalSwCell15 "电池包4的电芯15均衡状态";
+CM_ SG_ 2554593348 P4_BalSwCell16 "电池包4的电芯16均衡状态";
+CM_ SG_ 2554658884 P4_CellVoltage17 "电池包4的单体电压17";
+CM_ SG_ 2554658884 P4_CellVoltage18 "电池包4的单体电压18";
+CM_ SG_ 2554658884 P4_CellVoltage19 "电池包4的单体电压19";
+CM_ SG_ 2554658884 P4_CellVoltage20 "电池包4的单体电压20";
+CM_ SG_ 2554658884 P4_BalSwCell17 "电池包4的电芯17均衡状态";
+CM_ SG_ 2554658884 P4_BalSwCell18 "电池包4的电芯18均衡状态";
+CM_ SG_ 2554658884 P4_BalSwCell19 "电池包4的电芯19均衡状态";
+CM_ SG_ 2554658884 P4_BalSwCell20 "电池包4的电芯20均衡状态";
+CM_ SG_ 2554724420 P4_CellVoltage21 "电池包4的单体电压21";
+CM_ SG_ 2554724420 P4_CellVoltage22 "电池包4的单体电压22";
+CM_ SG_ 2554724420 P4_CellVoltage23 "电池包4的单体电压23";
+CM_ SG_ 2554724420 P4_CellVoltage24 "电池包4的单体电压24";
+CM_ SG_ 2554724420 P4_BalSwCell21 "电池包4的电芯21均衡状态";
+CM_ SG_ 2554724420 P4_BalSwCell22 "电池包4的电芯22均衡状态";
+CM_ SG_ 2554724420 P4_BalSwCell23 "电池包4的电芯23均衡状态";
+CM_ SG_ 2554724420 P4_BalSwCell24 "电池包4的电芯24均衡状态";
+CM_ SG_ 2554789956 P4_CellVoltage25 "电池包4的单体电压25";
+CM_ SG_ 2554789956 P4_CellVoltage26 "电池包4的单体电压26";
+CM_ SG_ 2554789956 P4_CellVoltage27 "电池包4的单体电压27";
+CM_ SG_ 2554789956 P4_CellVoltage28 "电池包4的单体电压28";
+CM_ SG_ 2554789956 P4_BalSwCell25 "电池包4的电芯25均衡状态";
+CM_ SG_ 2554789956 P4_BalSwCell26 "电池包4的电芯26均衡状态";
+CM_ SG_ 2554789956 P4_BalSwCell27 "电池包4的电芯27均衡状态";
+CM_ SG_ 2554789956 P4_BalSwCell28 "电池包4的电芯28均衡状态";
+CM_ SG_ 2554855492 P4_CellVoltage29 "电池包4的单体电压29";
+CM_ SG_ 2554855492 P4_CellVoltage30 "电池包4的单体电压30";
+CM_ SG_ 2554855492 P4_CellVoltage31 "电池包4的单体电压31";
+CM_ SG_ 2554855492 P4_CellVoltage32 "电池包4的单体电压32";
+CM_ SG_ 2554855492 P4_BalSwCell29 "电池包4的电芯29均衡状态";
+CM_ SG_ 2554855492 P4_BalSwCell30 "电池包4的电芯30均衡状态";
+CM_ SG_ 2554855492 P4_BalSwCell31 "电池包4的电芯31均衡状态";
+CM_ SG_ 2554855492 P4_BalSwCell32 "电池包4的电芯32均衡状态";
+CM_ SG_ 2554921028 P4_CellVoltage33 "电池包4的单体电压33";
+CM_ SG_ 2554921028 P4_CellVoltage34 "电池包4的单体电压34";
+CM_ SG_ 2554921028 P4_CellVoltage35 "电池包4的单体电压35";
+CM_ SG_ 2554921028 P4_CellVoltage36 "电池包4的单体电压36";
+CM_ SG_ 2554921028 P4_BalSwCell33 "电池包4的电芯33均衡状态";
+CM_ SG_ 2554921028 P4_BalSwCell34 "电池包4的电芯34均衡状态";
+CM_ SG_ 2554921028 P4_BalSwCell35 "电池包4的电芯35均衡状态";
+CM_ SG_ 2554921028 P4_BalSwCell36 "电池包4的电芯36均衡状态";
+CM_ SG_ 2554986564 P4_CellVoltage37 "电池包4的单体电压37";
+CM_ SG_ 2554986564 P4_CellVoltage38 "电池包4的单体电压38";
+CM_ SG_ 2554986564 P4_CellVoltage39 "电池包4的单体电压39";
+CM_ SG_ 2554986564 P4_CellVoltage40 "电池包4的单体电压40";
+CM_ SG_ 2554986564 P4_BalSwCell37 "电池包4的电芯37均衡状态";
+CM_ SG_ 2554986564 P4_BalSwCell38 "电池包4的电芯38均衡状态";
+CM_ SG_ 2554986564 P4_BalSwCell39 "电池包4的电芯39均衡状态";
+CM_ SG_ 2554986564 P4_BalSwCell40 "电池包4的电芯40均衡状态";
+CM_ SG_ 2555052100 P4_CellVoltage41 "电池包4的单体电压41";
+CM_ SG_ 2555052100 P4_CellVoltage42 "电池包4的单体电压42";
+CM_ SG_ 2555052100 P4_CellVoltage43 "电池包4的单体电压43";
+CM_ SG_ 2555052100 P4_CellVoltage44 "电池包4的单体电压44";
+CM_ SG_ 2555052100 P4_BalSwCell41 "电池包4的电芯41均衡状态";
+CM_ SG_ 2555052100 P4_BalSwCell42 "电池包4的电芯42均衡状态";
+CM_ SG_ 2555052100 P4_BalSwCell43 "电池包4的电芯43均衡状态";
+CM_ SG_ 2555052100 P4_BalSwCell44 "电池包4的电芯44均衡状态";
+CM_ SG_ 2555117636 P4_CellVoltage45 "电池包4的单体电压45";
+CM_ SG_ 2555117636 P4_CellVoltage46 "电池包4的单体电压46";
+CM_ SG_ 2555117636 P4_CellVoltage47 "电池包4的单体电压47";
+CM_ SG_ 2555117636 P4_CellVoltage48 "电池包4的单体电压48";
+CM_ SG_ 2555117636 P4_BalSwCell45 "电池包4的电芯45均衡状态";
+CM_ SG_ 2555117636 P4_BalSwCell46 "电池包4的电芯46均衡状态";
+CM_ SG_ 2555117636 P4_BalSwCell47 "电池包4的电芯47均衡状态";
+CM_ SG_ 2555117636 P4_BalSwCell48 "电池包4的电芯48均衡状态";
+CM_ SG_ 2555183172 P4_CellVoltage49 "电池包4的单体电压49";
+CM_ SG_ 2555183172 P4_CellVoltage50 "电池包4的单体电压50";
+CM_ SG_ 2555183172 P4_CellVoltage51 "电池包4的单体电压51";
+CM_ SG_ 2555183172 P4_CellVoltage52 "电池包4的单体电压52";
+CM_ SG_ 2555183172 P4_BalSwCell49 "电池包4的电芯49均衡状态";
+CM_ SG_ 2555183172 P4_BalSwCell50 "电池包4的电芯50均衡状态";
+CM_ SG_ 2555183172 P4_BalSwCell51 "电池包4的电芯51均衡状态";
+CM_ SG_ 2555183172 P4_BalSwCell52 "电池包4的电芯52均衡状态";
+CM_ SG_ 2555248708 P4_CellVoltage53 "电池包4的单体电压53";
+CM_ SG_ 2555248708 P4_CellVoltage54 "电池包4的单体电压54";
+CM_ SG_ 2555248708 P4_CellVoltage55 "电池包4的单体电压55";
+CM_ SG_ 2555248708 P4_CellVoltage56 "电池包4的单体电压56";
+CM_ SG_ 2555248708 P4_BalSwCell53 "电池包4的电芯53均衡状态";
+CM_ SG_ 2555248708 P4_BalSwCell54 "电池包4的电芯54均衡状态";
+CM_ SG_ 2555248708 P4_BalSwCell55 "电池包4的电芯55均衡状态";
+CM_ SG_ 2555248708 P4_BalSwCell56 "电池包4的电芯56均衡状态";
+CM_ SG_ 2555314244 P4_CellVoltage57 "电池包4的单体电压57";
+CM_ SG_ 2555314244 P4_CellVoltage58 "电池包4的单体电压58";
+CM_ SG_ 2555314244 P4_CellVoltage59 "电池包4的单体电压59";
+CM_ SG_ 2555314244 P4_CellVoltage60 "电池包4的单体电压60";
+CM_ SG_ 2555314244 P4_BalSwCell57 "电池包4的电芯57均衡状态";
+CM_ SG_ 2555314244 P4_BalSwCell58 "电池包4的电芯58均衡状态";
+CM_ SG_ 2555314244 P4_BalSwCell59 "电池包4的电芯59均衡状态";
+CM_ SG_ 2555314244 P4_BalSwCell60 "电池包4的电芯60均衡状态";
+CM_ SG_ 2555379780 P4_CellVoltage61 "电池包4的单体电压61";
+CM_ SG_ 2555379780 P4_CellVoltage62 "电池包4的单体电压62";
+CM_ SG_ 2555379780 P4_CellVoltage63 "电池包4的单体电压63";
+CM_ SG_ 2555379780 P4_CellVoltage64 "电池包4的单体电压64";
+CM_ SG_ 2555379780 P4_BalSwCell61 "电池包4的电芯61均衡状态";
+CM_ SG_ 2555379780 P4_BalSwCell62 "电池包4的电芯62均衡状态";
+CM_ SG_ 2555379780 P4_BalSwCell63 "电池包4的电芯63均衡状态";
+CM_ SG_ 2555379780 P4_BalSwCell64 "电池包4的电芯64均衡状态";
+CM_ SG_ 2555445316 P4_CellVoltage65 "电池包4的单体电压65";
+CM_ SG_ 2555445316 P4_CellVoltage66 "电池包4的单体电压66";
+CM_ SG_ 2555445316 P4_CellVoltage67 "电池包4的单体电压67";
+CM_ SG_ 2555445316 P4_CellVoltage68 "电池包4的单体电压68";
+CM_ SG_ 2555445316 P4_BalSwCell65 "电池包4的电芯65均衡状态";
+CM_ SG_ 2555445316 P4_BalSwCell66 "电池包4的电芯66均衡状态";
+CM_ SG_ 2555445316 P4_BalSwCell67 "电池包4的电芯67均衡状态";
+CM_ SG_ 2555445316 P4_BalSwCell68 "电池包4的电芯68均衡状态";
+CM_ SG_ 2555510852 P4_CellVoltage69 "电池包4的单体电压69";
+CM_ SG_ 2555510852 P4_CellVoltage70 "电池包4的单体电压70";
+CM_ SG_ 2555510852 P4_CellVoltage71 "电池包4的单体电压71";
+CM_ SG_ 2555510852 P4_CellVoltage72 "电池包4的单体电压72";
+CM_ SG_ 2555510852 P4_BalSwCell69 "电池包4的电芯69均衡状态";
+CM_ SG_ 2555510852 P4_BalSwCell70 "电池包4的电芯70均衡状态";
+CM_ SG_ 2555510852 P4_BalSwCell71 "电池包4的电芯71均衡状态";
+CM_ SG_ 2555510852 P4_BalSwCell72 "电池包4的电芯72均衡状态";
+CM_ SG_ 2558525508 P4_CellTemp1 "电池包4的单体温度1";
+CM_ SG_ 2558525508 P4_CellTemp2 "电池包4的单体温度2";
+CM_ SG_ 2558525508 P4_CellTemp3 "电池包4的单体温度3";
+CM_ SG_ 2558525508 P4_CellTemp4 "电池包4的单体温度4";
+CM_ SG_ 2558525508 P4_CellTemp5 "电池包4的单体温度5";
+CM_ SG_ 2558591044 P4_CellTemp6 "电池包4的单体温度6";
+CM_ SG_ 2558591044 P4_CellTemp7 "电池包4的单体温度7";
+CM_ SG_ 2558591044 P4_CellTemp8 "电池包4的单体温度8";
+CM_ SG_ 2558591044 P4_CellTemp9 "电池包4的单体温度9";
+CM_ SG_ 2558591044 P4_CellTemp10 "电池包4的单体温度10";
+CM_ SG_ 2558656580 P4_CellTemp11 "电池包4的单体温度11";
+CM_ SG_ 2558656580 P4_CellTemp12 "电池包4的单体温度12";
+CM_ SG_ 2558656580 P4_CellTemp13 "电池包4的单体温度13";
+CM_ SG_ 2558656580 P4_CellTemp14 "电池包4的单体温度14";
+CM_ SG_ 2558656580 P4_CellTemp15 "电池包4的单体温度15";
+CM_ SG_ 2558722116 P4_CellTemp16 "电池包4的单体温度16";
+CM_ SG_ 2558722116 P4_CellTemp17 "电池包4的单体温度17";
+CM_ SG_ 2558722116 P4_CellTemp18 "电池包4的单体温度18";
+CM_ SG_ 2558722116 P4_CellTemp19 "电池包4的单体温度19";
+CM_ SG_ 2558722116 P4_CellTemp20 "电池包4的单体温度20";
+CM_ SG_ 2558787652 P4_CellTemp21 "电池包4的单体温度21";
+CM_ SG_ 2558787652 P4_CellTemp22 "电池包4的单体温度22";
+CM_ SG_ 2558787652 P4_CellTemp23 "电池包4的单体温度23";
+CM_ SG_ 2558787652 P4_CellTemp24 "电池包4的单体温度24";
+CM_ SG_ 2558787652 P4_CellTemp25 "电池包4的单体温度25";
+CM_ SG_ 2558853188 P4_CellTemp26 "电池包4的单体温度26";
+CM_ SG_ 2558853188 P4_CellTemp27 "电池包4的单体温度27";
+CM_ SG_ 2558853188 P4_CellTemp28 "电池包4的单体温度28";
+CM_ SG_ 2558853188 P4_CellTemp29 "电池包4的单体温度29";
+CM_ SG_ 2558853188 P4_CellTemp30 "电池包4的单体温度30";
+CM_ SG_ 2558918724 P4_CellTemp31 "电池包4的单体温度31";
+CM_ SG_ 2558918724 P4_CellTemp32 "电池包4的单体温度32";
+CM_ SG_ 2558918724 P4_CellTemp33 "电池包4的单体温度33";
+CM_ SG_ 2558918724 P4_CellTemp34 "电池包4的单体温度34";
+CM_ SG_ 2558918724 P4_CellTemp35 "电池包4的单体温度35";
+CM_ SG_ 2558984260 P4_CellTemp36 "电池包4的单体温度36";
+CM_ SG_ 2558984260 P4_CellTemp37 "电池包4的单体温度37";
+CM_ SG_ 2558984260 P4_CellTemp38 "电池包4的单体温度38";
+CM_ SG_ 2558984260 P4_CellTemp39 "电池包4的单体温度39";
+CM_ SG_ 2558984260 P4_CellTemp40 "电池包4的单体温度40";
+CM_ SG_ 2559049796 P4_CellTemp41 "电池包4的单体温度41";
+CM_ SG_ 2559049796 P4_CellTemp42 "电池包4的单体温度42";
+CM_ SG_ 2559049796 P4_CellTemp43 "电池包4的单体温度43";
+CM_ SG_ 2559049796 P4_CellTemp44 "电池包4的单体温度44";
+CM_ SG_ 2559049796 P4_CellTemp45 "电池包4的单体温度45";
+CM_ SG_ 2559115332 P4_CellTemp46 "电池包4的单体温度46";
+CM_ SG_ 2559115332 P4_CellTemp47 "电池包4的单体温度47";
+CM_ SG_ 2559115332 P4_CellTemp48 "电池包4的单体温度48";
+CM_ SG_ 2559115332 P4_CellTemp49 "电池包4的单体温度49";
+CM_ SG_ 2559115332 P4_CellTemp50 "电池包4的单体温度50";
+CM_ SG_ 2559180868 P4_CellTemp51 "电池包4的单体温度51";
+CM_ SG_ 2559180868 P4_CellTemp52 "电池包4的单体温度52";
+CM_ SG_ 2559180868 P4_CellTemp53 "电池包4的单体温度53";
+CM_ SG_ 2559180868 P4_CellTemp54 "电池包4的单体温度54";
+CM_ SG_ 2559180868 P4_CellTemp55 "电池包4的单体温度55";
+CM_ SG_ 2559246404 P4_CellTemp56 "电池包4的单体温度56";
+CM_ SG_ 2559246404 P4_CellTemp57 "电池包4的单体温度57";
+CM_ SG_ 2559246404 P4_CellTemp58 "电池包4的单体温度58";
+CM_ SG_ 2559246404 P4_CellTemp59 "电池包4的单体温度59";
+CM_ SG_ 2559246404 P4_CellTemp60 "电池包4的单体温度60";
+CM_ SG_ 2559311940 P4_CellTemp61 "电池包4的单体温度61";
+CM_ SG_ 2559311940 P4_CellTemp62 "电池包4的单体温度62";
+CM_ SG_ 2559311940 P4_CellTemp63 "电池包4的单体温度63";
+CM_ SG_ 2559311940 P4_CellTemp64 "电池包4的单体温度64";
+CM_ SG_ 2559311940 P4_CellTemp65 "电池包4的单体温度65";
+CM_ SG_ 2559377476 P4_CellTemp66 "电池包4的单体温度66";
+CM_ SG_ 2559377476 P4_CellTemp67 "电池包4的单体温度67";
+CM_ SG_ 2559377476 P4_CellTemp68 "电池包4的单体温度68";
+CM_ SG_ 2559377476 P4_CellTemp69 "电池包4的单体温度69";
+CM_ SG_ 2559377476 P4_CellTemp70 "电池包4的单体温度70";
+CM_ SG_ 2559443012 P4_CellTemp71 "电池包4的单体温度71";
+CM_ SG_ 2559443012 P4_CellTemp72 "电池包4的单体温度72";
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","IfActive","Event";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 5000;
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnChange","NoSigSendType";
+BA_DEF_DEF_  "GenMsgSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "CANFD_BRS" "0";
+BA_DEF_DEF_  "VFrameFormat" "ExtendedCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "PCAN";
+BA_ "GenMsgCycleTime" BO_ 2415984641 10;
+BA_ "GenMsgSendType" BO_ 2415984641 0;
+BA_ "GenMsgCycleTime" BO_ 2415984642 10;
+BA_ "GenMsgSendType" BO_ 2415984642 0;
+BA_ "GenMsgCycleTime" BO_ 2550202385 10;
+BA_ "GenMsgSendType" BO_ 2550202385 0;
+BA_ "GenMsgCycleTime" BO_ 2550267921 100;
+BA_ "GenMsgSendType" BO_ 2550267921 0;
+BA_ "GenMsgCycleTime" BO_ 2550333457 100;
+BA_ "GenMsgSendType" BO_ 2550333457 0;
+BA_ "GenMsgCycleTime" BO_ 2552365073 1000;
+BA_ "GenMsgSendType" BO_ 2552365073 0;
+BA_ "GenMsgCycleTime" BO_ 2550398993 500;
+BA_ "GenMsgSendType" BO_ 2550398993 0;
+BA_ "GenMsgCycleTime" BO_ 2550464529 500;
+BA_ "GenMsgSendType" BO_ 2550464529 0;
+BA_ "GenMsgCycleTime" BO_ 2550530065 500;
+BA_ "GenMsgSendType" BO_ 2550530065 0;
+BA_ "GenMsgCycleTime" BO_ 2550595601 500;
+BA_ "GenMsgSendType" BO_ 2550595601 0;
+BA_ "GenMsgCycleTime" BO_ 2550661137 500;
+BA_ "GenMsgSendType" BO_ 2550661137 0;
+BA_ "GenMsgCycleTime" BO_ 2550726673 500;
+BA_ "GenMsgSendType" BO_ 2550726673 0;
+BA_ "GenMsgCycleTime" BO_ 2550792209 500;
+BA_ "GenMsgSendType" BO_ 2550792209 0;
+BA_ "GenMsgCycleTime" BO_ 2550857745 500;
+BA_ "GenMsgSendType" BO_ 2550857745 0;
+BA_ "GenMsgCycleTime" BO_ 2550923281 500;
+BA_ "GenMsgSendType" BO_ 2550923281 0;
+BA_ "GenMsgCycleTime" BO_ 2550988817 1000;
+BA_ "GenMsgSendType" BO_ 2550988817 0;
+BA_ "GenMsgCycleTime" BO_ 2552299537 1000;
+BA_ "GenMsgSendType" BO_ 2552299537 0;
+BA_ "GenMsgCycleTime" BO_ 2554396689 1000;
+BA_ "GenMsgSendType" BO_ 2554396689 0;
+BA_ "GenMsgCycleTime" BO_ 2554462225 1000;
+BA_ "GenMsgSendType" BO_ 2554462225 0;
+BA_ "GenMsgCycleTime" BO_ 2554527761 1000;
+BA_ "GenMsgSendType" BO_ 2554527761 0;
+BA_ "GenMsgCycleTime" BO_ 2554593297 1000;
+BA_ "GenMsgSendType" BO_ 2554593297 0;
+BA_ "GenMsgCycleTime" BO_ 2554658833 1000;
+BA_ "GenMsgSendType" BO_ 2554658833 0;
+BA_ "GenMsgCycleTime" BO_ 2554724369 1000;
+BA_ "GenMsgSendType" BO_ 2554724369 0;
+BA_ "GenMsgCycleTime" BO_ 2554789905 1000;
+BA_ "GenMsgSendType" BO_ 2554789905 0;
+BA_ "GenMsgCycleTime" BO_ 2554855441 1000;
+BA_ "GenMsgSendType" BO_ 2554855441 0;
+BA_ "GenMsgCycleTime" BO_ 2558525457 1000;
+BA_ "GenMsgSendType" BO_ 2558525457 0;
+BA_ "GenMsgCycleTime" BO_ 2558590993 1000;
+BA_ "GenMsgSendType" BO_ 2558590993 0;
+BA_ "GenMsgCycleTime" BO_ 2558656529 1000;
+BA_ "GenMsgSendType" BO_ 2558656529 0;
+BA_ "GenMsgCycleTime" BO_ 2558722065 1000;
+BA_ "GenMsgSendType" BO_ 2558722065 0;
+BA_ "GenMsgCycleTime" BO_ 2558787601 1000;
+BA_ "GenMsgSendType" BO_ 2558787601 0;
+BA_ "GenMsgCycleTime" BO_ 2558853137 1000;
+BA_ "GenMsgSendType" BO_ 2558853137 0;
+BA_ "GenMsgCycleTime" BO_ 2558918673 1000;
+BA_ "GenMsgSendType" BO_ 2558918673 0;
+BA_ "GenMsgCycleTime" BO_ 2550202402 10;
+BA_ "GenMsgSendType" BO_ 2550202402 0;
+BA_ "GenMsgCycleTime" BO_ 2550267938 100;
+BA_ "GenMsgSendType" BO_ 2550267938 0;
+BA_ "GenMsgCycleTime" BO_ 2550333474 100;
+BA_ "GenMsgSendType" BO_ 2550333474 0;
+BA_ "GenMsgCycleTime" BO_ 2552365090 1000;
+BA_ "GenMsgSendType" BO_ 2552365090 0;
+BA_ "GenMsgCycleTime" BO_ 2550399010 500;
+BA_ "GenMsgSendType" BO_ 2550399010 0;
+BA_ "GenMsgCycleTime" BO_ 2550464546 500;
+BA_ "GenMsgSendType" BO_ 2550464546 0;
+BA_ "GenMsgCycleTime" BO_ 2550530082 500;
+BA_ "GenMsgSendType" BO_ 2550530082 0;
+BA_ "GenMsgCycleTime" BO_ 2550595618 500;
+BA_ "GenMsgSendType" BO_ 2550595618 0;
+BA_ "GenMsgCycleTime" BO_ 2550661154 500;
+BA_ "GenMsgSendType" BO_ 2550661154 0;
+BA_ "GenMsgCycleTime" BO_ 2550726690 500;
+BA_ "GenMsgSendType" BO_ 2550726690 0;
+BA_ "GenMsgCycleTime" BO_ 2550792226 500;
+BA_ "GenMsgSendType" BO_ 2550792226 0;
+BA_ "GenMsgCycleTime" BO_ 2550857762 500;
+BA_ "GenMsgSendType" BO_ 2550857762 0;
+BA_ "GenMsgCycleTime" BO_ 2550923298 500;
+BA_ "GenMsgSendType" BO_ 2550923298 0;
+BA_ "GenMsgCycleTime" BO_ 2550988834 1000;
+BA_ "GenMsgSendType" BO_ 2550988834 0;
+BA_ "GenMsgCycleTime" BO_ 2552299554 1000;
+BA_ "GenMsgSendType" BO_ 2552299554 0;
+BA_ "GenMsgCycleTime" BO_ 2554396706 1000;
+BA_ "GenMsgSendType" BO_ 2554396706 0;
+BA_ "GenMsgCycleTime" BO_ 2554462242 1000;
+BA_ "GenMsgSendType" BO_ 2554462242 0;
+BA_ "GenMsgCycleTime" BO_ 2554527778 1000;
+BA_ "GenMsgSendType" BO_ 2554527778 0;
+BA_ "GenMsgCycleTime" BO_ 2554593314 1000;
+BA_ "GenMsgSendType" BO_ 2554593314 0;
+BA_ "GenMsgCycleTime" BO_ 2554658850 1000;
+BA_ "GenMsgSendType" BO_ 2554658850 0;
+BA_ "GenMsgCycleTime" BO_ 2554724386 1000;
+BA_ "GenMsgSendType" BO_ 2554724386 0;
+BA_ "GenMsgCycleTime" BO_ 2554789922 1000;
+BA_ "GenMsgSendType" BO_ 2554789922 0;
+BA_ "GenMsgCycleTime" BO_ 2554855458 1000;
+BA_ "GenMsgSendType" BO_ 2554855458 0;
+BA_ "GenMsgCycleTime" BO_ 2554920994 1000;
+BA_ "GenMsgSendType" BO_ 2554920994 0;
+BA_ "GenMsgCycleTime" BO_ 2554986530 1000;
+BA_ "GenMsgSendType" BO_ 2554986530 0;
+BA_ "GenMsgCycleTime" BO_ 2555052066 1000;
+BA_ "GenMsgSendType" BO_ 2555052066 0;
+BA_ "GenMsgCycleTime" BO_ 2555117602 1000;
+BA_ "GenMsgSendType" BO_ 2555117602 0;
+BA_ "GenMsgCycleTime" BO_ 2555183138 1000;
+BA_ "GenMsgSendType" BO_ 2555183138 0;
+BA_ "GenMsgCycleTime" BO_ 2555248674 1000;
+BA_ "GenMsgSendType" BO_ 2555248674 0;
+BA_ "GenMsgCycleTime" BO_ 2555314210 1000;
+BA_ "GenMsgSendType" BO_ 2555314210 0;
+BA_ "GenMsgCycleTime" BO_ 2555379746 1000;
+BA_ "GenMsgSendType" BO_ 2555379746 0;
+BA_ "GenMsgCycleTime" BO_ 2555445282 1000;
+BA_ "GenMsgSendType" BO_ 2555445282 0;
+BA_ "GenMsgCycleTime" BO_ 2555510818 1000;
+BA_ "GenMsgSendType" BO_ 2555510818 0;
+BA_ "GenMsgCycleTime" BO_ 2558525474 1000;
+BA_ "GenMsgSendType" BO_ 2558525474 0;
+BA_ "GenMsgCycleTime" BO_ 2558591010 1000;
+BA_ "GenMsgSendType" BO_ 2558591010 0;
+BA_ "GenMsgCycleTime" BO_ 2558656546 1000;
+BA_ "GenMsgSendType" BO_ 2558656546 0;
+BA_ "GenMsgCycleTime" BO_ 2558722082 1000;
+BA_ "GenMsgSendType" BO_ 2558722082 0;
+BA_ "GenMsgCycleTime" BO_ 2558787618 1000;
+BA_ "GenMsgSendType" BO_ 2558787618 0;
+BA_ "GenMsgCycleTime" BO_ 2558853154 1000;
+BA_ "GenMsgSendType" BO_ 2558853154 0;
+BA_ "GenMsgCycleTime" BO_ 2558918690 1000;
+BA_ "GenMsgSendType" BO_ 2558918690 0;
+BA_ "GenMsgCycleTime" BO_ 2558984226 1000;
+BA_ "GenMsgSendType" BO_ 2558984226 0;
+BA_ "GenMsgCycleTime" BO_ 2559049762 1000;
+BA_ "GenMsgSendType" BO_ 2559049762 0;
+BA_ "GenMsgCycleTime" BO_ 2559115298 1000;
+BA_ "GenMsgSendType" BO_ 2559115298 0;
+BA_ "GenMsgCycleTime" BO_ 2559180834 1000;
+BA_ "GenMsgSendType" BO_ 2559180834 0;
+BA_ "GenMsgCycleTime" BO_ 2559246370 1000;
+BA_ "GenMsgSendType" BO_ 2559246370 0;
+BA_ "GenMsgCycleTime" BO_ 2559311906 1000;
+BA_ "GenMsgSendType" BO_ 2559311906 0;
+BA_ "GenMsgCycleTime" BO_ 2559377442 1000;
+BA_ "GenMsgSendType" BO_ 2559377442 0;
+BA_ "GenMsgCycleTime" BO_ 2559442978 1000;
+BA_ "GenMsgSendType" BO_ 2559442978 0;
+BA_ "GenMsgCycleTime" BO_ 2550202419 10;
+BA_ "GenMsgSendType" BO_ 2550202419 0;
+BA_ "GenMsgCycleTime" BO_ 2550267955 100;
+BA_ "GenMsgSendType" BO_ 2550267955 0;
+BA_ "GenMsgCycleTime" BO_ 2550333491 100;
+BA_ "GenMsgSendType" BO_ 2550333491 0;
+BA_ "GenMsgCycleTime" BO_ 2552365107 1000;
+BA_ "GenMsgSendType" BO_ 2552365107 0;
+BA_ "GenMsgCycleTime" BO_ 2550399027 500;
+BA_ "GenMsgSendType" BO_ 2550399027 0;
+BA_ "GenMsgCycleTime" BO_ 2550464563 500;
+BA_ "GenMsgSendType" BO_ 2550464563 0;
+BA_ "GenMsgCycleTime" BO_ 2550530099 500;
+BA_ "GenMsgSendType" BO_ 2550530099 0;
+BA_ "GenMsgCycleTime" BO_ 2550595635 500;
+BA_ "GenMsgSendType" BO_ 2550595635 0;
+BA_ "GenMsgCycleTime" BO_ 2550661171 500;
+BA_ "GenMsgSendType" BO_ 2550661171 0;
+BA_ "GenMsgCycleTime" BO_ 2550726707 500;
+BA_ "GenMsgSendType" BO_ 2550726707 0;
+BA_ "GenMsgCycleTime" BO_ 2550792243 500;
+BA_ "GenMsgSendType" BO_ 2550792243 0;
+BA_ "GenMsgCycleTime" BO_ 2550857779 500;
+BA_ "GenMsgSendType" BO_ 2550857779 0;
+BA_ "GenMsgCycleTime" BO_ 2550923315 500;
+BA_ "GenMsgSendType" BO_ 2550923315 0;
+BA_ "GenMsgCycleTime" BO_ 2550988851 1000;
+BA_ "GenMsgSendType" BO_ 2550988851 0;
+BA_ "GenMsgCycleTime" BO_ 2552299571 1000;
+BA_ "GenMsgSendType" BO_ 2552299571 0;
+BA_ "GenMsgCycleTime" BO_ 2554396723 1000;
+BA_ "GenMsgSendType" BO_ 2554396723 0;
+BA_ "GenMsgCycleTime" BO_ 2554462259 1000;
+BA_ "GenMsgSendType" BO_ 2554462259 0;
+BA_ "GenMsgCycleTime" BO_ 2554527795 1000;
+BA_ "GenMsgSendType" BO_ 2554527795 0;
+BA_ "GenMsgCycleTime" BO_ 2554593331 1000;
+BA_ "GenMsgSendType" BO_ 2554593331 0;
+BA_ "GenMsgCycleTime" BO_ 2554658867 1000;
+BA_ "GenMsgSendType" BO_ 2554658867 0;
+BA_ "GenMsgCycleTime" BO_ 2554724403 1000;
+BA_ "GenMsgSendType" BO_ 2554724403 0;
+BA_ "GenMsgCycleTime" BO_ 2554789939 1000;
+BA_ "GenMsgSendType" BO_ 2554789939 0;
+BA_ "GenMsgCycleTime" BO_ 2554855475 1000;
+BA_ "GenMsgSendType" BO_ 2554855475 0;
+BA_ "GenMsgCycleTime" BO_ 2554921011 1000;
+BA_ "GenMsgSendType" BO_ 2554921011 0;
+BA_ "GenMsgCycleTime" BO_ 2554986547 1000;
+BA_ "GenMsgSendType" BO_ 2554986547 0;
+BA_ "GenMsgCycleTime" BO_ 2555052083 1000;
+BA_ "GenMsgSendType" BO_ 2555052083 0;
+BA_ "GenMsgCycleTime" BO_ 2555117619 1000;
+BA_ "GenMsgSendType" BO_ 2555117619 0;
+BA_ "GenMsgCycleTime" BO_ 2555183155 1000;
+BA_ "GenMsgSendType" BO_ 2555183155 0;
+BA_ "GenMsgCycleTime" BO_ 2555248691 1000;
+BA_ "GenMsgSendType" BO_ 2555248691 0;
+BA_ "GenMsgCycleTime" BO_ 2555314227 1000;
+BA_ "GenMsgSendType" BO_ 2555314227 0;
+BA_ "GenMsgCycleTime" BO_ 2555379763 1000;
+BA_ "GenMsgSendType" BO_ 2555379763 0;
+BA_ "GenMsgCycleTime" BO_ 2555445299 1000;
+BA_ "GenMsgSendType" BO_ 2555445299 0;
+BA_ "GenMsgCycleTime" BO_ 2555510835 1000;
+BA_ "GenMsgSendType" BO_ 2555510835 0;
+BA_ "GenMsgCycleTime" BO_ 2558525491 1000;
+BA_ "GenMsgSendType" BO_ 2558525491 0;
+BA_ "GenMsgCycleTime" BO_ 2558591027 1000;
+BA_ "GenMsgSendType" BO_ 2558591027 0;
+BA_ "GenMsgCycleTime" BO_ 2558656563 1000;
+BA_ "GenMsgSendType" BO_ 2558656563 0;
+BA_ "GenMsgCycleTime" BO_ 2558722099 1000;
+BA_ "GenMsgSendType" BO_ 2558722099 0;
+BA_ "GenMsgCycleTime" BO_ 2558787635 1000;
+BA_ "GenMsgSendType" BO_ 2558787635 0;
+BA_ "GenMsgCycleTime" BO_ 2558853171 1000;
+BA_ "GenMsgSendType" BO_ 2558853171 0;
+BA_ "GenMsgCycleTime" BO_ 2558918707 1000;
+BA_ "GenMsgSendType" BO_ 2558918707 0;
+BA_ "GenMsgCycleTime" BO_ 2558984243 1000;
+BA_ "GenMsgSendType" BO_ 2558984243 0;
+BA_ "GenMsgCycleTime" BO_ 2559049779 1000;
+BA_ "GenMsgSendType" BO_ 2559049779 0;
+BA_ "GenMsgCycleTime" BO_ 2559115315 1000;
+BA_ "GenMsgSendType" BO_ 2559115315 0;
+BA_ "GenMsgCycleTime" BO_ 2559180851 1000;
+BA_ "GenMsgSendType" BO_ 2559180851 0;
+BA_ "GenMsgCycleTime" BO_ 2559246387 1000;
+BA_ "GenMsgSendType" BO_ 2559246387 0;
+BA_ "GenMsgCycleTime" BO_ 2559311923 1000;
+BA_ "GenMsgSendType" BO_ 2559311923 0;
+BA_ "GenMsgCycleTime" BO_ 2559377459 1000;
+BA_ "GenMsgSendType" BO_ 2559377459 0;
+BA_ "GenMsgCycleTime" BO_ 2559442995 1000;
+BA_ "GenMsgSendType" BO_ 2559442995 0;
+BA_ "GenMsgCycleTime" BO_ 2550202436 10;
+BA_ "GenMsgSendType" BO_ 2550202436 0;
+BA_ "GenMsgCycleTime" BO_ 2550267972 100;
+BA_ "GenMsgSendType" BO_ 2550267972 0;
+BA_ "GenMsgCycleTime" BO_ 2550333508 100;
+BA_ "GenMsgSendType" BO_ 2550333508 0;
+BA_ "GenMsgCycleTime" BO_ 2552365124 1000;
+BA_ "GenMsgSendType" BO_ 2552365124 0;
+BA_ "GenMsgCycleTime" BO_ 2550399044 500;
+BA_ "GenMsgSendType" BO_ 2550399044 0;
+BA_ "GenMsgCycleTime" BO_ 2550464580 500;
+BA_ "GenMsgSendType" BO_ 2550464580 0;
+BA_ "GenMsgCycleTime" BO_ 2550530116 500;
+BA_ "GenMsgSendType" BO_ 2550530116 0;
+BA_ "GenMsgCycleTime" BO_ 2550595652 500;
+BA_ "GenMsgSendType" BO_ 2550595652 0;
+BA_ "GenMsgCycleTime" BO_ 2550661188 500;
+BA_ "GenMsgSendType" BO_ 2550661188 0;
+BA_ "GenMsgCycleTime" BO_ 2550726724 500;
+BA_ "GenMsgSendType" BO_ 2550726724 0;
+BA_ "GenMsgCycleTime" BO_ 2550792260 500;
+BA_ "GenMsgSendType" BO_ 2550792260 0;
+BA_ "GenMsgCycleTime" BO_ 2550857796 500;
+BA_ "GenMsgSendType" BO_ 2550857796 0;
+BA_ "GenMsgCycleTime" BO_ 2550923332 500;
+BA_ "GenMsgSendType" BO_ 2550923332 0;
+BA_ "GenMsgCycleTime" BO_ 2550988868 1000;
+BA_ "GenMsgSendType" BO_ 2550988868 0;
+BA_ "GenMsgCycleTime" BO_ 2552299588 1000;
+BA_ "GenMsgSendType" BO_ 2552299588 0;
+BA_ "GenMsgCycleTime" BO_ 2554396740 1000;
+BA_ "GenMsgSendType" BO_ 2554396740 0;
+BA_ "GenMsgCycleTime" BO_ 2554462276 1000;
+BA_ "GenMsgSendType" BO_ 2554462276 0;
+BA_ "GenMsgCycleTime" BO_ 2554527812 1000;
+BA_ "GenMsgSendType" BO_ 2554527812 0;
+BA_ "GenMsgCycleTime" BO_ 2554593348 1000;
+BA_ "GenMsgSendType" BO_ 2554593348 0;
+BA_ "GenMsgCycleTime" BO_ 2554658884 1000;
+BA_ "GenMsgSendType" BO_ 2554658884 0;
+BA_ "GenMsgCycleTime" BO_ 2554724420 1000;
+BA_ "GenMsgSendType" BO_ 2554724420 0;
+BA_ "GenMsgCycleTime" BO_ 2554789956 1000;
+BA_ "GenMsgSendType" BO_ 2554789956 0;
+BA_ "GenMsgCycleTime" BO_ 2554855492 1000;
+BA_ "GenMsgSendType" BO_ 2554855492 0;
+BA_ "GenMsgCycleTime" BO_ 2554921028 1000;
+BA_ "GenMsgSendType" BO_ 2554921028 0;
+BA_ "GenMsgCycleTime" BO_ 2554986564 1000;
+BA_ "GenMsgSendType" BO_ 2554986564 0;
+BA_ "GenMsgCycleTime" BO_ 2555052100 1000;
+BA_ "GenMsgSendType" BO_ 2555052100 0;
+BA_ "GenMsgCycleTime" BO_ 2555117636 1000;
+BA_ "GenMsgSendType" BO_ 2555117636 0;
+BA_ "GenMsgCycleTime" BO_ 2555183172 1000;
+BA_ "GenMsgSendType" BO_ 2555183172 0;
+BA_ "GenMsgCycleTime" BO_ 2555248708 1000;
+BA_ "GenMsgSendType" BO_ 2555248708 0;
+BA_ "GenMsgCycleTime" BO_ 2555314244 1000;
+BA_ "GenMsgSendType" BO_ 2555314244 0;
+BA_ "GenMsgCycleTime" BO_ 2555379780 1000;
+BA_ "GenMsgSendType" BO_ 2555379780 0;
+BA_ "GenMsgCycleTime" BO_ 2555445316 1000;
+BA_ "GenMsgSendType" BO_ 2555445316 0;
+BA_ "GenMsgCycleTime" BO_ 2555510852 1000;
+BA_ "GenMsgSendType" BO_ 2555510852 0;
+BA_ "GenMsgCycleTime" BO_ 2558525508 1000;
+BA_ "GenMsgSendType" BO_ 2558525508 0;
+BA_ "GenMsgCycleTime" BO_ 2558591044 1000;
+BA_ "GenMsgSendType" BO_ 2558591044 0;
+BA_ "GenMsgCycleTime" BO_ 2558656580 1000;
+BA_ "GenMsgSendType" BO_ 2558656580 0;
+BA_ "GenMsgCycleTime" BO_ 2558722116 1000;
+BA_ "GenMsgSendType" BO_ 2558722116 0;
+BA_ "GenMsgCycleTime" BO_ 2558787652 1000;
+BA_ "GenMsgSendType" BO_ 2558787652 0;
+BA_ "GenMsgCycleTime" BO_ 2558853188 1000;
+BA_ "GenMsgSendType" BO_ 2558853188 0;
+BA_ "GenMsgCycleTime" BO_ 2558918724 1000;
+BA_ "GenMsgSendType" BO_ 2558918724 0;
+BA_ "GenMsgCycleTime" BO_ 2558984260 1000;
+BA_ "GenMsgSendType" BO_ 2558984260 0;
+BA_ "GenMsgCycleTime" BO_ 2559049796 1000;
+BA_ "GenMsgSendType" BO_ 2559049796 0;
+BA_ "GenMsgCycleTime" BO_ 2559115332 1000;
+BA_ "GenMsgSendType" BO_ 2559115332 0;
+BA_ "GenMsgCycleTime" BO_ 2559180868 1000;
+BA_ "GenMsgSendType" BO_ 2559180868 0;
+BA_ "GenMsgCycleTime" BO_ 2559246404 1000;
+BA_ "GenMsgSendType" BO_ 2559246404 0;
+BA_ "GenMsgCycleTime" BO_ 2559311940 1000;
+BA_ "GenMsgSendType" BO_ 2559311940 0;
+BA_ "GenMsgCycleTime" BO_ 2559377476 1000;
+BA_ "GenMsgSendType" BO_ 2559377476 0;
+BA_ "GenMsgCycleTime" BO_ 2559443012 1000;
+BA_ "GenMsgSendType" BO_ 2559443012 0;
+VAL_ 2415984641 FMCPriorStat 01 "Main" 00 "Backup" ;
+VAL_ 2415984641 PlaneLocInfo 01 "In the Air" 00 "On the Ground" ;
+VAL_ 2415984641 Bat1HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat2HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat3HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984641 Bat4HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 FMCPriorStat 01 "Main" 00 "Backup" ;
+VAL_ 2415984642 PlaneLocInfo 01 "In the Air" 00 "On the Ground" ;
+VAL_ 2415984642 Bat1HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat2HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat3HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2415984642 Bat4HVPwrUpRqst 02 "PowerDown" 01 "Power Up" 00 "Idle" ;
+VAL_ 2550202385 P1_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202385 P1_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202385 P1_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202385 P1_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202385 P1_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202385 P1_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202385 P1_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550398993 P1_BMSKL15ON 01 "On" 00 "Off" ;
+VAL_ 2550530065 P1_PackDschrgPwrStat 02 "鎸佺画鏀剧數鍔熺巼" 01 "30s鏀剧數鍔熺巼" 00 "10s鏀剧數鍔熺巼" ;
+VAL_ 2550530065 P1_PackChrgPwrStat 02 "鎸佺画鍏呯數鍔熺巼" 01 "30s鍏呯數鍔熺巼" 00 "10s鍏呯數鍔熺巼" ;
+VAL_ 2550595601 P1_ChrgrCplrStat 01 "Connected" 00 "Disconnected" ;
+VAL_ 2550595601 P1_HVBattChrgSysStatus 04 "Aborted" 03 "Complete" 02 "Active" 01 "Initialization" 00 "Default" ;
+VAL_ 2550857745 P1_CellOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellVoltageDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellOverTemp 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellTempLow 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellTempDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackDschrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackChrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackCrnSnsr1OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_HVIsolFlt 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857745 P1_HVILFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_ThrmlRunaway 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellVoltInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CellTempInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_DaisyChainComFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackVoltRatFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CrntSnsr1Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CrntSnsr1OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CrntSnsr2Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_CrntSnsr2OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_PackCrnSnsr2OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_OutofEnergy 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_IsolDetCircErr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_HVILCircShortToGND 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857745 P1_HVILCircShortToPwr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainPosCntctrStkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainPosCntctrStkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainNegCntctr1StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainNegCntctr1StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainNegCntctr2StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_MainNegCntctr2StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_PrechargTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_PrechrgCrntHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_ChrgCplrPosTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_ChrgCplrNegTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_BMSPwrSuplVlt1Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_BMSPwrSuplVlt1Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_BMSPwrSuplVlt2Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_BMSPwrSuplVlt2Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CntctrCirPwrSuplVltLo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CntctrCirPwrSuplVltHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CAN1BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CAN1BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CAN2BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CAN2BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CellBalCircTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_ClntInTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_ClntOutTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CellExtrmUdrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_CellExtrmOvrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_Branch1DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_Branch2DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_Branch1ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_Branch2ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923281 P1_InitFailed 01 "Fault" 00 "No Fault" ;
+VAL_ 2554396689 P1_BalSwCell1 01 "Active" 00 "Inactive" ;
+VAL_ 2554396689 P1_BalSwCell2 01 "Active" 00 "Inactive" ;
+VAL_ 2554396689 P1_BalSwCell3 01 "Active" 00 "Inactive" ;
+VAL_ 2554396689 P1_BalSwCell4 01 "Active" 00 "Inactive" ;
+VAL_ 2554462225 P1_BalSwCell5 01 "Active" 00 "Inactive" ;
+VAL_ 2554462225 P1_BalSwCell6 01 "Active" 00 "Inactive" ;
+VAL_ 2554462225 P1_BalSwCell7 01 "Active" 00 "Inactive" ;
+VAL_ 2554462225 P1_BalSwCell8 01 "Active" 00 "Inactive" ;
+VAL_ 2554527761 P1_BalSwCell9 01 "Active" 00 "Inactive" ;
+VAL_ 2554527761 P1_BalSwCell10 01 "Active" 00 "Inactive" ;
+VAL_ 2554527761 P1_BalSwCell11 01 "Active" 00 "Inactive" ;
+VAL_ 2554527761 P1_BalSwCell12 01 "Active" 00 "Inactive" ;
+VAL_ 2554593297 P1_BalSwCell13 01 "Active" 00 "Inactive" ;
+VAL_ 2554593297 P1_BalSwCell14 01 "Active" 00 "Inactive" ;
+VAL_ 2554593297 P1_BalSwCell15 01 "Active" 00 "Inactive" ;
+VAL_ 2554593297 P1_BalSwCell16 01 "Active" 00 "Inactive" ;
+VAL_ 2554658833 P1_BalSwCell17 01 "Active" 00 "Inactive" ;
+VAL_ 2554658833 P1_BalSwCell18 01 "Active" 00 "Inactive" ;
+VAL_ 2554658833 P1_BalSwCell19 01 "Active" 00 "Inactive" ;
+VAL_ 2554658833 P1_BalSwCell20 01 "Active" 00 "Inactive" ;
+VAL_ 2554724369 P1_BalSwCell21 01 "Active" 00 "Inactive" ;
+VAL_ 2554724369 P1_BalSwCell22 01 "Active" 00 "Inactive" ;
+VAL_ 2554724369 P1_BalSwCell23 01 "Active" 00 "Inactive" ;
+VAL_ 2554724369 P1_BalSwCell24 01 "Active" 00 "Inactive" ;
+VAL_ 2554789905 P1_BalSwCell25 01 "Active" 00 "Inactive" ;
+VAL_ 2554789905 P1_BalSwCell26 01 "Active" 00 "Inactive" ;
+VAL_ 2554789905 P1_BalSwCell27 01 "Active" 00 "Inactive" ;
+VAL_ 2554789905 P1_BalSwCell28 01 "Active" 00 "Inactive" ;
+VAL_ 2554855441 P1_BalSwCell29 01 "Active" 00 "Inactive" ;
+VAL_ 2554855441 P1_BalSwCell30 01 "Active" 00 "Inactive" ;
+VAL_ 2554855441 P1_BalSwCell31 01 "Active" 00 "Inactive" ;
+VAL_ 2554855441 P1_BalSwCell32 01 "Active" 00 "Inactive" ;
+VAL_ 2550202402 P2_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202402 P2_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202402 P2_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202402 P2_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202402 P2_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202402 P2_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202402 P2_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550399010 P2_BMSKL15ON 01 "On" 00 "Off" ;
+VAL_ 2550530082 P2_PackDschrgPwrStat 02 "鎸佺画鏀剧數鍔熺巼" 01 "30s鏀剧數鍔熺巼" 00 "10s鏀剧數鍔熺巼" ;
+VAL_ 2550530082 P2_PackChrgPwrStat 02 "鎸佺画鍏呯數鍔熺巼" 01 "30s鍏呯數鍔熺巼" 00 "10s鍏呯數鍔熺巼" ;
+VAL_ 2550595618 P2_ChrgrCplrStat 01 "Connected" 00 "Disconnected" ;
+VAL_ 2550595618 P2_HVBattChrgSysStatus 04 "Aborted" 03 "Complete" 02 "Active" 01 "Initialization" 00 "Default" ;
+VAL_ 2550857762 P2_CellOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellVoltageDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellOverTemp 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellTempLow 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellTempDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackDschrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackChrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackCrnSnsr1OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_HVIsolFlt 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857762 P2_HVILFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_ThrmlRunaway 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellVoltInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CellTempInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_DaisyChainComFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackVoltRatFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CrntSnsr1Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CrntSnsr1OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CrntSnsr2Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_CrntSnsr2OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_PackCrnSnsr2OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_OutofEnergy 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_IsolDetCircErr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_HVILCircShortToGND 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857762 P2_HVILCircShortToPwr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainPosCntctrStkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainPosCntctrStkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainNegCntctr1StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainNegCntctr1StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainNegCntctr2StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_MainNegCntctr2StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_PrechargTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_PrechrgCrntHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_ChrgCplrPosTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_ChrgCplrNegTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_BMSPwrSuplVlt1Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_BMSPwrSuplVlt1Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_BMSPwrSuplVlt2Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_BMSPwrSuplVlt2Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CntctrCirPwrSuplVltLo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CntctrCirPwrSuplVltHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CAN1BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CAN1BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CAN2BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CAN2BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CellBalCircTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_ClntInTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_ClntOutTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CellExtrmUdrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_CellExtrmOvrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_Branch1DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_Branch2DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_Branch1ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_Branch2ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923298 P2_InitFailed 01 "Fault" 00 "No Fault" ;
+VAL_ 2554396706 P2_BalSwCell1 01 "Active" 00 "Inactive" ;
+VAL_ 2554396706 P2_BalSwCell2 01 "Active" 00 "Inactive" ;
+VAL_ 2554396706 P2_BalSwCell3 01 "Active" 00 "Inactive" ;
+VAL_ 2554396706 P2_BalSwCell4 01 "Active" 00 "Inactive" ;
+VAL_ 2554462242 P2_BalSwCell5 01 "Active" 00 "Inactive" ;
+VAL_ 2554462242 P2_BalSwCell6 01 "Active" 00 "Inactive" ;
+VAL_ 2554462242 P2_BalSwCell7 01 "Active" 00 "Inactive" ;
+VAL_ 2554462242 P2_BalSwCell8 01 "Active" 00 "Inactive" ;
+VAL_ 2554527778 P2_BalSwCell9 01 "Active" 00 "Inactive" ;
+VAL_ 2554527778 P2_BalSwCell10 01 "Active" 00 "Inactive" ;
+VAL_ 2554527778 P2_BalSwCell11 01 "Active" 00 "Inactive" ;
+VAL_ 2554527778 P2_BalSwCell12 01 "Active" 00 "Inactive" ;
+VAL_ 2554593314 P2_BalSwCell13 01 "Active" 00 "Inactive" ;
+VAL_ 2554593314 P2_BalSwCell14 01 "Active" 00 "Inactive" ;
+VAL_ 2554593314 P2_BalSwCell15 01 "Active" 00 "Inactive" ;
+VAL_ 2554593314 P2_BalSwCell16 01 "Active" 00 "Inactive" ;
+VAL_ 2554658850 P2_BalSwCell17 01 "Active" 00 "Inactive" ;
+VAL_ 2554658850 P2_BalSwCell18 01 "Active" 00 "Inactive" ;
+VAL_ 2554658850 P2_BalSwCell19 01 "Active" 00 "Inactive" ;
+VAL_ 2554658850 P2_BalSwCell20 01 "Active" 00 "Inactive" ;
+VAL_ 2554724386 P2_BalSwCell21 01 "Active" 00 "Inactive" ;
+VAL_ 2554724386 P2_BalSwCell22 01 "Active" 00 "Inactive" ;
+VAL_ 2554724386 P2_BalSwCell23 01 "Active" 00 "Inactive" ;
+VAL_ 2554724386 P2_BalSwCell24 01 "Active" 00 "Inactive" ;
+VAL_ 2554789922 P2_BalSwCell25 01 "Active" 00 "Inactive" ;
+VAL_ 2554789922 P2_BalSwCell26 01 "Active" 00 "Inactive" ;
+VAL_ 2554789922 P2_BalSwCell27 01 "Active" 00 "Inactive" ;
+VAL_ 2554789922 P2_BalSwCell28 01 "Active" 00 "Inactive" ;
+VAL_ 2554855458 P2_BalSwCell29 01 "Active" 00 "Inactive" ;
+VAL_ 2554855458 P2_BalSwCell30 01 "Active" 00 "Inactive" ;
+VAL_ 2554855458 P2_BalSwCell31 01 "Active" 00 "Inactive" ;
+VAL_ 2554855458 P2_BalSwCell32 01 "Active" 00 "Inactive" ;
+VAL_ 2554920994 P2_BalSwCell33 01 "Active" 00 "Inactive" ;
+VAL_ 2554920994 P2_BalSwCell34 01 "Active" 00 "Inactive" ;
+VAL_ 2554920994 P2_BalSwCell35 01 "Active" 00 "Inactive" ;
+VAL_ 2554920994 P2_BalSwCell36 01 "Active" 00 "Inactive" ;
+VAL_ 2554986530 P2_BalSwCell37 01 "Active" 00 "Inactive" ;
+VAL_ 2554986530 P2_BalSwCell38 01 "Active" 00 "Inactive" ;
+VAL_ 2554986530 P2_BalSwCell39 01 "Active" 00 "Inactive" ;
+VAL_ 2554986530 P2_BalSwCell40 01 "Active" 00 "Inactive" ;
+VAL_ 2555052066 P2_BalSwCell41 01 "Active" 00 "Inactive" ;
+VAL_ 2555052066 P2_BalSwCell42 01 "Active" 00 "Inactive" ;
+VAL_ 2555052066 P2_BalSwCell43 01 "Active" 00 "Inactive" ;
+VAL_ 2555052066 P2_BalSwCell44 01 "Active" 00 "Inactive" ;
+VAL_ 2555117602 P2_BalSwCell45 01 "Active" 00 "Inactive" ;
+VAL_ 2555117602 P2_BalSwCell46 01 "Active" 00 "Inactive" ;
+VAL_ 2555117602 P2_BalSwCell47 01 "Active" 00 "Inactive" ;
+VAL_ 2555117602 P2_BalSwCell48 01 "Active" 00 "Inactive" ;
+VAL_ 2555183138 P2_BalSwCell49 01 "Active" 00 "Inactive" ;
+VAL_ 2555183138 P2_BalSwCell50 01 "Active" 00 "Inactive" ;
+VAL_ 2555183138 P2_BalSwCell51 01 "Active" 00 "Inactive" ;
+VAL_ 2555183138 P2_BalSwCell52 01 "Active" 00 "Inactive" ;
+VAL_ 2555248674 P2_BalSwCell53 01 "Active" 00 "Inactive" ;
+VAL_ 2555248674 P2_BalSwCell54 01 "Active" 00 "Inactive" ;
+VAL_ 2555248674 P2_BalSwCell55 01 "Active" 00 "Inactive" ;
+VAL_ 2555248674 P2_BalSwCell56 01 "Active" 00 "Inactive" ;
+VAL_ 2555314210 P2_BalSwCell57 01 "Active" 00 "Inactive" ;
+VAL_ 2555314210 P2_BalSwCell58 01 "Active" 00 "Inactive" ;
+VAL_ 2555314210 P2_BalSwCell59 01 "Active" 00 "Inactive" ;
+VAL_ 2555314210 P2_BalSwCell60 01 "Active" 00 "Inactive" ;
+VAL_ 2555379746 P2_BalSwCell61 01 "Active" 00 "Inactive" ;
+VAL_ 2555379746 P2_BalSwCell62 01 "Active" 00 "Inactive" ;
+VAL_ 2555379746 P2_BalSwCell63 01 "Active" 00 "Inactive" ;
+VAL_ 2555379746 P2_BalSwCell64 01 "Active" 00 "Inactive" ;
+VAL_ 2555445282 P2_BalSwCell65 01 "Active" 00 "Inactive" ;
+VAL_ 2555445282 P2_BalSwCell66 01 "Active" 00 "Inactive" ;
+VAL_ 2555445282 P2_BalSwCell67 01 "Active" 00 "Inactive" ;
+VAL_ 2555445282 P2_BalSwCell68 01 "Active" 00 "Inactive" ;
+VAL_ 2555510818 P2_BalSwCell69 01 "Active" 00 "Inactive" ;
+VAL_ 2555510818 P2_BalSwCell70 01 "Active" 00 "Inactive" ;
+VAL_ 2555510818 P2_BalSwCell71 01 "Active" 00 "Inactive" ;
+VAL_ 2555510818 P2_BalSwCell72 01 "Active" 00 "Inactive" ;
+VAL_ 2550202419 P3_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202419 P3_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202419 P3_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202419 P3_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202419 P3_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202419 P3_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202419 P3_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550399027 P3_BMSKL15ON 01 "On" 00 "Off" ;
+VAL_ 2550530099 P3_PackDschrgPwrStat 02 "鎸佺画鏀剧數鍔熺巼" 01 "30s鏀剧數鍔熺巼" 00 "10s鏀剧數鍔熺巼" ;
+VAL_ 2550530099 P3_PackChrgPwrStat 02 "鎸佺画鍏呯數鍔熺巼" 01 "30s鍏呯數鍔熺巼" 00 "10s鍏呯數鍔熺巼" ;
+VAL_ 2550595635 P3_ChrgrCplrStat 01 "Connected" 00 "Disconnected" ;
+VAL_ 2550595635 P3_HVBattChrgSysStatus 04 "Aborted" 03 "Complete" 02 "Active" 01 "Initialization" 00 "Default" ;
+VAL_ 2550857779 P3_CellOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellVoltageDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellOverTemp 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellTempLow 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellTempDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackDschrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackChrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackCrnSnsr1OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_HVIsolFlt 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857779 P3_HVILFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_ThrmlRunaway 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellVoltInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CellTempInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_DaisyChainComFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackVoltRatFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CrntSnsr1Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CrntSnsr1OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CrntSnsr2Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_CrntSnsr2OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_PackCrnSnsr2OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_OutofEnergy 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_IsolDetCircErr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_HVILCircShortToGND 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857779 P3_HVILCircShortToPwr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainPosCntctrStkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainPosCntctrStkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainNegCntctr1StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainNegCntctr1StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainNegCntctr2StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_MainNegCntctr2StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_PrechargTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_PrechrgCrntHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_ChrgCplrPosTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_ChrgCplrNegTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_BMSPwrSuplVlt1Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_BMSPwrSuplVlt1Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_BMSPwrSuplVlt2Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_BMSPwrSuplVlt2Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CntctrCirPwrSuplVltLo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CntctrCirPwrSuplVltHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CAN1BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CAN1BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CAN2BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CAN2BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CellBalCircTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_ClntInTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_ClntOutTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CellExtrmUdrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_CellExtrmOvrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_Branch1DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_Branch2DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_Branch1ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_Branch2ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923315 P3_InitFailed 01 "Fault" 00 "No Fault" ;
+VAL_ 2554396723 P3_BalSwCell1 01 "Active" 00 "Inactive" ;
+VAL_ 2554396723 P3_BalSwCell2 01 "Active" 00 "Inactive" ;
+VAL_ 2554396723 P3_BalSwCell3 01 "Active" 00 "Inactive" ;
+VAL_ 2554396723 P3_BalSwCell4 01 "Active" 00 "Inactive" ;
+VAL_ 2554462259 P3_BalSwCell5 01 "Active" 00 "Inactive" ;
+VAL_ 2554462259 P3_BalSwCell6 01 "Active" 00 "Inactive" ;
+VAL_ 2554462259 P3_BalSwCell7 01 "Active" 00 "Inactive" ;
+VAL_ 2554462259 P3_BalSwCell8 01 "Active" 00 "Inactive" ;
+VAL_ 2554527795 P3_BalSwCell9 01 "Active" 00 "Inactive" ;
+VAL_ 2554527795 P3_BalSwCell10 01 "Active" 00 "Inactive" ;
+VAL_ 2554527795 P3_BalSwCell11 01 "Active" 00 "Inactive" ;
+VAL_ 2554527795 P3_BalSwCell12 01 "Active" 00 "Inactive" ;
+VAL_ 2554593331 P3_BalSwCell13 01 "Active" 00 "Inactive" ;
+VAL_ 2554593331 P3_BalSwCell14 01 "Active" 00 "Inactive" ;
+VAL_ 2554593331 P3_BalSwCell15 01 "Active" 00 "Inactive" ;
+VAL_ 2554593331 P3_BalSwCell16 01 "Active" 00 "Inactive" ;
+VAL_ 2554658867 P3_BalSwCell17 01 "Active" 00 "Inactive" ;
+VAL_ 2554658867 P3_BalSwCell18 01 "Active" 00 "Inactive" ;
+VAL_ 2554658867 P3_BalSwCell19 01 "Active" 00 "Inactive" ;
+VAL_ 2554658867 P3_BalSwCell20 01 "Active" 00 "Inactive" ;
+VAL_ 2554724403 P3_BalSwCell21 01 "Active" 00 "Inactive" ;
+VAL_ 2554724403 P3_BalSwCell22 01 "Active" 00 "Inactive" ;
+VAL_ 2554724403 P3_BalSwCell23 01 "Active" 00 "Inactive" ;
+VAL_ 2554724403 P3_BalSwCell24 01 "Active" 00 "Inactive" ;
+VAL_ 2554789939 P3_BalSwCell25 01 "Active" 00 "Inactive" ;
+VAL_ 2554789939 P3_BalSwCell26 01 "Active" 00 "Inactive" ;
+VAL_ 2554789939 P3_BalSwCell27 01 "Active" 00 "Inactive" ;
+VAL_ 2554789939 P3_BalSwCell28 01 "Active" 00 "Inactive" ;
+VAL_ 2554855475 P3_BalSwCell29 01 "Active" 00 "Inactive" ;
+VAL_ 2554855475 P3_BalSwCell30 01 "Active" 00 "Inactive" ;
+VAL_ 2554855475 P3_BalSwCell31 01 "Active" 00 "Inactive" ;
+VAL_ 2554855475 P3_BalSwCell32 01 "Active" 00 "Inactive" ;
+VAL_ 2554921011 P3_BalSwCell33 01 "Active" 00 "Inactive" ;
+VAL_ 2554921011 P3_BalSwCell34 01 "Active" 00 "Inactive" ;
+VAL_ 2554921011 P3_BalSwCell35 01 "Active" 00 "Inactive" ;
+VAL_ 2554921011 P3_BalSwCell36 01 "Active" 00 "Inactive" ;
+VAL_ 2554986547 P3_BalSwCell37 01 "Active" 00 "Inactive" ;
+VAL_ 2554986547 P3_BalSwCell38 01 "Active" 00 "Inactive" ;
+VAL_ 2554986547 P3_BalSwCell39 01 "Active" 00 "Inactive" ;
+VAL_ 2554986547 P3_BalSwCell40 01 "Active" 00 "Inactive" ;
+VAL_ 2555052083 P3_BalSwCell41 01 "Active" 00 "Inactive" ;
+VAL_ 2555052083 P3_BalSwCell42 01 "Active" 00 "Inactive" ;
+VAL_ 2555052083 P3_BalSwCell43 01 "Active" 00 "Inactive" ;
+VAL_ 2555052083 P3_BalSwCell44 01 "Active" 00 "Inactive" ;
+VAL_ 2555117619 P3_BalSwCell45 01 "Active" 00 "Inactive" ;
+VAL_ 2555117619 P3_BalSwCell46 01 "Active" 00 "Inactive" ;
+VAL_ 2555117619 P3_BalSwCell47 01 "Active" 00 "Inactive" ;
+VAL_ 2555117619 P3_BalSwCell48 01 "Active" 00 "Inactive" ;
+VAL_ 2555183155 P3_BalSwCell49 01 "Active" 00 "Inactive" ;
+VAL_ 2555183155 P3_BalSwCell50 01 "Active" 00 "Inactive" ;
+VAL_ 2555183155 P3_BalSwCell51 01 "Active" 00 "Inactive" ;
+VAL_ 2555183155 P3_BalSwCell52 01 "Active" 00 "Inactive" ;
+VAL_ 2555248691 P3_BalSwCell53 01 "Active" 00 "Inactive" ;
+VAL_ 2555248691 P3_BalSwCell54 01 "Active" 00 "Inactive" ;
+VAL_ 2555248691 P3_BalSwCell55 01 "Active" 00 "Inactive" ;
+VAL_ 2555248691 P3_BalSwCell56 01 "Active" 00 "Inactive" ;
+VAL_ 2555314227 P3_BalSwCell57 01 "Active" 00 "Inactive" ;
+VAL_ 2555314227 P3_BalSwCell58 01 "Active" 00 "Inactive" ;
+VAL_ 2555314227 P3_BalSwCell59 01 "Active" 00 "Inactive" ;
+VAL_ 2555314227 P3_BalSwCell60 01 "Active" 00 "Inactive" ;
+VAL_ 2555379763 P3_BalSwCell61 01 "Active" 00 "Inactive" ;
+VAL_ 2555379763 P3_BalSwCell62 01 "Active" 00 "Inactive" ;
+VAL_ 2555379763 P3_BalSwCell63 01 "Active" 00 "Inactive" ;
+VAL_ 2555379763 P3_BalSwCell64 01 "Active" 00 "Inactive" ;
+VAL_ 2555445299 P3_BalSwCell65 01 "Active" 00 "Inactive" ;
+VAL_ 2555445299 P3_BalSwCell66 01 "Active" 00 "Inactive" ;
+VAL_ 2555445299 P3_BalSwCell67 01 "Active" 00 "Inactive" ;
+VAL_ 2555445299 P3_BalSwCell68 01 "Active" 00 "Inactive" ;
+VAL_ 2555510835 P3_BalSwCell69 01 "Active" 00 "Inactive" ;
+VAL_ 2555510835 P3_BalSwCell70 01 "Active" 00 "Inactive" ;
+VAL_ 2555510835 P3_BalSwCell71 01 "Active" 00 "Inactive" ;
+VAL_ 2555510835 P3_BalSwCell72 01 "Active" 00 "Inactive" ;
+VAL_ 2550202436 P4_BMS_Stat 08 "Error" 07 "PostRun" 06 "Maintain" 05 "Reserve" 04 "DC_Charge" 03 "Drive" 02 "Standby" 01 "Init" 00 "Sleep" ;
+VAL_ 2550202436 P4_MainCntctrStat 14 "CloseDCChrg(for 28V)" 13 "OpenDCChrg(for 28V)" 12 "ChrgHVOn(for 28V)" 11 "Reserve" 10 "Circuit2HVon" 09 "Reserve" 08 "Circuit1HVon" 07 "OpenMainNeg" 06 "OpenMainPos" 05 "HVon" 04 "CloseMainPos" 03 "PreCharging" 02 "CloseMainNeg" 01 "AllOpen" 00 "Init" ;
+VAL_ 2550202436 P4_PackFltLvl 05 "Fault Level 5" 04 "Fault Level 4" 03 "Fault Level 3" 02 "Fault Level 2" 01 "Fault Level 1" 00 "No Fault" ;
+VAL_ 2550202436 P4_BatThrmlReqStat 03 "cooling Request" 02 "Heating Request" 01 "coolant flow" 00 "Idle" ;
+VAL_ 2550202436 P4_HVSysIsolDetStat 01 "Enabled" 00 "Disabled" ;
+VAL_ 2550202436 P4_NegCntctr1ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_NegCntctr2ClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_PosCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550202436 P4_PreCntctrClsdCmnd 01 "Close" 00 "Open" ;
+VAL_ 2550399044 P4_BMSKL15ON 01 "On" 00 "Off" ;
+VAL_ 2550530116 P4_PackDschrgPwrStat 02 "鎸佺画鏀剧數鍔熺巼" 01 "30s鏀剧數鍔熺巼" 00 "10s鏀剧數鍔熺巼" ;
+VAL_ 2550530116 P4_PackChrgPwrStat 02 "鎸佺画鍏呯數鍔熺巼" 01 "30s鍏呯數鍔熺巼" 00 "10s鍏呯數鍔熺巼" ;
+VAL_ 2550595652 P4_ChrgrCplrStat 01 "Connected" 00 "Disconnected" ;
+VAL_ 2550595652 P4_HVBattChrgSysStatus 04 "Aborted" 03 "Complete" 02 "Active" 01 "Initialization" 00 "Default" ;
+VAL_ 2550857796 P4_CellOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellVoltageDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackOverVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackUnderVoltage 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellOverTemp 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellTempLow 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellTempDiffHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackDschrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackChrgCrntHi 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackCrnSnsr1OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_HVIsolFlt 03 "Level 3" 02 "Level 2" 01 "Level 1" 00 "No Fault" ;
+VAL_ 2550857796 P4_HVILFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_ThrmlRunaway 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellVoltInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CellTempInvalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_DaisyChainComFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackVoltRatFlt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CrntSnsr1Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CrntSnsr1OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CrntSnsr2Invalid 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_CrntSnsr2OOR 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_PackCrnSnsr2OffsetHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_OutofEnergy 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_IsolDetCircErr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_HVILCircShortToGND 01 "Fault" 00 "No Fault" ;
+VAL_ 2550857796 P4_HVILCircShortToPwr 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainPosCntctrStkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainPosCntctrStkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainNegCntctr1StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainNegCntctr1StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainNegCntctr2StkClsd 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_MainNegCntctr2StkOpn 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_PrechargTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_PrechrgCrntHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_ChrgCplrPosTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_ChrgCplrNegTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_BMSPwrSuplVlt1Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_BMSPwrSuplVlt1Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_BMSPwrSuplVlt2Hi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_BMSPwrSuplVlt2Lo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CntctrCirPwrSuplVltLo 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CntctrCirPwrSuplVltHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CAN1BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CAN1BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CAN2BusOff 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CAN2BusTmOut 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CellBalCircTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_ClntInTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_ClntOutTempHi 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CellExtrmUdrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_CellExtrmOvrVolt 01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_Branch1DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_Branch2DischrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_Branch1ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_Branch2ChrgCrntHi  01 "Fault" 00 "No Fault" ;
+VAL_ 2550923332 P4_InitFailed 01 "Fault" 00 "No Fault" ;
+VAL_ 2554396740 P4_BalSwCell1 01 "Active" 00 "Inactive" ;
+VAL_ 2554396740 P4_BalSwCell2 01 "Active" 00 "Inactive" ;
+VAL_ 2554396740 P4_BalSwCell3 01 "Active" 00 "Inactive" ;
+VAL_ 2554396740 P4_BalSwCell4 01 "Active" 00 "Inactive" ;
+VAL_ 2554462276 P4_BalSwCell5 01 "Active" 00 "Inactive" ;
+VAL_ 2554462276 P4_BalSwCell6 01 "Active" 00 "Inactive" ;
+VAL_ 2554462276 P4_BalSwCell7 01 "Active" 00 "Inactive" ;
+VAL_ 2554462276 P4_BalSwCell8 01 "Active" 00 "Inactive" ;
+VAL_ 2554527812 P4_BalSwCell9 01 "Active" 00 "Inactive" ;
+VAL_ 2554527812 P4_BalSwCell10 01 "Active" 00 "Inactive" ;
+VAL_ 2554527812 P4_BalSwCell11 01 "Active" 00 "Inactive" ;
+VAL_ 2554527812 P4_BalSwCell12 01 "Active" 00 "Inactive" ;
+VAL_ 2554593348 P4_BalSwCell13 01 "Active" 00 "Inactive" ;
+VAL_ 2554593348 P4_BalSwCell14 01 "Active" 00 "Inactive" ;
+VAL_ 2554593348 P4_BalSwCell15 01 "Active" 00 "Inactive" ;
+VAL_ 2554593348 P4_BalSwCell16 01 "Active" 00 "Inactive" ;
+VAL_ 2554658884 P4_BalSwCell17 01 "Active" 00 "Inactive" ;
+VAL_ 2554658884 P4_BalSwCell18 01 "Active" 00 "Inactive" ;
+VAL_ 2554658884 P4_BalSwCell19 01 "Active" 00 "Inactive" ;
+VAL_ 2554658884 P4_BalSwCell20 01 "Active" 00 "Inactive" ;
+VAL_ 2554724420 P4_BalSwCell21 01 "Active" 00 "Inactive" ;
+VAL_ 2554724420 P4_BalSwCell22 01 "Active" 00 "Inactive" ;
+VAL_ 2554724420 P4_BalSwCell23 01 "Active" 00 "Inactive" ;
+VAL_ 2554724420 P4_BalSwCell24 01 "Active" 00 "Inactive" ;
+VAL_ 2554789956 P4_BalSwCell25 01 "Active" 00 "Inactive" ;
+VAL_ 2554789956 P4_BalSwCell26 01 "Active" 00 "Inactive" ;
+VAL_ 2554789956 P4_BalSwCell27 01 "Active" 00 "Inactive" ;
+VAL_ 2554789956 P4_BalSwCell28 01 "Active" 00 "Inactive" ;
+VAL_ 2554855492 P4_BalSwCell29 01 "Active" 00 "Inactive" ;
+VAL_ 2554855492 P4_BalSwCell30 01 "Active" 00 "Inactive" ;
+VAL_ 2554855492 P4_BalSwCell31 01 "Active" 00 "Inactive" ;
+VAL_ 2554855492 P4_BalSwCell32 01 "Active" 00 "Inactive" ;
+VAL_ 2554921028 P4_BalSwCell33 01 "Active" 00 "Inactive" ;
+VAL_ 2554921028 P4_BalSwCell34 01 "Active" 00 "Inactive" ;
+VAL_ 2554921028 P4_BalSwCell35 01 "Active" 00 "Inactive" ;
+VAL_ 2554921028 P4_BalSwCell36 01 "Active" 00 "Inactive" ;
+VAL_ 2554986564 P4_BalSwCell37 01 "Active" 00 "Inactive" ;
+VAL_ 2554986564 P4_BalSwCell38 01 "Active" 00 "Inactive" ;
+VAL_ 2554986564 P4_BalSwCell39 01 "Active" 00 "Inactive" ;
+VAL_ 2554986564 P4_BalSwCell40 01 "Active" 00 "Inactive" ;
+VAL_ 2555052100 P4_BalSwCell41 01 "Active" 00 "Inactive" ;
+VAL_ 2555052100 P4_BalSwCell42 01 "Active" 00 "Inactive" ;
+VAL_ 2555052100 P4_BalSwCell43 01 "Active" 00 "Inactive" ;
+VAL_ 2555052100 P4_BalSwCell44 01 "Active" 00 "Inactive" ;
+VAL_ 2555117636 P4_BalSwCell45 01 "Active" 00 "Inactive" ;
+VAL_ 2555117636 P4_BalSwCell46 01 "Active" 00 "Inactive" ;
+VAL_ 2555117636 P4_BalSwCell47 01 "Active" 00 "Inactive" ;
+VAL_ 2555117636 P4_BalSwCell48 01 "Active" 00 "Inactive" ;
+VAL_ 2555183172 P4_BalSwCell49 01 "Active" 00 "Inactive" ;
+VAL_ 2555183172 P4_BalSwCell50 01 "Active" 00 "Inactive" ;
+VAL_ 2555183172 P4_BalSwCell51 01 "Active" 00 "Inactive" ;
+VAL_ 2555183172 P4_BalSwCell52 01 "Active" 00 "Inactive" ;
+VAL_ 2555248708 P4_BalSwCell53 01 "Active" 00 "Inactive" ;
+VAL_ 2555248708 P4_BalSwCell54 01 "Active" 00 "Inactive" ;
+VAL_ 2555248708 P4_BalSwCell55 01 "Active" 00 "Inactive" ;
+VAL_ 2555248708 P4_BalSwCell56 01 "Active" 00 "Inactive" ;
+VAL_ 2555314244 P4_BalSwCell57 01 "Active" 00 "Inactive" ;
+VAL_ 2555314244 P4_BalSwCell58 01 "Active" 00 "Inactive" ;
+VAL_ 2555314244 P4_BalSwCell59 01 "Active" 00 "Inactive" ;
+VAL_ 2555314244 P4_BalSwCell60 01 "Active" 00 "Inactive" ;
+VAL_ 2555379780 P4_BalSwCell61 01 "Active" 00 "Inactive" ;
+VAL_ 2555379780 P4_BalSwCell62 01 "Active" 00 "Inactive" ;
+VAL_ 2555379780 P4_BalSwCell63 01 "Active" 00 "Inactive" ;
+VAL_ 2555379780 P4_BalSwCell64 01 "Active" 00 "Inactive" ;
+VAL_ 2555445316 P4_BalSwCell65 01 "Active" 00 "Inactive" ;
+VAL_ 2555445316 P4_BalSwCell66 01 "Active" 00 "Inactive" ;
+VAL_ 2555445316 P4_BalSwCell67 01 "Active" 00 "Inactive" ;
+VAL_ 2555445316 P4_BalSwCell68 01 "Active" 00 "Inactive" ;
+VAL_ 2555510852 P4_BalSwCell69 01 "Active" 00 "Inactive" ;
+VAL_ 2555510852 P4_BalSwCell70 01 "Active" 00 "Inactive" ;
+VAL_ 2555510852 P4_BalSwCell71 01 "Active" 00 "Inactive" ;
+VAL_ 2555510852 P4_BalSwCell72 01 "Active" 00 "Inactive" ;
