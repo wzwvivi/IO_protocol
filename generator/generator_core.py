@@ -148,20 +148,25 @@ LABEL_{{ label.label_oct }} = {
     'sdi': {{ label.sdi | default('None', true) }},  # SDI 过滤 (None=不过滤, 0-3=指定SDI)
     'ssm_type': {{ label.ssm_type | default("'bnr'", true) }},  # SSM 解释类型: 'bnr', 'discrete', 'bcd'
 {% if label.bnr_fields %}
-    # BNR 数值字段
+    # 数值字段 (BNR/BCD)
     'bnr_fields': [
 {% for bf in label.bnr_fields %}
         {
             'name': {{ bf.name | default("BNR_Value", true) | pystr }},
             'data_bits': ({{ bf.data_bits[0] | default(11, true) }}, {{ bf.data_bits[1] | default(29, true) }}),
-{% if bf.sign_bit %}
+            'encoding': {{ bf.encoding | default('bnr', true) | pystr }},  # 'bnr' 或 'bcd'
+{% if bf.encoding != 'bcd' and bf.sign_bit %}
             'sign_bit': {{ bf.sign_bit }},
             'signed': True,
 {% else %}
             'sign_bit': None,
             'signed': False,
 {% endif %}
+{% if bf.encoding == 'bcd' %}
+            'resolution': 1,
+{% else %}
             'resolution': {{ bf.resolution if bf.resolution is not none and bf.resolution != '' else 1 }},
+{% endif %}
             'unit': {{ bf.unit | default("", true) | pystr }}
         },
 {% endfor %}
@@ -267,18 +272,36 @@ def parse_arinc429_word(word):
         ssm_type = word_def.get('ssm_type', 'bnr')
         result['ssm_desc'] = decode_ssm_by_type(ssm, ssm_type)
         
-        # 7. 解析 BNR 数值字段
+        # 7. 解析数值字段 (BNR/BCD)
         bnr_results = []
         for bf in word_def.get('bnr_fields', []):
             ds, de = bf['data_bits']
-            res = bf['resolution']
-            if bf.get('signed') and bf.get('sign_bit'):
+            encoding = bf.get('encoding', 'bnr')
+            
+            if encoding == 'bcd':
+                # BCD 解码
+                data_raw = extract_bits(word, ds, de)
+                bcd_val = decode_bcd_field(data_raw, de - ds + 1)
+                bnr_results.append({
+                    'name': bf['name'],
+                    'data_bits': f'bit{ds}-bit{de}',
+                    'data_raw': data_raw,
+                    'encoding': 'bcd',
+                    'sign': None,
+                    'physical_value': bcd_val,
+                    'unit': bf.get('unit', ''),
+                    'resolution': 1
+                })
+            elif bf.get('signed') and bf.get('sign_bit'):
+                # BNR 有符号
+                res = bf['resolution']
                 sb = bf['sign_bit']
                 data_raw, sign, phys_val = decode_bnr_signed(word, ds, de, sb, res)
                 bnr_results.append({
                     'name': bf['name'],
                     'data_bits': f'bit{ds}-bit{de}',
                     'data_raw': data_raw,
+                    'encoding': 'bnr',
                     'sign': sign,
                     'sign_desc': '正' if sign == 0 else '负',
                     'physical_value': phys_val,
@@ -286,11 +309,14 @@ def parse_arinc429_word(word):
                     'resolution': res
                 })
             else:
+                # BNR 无符号
+                res = bf['resolution']
                 data_raw, phys_val = decode_bnr_unsigned(word, ds, de, res)
                 bnr_results.append({
                     'name': bf['name'],
                     'data_bits': f'bit{ds}-bit{de}',
                     'data_raw': data_raw,
+                    'encoding': 'bnr',
                     'sign': None,
                     'physical_value': phys_val,
                     'unit': bf.get('unit', ''),
@@ -403,17 +429,21 @@ def format_parse_result(result):
             lines.append(f'  备注: {result["notes"]}')
         lines.append(f'')
         
-        # BNR 数值字段
+        # 数值字段 (BNR/BCD)
         if result.get('bnr_fields'):
-            lines.append(f'--- BNR 数值字段 ---')
+            lines.append(f'--- 数值字段 ---')
             for bf in result['bnr_fields']:
-                lines.append(f'  [{bf["name"]}]')
+                encoding = bf.get('encoding', 'bnr').upper()
+                lines.append(f'  [{bf["name"]}] ({encoding})')
                 lines.append(f'    数据位: {bf["data_bits"]}')
                 lines.append(f'    原始值: {bf["data_raw"]} (0x{bf["data_raw"]:X})')
-                if bf.get('sign') is not None:
-                    lines.append(f'    符号: {bf["sign"]} ({bf["sign_desc"]})')
-                lines.append(f'    分辨率: {bf["resolution"]}')
-                lines.append(f'    物理值: {bf["physical_value"]:.6f} {bf["unit"]}')
+                if bf.get('encoding') == 'bcd':
+                    lines.append(f'    BCD值: {bf["physical_value"]} {bf["unit"]}')
+                else:
+                    if bf.get('sign') is not None:
+                        lines.append(f'    符号: {bf["sign"]} ({bf["sign_desc"]})')
+                    lines.append(f'    分辨率: {bf["resolution"]}')
+                    lines.append(f'    物理值: {bf["physical_value"]:.6f} {bf["unit"]}')
         
         # 离散位
         if result.get('discrete_bits'):
@@ -642,8 +672,9 @@ typedef struct {
     const char* name;
     int data_bit_start;
     int data_bit_end;
-    int sign_bit;       // 0 表示无符号
-    double resolution;
+    int encoding;       // 0=bnr, 1=bcd
+    int sign_bit;       // 0 表示无符号 (仅BNR有效)
+    double resolution;  // 分辨率 (仅BNR有效)
     const char* unit;
 } BnrFieldDef;
 
@@ -777,14 +808,14 @@ static const LabelDef LABEL_DEFS[] = {
 {%- for label in labels %}
     {
         "{{ label.label_oct }}", {{ label.label_dec }}, "{{ label.name | replace('"', '\\"') | replace('\n', ' ') }}", "{{ label.direction | default('', true) }}",
-        // BNR fields ({{ label.bnr_fields | length }})
+        // 数值字段 BNR/BCD ({{ label.bnr_fields | length }})
         {{ label.bnr_fields | length }}, {
 {%- if label.bnr_fields %}
 {%- for bf in label.bnr_fields %}
-            {"{{ bf.name | replace('"', '\\"') }}", {{ bf.data_bits[0] }}, {{ bf.data_bits[1] }}, {{ bf.sign_bit | default(0, true) }}, {{ bf.resolution | default(1, true) }}, "{{ bf.unit | default('', true) }}"},
+            {"{{ bf.name | replace('"', '\\"') }}", {{ bf.data_bits[0] }}, {{ bf.data_bits[1] }}, {{ 1 if bf.encoding == 'bcd' else 0 }}, {{ bf.sign_bit | default(0, true) if bf.encoding != 'bcd' else 0 }}, {{ bf.resolution | default(1, true) if bf.encoding != 'bcd' else 1 }}, "{{ bf.unit | default('', true) }}"},
 {%- endfor %}
 {%- else %}
-            {NULL, 0, 0, 0, 0, NULL}
+            {NULL, 0, 0, 0, 0, 0, NULL}
 {%- endif %}
         },
         // Discrete bits ({{ label.discrete_bits_list | length }})
@@ -818,7 +849,7 @@ static const LabelDef LABEL_DEFS[] = {
         "{{ label.notes | default('', true) | replace('"', '\\"') | replace('\n', ' ') }}"
     },
 {%- endfor %}
-    {NULL, 0, NULL, NULL, 0, {% raw %}{{NULL, 0, 0, 0, 0, NULL}}{% endraw %}, 0, {% raw %}{{0, NULL}}{% endraw %}, 0, {% raw %}{{NULL, 0, 0, 0, 0, {{0, NULL}}}}{% endraw %}, NULL}  // 结束标记
+    {NULL, 0, NULL, NULL, 0, {% raw %}{{NULL, 0, 0, 0, 0, 0, NULL}}{% endraw %}, 0, {% raw %}{{0, NULL}}{% endraw %}, 0, {% raw %}{{NULL, 0, 0, 0, 0, {{0, NULL}}}}{% endraw %}, NULL}  // 结束标记
 };
 
 // ============================================================
@@ -902,7 +933,7 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
         result->name = def->name;
         result->direction = def->direction;
         
-        // 解析所有BNR字段
+        // 解析所有数值字段 (BNR/BCD)
         result->bnr_count = def->bnr_field_count;
         for (int i = 0; i < def->bnr_field_count; i++) {
             const BnrFieldDef* bf = &def->bnr_fields[i];
@@ -913,7 +944,23 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
             result->bnr_results[i].data_raw = data_raw;
             result->bnr_results[i].unit = bf->unit;
             
-            if (bf->sign_bit > 0) {
+            if (bf->encoding == 1) {
+                // BCD 解码：每4位表示一个十进制数字
+                int bcd_val = 0;
+                int multiplier = 1;
+                int num_digits = (num_data_bits + 3) / 4;
+                int temp = data_raw;
+                for (int d = 0; d < num_digits; d++) {
+                    int digit = temp & 0x0F;
+                    if (digit > 9) digit = 0;  // 无效BCD数字
+                    bcd_val += digit * multiplier;
+                    multiplier *= 10;
+                    temp >>= 4;
+                }
+                result->bnr_results[i].sign = -1;
+                result->bnr_results[i].physical_value = bcd_val;
+            } else if (bf->sign_bit > 0) {
+                // BNR 有符号
                 int sign = extract_bit(word, bf->sign_bit);
                 int combined = (sign << num_data_bits) | data_raw;
                 int total_bits = num_data_bits + 1;
@@ -922,6 +969,7 @@ void parse_arinc429_word(uint32_t word, ParseResult* result) {
                 result->bnr_results[i].sign = sign;
                 result->bnr_results[i].physical_value = signed_val * bf->resolution;
             } else {
+                // BNR 无符号
                 result->bnr_results[i].sign = -1;
                 result->bnr_results[i].physical_value = data_raw * bf->resolution;
             }
@@ -1001,15 +1049,15 @@ void print_result(const ParseResult* r) {
         printf("\\n信号名称: %s\\n", r->name);
         printf("方向: %s\\n", r->direction);
         
-        // 打印BNR字段
+        // 打印数值字段 (BNR/BCD)
         if (r->bnr_count > 0) {
-            printf("\\n--- BNR 数值字段 ---\\n");
+            printf("\\n--- 数值字段 ---\\n");
             for (int i = 0; i < r->bnr_count; i++) {
                 printf("  [%s] 原始值: %d", r->bnr_results[i].name, r->bnr_results[i].data_raw);
                 if (r->bnr_results[i].sign >= 0) {
                     printf(", 符号: %s", r->bnr_results[i].sign ? "负" : "正");
                 }
-                printf(", 物理值: %.6f %s\\n", r->bnr_results[i].physical_value, r->bnr_results[i].unit);
+                printf(", 值: %.6f %s\\n", r->bnr_results[i].physical_value, r->bnr_results[i].unit);
             }
         }
         
@@ -1256,7 +1304,7 @@ def _preprocess_labels_for_c(raw_labels):
         if not label.get('direction'):
             label['direction'] = ''
         
-        # 处理 BNR 字段
+        # 处理数值字段 (BNR/BCD)
         bnr_fields = label.get('bnr_fields', [])
         valid_bnr_fields = []
         for bf in bnr_fields:
@@ -1266,28 +1314,37 @@ def _preprocess_labels_for_c(raw_labels):
                 # 默认使用 11-29 位
                 data_bits = [11, 29]
             
-            # 确保 resolution 是数字
-            resolution = bf.get('resolution', 1)
-            if resolution is None or resolution == '':
-                resolution = 1
-            try:
-                resolution = float(resolution)
-            except (ValueError, TypeError):
-                resolution = 1.0
+            # 获取编码类型
+            encoding = bf.get('encoding', 'bnr')
             
-            # 确保 sign_bit 是数字或 None
-            sign_bit = bf.get('sign_bit')
-            if sign_bit is not None:
-                try:
-                    sign_bit = int(sign_bit)
-                except (ValueError, TypeError):
-                    sign_bit = 0
+            # 确保 resolution 是数字 (BCD 不需要)
+            resolution = bf.get('resolution', 1)
+            if encoding == 'bcd':
+                resolution = 1
+            elif resolution is None or resolution == '':
+                resolution = 1
             else:
-                sign_bit = 0
+                try:
+                    resolution = float(resolution)
+                except (ValueError, TypeError):
+                    resolution = 1.0
+            
+            # 确保 sign_bit 是数字或 None (BCD 不需要)
+            sign_bit = 0
+            if encoding != 'bcd':
+                sign_bit = bf.get('sign_bit')
+                if sign_bit is not None:
+                    try:
+                        sign_bit = int(sign_bit)
+                    except (ValueError, TypeError):
+                        sign_bit = 0
+                else:
+                    sign_bit = 0
             
             valid_bnr_fields.append({
-                'name': bf.get('name', 'BNR_Value'),
+                'name': bf.get('name', 'Value'),
                 'data_bits': [int(data_bits[0]), int(data_bits[1])],
+                'encoding': encoding,
                 'sign_bit': sign_bit,
                 'resolution': resolution,
                 'unit': bf.get('unit', '')

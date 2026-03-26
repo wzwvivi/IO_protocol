@@ -2681,6 +2681,11 @@
             color: var(--accent-blue);
         }
         
+        .type-badge.type-bcd {
+            background: rgba(210, 153, 34, 0.2);
+            color: var(--accent-orange);
+        }
+        
         /* 摘要表格可点击行 */
         .clickable-row {
             cursor: pointer;
@@ -3385,7 +3390,7 @@
                     </div>
                 </div>
                 
-                <!-- BNR数值表单 -->
+                <!-- 数值字段表单 -->
                 <div id="bnrBitForm" class="bit-form-section">
                     <div class="form-group">
                         <label>字段名称 <span class="required">*</span></label>
@@ -3401,16 +3406,28 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label>编码类型</label>
+                        <select id="modalBnrEncoding" onchange="onBnrEncodingChange()" style="width: 100%; padding: 8px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
+                            <option value="bnr">BNR (二进制数值)</option>
+                            <option value="bcd">BCD (十进制编码)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="modalBnrSignBitGroup">
                         <label>符号位 <span style="font-weight:normal; color:var(--text-secondary);">(可选, 有符号数填写)</span></label>
                         <input type="number" id="modalBnrSignBit" min="9" max="29" placeholder="如: 29">
                     </div>
-                    <div class="form-group">
-                        <label>分辨率 <span class="required">*</span></label>
+                    <div class="form-group" id="modalBnrResolutionGroup">
+                        <label>分辨率 <span style="font-weight:normal; color:var(--text-secondary);">(可选)</span></label>
                         <input type="number" id="modalBnrResolution" step="any" placeholder="如: 0.014653">
                     </div>
                     <div class="form-group">
                         <label>单位</label>
                         <input type="text" id="modalBnrUnit" placeholder="如: °">
+                    </div>
+                    <div class="form-group" id="modalBnrEncodingHint" style="display: none;">
+                        <div style="padding: 10px; background: var(--bg-tertiary); border-radius: 4px; font-size: 0.85rem; color: var(--text-secondary);">
+                            <div id="bnrEncodingHintText"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -5121,14 +5138,20 @@
                     </tr>`;
                 }
                 
-                // BNR数值
+                // 数值字段 (BNR/BCD)
                 for (let i = 0; i < bnrFields.length; i++) {
                     const bf = bnrFields[i];
                     const firstBit = bf.data_bits?.[0] || 9;
+                    const isBcd = bf.encoding === 'bcd';
+                    const typeLabel = isBcd ? 'BCD' : 'BNR';
+                    const typeClass = isBcd ? 'type-bcd' : 'type-bnr';
+                    const infoText = isBcd 
+                        ? `${escapeHtml(bf.name || '未命名')}${bf.unit ? ' (' + bf.unit + ')' : ''}`
+                        : `${escapeHtml(bf.name || '未命名')} (${bf.resolution != null ? bf.resolution : 'N/A'}${bf.unit || ''})`;
                     html += `<tr class="bnr-row clickable-row" onclick="editDiscreteBit(${firstBit})">
                         <td>Bit ${bf.data_bits?.[0]}-${bf.data_bits?.[1]}</td>
-                        <td><span class="type-badge type-bnr">数值</span></td>
-                        <td>${escapeHtml(bf.name || '未命名')} (${bf.resolution != null ? bf.resolution : 'N/A'}${bf.unit || ''})</td>
+                        <td><span class="type-badge ${typeClass}">${typeLabel}</span></td>
+                        <td>${infoText}</td>
                         <td><button class="btn-icon btn-delete" onclick="event.stopPropagation(); removeBnrFieldDirect(${i}); renderBitMap();" title="删除">×</button></td>
                     </tr>`;
                 }
@@ -5664,9 +5687,11 @@
             document.getElementById('modalBnrName').value = '';
             document.getElementById('modalBnrBitStart').value = bitNum;
             document.getElementById('modalBnrBitEnd').value = bitNum;
+            document.getElementById('modalBnrEncoding').value = 'bnr';
             document.getElementById('modalBnrSignBit').value = '';
             document.getElementById('modalBnrResolution').value = '';
             document.getElementById('modalBnrUnit').value = '';
+            onBnrEncodingChange();  // 更新UI
             
             if (type === 'single') {
                 const desc = label.discrete_bits?.[bitNum] || '';
@@ -5693,9 +5718,33 @@
                 document.getElementById('modalBnrName').value = bf.name || '';
                 document.getElementById('modalBnrBitStart').value = bf.data_bits?.[0] || bitNum;
                 document.getElementById('modalBnrBitEnd').value = bf.data_bits?.[1] || bitNum;
+                document.getElementById('modalBnrEncoding').value = bf.encoding || 'bnr';
                 document.getElementById('modalBnrSignBit').value = bf.sign_bit || '';
                 document.getElementById('modalBnrResolution').value = bf.resolution || '';
                 document.getElementById('modalBnrUnit').value = bf.unit || '';
+                onBnrEncodingChange();  // 更新UI
+            }
+        }
+        
+        // 数值字段编码类型切换
+        function onBnrEncodingChange() {
+            const encoding = document.getElementById('modalBnrEncoding').value;
+            const signBitGroup = document.getElementById('modalBnrSignBitGroup');
+            const resolutionGroup = document.getElementById('modalBnrResolutionGroup');
+            const hintDiv = document.getElementById('modalBnrEncodingHint');
+            const hintText = document.getElementById('bnrEncodingHintText');
+            
+            if (encoding === 'bcd') {
+                // BCD 编码：隐藏符号位和分辨率
+                signBitGroup.style.display = 'none';
+                resolutionGroup.style.display = 'none';
+                hintDiv.style.display = 'block';
+                hintText.innerHTML = '<strong>BCD 编码说明：</strong><br>每 4 位表示一个十进制数字 (0-9)。<br>例如：8位 BCD 可表示 00-99，12位可表示 000-999。';
+            } else {
+                // BNR 编码：显示符号位和分辨率
+                signBitGroup.style.display = 'block';
+                resolutionGroup.style.display = 'block';
+                hintDiv.style.display = 'none';
             }
         }
         
@@ -5798,6 +5847,7 @@
                 const name = document.getElementById('modalBnrName').value.trim();
                 const bitStart = parseInt(document.getElementById('modalBnrBitStart').value);
                 const bitEnd = parseInt(document.getElementById('modalBnrBitEnd').value);
+                const encoding = document.getElementById('modalBnrEncoding').value;
                 const signBit = document.getElementById('modalBnrSignBit').value.trim();
                 const resolutionRaw = parseFloat(document.getElementById('modalBnrResolution').value);
                 // 标准化：NaN 或空值转为 null
@@ -5827,11 +5877,13 @@
                 label.bnr_fields.push({
                     name: name,
                     data_bits: [bitStart, bitEnd],
-                    sign_bit: signBit ? parseInt(signBit) : null,
-                    resolution: resolution,
+                    encoding: encoding,  // 'bnr' 或 'bcd'
+                    sign_bit: (encoding === 'bnr' && signBit) ? parseInt(signBit) : null,
+                    resolution: (encoding === 'bnr') ? resolution : null,
                     unit: unit
                 });
-                showMessage(`已添加数值字段「${name}」(Bit ${bitStart}-${bitEnd})`, 'success');
+                const encodingText = encoding === 'bcd' ? 'BCD' : 'BNR';
+                showMessage(`已添加${encodingText}数值字段「${name}」(Bit ${bitStart}-${bitEnd})`, 'success');
             }
             
             closeBitModal();

@@ -447,22 +447,22 @@ def confirm_draft(
     version_name: Optional[str] = None,
     username: Optional[str] = None
 ) -> Dict[str, Any]:
-    """确认草稿并入库
+    """确认草稿并入库（仅使用 Git 存储）
     
     Args:
         draft_id: 草稿 ID
         device_id: 设备 ID（可选，不提供则自动生成）
         device_name: 设备名称
-        system_id: 系统 ID（父节点）
-        system_name: 系统名称
+        system_id: 系统 ID（父节点，暂不使用）
+        system_name: 系统名称（暂不使用）
         version_name: 版本名称
         username: 操作用户
     
     Returns:
         入库结果
     """
-    from database import db_create_device, db_save_labels, db_get_device
     from device_manager import generate_device_id
+    from git_storage import get_version_manager
     
     draft = get_draft(draft_id)
     if not draft:
@@ -485,7 +485,7 @@ def confirm_draft(
         clean_label = {k: v for k, v in label.items() if not k.startswith('_')}
         clean_labels.append(clean_label)
     
-    # 确定设备名称
+    # 确定设备名称和版本
     final_device_name = device_name or device_info.get('device_name', '导入设备')
     final_system_name = system_name or device_info.get('system_name', '导入系统')
     final_version = version_name or protocol_meta.get('version', 'V1.0')
@@ -494,69 +494,23 @@ def confirm_draft(
     if not device_id:
         device_id = generate_device_id([final_system_name, final_device_name])
     
-    # 检查系统节点是否存在
-    system_pk = None
-    if system_id:
-        system_device = db_get_device(system_id)
-        if system_device:
-            system_pk = system_device['id']
+    # 直接保存到 Git 存储
+    version_manager = get_version_manager()
     
-    # 如果系统不存在，创建系统节点
-    if not system_pk and final_system_name:
-        system_device_id = generate_device_id([final_system_name])
-        existing_system = db_get_device(system_device_id)
-        if existing_system:
-            system_pk = existing_system['id']
-        else:
-            system_pk = db_create_device(
-                device_id=system_device_id,
-                name=final_system_name,
-                parent_id=None,
-                is_device=False
-            )
+    success, msg, save_result = version_manager.save_device_version(
+        device_id=device_id,
+        new_labels=clean_labels,
+        username=username or 'system',
+        change_summary=f'导入协议: {final_version}',
+        protocol_meta={
+            'name': protocol_meta.get('name', final_device_name),
+            'version': final_version,
+            'description': protocol_meta.get('description', '')
+        }
+    )
     
-    # 检查设备是否已存在
-    existing_device = db_get_device(device_id)
-    if existing_device:
-        device_pk = existing_device['id']
-    else:
-        # 创建设备
-        device_pk = db_create_device(
-            device_id=device_id,
-            name=final_device_name,
-            parent_id=system_pk,
-            is_device=True,
-            device_version=final_version,
-            current_version_name=final_version,
-            description=protocol_meta.get('description', '')
-        )
-    
-    if not device_pk:
-        raise ValueError("创建设备失败")
-    
-    # 创建协议版本
-    version_id = None
-    with get_db_connection() as conn:
-        cursor = conn.cursor()
-        try:
-            cursor.execute('''
-                INSERT INTO device_protocol_versions (device_id, version_name, version)
-                VALUES (?, ?, ?)
-            ''', (device_pk, final_version, final_version))
-            conn.commit()
-            version_id = cursor.lastrowid
-        except Exception:
-            # 版本可能已存在
-            cursor.execute('''
-                SELECT id FROM device_protocol_versions 
-                WHERE device_id = ? AND version_name = ?
-            ''', (device_pk, final_version))
-            row = cursor.fetchone()
-            if row:
-                version_id = row[0]
-    
-    # 保存 Labels
-    db_save_labels(device_id, clean_labels, version_id)
+    if not success:
+        raise ValueError(f"保存到 Git 存储失败: {msg}")
     
     # 更新草稿状态
     now = datetime.now().isoformat()
@@ -574,7 +528,7 @@ def confirm_draft(
             DraftStatus.CONFIRMED,
             now,
             device_id,
-            version_id,
+            None,  # Git 存储不使用 version_id
             f"已入库到设备 {final_device_name} 版本 {final_version}",
             draft_id
         ))
@@ -584,8 +538,8 @@ def confirm_draft(
         'success': True,
         'device_id': device_id,
         'device_name': final_device_name,
-        'version_id': version_id,
-        'version_name': final_version,
+        'version_id': None,  # Git 存储不使用 version_id
+        'version_name': save_result.get('new_version', final_version),
         'label_count': len(clean_labels)
     }
 

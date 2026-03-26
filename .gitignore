@@ -1,27 +1,30 @@
-# ============================================
-# ARINC429 协议管理平台 - Git 忽略配置
-# 只上传 generator 目录下的平台代码
-# ============================================
-
-# 忽略根目录下所有不相关的文件
-/*
-
-# 只保留这些
-!.gitignore
-!README.md
-!generator/
-
-# ============================================
-# generator 目录内的忽略规则
-# ============================================
-
-# Python 缓存
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
+<<<<<<< HEAD
+# Virtual environments
+=======
 # 虚拟环境
+>>>>>>> dd3a4e574b75391165a819393490ca7e53125f6c
 venv/
 ENV/
 env/
@@ -34,17 +37,47 @@ env/
 *.swo
 *~
 
+<<<<<<< HEAD
+# Output files (generated)
+output/
+*.xlsx
+
+# Test files
+test_*.py
+test_*.c
+test_*.txt
+quick_test.py
+verify_*.py
+
+# Local data (will be created on first run)
+# 注意：generator/data/arinc429.db 需要保留，用于 Docker 部署
+data/
+!generator/data/
+generator/data/*
+!generator/data/arinc429.db
+!generator/data/.gitkeep
+
+# Git 存储仓库（协议版本数据）- 需要保留
+!generator/git_repos/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+=======
 # 系统文件
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# 输出目录中的生成文件（保留目录结构）
-generator/output/*.py
-generator/output/*.c
-generator/output/*.h
-generator/output/*.zip
-generator/output/*.xlsx
+# 输出目录 (生成的代码由用户下载，不需要版本控制)
+output/*.py
+output/*.c
+output/*.h
+output/*.zip
+output/*.xlsx
 
 # 临时文件
 *.log
@@ -52,45 +85,32 @@ generator/output/*.xlsx
 *.bak
 ~$*
 
-# 环境变量文件（包含敏感信息）
+# 环境变量文件（包含敏感信息如 API Key）
 .env
 .env.local
 .env.*.local
 
-# 上传的临时文件
-generator/data/uploads/*
-!generator/data/uploads/.gitkeep
+# 上传的文件
+data/uploads/
 
-# seed_data 目录
-generator/seed_data/*
-!generator/seed_data/.gitkeep
+# 调试和测试文件（本地使用，不上传）
+debug_parse.py
+test_llm_in_docker.py
+check_llm_config.py
+check_excel.py
+analyze_429.py
 
-# ============================================
-# 调试/测试文件（不上传）
-# ============================================
-generator/analyze_*.py
-generator/debug_*.py
-generator/check_*.py
-generator/test_*.py
-generator/find_*.py
-generator/build_*.py
-generator/export_md.py
-generator/run_*.bat
-generator/rebuild_*.bat
-generator/*_llm*.bat
-generator/set_llm_key.bat
-generator/update_api_key.bat
-generator/build_docker.bat
-generator/check_llm_status.bat
-generator/test_model.bat
+# 调试用的批处理文件
+check_docker_llm.bat
+run_check_llm.bat
+run_debug_parse.bat
+test_llm_api.bat
+run_analyze.bat
+rebuild_and_test.bat
+full_rebuild.bat
+rebuild_docker.bat
 
-# ============================================
-# 必须保留的文件
-# ============================================
-!generator/data/arinc429.db
-!generator/data/.gitkeep
-!generator/git_repos/
-!generator/output/.gitkeep
-
-# git_repos 内的 .git 目录（防止子模块）
-generator/git_repos/*/.git/
+# 保留重要文件
+!data/arinc429.db
+!output/.gitkeep
+>>>>>>> dd3a4e574b75391165a819393490ca7e53125f6c
